@@ -15,4 +15,5 @@ Some relevant references:
 
 * https://gammapy.readthedocs.org/en/latest/dataformats/index.html
 * http://naima.readthedocs.org/en/latest/dataformat.html
-* 
+* http://docs.astropy.org/en/stable/modeling/
+* http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/source_models.html
