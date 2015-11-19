@@ -32,4 +32,20 @@ and put the `Theta` array in the `PSF` HDU:
   * Offset -- 1D (deg)
   * Psf -- 3D (sr^-1), shape = (len(Energy) x len(Theta) x len(Offset))
 
-  See `psf-histo-offset-energy.fits` as a valid example file.
+TODO: think about axis order and specify it in an understandable way.
+
+### Normalisation
+
+See `psf-histo-offset-energy.fits` as a valid example file.
+
+Like the Fermi PSF, we require that the PSF `P` is normalised
+to integrate to 1, i.e.
+```
+int_0_inf 2 * pi * r * P(r) dr = 1
+```
+This implies that the PSF producer is responsible for choosing the Theta
+range and normalising. I.e. it's OK to choose a theta range that contains
+only 95% of the PSF, and then the integral will be 0.95.
+
+We recommend everyone store PSFs so that truncation is completely negligible,
+i.e. the containment should be 99% or better for all of parameter space.
