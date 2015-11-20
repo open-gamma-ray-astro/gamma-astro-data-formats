@@ -1,8 +1,9 @@
 - NewUCDs:
     - model
     - model.param
+    - model.spectral
 
-- GenericModel:
+- SpectralModel:
     - name:
         - type: str
         - description: Name
@@ -13,7 +14,7 @@
         - ucd: phot.flux.density
 
 - PowerLaw:
-    - type: model
+    - type: SpectralModel
     - reference:
         - type: float
         - description: Value at which normalization is defined.
@@ -24,7 +25,7 @@
         - ucd: spect.index
 
 - BrokenPowerLaw:
-    - type: model
+    - type: SpectralModel
     - index1:
         - type: float
         - description: Spectral index below the break.
@@ -39,7 +40,7 @@
         - ucd: [em.wl, em.energ, em.freq]
 
 - LogParabola:
-    - type: model
+    - type: SpectralModel
     - reference:
         - type: float
         - description: Value at which normalization is defined.
@@ -58,7 +59,7 @@
         - ucd: [em.wl, em.energ, em.freq]
 
 - ExponentialCutoffPowerLaw:
-    - type: model
+    - type: SpectralModel
     - reference:
         - type: float
         - description: Value at which normalization is defined.
@@ -77,7 +78,7 @@
         - ucd:
 
 - ExponentialCutoffBrokenPowerLaw:
-    - type: model
+    - type: SpectralModel
     - reference:
         - type: float
         - description: Value at which normalization is defined.
