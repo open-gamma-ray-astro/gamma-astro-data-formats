@@ -48,12 +48,11 @@ Some relevant references:
 Contents:
 
 .. toctree::
-   :maxdepth: 2
 
+   source-models/index
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
