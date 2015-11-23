@@ -1,8 +1,10 @@
-# PSF Histo Offset Energy Format Spec
+PSF Histo Offset Energy Format Spec
+===================================
 
 This is a PSF FITS format we agree on for IACTs.
 
-## Fermi gtpsf format
+Fermi gtpsf format
+------------------
 
 The format we're about to define is very similar to the [gtpsf](http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/help/gtpsf.txt)
 format (which is supported in Gammapy via the [EnergyDependentTablePSF](https://gammapy.readthedocs.org/en/latest/api/gammapy.irf.EnergyDependentTablePSF.html) class).
@@ -19,7 +21,8 @@ The FITS file has the following BinTable HDUs / columns:
  
  See `psf-fermi.fits` as a valid example file.
  
-## The psf-histo-offset-energy format
+The psf-histo-offset-energy format
+----------------------------------
 
 The difference is that we add an axis for the field of view offset
 and put the `Theta` array in the `PSF` HDU:
@@ -34,7 +37,8 @@ and put the `Theta` array in the `PSF` HDU:
 
 TODO: think about axis order and specify it in an understandable way.
 
-### Normalisation
+Normalisation
++++++++++++++
 
 See `psf-histo-offset-energy.fits` as a valid example file.
 

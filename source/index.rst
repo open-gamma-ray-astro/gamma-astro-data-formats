@@ -6,6 +6,14 @@ A place to propose and share data format descriptions for gamma-ray astronomy.
 * Repository: https://github.com/gammapy/gamma-astro-data-formats
 * Docs: http://gamma-astro-data-formats.readthedocs.org/
 
+Table of contents
+-----------------
+
+.. toctree::
+
+   source-models/index
+   irfs/index
+
 What is this?
 -------------
 
@@ -44,12 +52,6 @@ Some relevant references:
 * http://docs.astropy.org/en/stable/modeling/
 * http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/source_models.html
 
-
-Contents:
-
-.. toctree::
-
-   source-models/index
 
 Indices and tables
 ==================
