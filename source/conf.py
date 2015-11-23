@@ -50,7 +50,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'Gamma Astro Data Specs'
+project = 'Data formats for gamma-ray astronomy'
 copyright = '2015, Gamma-ray astronomy community'
 author = 'Gamma-ray astronomy community'
 
