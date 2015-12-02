@@ -17,6 +17,12 @@ pixel coordinates, projections, that is covered here as well
 We only discuss 2-dimensional sky and image coordinates here,
 other coordinates like e.g. time or an energy axis aren't covered here.
 
+Some conventions are adopted from `astropy.coordinates <http://astropy.readthedocs.org/en/latest/coordinates/index.html>`__,
+which is a Python wrapper of the `IAU SOFA <http://www.iausofa.org/>`__ C time and coordinate library,
+which can be considered the gold standard when it comes to coordinates.
+In some cases code examples are given using `astropy.coordinates` to obtain a reference value that
+can be used to check a given software package (in case it's not based on `astropy.coordinates`).
+
 .. _sky-coordinates-radec:
 
 RA / DEC
@@ -55,7 +61,13 @@ We recommend you use ICRS RA / DEC for precision coordinate computations. If you
 we recommend you compute them like Astropy does (which I think is the most frame in use in the literature
 and in existing astronomy software).
 
-To check your software, you can use the `(l, b) = (0, 0)` position::
+Both ICRS and Galactic coordinates don't need the specification of an
+`epoch <https://en.wikipedia.org/wiki/Epoch_(astronomy)>`__
+or `equinox <https://en.wikipedia.org/wiki/Equinox_(celestial_coordinates)>`__
+
+To check your software, you can use the `(l, b) = (0, 0)` position:
+
+.. code-block:: python
 
     >>> from astropy.coordinates import SkyCoord
     >>> SkyCoord(0, 0, unit='deg', frame='galactic')
@@ -63,10 +75,46 @@ To check your software, you can use the `(l, b) = (0, 0)` position::
     >>> SkyCoord(0, 0, unit='deg', frame='galactic').icrs
     <SkyCoord (ICRS): (ra, dec) in deg (266.40498829, -28.93617776)>
 
+.. _sky-coordinates-altaz:
 
 Alt / Az
 --------
 
+The `horizontal coordinate system <https://en.wikipedia.org/wiki/Horizontal_coordinate_system>`__ is the
+one connected to an observer at a given location on earth and point in time.
+
+* Azimuth is oriented east of north (i.e. north is at 0 deg, east at 90 deg, south at 180 deg and west at 270 deg).
+  This is the convention used by Astropy (see `here <http://astropy.readthedocs.org/en/latest/api/astropy.coordinates.AltAz.html>`__)
+  and quoted as the most common convention in astronomy on Wikipedia (see `here <https://en.wikipedia.org/wiki/Horizontal_coordinate_system>`__)
+* The zenith angle is 
+
+
+We recommend you define
+
+
+.. code-block:: python
+
+    import astropy.units as u
+    from astropy.time import Time
+    from astropy.coordinates import Angle, SkyCoord, EarthLocation, AltAz
+
+    # Take any ICRS sky coordinate
+    icrs = SkyCoord.from_name('crab')
+    print('RA = {pos.ra.deg:10.5f}, DEC = {pos.dec.deg:10.5f}'.format(pos=icrs))
+
+    # Convert to AltAz for some random observation time and location
+    # This assumes pressure is zero, i.e. no refraction
+    time = Time('2010-04-26', scale='tt')
+    location = EarthLocation(lon=42 * u.deg, lat=42 * u.deg, height=42 * u.meter)
+    altaz_frame = AltAz(obstime=time, location=location)
+    altaz = icrs.transform_to(altaz_frame)
+    print('AZ = {pos.az.deg:10.5f}, ALT = {pos.alt.deg:10.5f}'.format(pos=altaz))
+
+    # Convert back to ICRS to make sure round-tripping is OK
+    icrs2 = altaz.transform_to('icrs')
+    print('RA = {pos.ra.deg:10.5f}, DEC = {pos.dec.deg:10.5f}'.format(pos=icrs2))
+
+.. _sky-coordinates-fov:
 
 Field of view
 -------------
