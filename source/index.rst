@@ -1,3 +1,5 @@
+.. _main-page:
+
 Data formats for gamma-ray astronomy
 ====================================
 
@@ -10,9 +12,12 @@ Table of contents
 -----------------
 
 .. toctree::
+   :maxdepth: 1
 
-   source-models/index
+   coordinates/index
+   events/index
    irfs/index
+   source-models/index
 
 What is this?
 -------------
