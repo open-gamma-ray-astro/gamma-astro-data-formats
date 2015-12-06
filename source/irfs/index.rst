@@ -7,7 +7,7 @@ The instrument response function (IRF) formats currently in use
 for imaging atmospheric Cherenkov telescopes (IACTs) are FITS
 BinTables with a single row and array columns.
 The format was based on and is similar to the one use by Fermi-LAT IRFs.
-See :ref:`fits-arrays`.
+See :ref:`fits-arrays-bintable-hdu`.
 
 At the moment (November 2015), this format is used by H.E.S.S. and
 VERITAS and supported by Gammapy and Gammalib, yet there is no publicly available document or webpage
