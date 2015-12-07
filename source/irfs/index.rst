@@ -33,3 +33,4 @@ Table of contents
 .. toctree::
 
    psf-histo-offset-energy/index
+   effective_area/index
