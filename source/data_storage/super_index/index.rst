@@ -8,6 +8,7 @@ files. Here are two proposal how this could look like:
 
 Proposal A
 ----------
+
 A .yaml file located somewhere on the machine. The file needs to be maintained
 by the user to point to the right data directiory and list the available index
 files. See https://gammapy.readthedocs.org/en/latest/obs/dm.html#data-registry-config-file

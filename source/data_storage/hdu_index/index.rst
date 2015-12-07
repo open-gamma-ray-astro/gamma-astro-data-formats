@@ -5,7 +5,7 @@ HDU index table
 
 The HDU index table is stored in a FITS file as a BINTABLE HDU:
 
-* Suggested rilename: ``hdu-index.fits``
+* Suggested filename: ``hdu-index.fits``
 * Suggested HDU name: ``HDU_INDEX``
 
 It contains one row per HDU it refers to and can be used to e.g. find the ``TYPE=AEFF`` HDU
@@ -16,20 +16,20 @@ for ``OBS_ID=42`` by looking at the ``FILE_DIR``, ``FILE_NAME`` and ``HDUNAME`` 
 Columns
 -------
 
-==============  ================================================  =========
-Column Name     Description                                       FITS type
-==============  ================================================  =========
-OBS_ID          Observation ID (a.k.a. run number)                int
-CHUNK_ID        In case of run splitting (optional)               int
-TYPE            HDU type                                          int
-FILE_DIR        Directory of file (rel. to this file)             string
-FILE_NAME       Name of file                                      string
-HDUNAME         Name of HDU in file                               string
-SIZE            File Size                                         int
-MTIME           Modification time                                 double
-MD5             Checksum                                          string
-HDUCLASS        HDU format type                                   string
-==============  ================================================  =========
+==============  ================================================  ========= =========
+Column Name     Description                                       Data type Required?
+==============  ================================================  ========= =========
+OBS_ID          Observation ID (a.k.a. run number)                int       yes
+CHUNK_ID        In case of run splitting                          int       no
+TYPE            HDU type                                          int       yes
+FILE_DIR        Directory of file (rel. to this file)             string    yes
+FILE_NAME       Name of file                                      string    yes
+HDUNAME         Name of HDU in file                               string    yes
+HDUCLASS        HDU format type                                   string    yes
+SIZE            File size (bytes)                                 int       no
+MTIME           Modification time                                 double    no
+MD5             Checksum                                          string    no
+==============  ================================================  ========= =========
 
 
 TODO: where are the valid TYPE values listed?
@@ -39,14 +39,13 @@ TODO: where are the valid TYPE values listed?
 Header keywords
 ---------------
 
-
-==============  =========================    =================    ======================
-Keyword         Description                  Unit                 FITS type
-==============  =========================    =================    ======================
-TELESCOP        Name of telescope                                  string
-CHAIN           Analysis chain/framework                          string
-FITSVER         Version of FITS exporter                          string
-DSTVER          DST Version                                       string
-CONFIG          Cut configuration                                  string
-==============  =========================    =================    ======================
+========== =========================  ========= =========
+Keyword    Description                Data type Required?
+========== =========================  ========= =========
+TELESCOP   Name of telescope          string    no
+CHAIN      Analysis chain/framework   string    no
+FITSVER    Version of FITS exporter   string    no
+DSTVER     DST Version                string    no
+CONFIG     Cut configuration          string    no
+========== =========================  ========= =========
 

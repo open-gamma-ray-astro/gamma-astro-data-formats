@@ -6,12 +6,10 @@ In general, IACT data is divided into "runs" of a few tens of minutes of data ta
 We have per-run IRFs and per run event lists. The challenge is that in the data structure,
 we have to accomodate user choices on various levels:
 
-.. toctree::
-
-   Reconstruction chain (e.g. paris)
-   Version of FITS exporter (e.g prod01)
-   Version of internal data storage (e.g. model_deconvoluted_prod26)
-   Cut configuration (e.g. mpp_std)
+* Reconstruction chain (e.g. paris)
+* Version of FITS exporter (e.g prod01)
+* Version of internal data storage (e.g. model_deconvoluted_prod26)
+* Cut configuration (e.g. mpp_std)
    
 We here propose a two-level index file scheme to allow for arbitrary folder structures.
 For each directory tree containing the files of the cut configuration, two files should be present:
@@ -29,11 +27,6 @@ In addition, we have an index of all available index files to simply allow a qui
 provides the locations of the hdu index and observation index files.
 
 
-Table of contents
------------------
-
 .. toctree::
 
-   obs_index/index
-   hdu_index/index
    super_index/index
