@@ -19,6 +19,7 @@ Specifications:
    events/index
    irfs/index
    source-models/index
+   data_storage/index
 
 
 Background information:
