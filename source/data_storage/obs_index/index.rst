@@ -57,9 +57,9 @@ TIME_END               Observation end time                                hh:mm
 Extra notes on the definition of some columns and valid values:
 
 * The recommended codes for run quality are:
-  * 0 = best quality, suitable for spectral analysis.
-  * 1 = medium quality, suitable for detection, but not spectra (typically if the atmosphere was hazy).
-  * 2 = bad quality, usually not to be used for analysis.
+    * 0 = best quality, suitable for spectral analysis.
+    * 1 = medium quality, suitable for detection, but not spectra (typically if the atmosphere was hazy).
+    * 2 = bad quality, usually not to be used for analysis.
 * TODO: ZTRGRATE: remove!? (or define what it's supposed to be)
 *
 
