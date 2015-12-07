@@ -5,19 +5,36 @@ Master index file
 
 .. warning:: This format is under discussion. These are just some notes, we haven't converged yet.
 
-The idea is to have an index file containing and listing the locations to all further hdu index
-files. Here are two proposal how this could look like:
 
 Proposal A
 ----------
 
-A .yaml file located somewhere on the machine. The file needs to be maintained
-by the user to point to the right data directiory and list the available index
-files. See https://gammapy.readthedocs.org/en/latest/obs/dm.html#data-registry-config-file
-for details
+In H.E.S.S. we have FITS data for various analysis chains, FITS versions, DST versions and
+reco / cut configurations. I.e. for each observation, there are several versions of the events
+and IRF files for a given observation.
+
+We would like to have a master index file on the data server that lists what is available.
+A file in the same format would also be on the user's machine, listing what is available there.
+
+In Gammapy we have been prototyping this idea of having a master index configuration file:
+https://gammapy.readthedocs.org/en/latest/obs/dm.html#data-registry-config-file
+
+We already use the `~/.gammapy/data-registry.yaml` file to select which data to use as input
+from the `gammapy-spectrum` script and we'll have to think if end-user scripts should select data
+via this master index file, or via individual observation and HDU index files.
+
+The `YAML <https://en.wikipedia.org/wiki/YAML>`__ format is nice because it is human-readable
+and -editable as well as machine-readable (whereas FITS is not nice for manual editing,
+or leaving comments). We don't need scripts or tools to edit it (e.g. when we add a new
+"FITS prod" on the server or to adjust a PATH on the user's machine.
+
+The use cases and a proposed format for this file will be posted at a later point in time,
+we'd like to think about this some more and prototype it for a while.
 
 Proposal B
 ----------
+
+The idea is to have an index file containing and listing the locations to all further hdu index files.
 
 The index file should be located under a certain environment variable, e.g.
 $IACT_FITS or $VHEFITS or similar. The file should have a certain name and
