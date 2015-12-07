@@ -1,5 +1,5 @@
 Data Storage
-====================================
+============
 
 Here we give an overview of how the data storage for IACTs should look like.
 In general, IACT data is divided into "runs" of a few tens of minutes of data taking. 
