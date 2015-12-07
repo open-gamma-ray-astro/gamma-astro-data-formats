@@ -8,9 +8,6 @@ HDU INDEX extension
 
 The first and only extension is called "HDU INDEX"
 
-Column names and header keywords
-----------------
-
 .. _tab_1: 
 
 .. table:: HDU INDEX Column names
@@ -29,8 +26,6 @@ Column names and header keywords
       MD5 	      checksum                                                                   string
       HDUCLASS        HDU format type								 string
     ==============  ================================================    =================    ======================
-
-
 
 .. _tab_2:
 

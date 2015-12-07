@@ -8,9 +8,6 @@ OBS SUMMARY extension
 
 The first and only extension is called "OBS SUMMARY"
 
-Reference Tables
-----------------
-
 .. _tab_1: 
 
 .. table:: OBS SUMMARY Column names
@@ -53,11 +50,9 @@ Reference Tables
       TIME\_END       Observation end time                                hh:mm:ss               string  
     ==============  ================================================    =================    ======================
 
-
-
 .. _tab_2:
 
-.. table:: OBS SUMMARY header keywrods
+.. table:: OBS SUMMARY header keywords
 
     ==============  =========================    =================    ======================
       Keyword         Description                    Unit                  FITS type

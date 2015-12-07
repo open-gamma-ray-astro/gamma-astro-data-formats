@@ -5,8 +5,8 @@ Here we give an overview of how the data storage for IACTs should look like.
 In general, IACT data is divided into "runs" of a few tens of minutes of data taking. 
 We have per-run IRFs and per run event lists. The challenge is that in the data structure,
 we have to accomodate user choices on various levels:
+
 .. toctree::
-   :maxdepth: 1
 
    Reconstruction chain (e.g. paris)
    Version of FITS exporter (e.g prod01)
