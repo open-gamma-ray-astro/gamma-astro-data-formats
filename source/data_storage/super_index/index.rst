@@ -1,5 +1,7 @@
-Super index file
-================
+.. _iact-storage:
+
+Master index file
+=================
 
 .. warning:: This format is under discussion. These are just some notes, we haven't converged yet.
 
@@ -24,8 +26,9 @@ copies this file from the server. The Science tools that access this file just
 ignore chains/configs that are not present on the users' machine. Then the index
 file can also FITS (no need to introduce another file and data format). Since
 all paths are relative to the environment variable, the user doesn't have to
-edit and maintain the super index file. The Science tools naturally will allow
-the analysis of a certain chain/config or not. The super index FITS file could look the following:
+edit and maintain the master index file. The Science tools naturally will allow
+the analysis of a certain chain/config or not.
+The master index FITS file could look the following:
 
 ===========  ==============================
 Column Name  Description
