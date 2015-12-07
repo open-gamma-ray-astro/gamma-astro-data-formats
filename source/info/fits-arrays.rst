@@ -10,6 +10,7 @@ or `here <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_
 or in the `FITS standard document <http://adsabs.harvard.edu/abs/2010A%26A...524A..42P>`__,
 there are several ways to serialise multi-dimensional arrays and corresponding axis information in FITS files.
 
+
 Here we describe the schemes in use in gamma-ray astronomy and give examples.
 
 .. _fits-arrays-image-hdu:
@@ -97,8 +98,11 @@ BINTABLE HDU
 ------------
 
 * Data array and axis information is stored in a BINTABLE HDU with one row.
-* See `here <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_003/cal_gen_92_003.html#tth_sEc4>`__
-  for further information on this format, e.g. on axis order.
+* This is called the "multidimensional array" convention in appendix B of
+  `1995A%26AS..113..159C <http://adsabs.harvard.edu/abs/1995A%26AS..113..159C>`__.
+* The OGIP Calibration Memo CAL/GEN/92-003 has a section
+  `use of multi-dimensional datasets <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_003/cal_gen_92_003.html#tth_sEc4>`__
+  that describes this format in greater detail.
 * Advantage: everything is contained in one HDU. (as many axes and data arrays as you like)
 * Disadvantage: format is a bit unintuitive / header is quite complex / can't be opened directly in ds9.
 
@@ -108,6 +112,8 @@ Example
 
 Let's look at an example file in this format, the :download:`aeff_P6_v1_diff_back.fits` which
 represents the Fermi-LAT effective area (an old version) as a function of energy and offset.
+
+It follows the `OGIP format for effective area files <https://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_019/cal_gen_92_019.html>`__.
 
 The data array and axis information are stored in one BINTABLE HDU called "EFFECTIVE AREA",
 with 5 columns and one row:
@@ -143,8 +149,8 @@ The part that's most difficult to understand / remember is how the relevant info
 is encoded in the BINTABLE FITS header.
 
 But note the `HDUDOC  = 'CAL/GEN/92-019'` key. If you Google `CAL/GEN/92-019` you will
-find that it points to the `OGIP spec for effective area files <https://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_019/cal_gen_92_019.html>`__,
-which explains in detail what all the other keys mean.
+find that it points to the `OGIP format for effective area files <https://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_019/cal_gen_92_019.html>`__
+document, which explains in detail what all the other keys mean.
 
 There's some software (e.g. `fv`) that understands this way of encoding n-dimensional arrays
 and axis information in FITS BINTABLEs.
