@@ -20,7 +20,7 @@ Each event list file contains an extension to specify the good time intervals ('
 TELARRAY extension
 ------------------
 
-To be discussed
+To be defined
 
 Reference Tables
 ----------------
@@ -56,6 +56,9 @@ Reference Tables
     HIL_MSL        Mean scaled length                              TFLOAT (1E) 
     HIL_MSL_ERR    Mean scaled length error                        TFLOAT (1E) 
     =============  ============================== ============    =============
+
+
+
 
 .. _tab_2:
 
@@ -122,7 +125,8 @@ Reference Tables
     =============  ============================== ============    =============
     Column Name    Description                     Unit            FITS Type
     =============  ============================== ============    =============
-    TODO            
+      START            Start of GTI (observation)   s               TDOUBLE (1D)
+      STOP             End of GTI (observation)     s               TDOUBLE (1D) 
     =============  ============================== ============    =============
 
 
@@ -130,8 +134,9 @@ Reference Tables
 
 .. table:: GTI extension header keyword
 
-    ==============  ================================================    =================    ======================
-      Keyword         Description                                         Unit                  FITS type
-    ==============  ================================================    =================    ======================
-    TODO
-    ==============  ================================================    =================    ======================
+    ==============  =========================    =================    ======================
+      Keyword         Description                    Unit                  FITS type
+    ==============  =========================    =================    ======================
+	   MJDREFI      MJD time reference            days                  int
+	   MJDREFF      MJD time reference            days                  float
+    ==============  =========================    =================    ======================
