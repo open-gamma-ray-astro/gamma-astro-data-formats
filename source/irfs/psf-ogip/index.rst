@@ -1,27 +1,14 @@
 .. include:: ../../references.txt
 
-PSF Histo Offset Energy Format Spec
-===================================
+PSF OGIP
+========
 
 This is a PSF FITS format we agree on for IACTs.
 
-Fermi gtpsf format
-------------------
+Reference: http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_020/cal_gen_92_020.html
 
-The format we're about to define is very similar to the `gtpsf`_ format.
+TODO: describe differences / format we use for IACTs
 
-The FITS file has the following BinTable HDUs / columns:
-
-* PRIMARY HDU -- empty
-* PSF HDU
-    * Energy -- 1D (MeV)
-    * Exposure -- 1D (cm^2 s)
-    * Psf -- 2D (sr^-1), shape = (len(Energy) x len(Theta))
-* THETA HDU
-    * Theta -- 1D (deg)
- 
- Example data file: :download:`psf-fermi.fits`
- 
 The psf-histo-offset-energy format
 ----------------------------------
 

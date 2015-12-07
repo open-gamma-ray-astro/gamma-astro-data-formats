@@ -1,4 +1,4 @@
-.. _iact-storage:
+.. _iact-storage-master:
 
 Master index file
 =================
