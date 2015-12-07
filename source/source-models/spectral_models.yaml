@@ -1,106 +1,106 @@
-- NewUCDs:
+NewUCDs:
     - model
     - model.param
     - model.spectral
 
-- SpectralModel:
-    - name:
-        - type: str
-        - description: Name
-        - ucd: 
-    - norm:
-        - type: float
-        - description: Global normalization
-        - ucd: phot.flux.density
+SpectralModel:
+    name:
+        type: str
+        description: Name
+        ucd: 
+    norm:
+        type: float
+        description: Global normalization
+        ucd: phot.flux.density
 
-- PowerLaw:
-    - type: SpectralModel
-    - reference:
-        - type: float
-        - description: Value at which normalization is defined.
-        - ucd: [em.wl, em.energ, em.freq]
-    - index:
-        - type: float
-        - description: Spectral index
-        - ucd: spect.index
+PowerLaw:
+    type: SpectralModel
+    reference:
+        type: float
+        description: Value at which normalization is defined.
+        ucd: [em.wl, em.energ, em.freq]
+    index:
+        type: float
+        description: Spectral index
+        ucd: spect.index
 
-- BrokenPowerLaw:
-    - type: SpectralModel
-    - index1:
-        - type: float
-        - description: Spectral index below the break.
-        - ucd: spect.index
-    - index2:
-        - type: float
-        - description: Spectral index above the break.
-        - ucd: spect.index
-    - break:
-        - type: float
-        - description: Value at which spectral index changes.
-        - ucd: [em.wl, em.energ, em.freq]
+BrokenPowerLaw:
+    type: SpectralModel
+    index1:
+        type: float
+        description: Spectral index below the break.
+        ucd: spect.index
+    index2:
+        type: float
+        description: Spectral index above the break.
+        ucd: spect.index
+    break:
+        type: float
+        description: Value at which spectral index changes.
+        ucd: [em.wl, em.energ, em.freq]
 
-- LogParabola:
-    - type: SpectralModel
-    - reference:
-        - type: float
-        - description: Value at which normalization is defined.
-        - ucd: [em.wl, em.energ, em.freq]
-    - alpha:
-        - type: float
-        - description: Spectral index at break value.
-        - ucd: spect.index
-    - beta:
-        - type: float
-        - description: Rate of spectral index chane.
-        - ucd: spect.index
-    - break:
-        - type: float
-        - description: Value at which alpha is defined.
-        - ucd: [em.wl, em.energ, em.freq]
+LogParabola:
+    type: SpectralModel
+    reference:
+        type: float
+        description: Value at which normalization is defined.
+        ucd: [em.wl, em.energ, em.freq]
+    alpha:
+        type: float
+        description: Spectral index at break value.
+        ucd: spect.index
+    beta:
+        type: float
+        description: Rate of spectral index chane.
+        ucd: spect.index
+    break:
+        type: float
+        description: Value at which alpha is defined.
+        ucd: [em.wl, em.energ, em.freq]
 
-- ExponentialCutoffPowerLaw:
-    - type: SpectralModel
-    - reference:
-        - type: float
-        - description: Value at which normalization is defined.
-        - ucd: [em.wl, em.energ, em.freq]
-    - index:
-        - type: float
-        - description: Spectral index
-        - ucd: spect.index
-    - cutoff:
-        - type: float
-        - description: Value of the exponential cutoff.
-        - ucd: [em.wl, em.energ, em.freq]
-    - beta:
-        - type: float
-        - description: Hardness of the exponential cutoff.
-        - ucd:
+ExponentialCutoffPowerLaw:
+    type: SpectralModel
+    reference:
+        type: float
+        description: Value at which normalization is defined.
+        ucd: [em.wl, em.energ, em.freq]
+    index:
+        type: float
+        description: Spectral index
+        ucd: spect.index
+    cutoff:
+        type: float
+        description: Value of the exponential cutoff.
+        ucd: [em.wl, em.energ, em.freq]
+    beta:
+        type: float
+        description: Hardness of the exponential cutoff.
+        ucd:
 
-- ExponentialCutoffBrokenPowerLaw:
-    - type: SpectralModel
-    - reference:
-        - type: float
-        - description: Value at which normalization is defined.
-        - ucd: [em.wl, em.energ, em.freq]
-    - index1:
-        - type: float
-        - description: Spectral index below the break.
-        - ucd: spect.index
-    - index2:
-        - type: float
-        - description: Spectral index above the break.
-        - ucd: spect.index
-    - break:
-        - type: float
-        - description: Value at which spectral index changes.
-        - ucd: [em.wl, em.energ, em.freq]
-    - cutoff:
-        - type: float
-        - description: Value of the exponential cutoff.
-        - ucd: [em.wl, em.energ, em.freq]
-    - beta:
-        - type: float
-        - description: Hardness of the exponential cutoff.
-        - ucd:
+ExponentialCutoffBrokenPowerLaw:
+    type: SpectralModel
+    reference:
+        type: float
+        description: Value at which normalization is defined.
+        ucd: [em.wl, em.energ, em.freq]
+    index1:
+        type: float
+        description: Spectral index below the break.
+        ucd: spect.index
+    index2:
+        type: float
+        description: Spectral index above the break.
+        ucd: spect.index
+    break:
+        type: float
+        description: Value at which spectral index changes.
+        ucd: [em.wl, em.energ, em.freq]
+    cutoff:
+        type: float
+        description: Value of the exponential cutoff.
+        ucd: [em.wl, em.energ, em.freq]
+    beta:
+        type: float
+        description: Hardness of the exponential cutoff.
+        ucd:
 

@@ -1,11 +1,11 @@
-- NewUCDs:
+NewUCDs:
     - model
     - model.param
     - model.spatial
 
-- GenericSpatialModel:
-    - name:
-        - type: str
-        - description: Name
-        - ucd: 
+GenericSpatialModel:
+    name:
+        type: str
+        description: Name
+        ucd: 
 
