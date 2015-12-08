@@ -15,66 +15,51 @@ commonly used for observation selection, grouping and analysis.
 
 Columns
 -------
++ OBS_ID [int]: Unique observation identifier (Run number)
++ RA_PNT [float, deg]: Nominal pointing Right Ascension       
++ DEC_PNT [float, deg]: Nominal pointing Declination
++ ALT_PNT [float, deg]: Mean altitude of pointing       
++ AZ_PNT [float, deg]: Mean azimuth of pointing       
++ ZEN_PNT [float, deg]: Mean zenith of pointing
++ RA_OBJ [float, deg]:  RA of target 
++ DEC_OBJ [float, deg]: DEC of target 
++ ONTIME [float, s]: Total good time including deadtime 
++ LIVETIME [float, s]: Total livetime
++ DEADC [float]: Dead time correction. It is defined as the fraction LIVETIME / ONTIME, i.e. the fraction of time
+the telescope was actually able to take data
++ TSTART [float, days]: Start of observation in MJD (note that we don't use MET here, since MJD is more handy)
++ TSTOP [float, days]: End time of observation in MJD
++ DATE_OBS [string]: Observation start date (yyyy-mm-dd)
++ TIME_OBS [string]: Observation start time (hh:mm:ss)
++ DATE_END [string]: Observation end date (yyyy-mm-dd)
++ TIME_END [string]: Observation end time (hh:mm:ss)
++ N_TELS [int]: Number of participating telescopes 
++ TELLIST [string]: Telescope IDs (e.g. '1,2,3,4')          
++ QUALITY [int]: Run quality attribute. The recommended codes for run quality are:
+    + 0 = best quality, suitable for spectral analysis.
+    + 1 = medium quality, suitable for detection, but not spectra (typically if the atmosphere was hazy).
+    + 2 = bad quality, usually not to be used for analysis. 
++ EVENT_COUNT [int]: Number of events in run
++ EVENT_RA_MEDIAN [float, deg]: Median right ascension of events 
++ EVENT_DEC_MEDIAN [float, deg]: Median declination of events
++ EVENT_ENERGY_MEDIAN [float, deg]: Median energy of events
++ EVENT_TIME_MIN [double, s]: First event time
++ EVENT_TIME_MAX [double, s]: Last event time
++ BKG_SCALE [float]: Background scaling factor. This factor comes e.g. from the analysis of off runs. The background
+normalisation usually dependends on between the number of events in a run, the zenith angle and other parameters.
+This parameter provides the possibility to give the user a better prediction of the background normalisation. For
+CTA this might be induced from atmospheric monitoring and additional diagnostic input. For HESS we try to find a
+trend in the off run background normalisations and other parameters such as number of events per unit livetime. The
+Background scale should be around 1.0 if the background model is good. This number should also be set to 1.0 if no
+dependency analysis has been performed. If the background model normalisation if off by a few orders of magnitude
+for some reasons, this can be incorporated here.
++ (TRGRATE) [float, Hz]: Mean system trigger rate
++ (ZTRGRATE) [float, Hz]: Zenith averaged mean system trigger rate
++ (MUONEFF) [float]: Mean muon efficiency 
++ (BROKPIX) [float]: Percentage of broken pixels (0.15 means 15% broken pixels)
++ (MEANTEMP) [float, deg C]: Mean temperature during run
++ (MEANPRES) [float, hPa]: Mean air pressure
++ (NSBLEVEL) [float, a.u.] Measure for NSB level
++ (RELHUM) [float]: relative humidity
 
-=====================  ================================================    =================   ========= =========
-Keyword                Description                                         Unit                Data type Required?
-=====================  ================================================    =================   ========= =========
-OBS_ID                 Run number                                                              int       yes
-N_TELS                 Number of participating telescopes                                      int       ?
-RA_PNT                 Nominal pointing RA                                 deg                 float     yes
-DEC_PNT                Nominal pointing RA                                 deg                 float     yes
-ALT_PNT                Mean altitude of pointing                           deg                 float     no
-AZ_PNT                 Mean azimuth of pointing                            deg                 float     no
-ZEN_PNT                Mean zenith of pointing                             deg                 float     no
-RA_OBJ                 RA of target                                        deg                 float     no
-DEC_OBJ                DEC of target                                       deg                 float     no
-TRGRATE                Mean trigger rate                                   Hz                  float     no
-ZTRGRATE               zenith averaged trigger rate                        Hz                  float     no
-MUONEFF                muon efficiency                                                         float     no
-MEANTEMP               mean temperature                                    deg C               float     no
-ONTIME                 Total good time including deadtime                  s                   float     no
-LIVETIME               Total livetime                                      s                   float     no
-DEADC                  Dead time correction                                                    float     no
-OBJECT                 Observed object                                                         string    no
-TSTART                 Start time of observation                           s                   float     no
-TSTOP                  End time of observation                             s                   float     no
-BKG_SCALE              Input background scaling factor                                         float     no
-EVENT_COUNT            Number of events in run                                                 int       no
-EVENT_RA_MEDIAN        Median right ascension of events                                        float     no
-EVENT_DEC_MEDIAN       Median declination of events                                            float     no
-EVENT_ENERGY_MEDIAN    Median energy of events                                                 float     no
-EVENT_TIME_MIN         First event time                                                        double    no
-EVENT_TIME_MAX         Last event time                                                         double    no
-QUALITY                Run quality (0=good, 1=bad, 2=dubious)                                  int       no
-TELLIST                Telescope IDs (e.g. '1,2,3,4')                                          string    no
-OBS_MODE               Observation mode                                                        string    no
-DATE_OBS               Observation start date                              yyyy-mm-dd          string    no
-TIME_OBS               Observation start time                              hh:mm:ss            string    no
-DATE_END               Observation end date                                yyyy-mm-dd          string    no
-TIME_END               Observation end time                                hh:mm:ss            string    no
-=====================  ================================================    =================   ========= =========
-
-Extra notes on the definition of some columns and valid values:
-
-* The recommended codes for run quality are:
-    * 0 = best quality, suitable for spectral analysis.
-    * 1 = medium quality, suitable for detection, but not spectra (typically if the atmosphere was hazy).
-    * 2 = bad quality, usually not to be used for analysis.
-* TODO: ZTRGRATE: remove!? (or define what it's supposed to be)
-*
-
-TODO: where are the valid TYPE values listed?
-
-.. _obs-index-header:
-
-Header keywords
----------------
-
-TODO: are those needed? Do we have times in MET?
-
-========== =========================  ========= =========
-Keyword    Description                Data type Required?
-========== =========================  ========= =========
-MJDREFI    MJD time reference (days)  int       no
-MJDREFF    MJD time reference (days)  int       no
-========== =========================  ========= =========
+Column names in brackets denote that this column is optional

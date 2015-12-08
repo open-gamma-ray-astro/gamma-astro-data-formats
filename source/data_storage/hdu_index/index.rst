@@ -49,11 +49,12 @@ MD5             Checksum                                          string    no
 Disclaimer: About HDUNAME
 -------------------------
 For the moment, we require the following HDU names to be present to conduct a ctools analysis:
-* EVENTS
-* EFFECTIVE AREA
-* POINT SPREAD FUNCTION
-* ENERGY DISPERSON
-* BACKGROUND
+
++ EVENTS
++ EFFECTIVE AREA
++ POINT SPREAD FUNCTION
++ ENERGY DISPERSON
++ BACKGROUND
 
 It is therefore currently required (but will eventualy fade) that each observation contains at least one HDU with the listed names, e.g.
 
