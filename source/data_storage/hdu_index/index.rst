@@ -31,8 +31,12 @@ MTIME           Modification time                                 double    no
 MD5             Checksum                                          string    no
 ==============  ================================================  ========= =========
 
-
-TODO: where are the valid TYPE values listed?
++ Valid TYPE values (others optional):
+    + "events"
+    + "aeff"
+    + "psf"
+    + "edisp"
+    + "bkg" (can be optional, e.g. if no bkg model is available another approach has to be used)
 
 .. _hdu-index-header:
 

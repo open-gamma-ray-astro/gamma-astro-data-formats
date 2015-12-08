@@ -10,7 +10,7 @@ We have per-run IRFs and per run event lists. The challenge is that in the data 
 we have to accomodate user choices on various levels:
 
 * Reconstruction chain (e.g. paris)
-* Version of FITS exporter (e.g prod01)
+* Version of FITS exporter (e.g. prod01)
 * Version of internal data storage (e.g. model_deconvoluted_prod26)
 * Cut configuration (e.g. mpp_std)
    
