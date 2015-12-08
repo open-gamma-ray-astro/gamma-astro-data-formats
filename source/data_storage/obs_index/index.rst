@@ -27,6 +27,7 @@ Columns
 + LIVETIME [float, s]: Total livetime
 + DEADC [float]: Dead time correction. It is defined as the fraction LIVETIME / ONTIME, i.e. the fraction of time
 the telescope was actually able to take data
+
 + TSTART [float, days]: Start of observation in MJD (note that we don't use MET here, since MJD is more handy)
 + TSTOP [float, days]: End time of observation in MJD
 + DATE_OBS [string]: Observation start date (yyyy-mm-dd)
