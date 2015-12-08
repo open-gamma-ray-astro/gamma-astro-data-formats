@@ -54,6 +54,7 @@ trend in the off run background normalisations and other parameters such as numb
 Background scale should be around 1.0 if the background model is good. This number should also be set to 1.0 if no
 dependency analysis has been performed. If the background model normalisation if off by a few orders of magnitude
 for some reasons, this can be incorporated here.
+
 + (TRGRATE) [float, Hz]: Mean system trigger rate
 + (ZTRGRATE) [float, Hz]: Zenith averaged mean system trigger rate
 + (MUONEFF) [float]: Mean muon efficiency 
