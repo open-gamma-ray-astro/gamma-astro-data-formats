@@ -49,11 +49,12 @@ MD5             Checksum                                          string    no
 Disclaimer: About HDUNAME
 -------------------------
 For the moment, we require the following HDU names to be present to conduct a ctools analysis:
-+ EVENTS
-+ EFFECTIVE AREA
-+ POINT SPREAD FUNCTION
-+ ENERGY DISPERSON
-+ BACKGROUND
+* EVENTS
+* EFFECTIVE AREA
+* POINT SPREAD FUNCTION
+* ENERGY DISPERSON
+* BACKGROUND
+
 It is therefore currently required (but will eventualy fade) that each observation contains at least one HDU with the listed names, e.g.
 
 ========  ==========  ======================= 
@@ -79,5 +80,6 @@ Header keywords
 There only one information that should be stored as header keywords:
 + NAME (string, required=yes): should be a unique name describing the present FITS production, e.g."hess-hap-hd-prod01-std_zeta_fullEnclosure"
 This keywords helps to circumvent the absolute need for a master index file which is still under development.
+
 
 
