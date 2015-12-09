@@ -67,4 +67,15 @@ observation in these format specs.
 Off Observation
 +++++++++++++++
 
-The term "off observation" or "off run" refers to ...
+The term "off observation" or "off run" refers to observations where most
+of the field of view contains no gamma-ray emission (apart from a possible
+diffuse extragalactic isotropic component, which is supposed to be very
+weak at TeV energies).
+
+`AGN <https://en.wikipedia.org/wiki/Active_galactic_nucleus>`__ observations
+are sometimes also considered "off observations", because the fraction of the
+field of view containing their gamma-ray emission is often very small, and
+most of the field of view is empty.
+
+For further info on background modeling see
+`Berge (2007) <http://adsabs.harvard.edu/abs/2007A%26A...466.1219B>`__
