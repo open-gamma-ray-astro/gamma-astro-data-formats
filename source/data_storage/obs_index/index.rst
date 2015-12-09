@@ -22,15 +22,12 @@ Required columns
     * Obsevation pointing right ascension (see :ref:`sky-coordinates-radec`)
 * ``DEC_PNT`` type: float, unit: deg
     * Observation pointing declination (see :ref:`sky-coordinates-radec`)
-* ``ALT_PNT`` float, deg
-    * Observation pointing mean altitude (see :ref:`sky-coordinates-altaz`)
-    * Recommendation: use value at observation mid-time ``TMID``.
-* ``AZ_PNT`` type: float, unit: deg
-    * Observation pointing mean azimuth (see :ref:`sky-coordinates-altaz`)
-    * Recommendation: use value at observation mid-time ``TMID``.
 * ``ZEN_PNT`` type: float, unit: deg
-    * Mean zenith of pointing (see :ref:`sky-coordinates-altaz`)
-    * Recommendation: use value at observation mid-time ``TMID``.
+    * Observation pointing zenith angle at observation mid-time ``TMID`` (see :ref:`sky-coordinates-altaz`)
+* ``ALT_PNT`` float, deg
+    * Observation pointing altitude at observation mid-time ``TMID`` (see :ref:`sky-coordinates-altaz`)
+* ``AZ_PNT`` type: float, unit: deg
+    * Observation pointing azimuth at observation mid-time ``TMID`` (see :ref:`sky-coordinates-altaz`)
 * ``ONTIME`` type: float, unit: s
     * Total observation time (including dead time).
     * Equals ``TSTOP`` - ``TSTART``
@@ -66,10 +63,16 @@ Optional columns
 The following columns are optional. They are sometimes used for observation
 selection or data quality checks or analysis, but aren't needed for most users.
 
+* ``OBJECT`` type: string
+    * Primary target of the observation
+    * Recommendations:
+        * Use a name that can be resolved by `SESAME <http://cds.u-strasbg.fr/cgi-bin/Sesame>`__
+        * For survey observations, use "survey".
+        * For :ref:`glossary-obs-off`, use "off observation"
 * ``RA_OBJ`` type: float, unit: deg
-    * RA of target
+    * Right ascension of ``OBJECT``
 * ``DEC_OBJ`` type: float, unit: deg
-    * DEC of target 
+    * Declination of ``OBJECT``
 * ``TMID`` type: float, unit: days
     * Mid time of observation in MJD (= ``TSTART`` + 0.5 * ``ONTIME``)
 * ``TMID_STR`` type: string
