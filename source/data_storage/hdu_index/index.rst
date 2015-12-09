@@ -107,6 +107,5 @@ Future ideas
 Header keywords
 ---------------
 
-There only one information that should be stored as header keywords:
-+ NAME (string, required=yes): should be a unique name describing the present FITS production, e.g."hess-hap-hd-prod01-std_zeta_fullEnclosure"
-This keywords helps to circumvent the absolute need for a master index file which is still under development.
+* ``PRODNAME`` type: string
+    * Unique name describing the present FITS production, e.g."hess-hap-hd-prod01-std_zeta_fullEnclosure". This keywords helps to circumvent the absolute need for a master index file which is still under development.
