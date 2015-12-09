@@ -98,10 +98,10 @@ selection or data quality checks or analysis, but aren't needed for most users.
     * TODO: define how muon efficiency is defined (it's very tricky to get a comparable number in HESS from HD and PA calibration)
 * ``BROKPIX`` type: float
     * Fraction of broken pixels (0.15 means 15% broken pixels)
-* ``MEANTEMP`` type: float, unit: deg C
-   *  Mean temperature during run
-* ``MEANPRES`` type: float, unit: hPa
-   * Mean air pressure
+* ``AIRTEMP`` type: float, unit: deg C
+   * Mean air temperature at ground during the observation.
+* ``PRESSURE`` type: float, unit: hPa
+   * Mean air pressure at ground during the observation.
 * ``NSBLEVEL`` type: float, unit: a.u.
    * Measure for NSB level
    * TODO: how is this defined? at least leave a comment if it doesn't have a clear definition and can only be used in one chain.
