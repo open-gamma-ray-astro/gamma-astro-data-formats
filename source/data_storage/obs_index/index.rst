@@ -54,9 +54,9 @@ Required columns
     * Telescope IDs (e.g. '1,2,3,4')
 * ``QUALITY`` type: int
     * Observation data quality. The following levels of data quality are defined:
-      * 0 = best quality, suitable for spectral analysis.
-      * 1 = medium quality, suitable for detection, but not spectra (typically if the atmosphere was hazy).
-      * 2 = bad quality, usually not to be used for analysis. 
+        * 0 = best quality, suitable for spectral analysis.
+        * 1 = medium quality, suitable for detection, but not spectra (typically if the atmosphere was hazy).
+        * 2 = bad quality, usually not to be used for analysis. 
 
 .. _obs-index-optional-columns:
 
@@ -66,44 +66,48 @@ Optional columns
 The following columns are optional. They are sometimes used for observation
 selection or data quality checks or analysis, but aren't needed for most users.
 
-+ ``RA_OBJ`` [float, deg]: 
-  RA of target 
-+ ``DEC_OBJ`` [float, deg]: 
-  DEC of target 
-+ ``TMID`` [float, days]: 
-  Mid time of observation in MJD (=``TSTART`` + 0.5 * ``ONTIME``)
-+ ``TMID_STR`` [string]:
-  Mid time of observation in UTC string format: "YYYY-MM-DD HH:MM:SS"
-+ ``EVENT_COUNT`` [int]: 
-  Number of events in run
-+ ``EVENT_RA_MEDIAN`` [float, deg]: 
-  Median right ascension of events 
-+ ``EVENT_DEC_MEDIAN`` [float, deg]: 
-  Median declination of events
-+ ``EVENT_ENERGY_MEDIAN`` [float, deg]: 
-  Median energy of events
-+ ``EVENT_TIME_MIN`` [double, s]: 
-  First event time
-+ ``EVENT_TIME_MAX`` [double, s]: 
-  Last event time
-+ ``BKG_SCALE`` [float]:
-  Background scaling factor. (See notes below.)
-+ ``TRGRATE`` [float, Hz]: 
-  Mean system trigger rate
-+ ``ZTRGRATE`` [float, Hz]: 
-  Zenith averaged mean system trigger rate
-+ ``MUONEFF`` [float]: 
-  Mean muon efficiency 
-+ ``BROKPIX`` [float]: 
-  Percentage of broken pixels (0.15 means 15% broken pixels)
-+ ``MEANTEMP`` [float, deg C]: 
-  Mean temperature during run
-+ ``MEANPRES`` [float, hPa]: 
-  Mean air pressure
-+ ``NSBLEVEL`` [float, a.u.] 
-  Measure for NSB level
-+ ``RELHUM`` [float]: 
-  relative humidity
+* ``RA_OBJ`` type: float, unit: deg
+    * RA of target
+* ``DEC_OBJ`` type: float, unit: deg
+    * DEC of target 
+* ``TMID`` type: float, unit: days
+    * Mid time of observation in MJD (= ``TSTART`` + 0.5 * ``ONTIME``)
+* ``TMID_STR`` type: string
+    * Mid time of observation in UTC string format: "YYYY-MM-DD HH:MM:SS"
+* ``EVENT_COUNT`` type: int
+    * Number of events in run
+* ``EVENT_RA_MEDIAN`` type: float, unit: deg
+    * Median right ascension of events 
+* ``EVENT_DEC_MEDIAN`` type: float, unit: deg
+    * Median declination of events
+* ``EVENT_ENERGY_MEDIAN`` type: float, unit: deg
+    * Median energy of events
+* ``EVENT_TIME_MIN`` type: double, unit: s
+    * First event time
+* ``EVENT_TIME_MAX`` type: double, unit: s
+    * Last event time
+* ``BKG_SCALE`` type: float
+    * Background scaling factor. See notes below.
+* ``TRGRATE`` type: float, unit: Hz
+    * Mean system trigger rate
+* ``ZTRGRATE`` type: float, unit: Hz
+    * Zenith averaged mean system trigger rate
+    * TODO: define what "zenithed averaged mean" means or remove this column.
+* ``MUONEFF`` type: float
+    * Mean muon efficiency
+    * TODO: define how muon efficiency is defined (it's very tricky to get a comparable number in HESS from HD and PA calibration)
+* ``BROKPIX`` type: float
+    * Fraction of broken pixels (0.15 means 15% broken pixels)
+* ``MEANTEMP`` type: float, unit: deg C
+   *  Mean temperature during run
+* ``MEANPRES`` type: float, unit: hPa
+   * Mean air pressure
+* ``NSBLEVEL`` type: float, unit: a.u.
+   * Measure for NSB level
+   * TODO: how is this defined? at least leave a comment if it doesn't have a clear definition and can only be used in one chain.
+* ``RELHUM`` type: float
+   * Relative humidity
+   * TODO: link to definition ... wikipedia?
 
 .. _obs-index-notes:
 
