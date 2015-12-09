@@ -24,12 +24,6 @@ Here we specify the IRFs in use for IACT data.
 Specific IRFs
 -------------
 
-TODO: Copy over the format summary and descriptions from here:
-https://gammapy.readthedocs.org/en/latest/dataformats/index.html#overview
-
-Table of contents
------------------
-
 .. toctree::
 
    effective_area/index
