@@ -11,23 +11,11 @@ A place to propose and share data format descriptions for gamma-ray astronomy.
 Table of contents
 -----------------
 
-Specifications:
-
 .. toctree::
    :maxdepth: 1
 
+   info/index
    events/index
    irfs/index
    data_storage/index
    source-models/index
-
-
-Background information:
-
-.. toctree::
-   :maxdepth: 1
-
-   info/about
-   info/coordinates
-   info/fits-arrays
-   info/glossary

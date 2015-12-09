@@ -11,12 +11,10 @@ The observation index table is stored in a FITS file as a BINTABLE HDU:
 It contains one row per observation (a.k.a. run) and lists parameters that are
 commonly used for observation selection, grouping and analysis.
 
-.. _obs-index-columns:
+.. _obs-index-required-columns:
 
-Columns
--------
-
-Required columns:
+Required columns
+----------------
 
 + ``OBS_ID`` [int]: 
   Unique observation identifier (Run number)
@@ -44,28 +42,30 @@ Required columns:
   i.e. the fraction of time the telescope was actually able to take data.
 + ``TSTART`` [float, days]: 
   Start of observation in MJD
++ ``TSTART_STR`` [string]:
+  Start of observation in UTC string format: "YYYY-MM-DD HH:MM:SS"
 + ``TSTOP`` [float, days]: 
   End time of observation in MJD
-+ ``DATE_OBS`` [string]: 
-  Observation start date (yyyy-mm-dd)
-+ ``TIME_OBS`` [string]: 
-  Observation start time (hh:mm:ss)
-+ ``DATE_END`` [string]: 
-  Observation end date (yyyy-mm-dd)
-+ ``TIME_END`` [string]: 
-  Observation end time (hh:mm:ss)
++ ``TSTOP_STR`` [string]:
+  End of observation in UTC string format: "YYYY-MM-DD HH:MM:SS"
 + ``N_TELS`` [int]: 
   Number of participating telescopes 
 + ``TELLIST`` [string]: 
   Telescope IDs (e.g. '1,2,3,4')
 + ``QUALITY`` [int]: 
-  Run quality attribute. The recommended codes for run quality are:
+  Observation data quality. The following levels of data quality are defined:
 
   + 0 = best quality, suitable for spectral analysis.
   + 1 = medium quality, suitable for detection, but not spectra (typically if the atmosphere was hazy).
   + 2 = bad quality, usually not to be used for analysis. 
 
-Optional columns:
+.. _obs-index-optional-columns:
+
+Optional columns
+----------------
+
+The following columns are optional. They are sometimes used for observation
+selection or data quality checks or analysis, but aren't needed for most users.
 
 + ``EVENT_COUNT`` [int]: 
   Number of events in run
@@ -98,9 +98,10 @@ Optional columns:
 + ``RELHUM`` [float]: 
   relative humidity
 
-Column names in brackets denote that this column is optional
+.. _obs-index-notes:
 
-Notes:
+Notes
+-----
 
 * This table doesn't require header keywords. We recommend FITS is used,
   but it can be stored e.g. in CSV as well.
