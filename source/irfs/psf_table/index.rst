@@ -43,7 +43,7 @@ to integrate to 1, i.e.
 
 .. math::
 
-    \int_0_\inf 2 * pi * r * P(r) dr = 1
+    \int_{0}^{\infty} 2 \pi r P(r) dr = 1
 
 This implies that the PSF producer is responsible for choosing the Theta
 range and normalising. I.e. it's OK to choose a theta range that contains
