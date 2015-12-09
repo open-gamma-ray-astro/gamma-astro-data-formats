@@ -21,6 +21,21 @@ As far as we know, this format is currently not supported by any analysis packag
 
 Here we specify the IRFs in use for IACT data.
 
+IRF axes
+--------
+
+Most IRFs are dependent on parameters, and the 1-dim. parameter arrays are stored
+in columns. The following names are recommended (TODO: are we consistent everywhere for our formats?):
+
+* For energy grids, see `here <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_003/cal_gen_92_003.html#tth_sEc7>`__
+  for basic recommendations. Column names should be ``ENERGY`` or ``ENERG_LO``, ``ENERG_HI``
+  because that is used (consistently I think) for OGIP and Fermi-LAT.
+  For separate HDUs, the extension names should be ``ENERGIES`` or ``EBOUNDS`` (used by Fermi-LAT consistently).
+* Sky coordinates should be called ``RA``, ``DEC``, ``GLON``, ``GLAT``, ``ALT``, ``AZ``.
+* Field of view coordinates ``DETX``, ``DETY`` or ``THETA``, ``PHI`` for offset and azimuth angle in the field of view.
+* Offset wrt. the source position should be called ``RAD`` (this is what the OGIP PSF formats use).
+
+
 Specific IRFs
 -------------
 
