@@ -20,6 +20,7 @@ It's purpose is two-fold:
   :maxdepth: 1
 
   about
+  time
   coordinates
   fits-arrays
   glossary
