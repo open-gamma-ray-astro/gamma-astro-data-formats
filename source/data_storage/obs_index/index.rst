@@ -16,48 +16,47 @@ commonly used for observation selection, grouping and analysis.
 Required columns
 ----------------
 
-+ ``OBS_ID`` [int]: 
-  Unique observation identifier (Run number)
-+ ``RA_PNT`` [float, deg]: 
-  Nominal pointing Right Ascension       
-+ ``DEC_PNT`` [float, deg]: 
-  Nominal pointing Declination
-+ ``ALT_PNT`` [float, deg]: 
-  Mean altitude of pointing       
-+ ``AZ_PNT`` [float, deg]: 
-  Mean azimuth of pointing       
-+ ``ZEN_PNT`` [float, deg]: 
-  Mean zenith of pointing
-+ ``RA_OBJ`` [float, deg]: 
-  RA of target 
-+ ``DEC_OBJ`` [float, deg]: 
-  DEC of target 
-+ ``ONTIME`` [float, s]: 
-  Total good time including deadtime 
-+ ``LIVETIME`` [float, s]: 
-  Total livetime
-+ ``DEADC`` [float]: 
-  Dead time correction.
-  It is defined as the fraction LIVETIME / ONTIME,
-  i.e. the fraction of time the telescope was actually able to take data.
-+ ``TSTART`` [float, days]: 
-  Start of observation in MJD
-+ ``TSTART_STR`` [string]:
-  Start of observation in UTC string format: "YYYY-MM-DD HH:MM:SS"
-+ ``TSTOP`` [float, days]: 
-  End time of observation in MJD
-+ ``TSTOP_STR`` [string]:
-  End of observation in UTC string format: "YYYY-MM-DD HH:MM:SS"
-+ ``N_TELS`` [int]: 
-  Number of participating telescopes 
-+ ``TELLIST`` [string]: 
-  Telescope IDs (e.g. '1,2,3,4')
-+ ``QUALITY`` [int]: 
-  Observation data quality. The following levels of data quality are defined:
-
-  + 0 = best quality, suitable for spectral analysis.
-  + 1 = medium quality, suitable for detection, but not spectra (typically if the atmosphere was hazy).
-  + 2 = bad quality, usually not to be used for analysis. 
+* ``OBS_ID`` type: int
+    * Unique observation identifier (Run number)
+* ``RA_PNT`` type: float, unit: deg
+    * Obsevation pointing right ascension (see :ref:`sky-coordinates-radec`)
+* ``DEC_PNT`` type: float, unit: deg
+    * Observation pointing declination (see :ref:`sky-coordinates-radec`)
+* ``ALT_PNT`` float, deg
+    * Observation pointing mean altitude (see :ref:`sky-coordinates-altaz`)
+    * Recommendation: use value at observation mid-time ``TMID``.
+* ``AZ_PNT`` type: float, unit: deg
+    * Observation pointing mean azimuth (see :ref:`sky-coordinates-altaz`)
+    * Recommendation: use value at observation mid-time ``TMID``.
+* ``ZEN_PNT`` type: float, unit: deg
+    * Mean zenith of pointing (see :ref:`sky-coordinates-altaz`)
+    * Recommendation: use value at observation mid-time ``TMID``.
+* ``ONTIME`` type: float, unit: s
+    * Total observation time (including dead time).
+    * Equals ``TSTOP`` - ``TSTART``
+* ``LIVETIME`` type: float, unit: s
+    * Total livetime (observation minus dead time)
+* ``DEADC`` type: float
+    * Dead time correction.
+    * It is defined such that ``LIVETIME`` = ``DEADC`` * ``ONTIME``
+      i.e. the fraction of time the telescope was actually able to take data.
+* ``TSTART`` type: float, unit: days
+    * Start of observation in MJD
+* ``TSTART_STR`` type: string
+    * Start of observation in UTC string format: "YYYY-MM-DD HH:MM:SS"
+* ``TSTOP`` type: float, unit: days
+    * End time of observation in MJD
+* ``TSTOP_STR`` type: string
+    * End of observation in UTC string format: "YYYY-MM-DD HH:MM:SS"
+* ``N_TELS`` type: int
+    * Number of participating telescopes 
+* ``TELLIST`` type: string
+    * Telescope IDs (e.g. '1,2,3,4')
+* ``QUALITY`` type: int
+    * Observation data quality. The following levels of data quality are defined:
+      * 0 = best quality, suitable for spectral analysis.
+      * 1 = medium quality, suitable for detection, but not spectra (typically if the atmosphere was hazy).
+      * 2 = bad quality, usually not to be used for analysis. 
 
 .. _obs-index-optional-columns:
 
@@ -67,6 +66,14 @@ Optional columns
 The following columns are optional. They are sometimes used for observation
 selection or data quality checks or analysis, but aren't needed for most users.
 
++ ``RA_OBJ`` [float, deg]: 
+  RA of target 
++ ``DEC_OBJ`` [float, deg]: 
+  DEC of target 
++ ``TMID`` [float, days]: 
+  Mid time of observation in MJD (=``TSTART`` + 0.5 * ``ONTIME``)
++ ``TMID_STR`` [string]:
+  Mid time of observation in UTC string format: "YYYY-MM-DD HH:MM:SS"
 + ``EVENT_COUNT`` [int]: 
   Number of events in run
 + ``EVENT_RA_MEDIAN`` [float, deg]: 
@@ -105,7 +112,10 @@ Notes
 
 * This table doesn't require header keywords. We recommend FITS is used,
   but it can be stored e.g. in CSV as well.
-* The exact definition of sky coordinates is given in :ref:`sky-coordinates`.
+* Some of the required columns are redundant. E.g. ``ONTIME`` = ``TSTOP`` - ``TSTART``.
+  The motivation to declare those columns required is to make it easy for users
+  and tools to browse the observation lists and select observations via cuts
+  on these parameters without having to compute them on the fly.
 * Observation runs where the telescopes don't point to a fixed RA / DEC position
   (e.g. drift scan runs) aren't supported at the moment by this format.
 * Times are given as a UTC string or MJD float.

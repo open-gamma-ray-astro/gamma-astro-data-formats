@@ -1,4 +1,3 @@
-
 .. _iact-storage:
 
 IACT data storage
