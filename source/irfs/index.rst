@@ -35,3 +35,4 @@ Table of contents
    effective_area/index
    psf-ogip/index
    psf-gtpsf/index
+   background/index
