@@ -24,8 +24,8 @@ Many of the keywords are not necessarily required for an analysis.
 The information is, however, included as meta data in the event lists to enable
 instrument-dependent studies and selections of particular observations.
 
-Column Names
-------------
+Required Column Names
+---------------------
 * ``OBS_ID`` type: int
     * Unique observation identifier (Run number)
 * ``BUNCH_ID`` type: int
@@ -64,6 +64,10 @@ Column Names
     * Reconstructed event energy
 * ``ENERGY_ERR`` type: float, unit: TeV
     * Error on reconstructed event energy
+    
+Optional Column Names
+---------------------
+
 * ``HIL_MSW`` type: float
     * Hillas mean scaled width
 * ``HIL_MSW_ERR`` type: float
@@ -75,7 +79,7 @@ Column Names
 
 
 Required Header keywords:
-------------------------
+-------------------------
 
 * ``OBS_ID`` type: int
     * Unique observation identifier (Run number)
@@ -116,8 +120,6 @@ Required Header keywords:
     * Obsevation pointing right ascension (see :ref:`sky-coordinates-radec`)
 * ``DEC_PNT`` type: float, unit: deg
     * Observation pointing declination (see :ref:`sky-coordinates-radec`)
-* ``ZEN_PNT`` type: float, unit: deg
-    * Observation pointing zenith angle at observation mid-time ``TMID`` (see :ref:`sky-coordinates-altaz`)
 * ``ALT_PNT`` float, deg
     * Observation pointing altitude at observation mid-time ``TMID`` (see :ref:`sky-coordinates-altaz`)
 * ``AZ_PNT`` type: float, unit: deg
@@ -143,9 +145,7 @@ Required Header keywords:
 * ``TELLIST`` type: string
     * Telescope IDs in observation (e.g. '1,2,3,4')   
 * ``N_TELS`` type: int
-    * Number of observing telescopes    
-* ``OBS_MODE`` type: string
-    * Observation mode (e.g. wobble, survey, or any mode that is supported by ``TELESCOP``)    
+    * Number of observing telescopes       
 * ``EUNIT`` type: string
     * Unit of energies in event list (e.g. 'TeV')
 * ``GEOLON`` type: float, unit: deg
@@ -154,12 +154,6 @@ Required Header keywords:
     * Geographic latitude of array centre (e.g. -16.5 for HESS)
 * ``ALTITUDE`` type: float, unit: km
     * Altitude of array center above sea level (1.835 for HESS)
-* ``DST_VER`` type: string
-    * Version of DST/Data production 
-* ``ANA_VER`` type: string
-    * Reconstruction software version   
-* ``CAL_VER`` type: string
-    * Calibration software version 
 * ``CREATED`` type: string
     * Time when file was created: "YYYY-MM-DD HH:MM:SS"
 
@@ -167,6 +161,14 @@ Required Header keywords:
 Optional header keywords
 ------------------------
 
+* ``OBS_MODE`` type: string
+    * Observation mode (e.g. wobble, survey, or any mode that is supported by ``TELESCOP``) 
+* ``DST_VER`` type: string
+    * Version of DST/Data production 
+* ``ANA_VER`` type: string
+    * Reconstruction software version   
+* ``CAL_VER`` type: string
+    * Calibration software version 
 * ``TRGRATE`` type: float, unit: Hz
     * Mean system trigger rate
 * ``ZTRGRATE`` type: float, unit: Hz
@@ -200,41 +202,33 @@ At least one row is containing the start and end time of the observation must be
 The values are in units of seconds with respect to the reference time defined in the
 associated header (keywords MJDREFI and MJDREFF).
 This extension allows for a detailed handling of good time intervals
-(i.e. excluding periods with cloud cover or lightning during one observation).
-The column names and FITS header keywords are documented in Table  :ref:`tab_3` and  :ref:`tab_4`, respectively.
+(i.e. excluding periods with cloud cover or lightning during one observation). Eventually, this extension could disappear from the required extensions. High-level
+Science tools could add the GTIs to the files according to user parameter. See e.g. `gtmktime
+<https://www.slac.stanford.edu/exp/glast/wb/prod/pages/sciTools_gtmktime/gtmktime_help.htm>`__ for an application example from the Fermi Science Tools.
+The column names and FITS header keywords are documented in the following, respectively. 
+
+GTI Column Names:
+-----------------
+
+* ``START`` type: double, unit: s
+    * Start time of good time interval (observation)  [MET]
+* ``STOP`` type: double, unit: s
+    * End time of good time interval (observation) [MET]
+    
+GTI Header Keywords:
+--------------------
+
+* ``MJDREFI`` type: int, unit: days
+    * Integer part of MJD time reference
+* ``MJDREFF`` type: float, unit: days
+    * Float part of MJD time reference   
+
 
 TELARRAY extension
 ------------------
 
 To be defined
 
-Reference Tables
-----------------
-
-
-.. _tab_1:
-
-.. table:: GIT extension columns
-
-    =============  ============================== ============    =============
-    Column Name    Description                     Unit            FITS Type
-    =============  ============================== ============    =============
-      START            Start of GTI (observation)   s               TDOUBLE (1D)
-      STOP             End of GTI (observation)     s               TDOUBLE (1D) 
-    =============  ============================== ============    =============
-
-
-.. _tab_1:
-
-.. table:: GTI extension header keyword
-
-    ==============  =========================    =================    ======================
-      Keyword         Description                    Unit                  FITS type
-    ==============  =========================    =================    ======================
-	   MJDREFI      MJD time reference            days                  int
-	   MJDREFF      MJD time reference            days                  float
-    ==============  =========================    =================    ======================
-    
     
 Disclaimer: About names of HDU and file structure
 -------------------------------------------------
