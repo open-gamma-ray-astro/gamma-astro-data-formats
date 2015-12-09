@@ -27,6 +27,6 @@ Specific IRFs
 .. toctree::
 
    effective_area/index
-   psf-ogip/index
+   psf_table/index
    psf-gtpsf/index
    background/index

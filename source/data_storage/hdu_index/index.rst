@@ -67,7 +67,7 @@ Valid ``HDU_CLASS`` values:
 + ``edisp_2d`` - see format spec: TODO
 + ``psf_king`` - see format spec: TODO
 + ``psf_3gauss`` - see format spec: TODO
-+ ``psf_table`` - see format spec: TODO
++ ``psf_table`` - see format spec: :ref:`psf-table`
 + ``bkg_2d`` - see format spec: :ref:`bkg-2d`
 + ``bkg_3d`` - see format spec: :ref:`bkg-3d`
 
