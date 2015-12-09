@@ -19,7 +19,7 @@ units are different.
     * Field of view offset axis
 * ``ENERGY_LO`` and ``ENERGY_HI`` -- 1D, unit: TeV
     * Energy axis
-* ``PSFPDF`` -- 3D (deg^-2), shape = (len(RAD), len(THETA), len(ENERGY))
+* ``RPSF`` -- 3D (deg^-2), shape = (len(RAD), len(THETA), len(ENERGY))
     * Probability density (probability per solid angle),
       see info on normalisation below.
     * Axis order: RAD, THETA, ENERGY
