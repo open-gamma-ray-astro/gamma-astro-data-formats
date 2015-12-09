@@ -4,30 +4,32 @@ PSF OGIP
 ========
 
 This is a PSF FITS format we agree on for IACTs.
+This file contains the energy * offset dependent table distribution of the PSF from monte carlo simulations. 
+So far, there is no plan to implement any kind of smoothing before exporting. 
 
 Reference: http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_020/cal_gen_92_020.html
 
-TODO: describe differences / format we use for IACTs
+For IACTs, the only difference from the OGIP format is the added dimension of camera offset (Theta), similar to the other IRFs. 
 
 The psf-histo-offset-energy format
 ----------------------------------
 
-The difference is that we add an axis for the field of view offset
-and put the `Theta` array in the `PSF` HDU:
-
 * PRIMARY HDU -- empty
 * PSF HDU
-    * Theta -- 1D (deg)
-    * Energy -- 1D (MeV)
-    * Exposure -- 1D (cm^2 s)
-    * Offset -- 1D (deg)
-    * Psf -- 3D (sr^-1), shape = (len(Energy) x len(Theta) x len(Offset))
+    * RAD_LO -- 1D (deg)    (offset angle from source position) 
+    * RAD_HI -- 1D (deg)
+    * ENERGY_LO -- 1D (TeV)  (photon energy)
+    * ENERGY_HI -- 1D (TeV)
+    * THETA_LO -- 1D (deg)   (offset angle from camera center)
+    * THETA_HI -- 1D (deg) 
+    * PSFPDF -- 3D (deg^-2), shape = (len(THETA) x len(ENERGY) x len(RAD))
 
-TODO: think about axis order and specify it in an understandable way.
 
 Example data file: :download:`psf-histo-offset-energy.fits.gz`
 
 Was generated with this script: :download:`make-test-file.py`
+
+TODO: update these files with the slightly modified ones we use for H.E.S.S. data
 
 
 Normalisation
