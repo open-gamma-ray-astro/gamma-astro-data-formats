@@ -8,14 +8,13 @@ The HDU index table is stored in a FITS file as a BINTABLE HDU:
 * Suggested filename: ``hdu-index.fits.gz``
 * Suggested HDU name: ``HDU_INDEX``
 
-The HDU index table can be used to locate HDUs.
-E.g. for a given ``OBS_ID`` and (``HDU_TYPE`` and / or ``HDU_CLASS``),
-the HDU can be located via the information in the ``FILE_DIR``, ``FILE_NAME``
-and ``HDU_NAME`` columns.
+The HDU index table can be used to locate HDUs. E.g. for a given ``OBS_ID`` and
+(``HDU_TYPE`` and / or ``HDU_CLASS``), the HDU can be located via the
+information in the ``FILE_DIR``, ``FILE_NAME`` and ``HDU_NAME`` columns.
 
-TODO: discuss if we want to support a ``BASE_DIR`` header keyword, to allow
-the use case where ``FILE_DIR`` is not relative to the index file location
-(e.g. in cases where the user creates or modifies the index file and doesn't have write
+TODO: discuss if we want to support a ``BASE_DIR`` header keyword, to allow the
+use case where ``FILE_DIR`` is not relative to the index file location (e.g. in
+cases where the user creates or modifies the index file and doesn't have write
 permission in the folder where the data files are.)
 
 .. _hdu-index-columns:
@@ -51,30 +50,32 @@ to do guesswork to infer the format on load.
 
 Valid ``HDU_TYPE`` values (others optional):
 
-+ ``events``
-+ ``gti``
-+ ``aeff``
-+ ``psf``
-+ ``edisp``
-+ ``bkg``
++ ``events`` - Event list
++ ``gti`` - Good time interval
++ ``aeff`` - Effective area
++ ``psf`` - Point spread function
++ ``edisp`` - Energy dispersion
++ ``bkg`` - Background
 
 (can be optional, e.g. if no bkg model is available another approach has to be used)
 
 Valid ``HDU_CLASS`` values:
 
-+ ``events``
-+ ``gti``
-+ ``aeff_2d``
-+ ``edisp_2d``
-+ ``psf_king``
-+ ``psf_3gauss``
-+ ``psf_table``
-+ ``bkg_2d``
-+ ``bkg_3d``
++ ``events`` - see format spec: :ref:`iact-events`
++ ``gti`` - see format spec: TODO
++ ``aeff_2d`` - see format spec: :ref:`iact-aeff`
++ ``edisp_2d`` - see format spec: TODO
++ ``psf_king`` - see format spec: TODO
++ ``psf_3gauss`` - see format spec: TODO
++ ``psf_table`` - see format spec: TODO
++ ``bkg_2d`` - see format spec: TODO
++ ``bkg_3d`` - see format spec: TODO
 
 Disclaimer: About HDUNAME
 -------------------------
-For the moment, we require the following HDU names to be present to conduct a ctools analysis:
+
+For the moment, we require the following HDU names to be present to conduct a
+ctools analysis:
 
 + EVENTS
 + EFFECTIVE AREA
@@ -82,7 +83,8 @@ For the moment, we require the following HDU names to be present to conduct a ct
 + ENERGY DISPERSON
 + BACKGROUND
 
-It is therefore currently required (but will eventualy fade) that each observation contains at least one HDU with the listed names, e.g.
+It is therefore currently required (but will eventualy fade) that each
+observation contains at least one HDU with the listed names, e.g.
 
 ========  ==========  ======================= 
 OBS_ID    HDUTYPE     HDUNAME	
@@ -96,6 +98,7 @@ OBS_ID    HDUTYPE     HDUNAME
 
 Future ideas
 ------------    
+
 + Not required columns are for future usage when downloading and syncing files with a server.
 + We keep in mind to incoorporate "CHUNK_ID" column to support splitting of runs into chunks.
 
