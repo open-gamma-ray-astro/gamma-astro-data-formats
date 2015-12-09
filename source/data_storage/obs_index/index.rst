@@ -15,6 +15,9 @@ commonly used for observation selection, grouping and analysis.
 
 Columns
 -------
+
+Required columns:
+
 + ``OBS_ID`` [int]: 
   Unique observation identifier (Run number)
 + ``RA_PNT`` [float, deg]: 
@@ -61,6 +64,9 @@ Columns
   + 0 = best quality, suitable for spectral analysis.
   + 1 = medium quality, suitable for detection, but not spectra (typically if the atmosphere was hazy).
   + 2 = bad quality, usually not to be used for analysis. 
+
+Optional columns:
+
 + ``EVENT_COUNT`` [int]: 
   Number of events in run
 + ``EVENT_RA_MEDIAN`` [float, deg]: 
@@ -75,27 +81,29 @@ Columns
   Last event time
 + ``BKG_SCALE`` [float]:
   Background scaling factor. (See notes below.)
-+ (``TRGRATE``) [float, Hz]: 
++ ``TRGRATE`` [float, Hz]: 
   Mean system trigger rate
-+ (``ZTRGRATE``) [float, Hz]: 
++ ``ZTRGRATE`` [float, Hz]: 
   Zenith averaged mean system trigger rate
-+ (``MUONEFF``) [float]: 
++ ``MUONEFF`` [float]: 
   Mean muon efficiency 
-+ (``BROKPIX``) [float]: 
++ ``BROKPIX`` [float]: 
   Percentage of broken pixels (0.15 means 15% broken pixels)
-+ (``MEANTEMP``) [float, deg C]: 
++ ``MEANTEMP`` [float, deg C]: 
   Mean temperature during run
-+ (``MEANPRES``) [float, hPa]: 
++ ``MEANPRES`` [float, hPa]: 
   Mean air pressure
-+ (``NSBLEVEL``) [float, a.u.] 
++ ``NSBLEVEL`` [float, a.u.] 
   Measure for NSB level
-+ (``RELHUM``) [float]: 
++ ``RELHUM`` [float]: 
   relative humidity
 
 Column names in brackets denote that this column is optional
 
 Notes:
 
+* This table doesn't require header keywords. We recommend FITS is used,
+  but it can be stored e.g. in CSV as well.
 * The exact definition of sky coordinates is given in :ref:`sky-coordinates`.
 * Observation runs where the telescopes don't point to a fixed RA / DEC position
   (e.g. drift scan runs) aren't supported at the moment by this format.
@@ -103,8 +111,7 @@ Notes:
   This is preferred over the use of mission elapsed time (MET),
   because MET requires a reference timepoint stored in header keywords
   ``MJDREFI`` and ``MJDREFF``, and we felt that having a simpler table
-  format here that doesn't require a header and can e.g. be stored as a
-  CSV table would be nice.
+  format here that doesn't require a header would be nice.
 * Purpose / definition of ``BKG_SCALE``:
   This factor comes e.g. from the analysis of off runs. The background
   normalisation usually dependends on between the number of events in a run, the
