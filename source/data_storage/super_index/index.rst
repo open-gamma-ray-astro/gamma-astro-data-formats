@@ -36,26 +36,43 @@ Proposal B
 
 The idea is to have an index file containing and listing the locations to all further hdu index files.
 
-The index file should be located under a certain environment variable, e.g.
-$IACT_FITS or $VHEFITS or similar. The file should have a certain name and
-contain all available index files for all available chains /recos etc. The user
-copies this file from the server. The Science tools that access this file just
-ignore chains/configs that are not present on the users' machine. Then the index
-file can also FITS (no need to introduce another file and data format). Since
+* Required filename: ``master.fits.gz``
+* Required HDU name: ``INDEX``
+
+The master index file should be located under a certain environment variable, e.g.
+$IACTFITS or $VHEFITS or similar. The file should contain all available index files inside $IACTFITS. The user
+copies this file from the server along with selected data. The Science tools that access this file just
+ignore chains/configs that are not present on the users' machine. The master index file is a FITS table 
+(no need to introduce another file and data format). Since
 all paths are relative to the environment variable, the user doesn't have to
 edit and maintain the master index file. The Science tools naturally will allow
 the analysis of a certain chain/config or not.
-The master index FITS file could look the following:
 
-===========  ==============================
-Column Name  Description
-===========  ==============================
-CHAIN        Analysis Chain/Framework
-FITSVER      Version of FITS exporter
-DSTVER       Version of DST processing
-CONFIG       Cut configuration
-OBSINDX      File name of observation index
-HDUINDX      File name of hdu index file
-===========  ==============================
+Required Columns
+-----------------
 
-The file names of "OBSINDX" and "HDUINDX" are relative to the above environment variable.
+* ``NAME`` type: string
+    * Unique name describing the present FITS production, e.g."hess-hap-hd-prod01-std_zeta_fullEnclosure". This keywords helps to circumvent the absolute need for a master index file which is still under development.
+* ``HDUINDEX`` type: string
+    * Location of corresponding hdu index file. This path should be relative to the location of the master index file
+* ``OBSINDEX`` type: string
+    * Location of corresponding observation index file. This path should be relative to the location of the master index file
+
+Optional Columns
+-----------------
+* ``TELESCOP`` type: string
+    * Telescope name
+* ``CHAIN`` type: string
+    * Analysis/reconstruction chain
+* ``FITSVER`` type: string
+    * Version of FITS production
+* ``DSTVER`` type: string   
+    * Version of DST/Data production
+* ``CONFIG`` type: string   
+    * Name of cut configuration
+
+
+Notes
+------
+
+* The paths to the files in "OBSINDX" and "HDUINDX" are relative to the above environment variable, i.e. relative to this master index file.

@@ -11,6 +11,7 @@ The HDU index table is stored in a FITS file as a BINTABLE HDU:
 The HDU index table can be used to locate HDUs. E.g. for a given ``OBS_ID`` and
 (``HDU_TYPE`` and / or ``HDU_CLASS``), the HDU can be located via the
 information in the ``FILE_DIR``, ``FILE_NAME`` and ``HDU_NAME`` columns.
+The path listed in ``FILE_DIR`` has to be relative to the location of the index file.
 
 TODO: discuss if we want to support a ``BASE_DIR`` header keyword, to allow the
 use case where ``FILE_DIR`` is not relative to the index file location (e.g. in
@@ -104,8 +105,3 @@ Future ideas
 
 .. _hdu-index-header:
 
-Header keywords
----------------
-
-* ``PRODNAME`` type: string
-    * Unique name describing the present FITS production, e.g."hess-hap-hd-prod01-std_zeta_fullEnclosure". This keywords helps to circumvent the absolute need for a master index file which is still under development.
