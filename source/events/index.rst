@@ -28,17 +28,14 @@ Required Column Names
 ---------------------
 
 * ``EVENT_ID`` type: int
-    * Number of event inside bunch (using ``OBS_ID``, ``BUNCH_ID`` and ``EVENT_ID`` one can build unique event identifiers across an experiment)
+    * Event identification number
+    * TODO: explain requirements or recommendations (unique per OBS_ID? Sorted? Ascending?) (using ``OBS_ID``, ``BUNCH_ID`` and ``EVENT_ID`` one can build unique event identifiers across an experiment)
 * ``TIME`` type: double, unit: s
     * Time stamp of event in MET
 * ``RA`` type: float, unit: deg
     * Event right ascension (see :ref:`sky-coordinates-radec`)
 * ``DEC`` type: float, unit: deg
     * Event declination (see :ref:`sky-coordinates-radec`)
-* ``DETX`` type: float, unit: deg
-    * X-coordinate in detector system (nominal system, see :ref:`sky-coordinates-radec`)   
-* ``DETY`` type: float, unit: deg
-    * Y-coordinate in detector system (nominal system, see :ref:`sky-coordinates-radec`)     
 * ``ENERGY`` type: float, unit: TeV
     * Reconstructed event energy
   
@@ -56,9 +53,15 @@ Optional Column Names
 * ``ENERGY_ERR`` type: float, unit: TeV
     * Error on reconstructed event energy
 * ``ALT`` type: float, unit: deg
-    * Altitude coordinate of event (horizon system, see :ref:`sky-coordinates-radec`)  
+    * Altitude coordinate of event (horizon system, see :ref:`sky-coordinates-altaz`)  
 * ``AZ`` type: float, unit: deg
-    * Azmuth coordinate of event (horizon system, see :ref:`sky-coordinates-radec`)  
+    * Azmuth coordinate of event (horizon system, see :ref:`sky-coordinates-altaz`)  
+* ``DETX`` type: float, unit: deg
+    * X-coordinate in detector system (nominal system, see :ref:`sky-coordinates-fov`)   
+* ``DETY`` type: float, unit: deg
+    * Y-coordinate in detector system (nominal system, see :ref:`sky-coordinates-fov`)     
+* ``THETA`` type: float, unit: deg
+    * Offset from the observation pointing position
 * ``COREX`` type: float, unit: m
     * Core position X of shower
 * ``COREY`` type: float, unit: m
