@@ -26,16 +26,11 @@ instrument-dependent studies and selections of particular observations.
 
 Required Column Names
 ---------------------
-* ``OBS_ID`` type: int
-    * Unique observation identifier (Run number)
-* ``BUNCH_ID`` type: int
-    * Number of bunch that contained the event
+
 * ``EVENT_ID`` type: int
     * Number of event inside bunch (using ``OBS_ID``, ``BUNCH_ID`` and ``EVENT_ID`` one can build unique event identifiers across an experiment)
 * ``TIME`` type: double, unit: s
     * Time stamp of event in MET
-* ``MULTIP`` type: int
-    * Telescope multiplicity. Number of telescopes that have seen the event
 * ``RA`` type: float, unit: deg
     * Event right ascension (see :ref:`sky-coordinates-radec`)
 * ``DEC`` type: float, unit: deg
@@ -50,7 +45,12 @@ Required Column Names
 
 Optional Column Names
 ---------------------
-
+* ``MULTIP`` type: int
+    * Telescope multiplicity. Number of telescopes that have seen the event
+* ``OBS_ID`` type: int
+    * Unique observation identifier (Run number)
+* ``BUNCH_ID`` type: int
+    * Number of bunch that contained the event
 * ``DIR_ERR`` type: float, unit: deg
     * Direction error of reconstruction 
 * ``ENERGY_ERR`` type: float, unit: TeV
