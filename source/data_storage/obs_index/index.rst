@@ -90,15 +90,15 @@ selection or data quality checks or analysis, but aren't needed for most users.
 * ``EVENT_TIME_MAX`` type: double, unit: s
     * Last event time
 * ``BKG_SCALE`` type: float
-    * Background scaling factor. See notes below.
+    * Observation-dependent background scaling factor. See notes below.
 * ``TRGRATE`` type: float, unit: Hz
     * Mean system trigger rate
 * ``ZTRGRATE`` type: float, unit: Hz
-    * Zenith averaged mean system trigger rate
-    * TODO: define what "zenithed averaged mean" means or remove this column.
+    * Zenith equivalent mean system trigger rate
+    * Some HESS chains export this at the moment and this quantity can be useful for data selection. Comparing values from different chains or other telescopes would require a more specific specification.
 * ``MUONEFF`` type: float
     * Mean muon efficiency
-    * TODO: define how muon efficiency is defined (it's very tricky to get a comparable number in HESS from HD and PA calibration)
+    * Currently use definitions from analysis chain, since creating a unified specification is tricky.
 * ``BROKPIX`` type: float
     * Fraction of broken pixels (0.15 means 15% broken pixels)
 * ``AIRTEMP`` type: float, unit: deg C
@@ -107,10 +107,10 @@ selection or data quality checks or analysis, but aren't needed for most users.
    * Mean air pressure at ground during the observation.
 * ``NSBLEVEL`` type: float, unit: a.u.
    * Measure for NSB level
-   * TODO: how is this defined? at least leave a comment if it doesn't have a clear definition and can only be used in one chain.
+   * Some HESS chains export this at the moment and this quantity can be useful for data selection. Comparing values from different chains or other telescopes would require a more specific specification.
 * ``RELHUM`` type: float
    * Relative humidity
-   * TODO: link to definition ... wikipedia?
+   * `Definition <https://en.wikipedia.org/wiki/Relative_humidity>`__
 
 .. _obs-index-notes:
 
@@ -131,14 +131,18 @@ Notes
   ``MJDREFI`` and ``MJDREFF``, and we felt that having a simpler table
   format here that doesn't require a header would be nice.
 * Purpose / definition of ``BKG_SCALE``:
+  For a 3D likelihood analysis a good estimate of the background is important. The run-by-run
+  varation of the background rate is ~20%. The main reasons are the changing atmospheric conditions.
+  This parameter allows to specify (from separate studies) a scaling factor to the `background model
+  <http://gamma-astro-data-formats.readthedocs.org/en/latest/irfs/background/index.html>`__
   This factor comes e.g. from the analysis of off runs. The background
-  normalisation usually dependends on between the number of events in a run, the
+  normalisation usually dependends on e.g. the number of events in a run, the
   zenith angle and other parameters. This parameter provides the possibility to
   give the user a better prediction of the background normalisation. For CTA
   this might be induced from atmospheric monitoring and additional diagnostic
   input. For HESS we try to find a trend in the off run background
   normalisations and other parameters such as number of events per unit
-  livetime. The Background scale should be around 1.0 if the background model is
+  livetime. The background scale should be around 1.0 if the background model is
   good. This number should also be set to 1.0 if no dependency analysis has been
-  performed. If the background model normalisation if off by a few orders of
-  magnitude for some reasons, this can be incorporated here.
+  performed. If the background model normalisation is off by a few orders of
+  magnitude for some reasons, this can also be incorporated here.
