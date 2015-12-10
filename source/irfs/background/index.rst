@@ -60,7 +60,7 @@ Columns:
       surface brightness models do.
 * ``THETA_LO``, ``THETA_HI`` (deg)
     * Field of view offset from the pointing position binning, see :ref:`sky-coordinates-fov`
-* ``ENERG_LO``, ``ENERGY_HI`` (TeV)
+* ``ENERG_LO``, ``ENERG_HI`` (TeV)
     * Energy binning, see TODO
 
 TODO: explain a bit about the THETA axis, i.e. that bins are usually
@@ -90,7 +90,7 @@ Columns:
       surface brightness models do.
 * ``DETX_LO``, ``DETX_HI``, ``DETY_LO``, ``DETY_HI`` (deg)
     * Field of view coordinates binning, see :ref:`sky-coordinates-fov`
-* ``ENERG_LO``, ``ENERGY_HI`` (TeV)
+* ``ENERG_LO``, ``ENERG_HI`` (TeV)
     * Energy binning, see TODO
 
 Header keywords:
