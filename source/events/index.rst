@@ -40,12 +40,21 @@ Required Column Names
     * Event right ascension (see :ref:`sky-coordinates-radec`)
 * ``DEC`` type: float, unit: deg
     * Event declination (see :ref:`sky-coordinates-radec`)
-* ``DIR_ERR`` type: float, unit: deg
-    * Direction error of reconstruction 
 * ``DETX`` type: float, unit: deg
     * X-coordinate in detector system (nominal system, see :ref:`sky-coordinates-radec`)   
 * ``DETY`` type: float, unit: deg
     * Y-coordinate in detector system (nominal system, see :ref:`sky-coordinates-radec`)     
+* ``ENERGY`` type: float, unit: TeV
+    * Reconstructed event energy
+  
+
+Optional Column Names
+---------------------
+
+* ``DIR_ERR`` type: float, unit: deg
+    * Direction error of reconstruction 
+* ``ENERGY_ERR`` type: float, unit: TeV
+    * Error on reconstructed event energy
 * ``ALT`` type: float, unit: deg
     * Altitude coordinate of event (horizon system, see :ref:`sky-coordinates-radec`)  
 * ``AZ`` type: float, unit: deg
@@ -60,14 +69,6 @@ Required Column Names
     * First interaction depth 
 * ``XMAX_ERR`` type: float, unit: radiation lengths
     * Error on first interaction depth 
-* ``ENERGY`` type: float, unit: TeV
-    * Reconstructed event energy
-* ``ENERGY_ERR`` type: float, unit: TeV
-    * Error on reconstructed event energy
-    
-Optional Column Names
----------------------
-
 * ``HIL_MSW`` type: float
     * Hillas mean scaled width
 * ``HIL_MSW_ERR`` type: float
@@ -85,8 +86,6 @@ Required Header keywords:
     * Unique observation identifier (Run number)
 * ``TELESCOP`` type: int
     * Telescope (e.g. 'HESS')
-* ``CREATOR`` type: string
-    * Software that created the file
 * ``TSTART`` type: float, unit: s
     * Start time of observation  [MET]
 * ``TSTOP`` type: float, unit: s
@@ -99,12 +98,6 @@ Required Header keywords:
     * Integer part of MJD time reference
 * ``MJDREFF`` type: float, unit: days
     * Float part of MJD time reference       
-* ``TIMESYS`` type: string
-    * Time system (currently 'TT')
-* ``TIMEREF`` type: string
-    * Time reference ('LOCAL')
-* ``TASSIGN`` type: string
-    * Place of time reference ('Namibia')
 * ``ONTIME`` type: float, unit: s
     * Total observation time (including dead time).
     * Equals ``TSTOP`` - ``TSTART``
@@ -127,21 +120,7 @@ Required Header keywords:
 * ``RA_OBJ`` type: float, unit: deg
     * Right ascension of ``OBJECT``
 * ``DEC_OBJ`` type: float, unit: deg
-    * Declination of ``OBJECT``
-* ``RADECSYS`` type: string
-    * Equatorial system type (e.g. 'FK5')
-* ``EQUINOX`` type: float
-    * Base equinox (e.g. 2000.)   
-* ``CONV_DEP`` type: float
-    * convergence depth (0 for parallel pointing)  
-* ``CONV_RA`` type: float, unit: deg
-    * Convergence Right Ascension    
-* ``CONV_DEC`` type: float, unit: deg
-    * Convergence Declination
-* ``OBS_MODE`` type: string
-    * Observation mode (e.g. wobble, survey, or any mode that is supported by ``TELESCOP``)    
-* ``OBSERVER`` type: string
-    * Name of observer (e.g. 'HESS'). This could be the PI of a proposal later on.              
+    * Declination of ``OBJECT``                
 * ``TELLIST`` type: string
     * Telescope IDs in observation (e.g. '1,2,3,4')   
 * ``N_TELS`` type: int
@@ -154,13 +133,27 @@ Required Header keywords:
     * Geographic latitude of array centre (e.g. -16.5 for HESS)
 * ``ALTITUDE`` type: float, unit: km
     * Altitude of array center above sea level (1.835 for HESS)
-* ``CREATED`` type: string
-    * Time when file was created: "YYYY-MM-DD HH:MM:SS"
 
 
 Optional header keywords
 ------------------------
 
+* ``OBSERVER`` type: string
+    * Name of observer (e.g. 'HESS'). This could be the PI of a proposal later on.
+* ``CREATOR`` type: string
+    * Software that created the file
+* ``CREATED`` type: string
+    * Time when file was created (UTC): "YYYY-MM-DD HH:MM:SS"
+* ``RADECSYS`` type: string
+    * Equatorial system type (e.g. 'FK5')
+* ``EQUINOX`` type: float
+    * Base equinox (e.g. 2000.) 
+* ``TIMESYS`` type: string
+    * Time system (currently 'TT')
+* ``TIMEREF`` type: string
+    * Time reference ('LOCAL')
+* ``TASSIGN`` type: string
+    * Place of time reference ('Namibia')
 * ``OBS_MODE`` type: string
     * Observation mode (e.g. wobble, survey, or any mode that is supported by ``TELESCOP``) 
 * ``DST_VER`` type: string
@@ -169,6 +162,12 @@ Optional header keywords
     * Reconstruction software version   
 * ``CAL_VER`` type: string
     * Calibration software version 
+* ``CONV_DEP`` type: float
+    * convergence depth (0 for parallel pointing)  
+* ``CONV_RA`` type: float, unit: deg
+    * Convergence Right Ascension    
+* ``CONV_DEC`` type: float, unit: deg
+    * Convergence Declination
 * ``TRGRATE`` type: float, unit: Hz
     * Mean system trigger rate
 * ``ZTRGRATE`` type: float, unit: Hz
