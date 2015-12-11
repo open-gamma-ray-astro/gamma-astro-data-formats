@@ -1,5 +1,7 @@
 .. include:: ../references.txt
 
+.. _iact_irfs:
+
 IACT IRFs
 =========
 
