@@ -3,76 +3,59 @@
 Master index file
 =================
 
-.. warning:: This format is under discussion. These are just some notes, we haven't converged yet.
+.. warning:: We are currently in a prototyping phase. This format is under development.
 
-
-Proposal A
-----------
-
-In H.E.S.S. we have FITS data for various analysis chains, FITS versions, DST versions and
-reco / cut configurations. I.e. for each observation, there are several versions of the events
-and IRF files for a given observation.
-
-We would like to have a master index file on the data server that lists what is available.
-A file in the same format would also be on the user's machine, listing what is available there.
-
-In Gammapy we have been prototyping this idea of having a master index configuration file:
-https://gammapy.readthedocs.org/en/latest/obs/dm.html#data-registry-config-file
-
-We already use the `~/.gammapy/data-registry.yaml` file to select which data to use as input
-from the `gammapy-spectrum` script and we'll have to think if end-user scripts should select data
-via this master index file, or via individual observation and HDU index files.
-
-The `YAML <https://en.wikipedia.org/wiki/YAML>`__ format is nice because it is human-readable
-and -editable as well as machine-readable (whereas FITS is not nice for manual editing,
-or leaving comments). We don't need scripts or tools to edit it (e.g. when we add a new
-"FITS prod" on the server or to adjust a PATH on the user's machine.
-
-The use cases and a proposed format for this file will be posted at a later point in time,
-we'd like to think about this some more and prototype it for a while.
-
-Proposal B
-----------
 
 The idea is to have an index file containing and listing the locations to all further hdu index files.
+To allow for human-readable and human-editable files, we use a ``JSON`` format here
 
-* Required filename: ``master.fits.gz``
-* Required HDU name: ``INDEX``
+* Required filename: ``master.json``
 
-The master index file should be located under a certain environment variable, e.g.
-$IACTFITS or $VHEFITS or similar. The file should contain all available index files inside $IACTFITS. The user
-copies this file from the server along with selected data. The Science tools that access this file just
-ignore chains/configs that are not present on the users' machine. The master index file is a FITS table 
-(no need to introduce another file and data format). Since
-all paths are relative to the environment variable, the user doesn't have to
-edit and maintain the master index file. The Science tools naturally will allow
-the analysis of a certain chain/config or not.
+The user copies this file from the server along with selected data. The Science tools that access this file just
+ignore chains/configs that are not present on the users' machine. Ideally, the Science tools provide the possibility
+to inspect the local master index file and print the users' options on the screen. Since all paths must be relative
+to the location of the master index file, the user doesn't have to edit and maintain the master index file. The 
+Science tools naturally will allow the analysis of a certain chain/config or not. Of course the user can always add 
+own FITS productions etc simply by hand (or locally change names of configs for convenience).
+The ``JSON`` table should contain an array named ``datasets``. Each dataset is specified by the following required keys:
 
-Required Columns
------------------
+Required keys
+-------------
+* ``name`` type: string
+    * Unique name describing the present FITS production, e.g."hess-hap-hd-prod01-std_zeta_fullEnclosure". 
+* ``hduindx`` type: string
+    * Location of corresponding hdu index file. This path must be relative to the location of the master index file
+* ``obsindx`` type: string
+    * Location of corresponding observation index file. This path must be relative to the location of the master index file
 
-* ``NAME`` type: string
-    * Unique name describing the present FITS production, e.g."hess-hap-hd-prod01-std_zeta_fullEnclosure". This keywords helps to circumvent the absolute need for a master index file which is still under development.
-* ``HDUINDEX`` type: string
-    * Location of corresponding hdu index file. This path should be relative to the location of the master index file
-* ``OBSINDEX`` type: string
-    * Location of corresponding observation index file. This path should be relative to the location of the master index file
+Of course any optional and additional information can be added, e.g. the telescope name, analysis chain, cut configuration, etc.
+The Science tools should be able to show these information to the user to simplify the choice for a preferred FITS production.
 
-Optional Columns
------------------
-* ``TELESCOP`` type: string
-    * Telescope name
-* ``CHAIN`` type: string
-    * Analysis/reconstruction chain
-* ``FITSVER`` type: string
-    * Version of FITS production
-* ``DSTVER`` type: string   
-    * Version of DST/Data production
-* ``CONFIG`` type: string   
-    * Name of cut configuration
+Here is an example of the master index file:
+
+.. code-block:: javascript
+
+   {
+       "datasets": [
+           {
+               "name": "fits-prod1-stdcuts",
+	       "obsindx": "relative/path/to/prod1-std/obs-index.fits.gz",
+               "hduindx": "relative/path/to/prod1-std/hdu-index.fits.gz"
+	       "comment": "First test version"
+	       "drawback": "Not all data available"
+           },
+           {
+	       "name": "fits-prod2-hardcuts",
+	       "obsindx": "relative/path/to/prod2-hard/obs-index.fits.gz",
+               "hduindx": "relative/path/to/prod2-hard/hdu-index.fits.gz"
+	       "recommendation:": "use for science publications"
+           }
+       ]
+   }
 
 
-Notes
-------
+Note that the keywords "comment", "drawback" and "recommendation" are arbitray and can be added from the user or maintainer of the master index file. The Science
+tools can display them for the user to get more details about each FITS dataset on the users' machine.
 
-* The paths to the files in "OBSINDX" and "HDUINDX" are relative to the above environment variable, i.e. relative to this master index file.
+
+
