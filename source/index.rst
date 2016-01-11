@@ -18,5 +18,6 @@ Table of contents
    events/index
    irfs/index
    data_storage/index
+   ogip/index
    source-models/index
    results/index

@@ -44,6 +44,7 @@ Specific IRFs
 .. toctree::
 
    effective_area/index
+   energy_dispersion/index
    psf_table/index
    psf-gtpsf/index
    background/index
