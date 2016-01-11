@@ -191,7 +191,7 @@ Optional header keywords
    * Relative humidity
    * TODO: link to definition ... wikipedia?
 
-
+.. _iact-gti:
 
 GTI extension
 -------------

@@ -17,12 +17,13 @@ units are different.
     * Offset angle from source position
 * ``THETA_LO``, ``THETA_HI`` -- 1D, unit: deg
     * Field of view offset axis
-* ``ENERG_LO`` and ``ENERG_HI`` -- 1D, unit: TeV
+* ``ENERG_LO``, ``ENERG_HI`` -- 1D, unit: TeV
     * Energy axis
 * ``RPSF`` -- 3D (deg^-2), shape = (len(RAD), len(THETA), len(ENERGY))
     * Probability density (probability per solid angle),
       see info on normalisation below.
     * Axis order: RAD, THETA, ENERGY
+
 
 Some comments:
 

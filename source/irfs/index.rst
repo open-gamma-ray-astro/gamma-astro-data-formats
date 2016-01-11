@@ -47,4 +47,6 @@ Specific IRFs
    energy_dispersion/index
    psf_table/index
    psf-gtpsf/index
+   psf_king
+   psf_triple_gauss
    background/index
