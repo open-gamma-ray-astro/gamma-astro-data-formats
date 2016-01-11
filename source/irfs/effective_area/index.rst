@@ -1,10 +1,11 @@
+.. include:: ../../references.txt
+
 .. _iact-aeff:
 
 Effective Area
 ==============
 
-The proposed effective area format follows mostly the `OGIP effective area
-format`_ document.
+The proposed effective area format follows mostly the `OGIP effective area format`_ document.
 
 For the moment, the format for the effective area works to satisfactory detail.
 Nevertheless, for instance the energy threshold variation across the FoV is not
@@ -26,8 +27,8 @@ corresponding to the effective area file is stored in two additional header.
 Another optional header keyword contains the theta squared cut that was applied
 in the case of a effective area generation for point-like sources.
 
-Required Column Names
----------------------
+Columns
++++++++
 
 * ``ENERG_LO`` type: float, unit: TeV
     * Lower energy bin edges 
@@ -43,12 +44,12 @@ Required Column Names
     * Matrix holding the effective area for a given reconstructed energy and offset.
     * TODO: Is this still up-to-date?
 
-Optional Column Names
----------------------
+Header keywords
++++++++++++++++
 
 * ``LO_THRES`` type: float, unit: TeV
     * Low energy threshold
-* ``HI_Thres`` type: float, unit: TeV
+* ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
 * ``RAD_MAX`` type: float, unit: deg
     * On region radius for point-like observations
