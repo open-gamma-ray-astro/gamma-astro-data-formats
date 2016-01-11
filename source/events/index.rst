@@ -228,11 +228,3 @@ TELARRAY extension
 ------------------
 
 To be defined
-
-    
-Disclaimer: About names of HDU and file structure
--------------------------------------------------
-
-For the moment, we require the HDUs ``EVENTS`` and ``GTI`` to be present in the same file to conduct a
-ctools analysis.
-   
