@@ -45,7 +45,7 @@ The values of following header keywords need some attention when using them for 
 
 ARF file
 --------
-The OGIP standard ARF file format is described `here <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_002/cal_gen_92_002.html#tth_sEc4>`__
+The OGIP standard ARF file format is described `here <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_002/cal_gen_92_002.html#tth_sEc4>`__.
 
 Additional header keyword that can be stored in the ARF header for :ref:`glossary-IACT` analysis are listed below. 
 
@@ -54,10 +54,12 @@ Additional header keyword that can be stored in the ARF header for :ref:`glossar
 * ``HI_THRES`` type: tbd, unit: TeV
     * High energy threshold of the analysis
 
+.. _ogip-rmf:
+
 RMF file
 --------
-The OGIP standard RMF file format is described `here <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_002/cal_gen_92_002.html#tth_sEc3.1>`__
+The OGIP standard RMF file format is described `here <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_002/cal_gen_92_002.html#tth_sEc3.1>`__.
 
-
+How an RMF file can be extracted from a IACT 2D energy dispersion file is explained in :ref:`iact-edisp`.
 
 

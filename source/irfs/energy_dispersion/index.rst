@@ -7,9 +7,25 @@ The energy dispersion information is stored in a FITS file with one required ext
 
 .. math::
 
-     \mu = \frac{e_{\mathrm{reco}}}{e_{\mathrm{true}}}
+     \mu = \frac{E_{\mathrm{reco}}}{E_{\mathrm{true}}}
 
-as a function of true energy and offset
+as a function of true energy and offset.
+
+For the purpose of some analysis, for example when extracting an :ref:`ogip-rmf`, it is necessary to calculate the detector response :math:`R(I,J)`, i.e. the probability to find an energy from within a given true energy bin *I* of width :math:`\Delta E_{\mathrm{true}}` within a certain reconstructed energy bin *J* of width :math:`\Delta E_{\mathrm{reco}}`. In order to do so, the following integration has to be performed (for a fixed offset). 
+
+.. math::
+
+    R(I,J) = \frac{ \int_{\Delta E_{\mathrm{true}}} R(I,E_{\mathrm{true}})\ d E_{\mathrm{true}}}{\Delta E_{\mathrm{true}}},
+
+where
+
+.. math::
+
+    R(I,E_{\mathrm{true}}) = \int_{\mu(\Delta E_{\mathrm{reco}})} \mathrm{PDF}(E_{\mathrm{true}}, \mu)\ d \mu
+
+is the probability to find a given true energy :math:`E_{\mathrm{true}}` in the reconstructed energy band *J*.
+
+
 
 
 ENERGY DISPERSION extension
@@ -34,3 +50,6 @@ Required Column Names
     * Energy migration upper bin edges
 * ``MATRIX`` type: float, dimensions: 3 
     * Matrix holding the probability for a given energy migration at a certain true energy and offset.
+
+.. _edisp_trafo:
+
