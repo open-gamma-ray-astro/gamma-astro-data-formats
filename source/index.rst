@@ -17,7 +17,7 @@ Table of contents
    info/index
    events/index
    irfs/index
-   xspec/index
    data_storage/index
+   xspec/index
    source-models/index
    results/index
