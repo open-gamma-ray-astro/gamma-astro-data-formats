@@ -34,6 +34,8 @@ where
 is the probability to find a given true energy :math:`E_{\mathrm{true}}` in the
 reconstructed energy band *J*.
 
+.. _edisp_2d:
+
 ``edisp_2d`` format
 -------------------
 
@@ -41,8 +43,8 @@ Valid names for the extension holding the energy dispersion are ``ENERGY
 DISPERSION`` and ``edisp_2d``. The energy dispersion information is saved as a
 :ref:`fits-arrays-bintable-hdu` with the following required columns.
 
-Required Column Names
----------------------
+Required columns
+++++++++++++++++
 
 * ``ETRUE_LO`` type: float, unit: TeV
     * Lower true energy bin edges 

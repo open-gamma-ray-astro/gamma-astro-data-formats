@@ -66,8 +66,8 @@ Valid ``HDU_CLASS`` values:
 
 * ``events`` - see format spec: :ref:`iact-events`
 * ``gti`` - see format spec: TODO
-* ``aeff_2d`` - see format spec: :ref:`iact-aeff`
-* ``edisp_2d`` - see format spec: TODO
+* ``aeff_2d`` - see format spec: :ref:`aeff_2d`
+* ``edisp_2d`` - see format spec: :ref:`edisp_2d`
 * ``psf_table`` - see format spec: :ref:`psf-table`
 * ``psf_3gauss`` - see format spec: :ref:`psf_3gauss`
 * ``psf_king`` - see format spec: :ref:`psf_king`

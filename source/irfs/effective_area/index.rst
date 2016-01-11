@@ -16,6 +16,8 @@ open source tools. We therefore keep the optional opportunity to add an
 individual extension listing the energy threshold varying across the FoV. This
 will likely be included in future releases.
 
+.. _aeff_2d:
+
 ``aeff_2d`` format
 ------------------
 
