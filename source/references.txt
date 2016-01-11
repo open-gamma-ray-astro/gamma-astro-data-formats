@@ -2,6 +2,7 @@
 .. _gtselect: http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/help/gtselect.txt
 .. _gtmktime: https://www.slac.stanford.edu/exp/glast/wb/prod/pages/sciTools_gtmktime/gtmktime_help.htm
 .. _ctselect: http://cta.irap.omp.eu/ctools/doc/ctselect.html
+.. _IAU SOFA: http://www.iausofa.org/
 .. _SOFA Time Scale and Calendar Tools: http://www.iausofa.org/2015_0209_C/sofa/sofa_ts_c.pdf
 .. _Time in Fermi data analysis: http://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Cicerone/Cicerone_Data/Time_in_ScienceTools.html
 .. _Times in Gammalib: http://cta.irap.omp.eu/gammalib-devel/user_manual/modules/obs.html#times-in-gammalib
@@ -13,4 +14,23 @@
 .. _Sherpa: http://cxc.harvard.edu/sherpa/
 .. _SESAME: http://cds.u-strasbg.fr/cgi-bin/Sesame
 .. _OGIP GTI standard: http://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/rates/ogip_93_003/ogip_93_003.html#tth_sEc6.3
+.. _OGIP effective area format: https://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_019/cal_gen_92_019.html
 .. _restructured text (RST): http://sphinx-doc.org/rest.html
+.. _Sphinx: http://sphinx-doc.org/index.html
+.. _Readthedocs: https://readthedocs.org
+.. _sphinx-rtd-local: http://docs.readthedocs.org/en/latest/theme.html#how-do-i-use-this-locally-and-on-read-the-docs
+.. _WCSLIB: http://www.atnf.csiro.au/people/mcalabre/WCS/
+.. _FITS WCS: http://fits.gsfc.nasa.gov/fits_wcs.html
+.. _FITS standard: http://adsabs.harvard.edu/abs/2010A%26A...524A..42P
+.. _astropy.coordinates: http://astropy.readthedocs.org/en/latest/coordinates/index.html
+.. _astropy-coordinates-see-also: http://astropy.readthedocs.org/en/latest/coordinates/index.html#see-also
+.. _astropy.coordinates.SkyCoord: http://astropy.readthedocs.org/en/latest/api/astropy.coordinates.SkyCoord.html
+.. _equatorial coordinate system: https://en.wikipedia.org/wiki/Equatorial_coordinate_system
+.. _Wikipedia - ICRS: https://en.wikipedia.org/wiki/International_Celestial_Reference_System
+.. _Galactic coordinate system: https://en.wikipedia.org/wiki/Galactic_coordinate_system
+.. _epoch: https://en.wikipedia.org/wiki/Epoch_(astronomy)
+.. _equinox: https://en.wikipedia.org/wiki/Equinox_(celestial_coordinates)
+.. _horizontal coordinate system: https://en.wikipedia.org/wiki/Horizontal_coordinate_system
+.. _astropy.coordinates.AltAz: http://astropy.readthedocs.org/en/latest/api/astropy.coordinates.AltAz.html
+.. _zenith: https://en.wikipedia.org/wiki/Zenith
+.. _1995A%26AS..113..159C: http://adsabs.harvard.edu/abs/1995A%26AS..113..159C

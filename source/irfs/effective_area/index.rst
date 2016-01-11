@@ -3,8 +3,8 @@
 Effective Area
 ==============
 
-The proposed effective area format follows mostly the
-`OGIP format for effective area files <https://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_019/cal_gen_92_019.html>`__
+The proposed effective area format follows mostly the `OGIP effective area
+format`_ document.
 
 For the moment, the format for the effective area works to satisfactory detail.
 Nevertheless, for instance the energy threshold variation across the FoV is not
@@ -50,6 +50,5 @@ Optional Column Names
     * Low energy threshold
 * ``HI_Thres`` type: float, unit: TeV
     * High energy threshold
-* ``THETASQ`` type: tbd, unit: deg?
-    * Theta squared cut for point-like observations
-      
+* ``RAD_MAX`` type: float, unit: deg
+    * On region radius for point-like observations

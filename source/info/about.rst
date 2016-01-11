@@ -28,14 +28,14 @@ How to contribute?
 ------------------
 
 The documentation is written in `restructured text (RST)`_ and rendered to HTML
-and PDF with `Sphinx <http://sphinx-doc.org/index.html>`__ and hosted at `Readthedocs <https://readthedocs.org/>`__.
+and PDF with `Sphinx`_ and hosted at `Readthedocs`_.
 
 Everyone can contribute by making a pull request with a change or addition
 to https://github.com/gammapy/gamma-astro-data-formats .
 
-We use the Sphinx Readthedocs theme as described
-`here <http://docs.readthedocs.org/en/latest/theme.html#how-do-i-use-this-locally-and-on-read-the-docs>`__,
-i.e. to build the HTML docs locally you have to `pip install sphinx_rtd_theme` before `make html`.
+We use the Sphinx Readthedocs theme as described `here <sphinx-rtd-local>`_,
+i.e. to build the HTML docs locally you have to ``pip install sphinx_rtd_theme``
+before ``make html``.
 
 References
 ----------
@@ -49,10 +49,3 @@ Existing HEASARC specs and recommendations:
 
 * https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/ofwg_recomm.html
 * http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/caldb_doc.html
-
-Other references:
-
-* https://gammapy.readthedocs.org/en/latest/dataformats/index.html
-* http://naima.readthedocs.org/en/latest/dataformat.html
-* http://docs.astropy.org/en/stable/modeling/
-* http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/source_models.html

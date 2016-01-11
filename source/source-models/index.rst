@@ -24,3 +24,8 @@ TODO: describe
 .. literalinclude:: spectral_models.yaml
     :language: yaml
     :linenos:
+
+Other references:
+
+* http://docs.astropy.org/en/stable/modeling/
+* http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/source_models.html

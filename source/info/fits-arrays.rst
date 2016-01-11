@@ -7,9 +7,8 @@ FITS Multidimensional datasets
 
 As described e.g. `here <http://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/general/ogip_94_006/ogip_94_006.html>`__
 or `here <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_003/cal_gen_92_003.html#tth_sEc4>`__
-or in the `FITS standard document <http://adsabs.harvard.edu/abs/2010A%26A...524A..42P>`__,
+or in the `FITS Standard`_,
 there are several ways to serialise multi-dimensional arrays and corresponding axis information in FITS files.
-
 
 Here we describe the schemes in use in gamma-ray astronomy and give examples.
 
@@ -43,8 +42,9 @@ Let's have a look at the header of the primary IMAGE HDU.
 
 As you can see, there's three axes.
 
-The first two are Galactic longitude and latitude and the pixel to sky coordinate mapping
-is specified by header keywords according to the `FITS WCS standard <http://fits.gsfc.nasa.gov/fits_wcs.html>`__.
+The first two are Galactic longitude and latitude and the pixel to sky
+coordinate mapping is specified by header keywords according to the `FITS WCS`_
+standard.
 
 I think the energy axis isn't a valid FITS WCS axis specification.
 ds9 uses the `C????3` keys to infer a WCS mapping of pixels to energies, but it is incorrect.
@@ -91,7 +91,6 @@ Software that's supposed to work with this axis needs to know to look at the `EN
     OBSERVER= 'MICHELSON'          /Instrument PI
     END
 
-
 .. _fits-arrays-bintable-hdu:
 
 BINTABLE HDU
@@ -99,7 +98,7 @@ BINTABLE HDU
 
 * Data array and axis information is stored in a BINTABLE HDU with one row.
 * This is called the "multidimensional array" convention in appendix B of
-  `1995A%26AS..113..159C <http://adsabs.harvard.edu/abs/1995A%26AS..113..159C>`__.
+  `1995A%26AS..113..159C`_.
 * The OGIP Calibration Memo CAL/GEN/92-003 has a section
   `use of multi-dimensional datasets <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_003/cal_gen_92_003.html#tth_sEc4>`__
   that describes this format in greater detail.
@@ -113,10 +112,10 @@ Example
 Let's look at an example file in this format, the :download:`aeff_P6_v1_diff_back.fits` which
 represents the Fermi-LAT effective area (an old version) as a function of energy and offset.
 
-It follows the `OGIP format for effective area files <https://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_019/cal_gen_92_019.html>`__.
+It follows the `OGIP effective area format`_.
 
-The data array and axis information are stored in one BINTABLE HDU called "EFFECTIVE AREA",
-with 5 columns and one row:
+The data array and axis information are stored in one BINTABLE HDU called
+"EFFECTIVE AREA", with 5 columns and one row:
 
 .. code-block:: bash
 
@@ -148,11 +147,11 @@ There five columns contain arrays of different length that represent:
 The part that's most difficult to understand / remember is how the relevant information
 is encoded in the BINTABLE FITS header.
 
-But note the `HDUDOC  = 'CAL/GEN/92-019'` key. If you Google `CAL/GEN/92-019` you will
-find that it points to the `OGIP format for effective area files <https://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_019/cal_gen_92_019.html>`__
+But note the ``HDUDOC  = 'CAL/GEN/92-019'`` key. If you Google `CAL/GEN/92-019` you will
+find that it points to the `OGIP effective area format`_ document.
 document, which explains in detail what all the other keys mean.
 
-There's some software (e.g. `fv`) that understands this way of encoding n-dimensional arrays
+There's some software (e.g. ``fv``) that understands this way of encoding n-dimensional arrays
 and axis information in FITS BINTABLEs.
 
 .. code-block:: bash
