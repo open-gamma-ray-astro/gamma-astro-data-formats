@@ -163,32 +163,54 @@ Here's a summary of how times are stored in files:
 Tools
 -----
 
-Here's a summary of how gamma-ray science tool codes handle times:
+Here's a summary of how gamma-ray science tool codes handle times.
 
-* The Fermi Science tools (e.g. `gtselect`_) support only Fermi-LAT MET for user
-  input / output (and probably also just use MET internally).
-  Some info on other time scales and formats is given on a docs
-  page at `Time in Fermi data analysis`_, converting to MET is left up to the user.
-  Note that no leap second table is in the code, i.e. MET -- UTC conversions are
-  not supported (one can use Astropy for this though).
-  
-  * TODO: Is this correct? How does the software store times internally?
-* The ctools (e.g. `ctselect`_) use MET for user input (the reference time is taken
-  from the event list header). Internally a time is represented as a ``GTime`` object,
-  which has a time scale (supports JD, MJD, TT, UTC, leap second table in the library code)
-  and supports different formats (including parsing ISO and ISOT strings).
-  Internally times are stored as 64-bit float METs wrt. a single reference time
-  defined by Gammalib. See `Times in Gammalib`_.
-  
-  * TODO: this means that TIME columns in event lists are
-    converted to that reference time on file read or attribute access?
-* As already mentioned above, the `Astropy time`_ package contains the ``Time``
-  class, which supports all common scales and formats.
-  Internally times are stored as two 64-bit floats.
+Fermi Science Tools
++++++++++++++++++++
 
-  * TODO: describe how MET values from event list ``TIME`` columns are converted
-    to that internal format on read / write in `Gammapy time`_.
-  * TODO: where do they store leap seconds / how are those updated?
+The Fermi Science tools (e.g. `gtselect`_) support only Fermi-LAT MET for user
+input / output (and probably also just use MET internally).
+Some info on other time scales and formats is given on a docs
+page at `Time in Fermi data analysis`_, converting to MET is left up to the user.
+Note that no leap second table is in the code, i.e. MET -- UTC conversions are
+not supported (one can use Astropy for this though).
+
+* TODO: Is this correct? How does the software store times internally?
+
+TODO: We should also document what time scales and formats are supported by the
+Fermi-LAT data selection tool:
+
+* http://fermi.gsfc.nasa.gov/cgi-bin/ssc/LAT/LATDataQuery.cgi
+* http://fermi.gsfc.nasa.gov/ssc/LATDataQuery_help.html#observationDates
+* http://fermi.gsfc.nasa.gov/ssc/LATDataQuery_help.html#timeSystem
+
+This is the equivalent of our :ref:`obs-index` format and observation selection
+tools and unless there's a good reason not to we should just adopt whatever
+Fermi-LAT does here.
+
+Gammalib / ctools
++++++++++++++++++
+
+The ctools (e.g. `ctselect`_) use MET for user input (the reference time is taken
+from the event list header). Internally a time is represented as a ``GTime`` object,
+which has a time scale (supports JD, MJD, TT, UTC, leap second table in the library code)
+and supports different formats (including parsing ISO and ISOT strings).
+Internally times are stored as 64-bit float METs wrt. a single reference time
+defined by Gammalib. See `Times in Gammalib`_.
+
+TODO: this means that TIME columns in event lists are
+converted to that reference time on file read or attribute access?
+
+Astropy / Gammapy
++++++++++++++++++
+
+As already mentioned above, the `Astropy time`_ package contains the ``Time``
+class, which supports all common scales and formats.
+Internally times are stored as two 64-bit floats.
+
+TODO: describe how MET values from event list ``TIME`` columns are converted
+to that internal format on read / write in `Gammapy time`_.
+TODO: where do they store leap seconds / how are those updated?
 
 Examples
 --------
