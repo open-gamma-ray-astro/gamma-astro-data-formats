@@ -3,10 +3,19 @@
 Energy Dispersion
 =================
 
+The energy dispersion information is stored in a FITS file with one required extensions (HDU). The stored quantity is a PDF for the **energy migration**
+
+.. math::
+
+     \mu = \frac{e_{\mathrm{reco}}}{e_{\mathrm{true}}}
+
+as a function of true energy and offset
+
+
 ENERGY DISPERSION extension
 ---------------------------
 
-Valid names for the extension holding the energy dispersion are ```ENERGY DISPERSION``` and ``EDISP_2D``. The energy dispersion information is saved as a FITS binary table with the following required columns.
+Valid names for the extension holding the energy dispersion are ``ENERGY DISPERSION`` and ``EDISP_2D``. The energy dispersion information is saved as a FITS binary table with the following required columns.
 
 Required Column Names
 ---------------------
@@ -24,4 +33,4 @@ Required Column Names
 * ``MIGRA_HI`` type: float
     * Energy migration upper bin edges
 * ``MATRIX`` type: float, dimensions: 3 
-    * Matrix holding the probability for a given energy migration
+    * Matrix holding the probability for a given energy migration at a certain true energy and offset.
