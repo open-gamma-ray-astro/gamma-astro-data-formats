@@ -74,30 +74,11 @@ Valid ``HDU_CLASS`` values:
 + ``bkg_2d`` - see format spec: :ref:`bkg-2d`
 + ``bkg_3d`` - see format spec: :ref:`bkg-3d`
 
-Disclaimer: About HDUNAME
--------------------------
-
-For the moment, we require the following HDU names to be present to conduct a
-ctools analysis:
-
-+ EVENTS
-+ EFFECTIVE AREA
-+ POINT SPREAD FUNCTION
-+ ENERGY DISPERSON
-+ BACKGROUND
-
-It is therefore currently required (but will eventualy fade) that each
-observation contains at least one HDU with the listed names, e.g.
-
-========  ==========  ======================= 
-OBS_ID    HDUTYPE     HDUNAME	
-========  ==========  ======================= 
-000001    "events"    "EVENTS"    
-000001    "aeff"      "EFFECTIVE AREA"       
-000001    "psf"       "POINT SPREAD FUNCTION"	 
-000001    "edisp"     "ENERGY DISPERSON"
-000001    "bkg"       "BACKGROUND"  
-========  ==========  ======================= 
+We recommend that HDU names are chosen to be identical to either the ``HDU_TYPE``
+or the ``HDU_CLASS`` names mentioned above. This is not a requirement, usually
+end users will access data via HDU index files and the HDU names don't matter.
+Or, if HDUs are accessed directly, the package or tool should be flexible to
+allow loading the HDU with any name.
 
 Future ideas
 ------------    
