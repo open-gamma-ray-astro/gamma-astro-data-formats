@@ -143,12 +143,12 @@ In detail the definition of field of view coordinates is tricky and still under 
 
 The main questions are:
 
-- How exactly are the field of view coordinates defined?
-- Is a projection (e.g. the FITS TAN aka gnomonic projection) involved or are they spherical coordinates?
+* How exactly are the field of view coordinates defined?
+* Is a projection (e.g. the FITS TAN aka gnomonic projection) involved or are they spherical coordinates?
   I.e. are they angles or lengths?
-- Are the field of view coordinate axes aligned with RA / DEC or ALT / AZ?
+* Are the field of view coordinate axes aligned with RA / DEC or ALT / AZ?
   (we probably need or at least want both for different applications / investigations, i.e. there are two field of view coordinates.)
-- How should this be stored in FITS (e.g. axis info or even WCS object in background cube models)
+* How should this be stored in FITS (e.g. axis info or even WCS object in background cube models)
 
 Here's some useful links about the TAN projection:
 

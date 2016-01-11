@@ -38,7 +38,6 @@ everywhere for our formats?):
 * Field of view coordinates ``DETX``, ``DETY`` or ``THETA``, ``PHI`` for offset and azimuth angle in the field of view.
 * Offset wrt. the source position should be called ``RAD`` (this is what the OGIP PSF formats use).
 
-
 Specific IRFs
 -------------
 

@@ -13,3 +13,4 @@
 .. _Sherpa: http://cxc.harvard.edu/sherpa/
 .. _SESAME: http://cds.u-strasbg.fr/cgi-bin/Sesame
 .. _OGIP GTI standard: http://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/rates/ogip_93_003/ogip_93_003.html#tth_sEc6.3
+.. _restructured text (RST): http://sphinx-doc.org/rest.html

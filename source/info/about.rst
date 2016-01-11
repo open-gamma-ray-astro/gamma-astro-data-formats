@@ -27,7 +27,7 @@ we encourage you to support the formats described here instead of inventing your
 How to contribute?
 ------------------
 
-The documentation is written in `restructured text (RST) <http://sphinx-doc.org/rest.html>`__ and rendered to HTML
+The documentation is written in `restructured text (RST)`_ and rendered to HTML
 and PDF with `Sphinx <http://sphinx-doc.org/index.html>`__ and hosted at `Readthedocs <https://readthedocs.org/>`__.
 
 Everyone can contribute by making a pull request with a change or addition

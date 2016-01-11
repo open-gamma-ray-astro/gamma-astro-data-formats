@@ -53,26 +53,26 @@ to do guesswork to infer the format on load.
 
 Valid ``HDU_TYPE`` values (others optional):
 
-+ ``events`` - Event list
-+ ``gti`` - Good time interval
-+ ``aeff`` - Effective area
-+ ``psf`` - Point spread function
-+ ``edisp`` - Energy dispersion
-+ ``bkg`` - Background
+* ``events`` - Event list
+* ``gti`` - Good time interval
+* ``aeff`` - Effective area
+* ``psf`` - Point spread function
+* ``edisp`` - Energy dispersion
+* ``bkg`` - Background
 
 (can be optional, e.g. if no bkg model is available another approach has to be used)
 
 Valid ``HDU_CLASS`` values:
 
-+ ``events`` - see format spec: :ref:`iact-events`
-+ ``gti`` - see format spec: TODO
-+ ``aeff_2d`` - see format spec: :ref:`iact-aeff`
-+ ``edisp_2d`` - see format spec: TODO
-+ ``psf_king`` - see format spec: TODO
-+ ``psf_3gauss`` - see format spec: TODO
-+ ``psf_table`` - see format spec: :ref:`psf-table`
-+ ``bkg_2d`` - see format spec: :ref:`bkg-2d`
-+ ``bkg_3d`` - see format spec: :ref:`bkg-3d`
+* ``events`` - see format spec: :ref:`iact-events`
+* ``gti`` - see format spec: TODO
+* ``aeff_2d`` - see format spec: :ref:`iact-aeff`
+* ``edisp_2d`` - see format spec: TODO
+* ``psf_king`` - see format spec: TODO
+* ``psf_3gauss`` - see format spec: TODO
+* ``psf_table`` - see format spec: :ref:`psf-table`
+* ``bkg_2d`` - see format spec: :ref:`bkg-2d`
+* ``bkg_3d`` - see format spec: :ref:`bkg-3d`
 
 We recommend that HDU names are chosen to be identical to either the ``HDU_TYPE``
 or the ``HDU_CLASS`` names mentioned above. This is not a requirement, usually
@@ -83,7 +83,7 @@ allow loading the HDU with any name.
 Future ideas
 ------------    
 
-+ Not required columns are for future usage when downloading and syncing files with a server.
-+ We keep in mind to incoorporate "CHUNK_ID" column to support splitting of runs into chunks.
+* Not required columns are for future usage when downloading and syncing files with a server.
+* We keep in mind to incoorporate "CHUNK_ID" column to support splitting of runs into chunks.
 
 .. _hdu-index-header:
