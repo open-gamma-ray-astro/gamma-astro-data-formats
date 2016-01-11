@@ -1,6 +1,6 @@
 .. include:: ../../references.txt
 
-.. _psf-king:
+.. _psf_king:
 
 psf_king format
 ===============
