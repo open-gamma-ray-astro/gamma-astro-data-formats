@@ -13,6 +13,8 @@ This format is almost identical to the `OGIP format for radial point spred funct
 The differences are that we don't have the dependency on azimuthal field of view position and the
 units are different.
 
+Columns:
+
 * ``RAD_LO``, ``RAD_HI`` -- 1D, unit: deg
     * Offset angle from source position
 * ``THETA_LO``, ``THETA_HI`` -- 1D, unit: deg
@@ -23,6 +25,8 @@ units are different.
     * Probability density (probability per solid angle),
       see info on normalisation below.
     * Axis order: RAD, THETA, ENERGY
+
+Header keywords: none
 
 Some comments:
 

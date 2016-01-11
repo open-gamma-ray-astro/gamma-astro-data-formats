@@ -29,8 +29,7 @@ corresponding to the effective area file is stored in two additional header.
 Another optional header keyword contains the theta squared cut that was applied
 in the case of a effective area generation for point-like sources.
 
-Columns
-+++++++
+Columns:
 
 * ``ENERG_LO`` type: float, unit: TeV
     * Lower energy bin edges 
@@ -46,8 +45,7 @@ Columns
     * Matrix holding the effective area for a given reconstructed energy and offset.
     * TODO: Is this still up-to-date?
 
-Header keywords
-+++++++++++++++
+Header keywords:
 
 * ``LO_THRES`` type: float, unit: TeV
     * Low energy threshold

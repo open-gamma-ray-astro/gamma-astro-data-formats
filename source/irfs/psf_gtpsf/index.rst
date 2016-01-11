@@ -15,4 +15,7 @@ The FITS file has the following BinTable HDUs / columns:
 * THETA HDU
     * Theta -- 1D (deg)
 
+Header keywords: none
+
+
 Example data file: :download:`psf-fermi.fits`

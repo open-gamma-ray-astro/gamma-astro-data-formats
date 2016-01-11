@@ -8,6 +8,8 @@
 In this format we store the gamma and sigma parameters resulting from a
 King-Function fit.
 
+Columns:
+
 * ``ENERG_LO``, ``ENERG_HI`` -- 1D, unit: TeV
     * Energy axis
 * ``THETA_LO``, ``THETA_HI`` -- 1D, unit: deg
@@ -15,8 +17,9 @@ King-Function fit.
 * ``GAMMA`` -- 1D, unit: none
     * gamma parameter of the King-Function 
 * ``SIGMA`` -- 1D, unit: deg
-    * sigma parameter of the King-Function 
+    * sigma parameter of the King-Function
 
+Header keywords: none
 
 King Formula:
 
