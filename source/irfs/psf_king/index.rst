@@ -5,8 +5,18 @@
 ``psf_king`` format
 ===================
 
-In this format we store the gamma and sigma parameters resulting from a
-King-Function fit.
+In this format we store the gamma :math:`\gamma` and sigma :math:`\sigma`
+parameters from a King function parametrisation:
+
+.. math::
+
+   P(r,\sigma,\gamma) =
+   \frac{1}{2\pi\sigma^2}
+   \left(1-\frac{1}{\gamma}\right)
+   \left(1+\frac{r^2}{2\gamma\sigma^2}\right)^{- \gamma}
+
+This formula integrates to 1.
+
 
 Columns:
 
@@ -20,15 +30,5 @@ Columns:
     * sigma parameter of the King-Function
 
 Header keywords: none
-
-King Formula:
-
-.. math::
-
-   P(r,\sigma,\gamma) = \frac{1}{2\pi\sigma^2}\left(1-\frac{1}{\gamma}\right)\left(1+\frac{r^2}{2\gamma\sigma^2}\right)^{- \gamma}
-
-
-This formula integrates to 1.
-
 
 Example data file: TODO: add HESS HAP example file as soon as available.
