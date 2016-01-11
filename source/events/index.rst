@@ -29,7 +29,8 @@ Required Column Names
 
 * ``EVENT_ID`` type: int
     * Event identification number
-    * TODO: explain requirements or recommendations (unique per OBS_ID? Sorted? Ascending?) (using ``OBS_ID``, ``BUNCH_ID`` and ``EVENT_ID`` one can build unique event identifiers across an experiment)
+    * TODO: explain requirements or recommendations (unique per OBS_ID? Sorted? Ascending?)
+      (using ``OBS_ID``, ``BUNCH_ID`` and ``EVENT_ID`` one can build unique event identifiers across an experiment)
 * ``TIME`` type: double, unit: s
     * Time stamp of event in MET
 * ``RA`` type: float, unit: deg
@@ -39,9 +40,9 @@ Required Column Names
 * ``ENERGY`` type: float, unit: TeV
     * Reconstructed event energy
 
-
 Optional Column Names
 ---------------------
+
 * ``MULTIP`` type: int
     * Telescope multiplicity. Number of telescopes that have seen the event
 * ``OBS_ID`` type: int
@@ -79,8 +80,7 @@ Optional Column Names
 * ``HIL_MSL`` type: float
     * Hillas mean scaled length
 * ``HIL_MSL_ERR`` type: float
-    * Hillas mean scaled length error      
-
+    * Hillas mean scaled length error
 
 Required Header keywords:
 -------------------------
@@ -136,7 +136,6 @@ Required Header keywords:
     * Geographic latitude of array centre (e.g. -16.5 for HESS)
 * ``ALTITUDE`` type: float, unit: km
     * Altitude of array center above sea level (1.835 for HESS)
-
 
 Optional header keywords
 ------------------------
@@ -197,8 +196,7 @@ GTI extension
 -------------
 
 Each event list file contains an extension to specify the good time intervals
-('GTIs'). A general description of GTIs can be found in the `OGIP standard
-<http://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/rates/ogip_93_003/ogip_93_003.html#tth_sEc6.3>`__.
+('GTIs'). A general description of GTIs can be found in the `OGIP GTI standard`_.
 This HDU contains two columns named START and STOP. At least one row is
 containing the start and end time of the observation must be present. The values
 are in units of seconds with respect to the reference time defined in the
@@ -211,22 +209,21 @@ GTIs to the files according to user parameter. See e.g. `gtmktime
 for an application example from the Fermi Science Tools. The column names and
 FITS header keywords are documented in the following, respectively. 
 
-GTI Column Names:
------------------
+GTI Column Names
+----------------
 
 * ``START`` type: double, unit: s
     * Start time of good time interval (observation)  [MET]
 * ``STOP`` type: double, unit: s
     * End time of good time interval (observation) [MET]
     
-GTI Header Keywords:
---------------------
+GTI Header Keywords
+-------------------
 
 * ``MJDREFI`` type: int, unit: days
     * Integer part of MJD time reference
 * ``MJDREFF`` type: float, unit: days
     * Float part of MJD time reference   
-
 
 TELARRAY extension
 ------------------

@@ -1,3 +1,5 @@
+.. include:: ../../references.txt
+
 .. _hdu-index:
 
 HDU index table
@@ -104,4 +106,3 @@ Future ideas
 + We keep in mind to incoorporate "CHUNK_ID" column to support splitting of runs into chunks.
 
 .. _hdu-index-header:
-

@@ -10,3 +10,5 @@
 .. _ISO 8601: https://en.wikipedia.org/wiki/ISO_8601
 .. _2015A%26A...574A..36R: http://adsabs.harvard.edu/abs/2015A%26A...574A..36R
 .. _Sherpa: http://cxc.harvard.edu/sherpa/
+.. _SESAME: http://cds.u-strasbg.fr/cgi-bin/Sesame
+.. _OGIP GTI standard: http://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/rates/ogip_93_003/ogip_93_003.html#tth_sEc6.3

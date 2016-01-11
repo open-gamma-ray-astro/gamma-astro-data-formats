@@ -1,3 +1,5 @@
+.. include:: ../../references.txt
+
 .. _obs-index:
 
 Observation index table
@@ -66,7 +68,7 @@ selection or data quality checks or analysis, but aren't needed for most users.
 * ``OBJECT`` type: string
     * Primary target of the observation
     * Recommendations:
-        * Use a name that can be resolved by `SESAME <http://cds.u-strasbg.fr/cgi-bin/Sesame>`__
+        * Use a name that can be resolved by `SESAME`_
         * For survey observations, use "survey".
         * For :ref:`glossary-obs-off`, use "off observation"
 * ``RA_OBJ`` type: float, unit: deg
@@ -138,8 +140,7 @@ Notes
 * Purpose / definition of ``BKG_SCALE``:
   For a 3D likelihood analysis a good estimate of the background is important. The run-by-run
   varation of the background rate is ~20%. The main reasons are the changing atmospheric conditions.
-  This parameter allows to specify (from separate studies) a scaling factor to the `background model
-  <http://gamma-astro-data-formats.readthedocs.org/en/latest/irfs/background/index.html>`__
+  This parameter allows to specify (from separate studies) a scaling factor to the :ref:`bkg`
   This factor comes e.g. from the analysis of off runs. The background
   normalisation usually dependends on e.g. the number of events in a run, the
   zenith angle and other parameters. This parameter provides the possibility to
