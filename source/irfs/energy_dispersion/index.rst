@@ -3,22 +3,25 @@
 Energy Dispersion
 =================
 
-The extension holding the energy dispersion is called ```ENERGY DISPERSION```. 
-The energy dispersion is saved as a BINTABLE with the following columns
-(:ref:`fits-arrays-bintable-hdu`)
+ENERGY DISPERSION extension
+---------------------------
 
-+--------------------+------------------------------------+-------------------+-------------+
-| Column Name        | Description                        | Unit              | FITS Type   |
-+====================+====================================+===================+=============+
-|   ENERG_LO         | Lower energy bin edges             | TeV               | TFLOAT      |
-+--------------------+------------------------------------+-------------------+-------------+
-|   ENERG_HI         | Upper energy bin edges             | TeV               | TFLOAT      |
-+--------------------+------------------------------------+-------------------+-------------+
-|   THETA_LO         | Lower offset bin edges             | deg               | TFLOAT      |
-+--------------------+------------------------------------+-------------------+-------------+
-|   THETA_HI         | Upper offset bin edges             | deg               | TFLOAT      |
-+--------------------+------------------------------------+-------------------+-------------+
-|   EFFAREA          | Effective Area (wrt true energy)   | m\ :math:`^{2}`   | TFLOAT      |
-+--------------------+------------------------------------+-------------------+-------------+
-|   EFFAREA_RECO     | Effective Area (wrt reco energy)   | m\ :math:`^{2}`   | TFLOAT      |
-+--------------------+------------------------------------+-------------------+-------------+
+Valid names for the extension holding the energy dispersion are ```ENERGY DISPERSION``` and ``EDISP_2D``. The energy dispersion information is saved as a FITS binary table with the following required columns.
+
+Required Column Names
+---------------------
+
+* ``ETRUE_LO`` type: float, unit: TeV
+    * Lower true energy bin edges 
+* ``ETRUE_HI`` type: float, unit: TeV
+    * Upper true energy bin edges 
+* ``THETA_LO`` type: float, unit: deg
+    * Lower offset bin edges
+* ``THETA_HI`` type: float, unit: deg
+    * Upper offset bin edges
+* ``MIGRA_LO`` type: float
+    * Energy migration lower bin edges
+* ``MIGRA_HI`` type: float
+    * Energy migration upper bin edges
+* ``MATRIX`` type: float, dimensions: 3 
+    * Matrix holding the probability for a given energy migration
