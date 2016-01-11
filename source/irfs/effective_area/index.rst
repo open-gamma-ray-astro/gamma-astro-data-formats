@@ -15,11 +15,11 @@ open source tools. We therefore keep the optional opportunity to add an
 individual extension listing the energy threshold varying across the FoV. This
 will likely be included in future releases.
 
-EFFECTIVE AREA extension
-------------------------
+``aeff_2d`` format
+------------------
 
 Valid names for the extension holding the effective area are ``EFFECTIVE AREA``
-and ``AEFF_2D``. The effective area information is saved as a
+and ``aeff_2d``. The effective area information is saved as a
 :ref:`fits-arrays-bintable-hdu` with required columns listed below. In addition
 to the standard header keywords the recommended energy range for the observation
 corresponding to the effective area file is stored in two additional header.

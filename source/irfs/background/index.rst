@@ -36,10 +36,10 @@ Here we specify two formats for such background template models:
     (e.g. effective area) and we didn't want to introduce a new top-level
     section besides IRFs.
 
-.. _bkg-2d:
+.. _bkg_2d:
 
-bkg_2d format
--------------
+``bkg_2d`` format
+-----------------
 
 The ``bkg_2d`` format contains a 2-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
@@ -68,10 +68,10 @@ chosen to have a constant solid angle per bin, i.e. with sqrt spacing.
 
 Example data file: TODO
 
-.. _bkg-3d:
+.. _bkg_3d:
 
-bkg_3d format
--------------
+``bkg_3d`` format
+-----------------
 
 The ``bkg_3d`` format contains a 3-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.

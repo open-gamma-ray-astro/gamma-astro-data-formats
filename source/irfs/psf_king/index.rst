@@ -2,8 +2,8 @@
 
 .. _psf_king:
 
-psf_king format
-===============
+``psf_king`` format
+===================
 
 In this format we store the gamma and sigma parameters resulting from a
 King-Function fit.

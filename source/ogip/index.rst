@@ -1,7 +1,9 @@
 .. include:: ../references.txt
 
-OGIP  1D data formats
-=====================
+.. _ogip:
+
+OGIP 1D spectrum data formats
+=============================
 
 The :ref:`iact-events` and 2D :ref:`iact-irfs` can be transformed into a 1D
 counts vector and 1D IRFs that can serve as input to general X-ray spectral
@@ -12,6 +14,8 @@ on :ref:`glossary-heasarc`.
 
 The following section only highlight differences and modifications made to the
 OGIP standard in order to meet the requirements of gamma-astronomy.
+
+.. _ogip-pha:
 
 PHA file
 --------
@@ -42,6 +46,8 @@ Additional header keyword that can be stored in the PHA header for
 * ``ZEN`` type: tbd, unit: deg
     * Zenith angle of the observation
 
+.. _ogip-bkg:
+
 BKG file
 --------
 
@@ -50,6 +56,8 @@ The values of following header keywords need some attention when using them for
 
 * ``BACKSCAL``
     * It is recommended to set the ``BACKSCAL`` keyword to :math:`1/\alpha` in the BKG file (see above)
+
+.. _ogip-arf:
 
 ARF file
 --------

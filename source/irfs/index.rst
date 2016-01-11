@@ -48,5 +48,5 @@ Specific IRFs
    psf_table/index
    psf_3gauss/index
    psf_king/index
-   psf-gtpsf/index
+   psf_gtpsf/index
    background/index

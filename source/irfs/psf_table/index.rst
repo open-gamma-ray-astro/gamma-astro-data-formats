@@ -2,8 +2,8 @@
 
 .. _psf-table:
 
-psf_table format
-================
+``psf_table`` format
+====================
 
 This is a PSF FITS format we agree on for IACTs.
 This file contains the offset- and energy-dependent table distribution of the PSF.

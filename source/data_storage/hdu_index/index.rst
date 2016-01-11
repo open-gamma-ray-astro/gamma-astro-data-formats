@@ -71,8 +71,9 @@ Valid ``HDU_CLASS`` values:
 * ``psf_table`` - see format spec: :ref:`psf-table`
 * ``psf_3gauss`` - see format spec: :ref:`psf_3gauss`
 * ``psf_king`` - see format spec: :ref:`psf_king`
-* ``bkg_2d`` - see format spec: :ref:`bkg-2d`
-* ``bkg_3d`` - see format spec: :ref:`bkg-3d`
+* ``psf_gtpsf`` -- see format spec: :ref:`psf_gtpsf`
+* ``bkg_2d`` - see format spec: :ref:`bkg_2d`
+* ``bkg_3d`` - see format spec: :ref:`bkg_3d`
 
 We recommend that HDU names are chosen to be identical to either the ``HDU_TYPE``
 or the ``HDU_CLASS`` names mentioned above. This is not a requirement, usually
