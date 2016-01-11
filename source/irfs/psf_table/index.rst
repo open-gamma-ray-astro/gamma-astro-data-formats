@@ -24,7 +24,6 @@ units are different.
       see info on normalisation below.
     * Axis order: RAD, THETA, ENERGY
 
-
 Some comments:
 
 * Usually the PSF is derived from Monte Carlo simulations, but in principle
@@ -32,7 +31,6 @@ Some comments:
 * Tools should assume the PSF is well-sampled and noise-free.
   I.e. if limited event statistics in the PSF computation is an issue,
   it is up to the PSF producer to denoise it to an acceptable level.
-
 
 Example data file: TODO: add HESS HAP example file as soon as available.
 

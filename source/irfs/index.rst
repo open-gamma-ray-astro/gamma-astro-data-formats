@@ -26,8 +26,9 @@ Here we specify the IRFs in use for IACT data.
 IRF axes
 --------
 
-Most IRFs are dependent on parameters, and the 1-dim. parameter arrays are stored
-in columns. The following names are recommended (TODO: are we consistent everywhere for our formats?):
+Most IRFs are dependent on parameters, and the 1-dim. parameter arrays are
+stored in columns. The following names are recommended (TODO: are we consistent
+everywhere for our formats?):
 
 * For energy grids, see `here <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_003/cal_gen_92_003.html#tth_sEc7>`__
   for basic recommendations. Column names should be ``ENERGY`` or ``ENERG_LO``, ``ENERG_HI``

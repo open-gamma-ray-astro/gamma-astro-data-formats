@@ -5,24 +5,24 @@
 IACT event lists
 ================
 
-Event lists are stored in FITS files with two required and one optional extensions (HDUs).
+Event lists are stored in FITS files with two required and one optional
+extensions (HDUs).
 
 * Suggested filename: ``events_OBS_ID.fits.gz``
 * Suggested HDU name events: ``EVENTS``
 * Suggested HDU name good time intervals: ``GTI``
 * Suggested HDU name telescope array: ``TELARRAY``
 
-
-
 EVENTS extension
 ----------------
 
-The first extension contains characteristic information about each event. Suggested extension name ``EVENTS``.
-These information are stored in a FITS binary table. The columns are listed below.
-In addition, a list of header keywords to be contained in each FITS event list is also documented.
-Many of the keywords are not necessarily required for an analysis.
-The information is, however, included as meta data in the event lists to enable
-instrument-dependent studies and selections of particular observations.
+The first extension contains characteristic information about each event.
+Suggested extension name ``EVENTS``. These information are stored in a FITS
+binary table. The columns are listed below. In addition, a list of header
+keywords to be contained in each FITS event list is also documented. Many of the
+keywords are not necessarily required for an analysis. The information is,
+however, included as meta data in the event lists to enable instrument-dependent
+studies and selections of particular observations.
 
 Required Column Names
 ---------------------
@@ -38,7 +38,7 @@ Required Column Names
     * Event declination (see :ref:`sky-coordinates-radec`)
 * ``ENERGY`` type: float, unit: TeV
     * Reconstructed event energy
-  
+
 
 Optional Column Names
 ---------------------
@@ -196,18 +196,20 @@ Optional header keywords
 GTI extension
 -------------
 
-Each event list file contains an extension to specify the good time intervals ('GTIs').
-A general description of GTIs can be found in the
-`OGIP standard <http://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/rates/ogip_93_003/ogip_93_003.html#tth_sEc6.3>`__.
-This HDU contains two columns named START and STOP.
-At least one row is containing the start and end time of the observation must be present.
-The values are in units of seconds with respect to the reference time defined in the
-associated header (keywords MJDREFI and MJDREFF).
-This extension allows for a detailed handling of good time intervals
-(i.e. excluding periods with cloud cover or lightning during one observation). Eventually, this extension could disappear from the required extensions. High-level
-Science tools could add the GTIs to the files according to user parameter. See e.g. `gtmktime
-<https://www.slac.stanford.edu/exp/glast/wb/prod/pages/sciTools_gtmktime/gtmktime_help.htm>`__ for an application example from the Fermi Science Tools.
-The column names and FITS header keywords are documented in the following, respectively. 
+Each event list file contains an extension to specify the good time intervals
+('GTIs'). A general description of GTIs can be found in the `OGIP standard
+<http://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/rates/ogip_93_003/ogip_93_003.html#tth_sEc6.3>`__.
+This HDU contains two columns named START and STOP. At least one row is
+containing the start and end time of the observation must be present. The values
+are in units of seconds with respect to the reference time defined in the
+associated header (keywords MJDREFI and MJDREFF). This extension allows for a
+detailed handling of good time intervals (i.e. excluding periods with cloud
+cover or lightning during one observation). Eventually, this extension could
+disappear from the required extensions. High-level Science tools could add the
+GTIs to the files according to user parameter. See e.g. `gtmktime
+<https://www.slac.stanford.edu/exp/glast/wb/prod/pages/sciTools_gtmktime/gtmktime_help.htm>`__
+for an application example from the Fermi Science Tools. The column names and
+FITS header keywords are documented in the following, respectively. 
 
 GTI Column Names:
 -----------------

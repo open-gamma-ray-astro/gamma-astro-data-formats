@@ -5,7 +5,8 @@
 psf_triple_gauss format
 ===============
 
-In this format we store the gamma and sigma parameters resulting from a King-Function fit.
+In this format we store the gamma and sigma parameters resulting from a
+King-Function fit.
 
 * ``ENERG_LO``, ``ENERG_HI`` -- 1D, unit: TeV
     * Energy axis
@@ -24,9 +25,9 @@ In this format we store the gamma and sigma parameters resulting from a King-Fun
 * ``SIGMA3`` -- 1D, unit: deg
     * sigma of the 3rd Gaussian
     
+.. note::
 
-Note:
-By setting the amplitudes of the 3rd (and 2nd) Gaussians to 0 one can implement double (or single) Gaussian models as well. 
+    By setting the amplitudes of the 3rd (and 2nd) Gaussians to 0 one can implement double (or single) Gaussian models as well. 
 
 
 Example data file: TODO: add HESS HAP example file as soon as available.

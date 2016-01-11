@@ -3,15 +3,23 @@
 Energy Dispersion
 =================
 
-The energy dispersion information is stored in a FITS file with one required extensions (HDU). The stored quantity is a PDF for the **energy migration**
+The energy dispersion information is stored in a FITS file with one required
+extensions (HDU). The stored quantity is a PDF for the **energy migration**
 
 .. math::
 
      \mu = \frac{E_{\mathrm{reco}}}{E_{\mathrm{true}}}
 
-as a function of true energy and offset. It should be normalized to unity. The migration range covered in the file must be large enough to make this possible (Suggestion: :math:`1/3 < \mu < 3`)
+as a function of true energy and offset. It should be normalized to unity. The
+migration range covered in the file must be large enough to make this possible
+(Suggestion: :math:`1/3 < \mu < 3`)
 
-For the purpose of some analysis, for example when extracting an :ref:`ogip-rmf`, it is necessary to calculate the detector response :math:`R(I,J)`, i.e. the probability to find an energy from within a given true energy bin *I* of width :math:`\Delta E_{\mathrm{true}}` within a certain reconstructed energy bin *J* of width :math:`\Delta E_{\mathrm{reco}}`. In order to do so, the following integration has to be performed (for a fixed offset). 
+For the purpose of some analysis, for example when extracting an
+:ref:`ogip-rmf`, it is necessary to calculate the detector response
+:math:`R(I,J)`, i.e. the probability to find an energy from within a given true
+energy bin *I* of width :math:`\Delta E_{\mathrm{true}}` within a certain
+reconstructed energy bin *J* of width :math:`\Delta E_{\mathrm{reco}}`. In order
+to do so, the following integration has to be performed (for a fixed offset). 
 
 .. math::
 
@@ -23,15 +31,15 @@ where
 
     R(I,E_{\mathrm{true}}) = \int_{\mu(\Delta E_{\mathrm{reco}})} \mathrm{PDF}(E_{\mathrm{true}}, \mu)\ d \mu
 
-is the probability to find a given true energy :math:`E_{\mathrm{true}}` in the reconstructed energy band *J*.
-
-
-
+is the probability to find a given true energy :math:`E_{\mathrm{true}}` in the
+reconstructed energy band *J*.
 
 ENERGY DISPERSION extension
 ---------------------------
 
-Valid names for the extension holding the energy dispersion are ``ENERGY DISPERSION`` and ``EDISP_2D``. The energy dispersion information is saved as a :ref:`fits-arrays-bintable-hdu` with the following required columns.
+Valid names for the extension holding the energy dispersion are ``ENERGY
+DISPERSION`` and ``EDISP_2D``. The energy dispersion information is saved as a
+:ref:`fits-arrays-bintable-hdu` with the following required columns.
 
 Required Column Names
 ---------------------
@@ -52,4 +60,3 @@ Required Column Names
     * Matrix holding the probability for a given energy migration at a certain true energy and offset.
 
 .. _edisp_trafo:
-

@@ -95,10 +95,13 @@ selection or data quality checks or analysis, but aren't needed for most users.
     * Mean system trigger rate
 * ``ZTRGRATE`` type: float, unit: Hz
     * Zenith equivalent mean system trigger rate
-    * Some HESS chains export this at the moment and this quantity can be useful for data selection. Comparing values from different chains or other telescopes would require a more specific specification.
+    * Some HESS chains export this at the moment and this quantity can be useful
+      for data selection. Comparing values from different chains or other
+      telescopes would require a more specific specification.
 * ``MUONEFF`` type: float
     * Mean muon efficiency
-    * Currently use definitions from analysis chain, since creating a unified specification is tricky.
+    * Currently use definitions from analysis chain, since creating a unified
+      specification is tricky.
 * ``BROKPIX`` type: float
     * Fraction of broken pixels (0.15 means 15% broken pixels)
 * ``AIRTEMP`` type: float, unit: deg C
@@ -107,7 +110,9 @@ selection or data quality checks or analysis, but aren't needed for most users.
    * Mean air pressure at ground during the observation.
 * ``NSBLEVEL`` type: float, unit: a.u.
    * Measure for NSB level
-   * Some HESS chains export this at the moment and this quantity can be useful for data selection. Comparing values from different chains or other telescopes would require a more specific specification.
+   * Some HESS chains export this at the moment and this quantity can be useful
+     for data selection. Comparing values from different chains or other
+     telescopes would require a more specific specification.
 * ``RELHUM`` type: float
    * Relative humidity
    * `Definition <https://en.wikipedia.org/wiki/Relative_humidity>`__

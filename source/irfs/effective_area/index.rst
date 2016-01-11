@@ -18,9 +18,13 @@ will likely be included in future releases.
 EFFECTIVE AREA extension
 ------------------------
 
-Valid names for the extension holding the effective area are ``EFFECTIVE AREA`` and ``AEFF_2D``. The effective area information is saved as a :ref:`fits-arrays-bintable-hdu` with required columns listed below. In addition to the standard header keywords the recommended energy range for the observation corresponding to the effective area
-file is stored in two additional header. Another optional header keyword contains the theta squared cut that was applied in the case of a effective area generation for point-like sources.
-
+Valid names for the extension holding the effective area are ``EFFECTIVE AREA``
+and ``AEFF_2D``. The effective area information is saved as a
+:ref:`fits-arrays-bintable-hdu` with required columns listed below. In addition
+to the standard header keywords the recommended energy range for the observation
+corresponding to the effective area file is stored in two additional header.
+Another optional header keyword contains the theta squared cut that was applied
+in the case of a effective area generation for point-like sources.
 
 Required Column Names
 ---------------------
