@@ -196,18 +196,17 @@ GTI extension
 -------------
 
 Each event list file contains an extension to specify the good time intervals
-('GTIs'). A general description of GTIs can be found in the `OGIP GTI standard`_.
-This HDU contains two columns named START and STOP. At least one row is
-containing the start and end time of the observation must be present. The values
-are in units of seconds with respect to the reference time defined in the
+('GTIs'). A general description of GTIs can be found in the `OGIP GTI
+standard`_. This HDU contains two columns named START and STOP. At least one row
+is containing the start and end time of the observation must be present. The
+values are in units of seconds with respect to the reference time defined in the
 associated header (keywords MJDREFI and MJDREFF). This extension allows for a
 detailed handling of good time intervals (i.e. excluding periods with cloud
 cover or lightning during one observation). Eventually, this extension could
 disappear from the required extensions. High-level Science tools could add the
-GTIs to the files according to user parameter. See e.g. `gtmktime
-<https://www.slac.stanford.edu/exp/glast/wb/prod/pages/sciTools_gtmktime/gtmktime_help.htm>`__
-for an application example from the Fermi Science Tools. The column names and
-FITS header keywords are documented in the following, respectively. 
+GTIs to the files according to user parameter. See e.g. `gtmktime`_ for an
+application example from the Fermi Science Tools. The column names and FITS
+header keywords are documented in the following, respectively.
 
 GTI Column Names
 ----------------
