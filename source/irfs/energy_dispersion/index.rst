@@ -15,7 +15,7 @@ as a function of true energy and offset
 ENERGY DISPERSION extension
 ---------------------------
 
-Valid names for the extension holding the energy dispersion are ``ENERGY DISPERSION`` and ``EDISP_2D``. The energy dispersion information is saved as a FITS binary table with the following required columns.
+Valid names for the extension holding the energy dispersion are ``ENERGY DISPERSION`` and ``EDISP_2D``. The energy dispersion information is saved as a :ref:`fits-arrays-bintable-hdu` with the following required columns.
 
 Required Column Names
 ---------------------
