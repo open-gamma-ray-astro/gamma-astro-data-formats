@@ -34,7 +34,7 @@ declination (DEC) in the `equatorial coordinate system`_.
 Actually there are several equatorial coordinate systems in use, the most common
 ones being FK4, FK5 and ICRS. If you're interested to learn more about these and
 other astronomical coordinate systems, the references `here
-<astropy-coordinates-see-also>`_ are a good starting point.
+<astropy-coordinates-see-also>`__ are a good starting point.
 
 But in practice it's pretty simple: when someone gives or talks about RA / DEC
 coordinates, they mean either ICRS or FK5 J2000 coordinates. The difference
