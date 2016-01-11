@@ -5,6 +5,14 @@
 Time
 ====
 
+This page gives background information on times in gamma-ray astronomy.
+
+It's not a format specification, rather a summary of the status quo:
+
+* How times are stored in files.
+* How times are represented in science tool codes
+* How times are input by users and output to users from these codes.
+
 .. _time-introduction:
 
 Introduction
@@ -125,50 +133,65 @@ with this function:
     >>> time_precision(10, 64)
     Time range: 10 years, float precision: 64 bit => time precision: 4.77e-07 seconds.
 
-.. _time-scales-formats:
-
-Times scales and formats
-------------------------
-
-For IACTs, we follow `Time in Fermi data analysis`_.
-
-The following sections give examples of the time scales and formats in use
-in high-level analysis files and for users interacting with analysis tools.
-
 .. _time-files:
 
 Files
-+++++
+-----
 
-This section gives examples how times are stored in files.
+Here's a summary of how times are stored in files:
 
-TODO: Give examples!
+* :ref:`iact-events`:
 
-* :ref:`iact-events`
-* GTI table and header
+  * Table column ``TIME``, ``float64``, MET
+  * Header keywords ``MJDREFI``, ``MJDREFF`` -- Reference time
+  * Header keywords ``TSTART``, ``TSTOP`` -- MET
+  * ``TSTART_STR``, ``TSTOP_STR`` -- UTC or TT str -> TIMESYS.
+  * ``TIMESYS``, ``TIMEREF`` -- need it?
+* :ref:`iact-gti`:
+
+  * Table columns: ``TSTART``, ``TSTOP``, MET
+  * Header keywords: ``MJDREFI``, ``MJDREFF`` -- Reference time
+
 * :ref:`obs-index`
 
-.. _time-user:
+  * Column ``TSTART``, ``TSTOP``, ``TMID`` -- float, MJD, days
+  * Column ``TSTART_STR``, ``TSTOP_STR``, ``TMID_STR`` -- UTC string
+  * No time-related header keywords.
 
-User input - output
-+++++++++++++++++++
+.. _time-tools:
 
-This section gives examples how times are input and output when users interact
-with science tools.
+Tools
+-----
 
-It looks like the Fermi Science tools only support Fermi-LAT MET as input / output
-and require the user to convert to anything else (JD, MJD, ISO, ISOT in TT or UTC scale)?
-See `gtselect`_.
+Here's a summary of how gamma-ray science tool codes handle times:
 
-TODO: Check what exactly the Fermi Science tools do. Give examples!
+* The Fermi Science tools (e.g. `gtselect`_) support only Fermi-LAT MET for user
+  input / output (and probably also just use MET internally).
+  Some info on other time scales and formats is given on a docs
+  page at `Time in Fermi data analysis`_, converting to MET is left up to the user.
+  Note that no leap second table is in the code, i.e. MET -- UTC conversions are
+  not supported (one can use Astropy for this though).
+  
+  * TODO: Is this correct? How does the software store times internally?
+* The ctools (e.g. `ctselect`_) use MET for user input (the reference time is taken
+  from the event list header). Internally a time is represented as a ``GTime`` object,
+  which has a time scale (supports JD, MJD, TT, UTC, leap second table in the library code)
+  and supports different formats (including parsing ISO and ISOT strings).
+  Internally times are stored as 64-bit float METs wrt. a single reference time
+  defined by Gammalib. See `Times in Gammalib`_.
+  
+  * TODO: this means that TIME columns in event lists are
+    converted to that reference time on file read or attribute access?
+* As already mentioned above, the `Astropy time`_ package contains the ``Time``
+  class, which supports all common scales and formats.
+  Internally times are stored as two 64-bit floats.
 
-* MET
-* JD, MJD
-* ISO, ISOT
-* When is TT used? When is UTC used?
+  * TODO: describe how MET values from event list ``TIME`` columns are converted
+    to that internal format on read / write in `Gammapy time`_.
+  * TODO: where do they store leap seconds / how are those updated?
 
-* Gammalib: http://cta.irap.omp.eu/gammalib-devel/user_manual/modules/obs.html#times-in-gammalib
-* Gammapy: http://gammapy.readthedocs.org/en/latest/time/#time-handling-in-gammapy
+Examples
+--------
 
-TODO: write a set of tests doing equivalent time computations using Gammalib and Astropy time
-(or possibly Gammapy wrappers where useful).
+TODO: write a set of tests doing equivalent time computations using Gammalib and
+Astropy time (or possibly Gammapy wrappers where useful).
