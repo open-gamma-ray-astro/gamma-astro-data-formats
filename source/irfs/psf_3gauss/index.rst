@@ -1,9 +1,9 @@
 .. include:: ../../references.txt
 
-.. _psf-triplegauss:
+.. _psf_3gauss:
 
-psf_triple_gauss format
-=======================
+psf_3gauss format
+=================
 
 In this format we store the gamma and sigma parameters resulting from a
 King-Function fit.
