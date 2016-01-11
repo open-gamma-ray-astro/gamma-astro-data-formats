@@ -24,6 +24,7 @@ units are different.
       see info on normalisation below.
     * Axis order: RAD, THETA, ENERGY
 
+
 Some comments:
 
 * Usually the PSF is derived from Monte Carlo simulations, but in principle
