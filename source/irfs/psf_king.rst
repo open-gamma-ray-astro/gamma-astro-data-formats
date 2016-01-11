@@ -20,7 +20,7 @@ In this format we store the gamma and sigma parameters resulting from a King-Fun
 King Formula:
 
 .. math::
-   P(r,\sigma,\gamma) = \left(a+b\right)
+   P(r,\sigma,\gamma) = \frac{1}{2}
 
 .. math::
 
