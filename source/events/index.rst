@@ -196,8 +196,8 @@ GTI extension
 -------------
 
 Each event list file contains an extension to specify the good time intervals
-('GTIs'). A general description of GTIs can be found in the `OGIP GTI
-standard`_. This HDU contains two columns named START and STOP. At least one row
+('GTIs'). A general description of GTIs can be found in the `OGIP GTI`_
+standard. This HDU contains two columns named START and STOP. At least one row
 is containing the start and end time of the observation must be present. The
 values are in units of seconds with respect to the reference time defined in the
 associated header (keywords MJDREFI and MJDREFF). This extension allows for a

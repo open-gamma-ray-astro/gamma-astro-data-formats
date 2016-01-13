@@ -13,8 +13,10 @@
 .. _2015A%26A...574A..36R: http://adsabs.harvard.edu/abs/2015A%26A...574A..36R
 .. _Sherpa: http://cxc.harvard.edu/sherpa/
 .. _SESAME: http://cds.u-strasbg.fr/cgi-bin/Sesame
-.. _OGIP GTI standard: http://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/rates/ogip_93_003/ogip_93_003.html#tth_sEc6.3
-.. _OGIP effective area format: https://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_019/cal_gen_92_019.html
+.. _OGIP GTI: http://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/rates/ogip_93_003/ogip_93_003.html#tth_sEc6.3
+.. _OGIP effective area: https://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_019/cal_gen_92_019.html
+.. _OGIP energy grid: http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_003/cal_gen_92_003.html#tth_sEc7
+.. _OGIP radial PSF: http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_020/cal_gen_92_020.html
 .. _restructured text (RST): http://sphinx-doc.org/rest.html
 .. _Sphinx: http://sphinx-doc.org/index.html
 .. _Readthedocs: https://readthedocs.org

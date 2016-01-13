@@ -112,7 +112,7 @@ Example
 Let's look at an example file in this format, the :download:`aeff_P6_v1_diff_back.fits` which
 represents the Fermi-LAT effective area (an old version) as a function of energy and offset.
 
-It follows the `OGIP effective area format`_.
+It follows the `OGIP effective area`_ format.
 
 The data array and axis information are stored in one BINTABLE HDU called
 "EFFECTIVE AREA", with 5 columns and one row:
@@ -148,7 +148,7 @@ The part that's most difficult to understand / remember is how the relevant info
 is encoded in the BINTABLE FITS header.
 
 But note the ``HDUDOC  = 'CAL/GEN/92-019'`` key. If you Google `CAL/GEN/92-019` you will
-find that it points to the `OGIP effective area format`_ document.
+find that it points to the `OGIP effective area`_ format document.
 document, which explains in detail what all the other keys mean.
 
 There's some software (e.g. ``fv``) that understands this way of encoding n-dimensional arrays

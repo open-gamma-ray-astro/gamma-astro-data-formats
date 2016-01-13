@@ -5,7 +5,7 @@
 Effective Area
 ==============
 
-The proposed effective area format follows mostly the `OGIP effective area format`_ document.
+The proposed effective area format follows mostly the `OGIP effective area`_ format document.
 
 For the moment, the format for the effective area works to satisfactory detail.
 Nevertheless, for instance the energy threshold variation across the FoV is not
