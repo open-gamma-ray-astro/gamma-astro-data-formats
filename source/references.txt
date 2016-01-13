@@ -34,3 +34,4 @@
 .. _astropy.coordinates.AltAz: http://astropy.readthedocs.org/en/latest/api/astropy.coordinates.AltAz.html
 .. _zenith: https://en.wikipedia.org/wiki/Zenith
 .. _1995A%26AS..113..159C: http://adsabs.harvard.edu/abs/1995A%26AS..113..159C
+.. _Wikipedia - PSF: https://en.wikipedia.org/wiki/Point_spread_function
