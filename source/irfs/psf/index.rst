@@ -24,7 +24,7 @@ Probability distributions
   This is the canonical form we use and the values we store in files.
 * Often, when comparing observered event distributions with a PSF model,
   the :math:`dP/dr^2` distributions in equal-width bins in :math:`r^2` is
-  used. The relation is :math:`d\Omega = \pi dr^2`, i.e. :math:`dP/dr^2=(1/\pi)(dP/d\Omega)`
+  used. The relation is :math:`d\Omega = \pi dr^2`, i.e. :math:`dP/dr^2=(1/\pi)(dP/d\Omega)`.
 * Sometimes, the distribution :math:`dP/dr(r)` is used.
   The relation is :math:`dP/dr = 2 \pi r dP/d\Omega`.
 
