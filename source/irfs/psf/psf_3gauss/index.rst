@@ -5,19 +5,38 @@
 ``psf_3gauss`` format
 =====================
 
-In this format we store the :math:`scale`, :math:`\sigma` and :math:`A`
-parameters from a triple-Gauss parametrisation:
+Multi-Gauss mixture models are a common way to model distributions
+(for source intensity profiles, PSFs, anything really), see e.g.
+`2013PASP..125..719H`_.
+For H.E.S.S., radial PSFs have been modeled as 1, 2 or 3 two-dimensional
+Gaussians :math:`dP/d\Omega`.
+
+.. note::
+
+    A two-dimensional Gaussian distribution :math:`dP/d\Omega = dP/(dx dy)` is
+    equivalent to an exponential distribution in :math:`dP/x`, where :math:`x=r^2`
+    and a Rayleigh distribution in :math:`dP/dr`.
+
+
+In this format, the triple-Gauss distribution is parameterised as follows:
 
 .. math::
 
-   dP/d\Omega(r,\sigma,\gamma) =
-   \frac{1}{2\pi\sigma^2}
-   \left(1-\frac{1}{\gamma}\right)
-   \left(1+\frac{r^2}{2\gamma\sigma^2}\right)^{- \gamma}
+    dP/d\Omega(r, S, \sigma_1, A_2, \sigma_2, A_3, \sigma_3) =
+     \frac{S}{\pi}
+     \left[
+        \exp\left(-\frac{r^2}{2\sigma_1^2}\right) + 
+        A_2 \exp\left(-\frac{r^2}{2\sigma_2^2}\right) +
+        A_3 \exp\left(-\frac{r^2}{2\sigma_3^2}\right)
+     \right],
 
+where :math:`S` is ``SCALE``, :math:`\sigma_i` is ``SIGMA_i`` and
+:math:`A_i` is ``AMPL_i`` (see columns listed below).
 
+TODO: give analytical formula for the integral, so that it's easy to check
+if the PSF is normalised for a given set of parameters.
 
-TODO: comment on normalisation
+TODO: give test case value and Python function for easy checking?
 
 .. note::
 
