@@ -39,12 +39,15 @@ The values of following header keywords need some attention when using them for
 Additional header keyword that can be stored in the PHA header for
 :ref:`glossary-IACT` analysis are listed below. 
 
-* ``OFFSET`` type: tbd, unit deg
+* ``OFFSET`` type: float, unit deg
     * Distance between observation position and target of a spectral analysis
-* ``MUONEFF`` type: tbd
+* ``MUONEFF`` type: float
     * Muon efficiency of the observation
-* ``ZEN`` type: tbd, unit: deg
+* ``ZENITH`` type: tbd, unit: deg
     * Zenith angle of the observation
+* ``ON-RAD`` type: float, unit deg
+    * Radius of the spectral extraction region
+    * Defines the spectral extraction region together with the standard keywords ``RA-OBJ`` and ``DEC-OBJ`` 
 
 .. _ogip-bkg:
 
