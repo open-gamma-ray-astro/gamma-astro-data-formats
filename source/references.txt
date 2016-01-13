@@ -35,3 +35,4 @@
 .. _zenith: https://en.wikipedia.org/wiki/Zenith
 .. _1995A%26AS..113..159C: http://adsabs.harvard.edu/abs/1995A%26AS..113..159C
 .. _Wikipedia - PSF: https://en.wikipedia.org/wiki/Point_spread_function
+.. _2013ApJ...765...54A: http://adsabs.harvard.edu/abs/2013ApJ...765...54A

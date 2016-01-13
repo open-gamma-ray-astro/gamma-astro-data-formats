@@ -5,18 +5,21 @@
 ``psf_king`` format
 ===================
 
-In this format we store the gamma :math:`\gamma` and sigma :math:`\sigma`
-parameters from a King function parametrisation:
+The King function parametrisations for PSFs has been in use in astronomy
+as an analytical PSF model for many instruments, for example
+by the Fermi-LAT (see `2013ApJ...765...54A`_).
+
+The distribution has to parameters gamma :math:`\gamma` and sigma :math:`\sigma`
+and is given by the following formula:
 
 .. math::
 
-   P(r,\sigma,\gamma) =
+   dP/d\Omega(r,\sigma,\gamma) =
    \frac{1}{2\pi\sigma^2}
    \left(1-\frac{1}{\gamma}\right)
    \left(1+\frac{r^2}{2\gamma\sigma^2}\right)^{- \gamma}
 
-This formula integrates to 1.
-
+This formula integrates to 1 (see :ref:`psf-intro`).
 
 Columns:
 

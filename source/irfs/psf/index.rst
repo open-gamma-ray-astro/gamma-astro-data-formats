@@ -5,33 +5,52 @@
 Point spread function
 =====================
 
+.. _psf-intro:
+
 Introduction
 ------------
 
 The point spread function (PSF) (`Wikipedia - PSF`_) represents the spatial probability
 distribution of reconstructed event positions for a point source.
+So far we're only considering radially symmetric PSFs here.
 
-So far we're only considering radially symmetric PSFs :math:`dP/d\Omega(r)`,
-where ...
+.. _psf-pdf:
 
+Probability distributions
++++++++++++++++++++++++++
 
+* :math:`dP/d\Omega(r)`, where :math:`dP` is the probability to find an event
+  in a solid angle :math:`d\Omega` at an offset :math:`r` from the point source.
+  This is the canonical form we use and the values we store in files.
+* Often, when comparing observered event distributions with a PSF model,
+  the :math:`dP/dr^2` distributions in equal-width bins in :math:`r^2` is
+  used. The relation is :math:`d\Omega = \pi dr^2`.
+* Sometimes, the distribution :math:`dP/dr(r)` is used.
+  The relation is :math:`dP/dr = 2 \pi r dP/d\Omega`.
 
-
-Radial PSF representations
---------------------------
-
-\begin{equation}
-\frac{dP}{d\theta^2}(\theta^2) = \sum_{i=1}^3 A_i \exp\left(-\frac{\theta^2}{2\sigma_i^2}\right),
-\end{equation}
-where $A_i$ and $\sigma_i$ are the weights and widths of the corresponding
+PSFs must be normalised to integrate to total probability 1, i.e.
 
 .. math::
 
-   P(r,\sigma,\gamma) =
-   \frac{1}{2\pi\sigma^2}
-   \left(1-\frac{1}{\gamma}\right)
-   \left(1+\frac{r^2}{2\gamma\sigma^2}\right)^{- \gamma}
+    \int_{0}^{\infty} 2 \pi r dP/dr(r) dr = 1, where dP/dr = 2 \pi r dP/d\Omega
 
+    
+This implies that the PSF producer is responsible for choosing the Theta
+range and normalising. I.e. it's OK to choose a theta range that contains
+only 95% of the PSF, and then the integral will be 0.95.
+
+We recommend everyone store PSFs so that truncation is completely negligible,
+i.e. the containment should be 99% or better for all of parameter space.
+
+
+Comments
+++++++++
+
+* Usually the PSF is derived from Monte Carlo simulations, but in principle
+  it can be estimated from bright point sources (AGN) as well.
+* Tools should assume the PSF is well-sampled and noise-free.
+  I.e. if limited event statistics in the PSF computation is an issue,
+  it is up to the PSF producer to denoise it to an acceptable level.
 
 
 PSF formats

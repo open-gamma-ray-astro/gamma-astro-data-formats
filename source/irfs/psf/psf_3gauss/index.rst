@@ -8,7 +8,14 @@
 In this format we store the :math:`scale`, :math:`\sigma` and :math:`A`
 parameters from a triple-Gauss parametrisation:
 
-TODO: copy formula over from HGPS paper.
+.. math::
+
+   dP/d\Omega(r,\sigma,\gamma) =
+   \frac{1}{2\pi\sigma^2}
+   \left(1-\frac{1}{\gamma}\right)
+   \left(1+\frac{r^2}{2\gamma\sigma^2}\right)^{- \gamma}
+
+
 
 TODO: comment on normalisation
 
