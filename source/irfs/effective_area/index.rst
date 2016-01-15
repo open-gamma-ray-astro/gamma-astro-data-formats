@@ -29,6 +29,8 @@ corresponding to the effective area file is stored in two additional header.
 Another optional header keyword contains the theta squared cut that was applied
 in the case of a effective area generation for point-like sources.
 
+An example file is provided  :download:`here <./aeff_2d_example.fits>`.
+
 Columns:
 
 * ``ENERG_LO`` type: float, unit: TeV
