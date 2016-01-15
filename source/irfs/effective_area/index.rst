@@ -47,6 +47,8 @@ Columns:
 
 Header keywords:
 
+* ``OBS_ID`` type: int
+    * Observation ID, run number
 * ``LO_THRES`` type: float, unit: TeV
     * Low energy threshold
 * ``HI_THRES`` type: float, unit: TeV
