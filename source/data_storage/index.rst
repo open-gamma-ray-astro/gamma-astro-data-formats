@@ -33,4 +33,4 @@ locations of the hdu index and observation index files.
 
 .. toctree::
 
-   super_index/index
+   master_index/index
