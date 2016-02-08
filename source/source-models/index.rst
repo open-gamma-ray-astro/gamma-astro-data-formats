@@ -1,3 +1,6 @@
+
+.. _source-models:
+
 Source Models
 =============
 
