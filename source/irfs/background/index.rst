@@ -67,9 +67,7 @@ Columns:
       effective area to obtain predicted counts, like gamma-ray flux and
       surface brightness models do.
 
-The ``BKG`` array is 2-dimensional:
-* Axis order: THETA, ENERGY
-* Shape: (len(THETA), len(ENERGY))
+Recommended axis order: ``ENERGY``, ``THETA``
 
 Example data file: TODO
 
@@ -98,9 +96,7 @@ Columns:
       effective area to obtain predicted counts, like gamma-ray flux and
       surface brightness models do.
 
-The ``BKG`` array is 3-dimensional:
-* Axis order: ENERGY, DETX, DETY
-* Shape: (len(ENERGY), len(DETX), len(DETY))
+Recommended axis order for ``BKG``: ``ENERGY``, ``DETX``, ``DETY``
 
 Header keywords:
 

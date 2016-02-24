@@ -32,9 +32,7 @@ Columns:
 * ``SIGMA`` -- ndim: 2, unit: deg
     * Model parameter (see formula above)
 
-The ``GAMMA`` and ``SIGMA`` arrays are 2-dimensional:
-* Axis order: THETA, ENERGY
-* Shape: (len(THETA), len(ENERGY))
+Recommended axis order: ``ENERGY``, ``THETA``
 
 Header keywords: none
 

@@ -52,18 +52,15 @@ Columns:
 * ``MATRIX`` type: float, dimensions: 3 
     * Matrix holding the probability for a given energy migration at a certain true energy and offset.
 
+* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
+    * Energy axis
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
 * ``MIGRA_LO``, ``MIGRA_HI`` -- ndim: 1, unit: dimensionless
     * Energy migration axis (defined above)
-* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
-    * Energy axis
 * ``MATRIX`` -- ndim: 3, unit: dimensionless
     * Energy dispersion :math:`dP/d\mu`, see formula above.
 
-The ``MATRIX`` array is three-dimensional:
-* Axis order: THETA, MIGRA, ENERGY
-* Shape: (len(THETA), len(MIGRA), len(ENERGY))
-
+Recommended axis order: ``ENERGY``, ``MIGRA``, ``THETA``
 
 Header keywords: none

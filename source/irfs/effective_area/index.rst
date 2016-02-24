@@ -35,9 +35,7 @@ Columns:
 * ``EFFAREA_RECO`` -- ndim: 2, unit: deg
     * Effective area value as a function of reco energy
 
-The ``EFFAREA`` and ``EFFAREA_RECO`` arrays are 2-dimensional:
-* Axis order: THETA, ENERGY
-* Shape: (len(THETA), len(ENERGY))
+Recommended axis order: ``ENERGY``, ``THETA``
 
 Header keywords:
 

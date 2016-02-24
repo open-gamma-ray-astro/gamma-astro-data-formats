@@ -56,10 +56,7 @@ Columns:
 * ``AMPL_2``, ``AMPL_3`` -- ndim: 2, unit: none
     * Model parameter (see formula above)
 
-The ``SCALE``, ``SIGMA_*`` and ``AMPL_*`` arrays are 2-dimensional:
-* Axis order: THETA, ENERGY
-* Shape: (len(THETA), len(ENERGY))
-
+Recommended axis order: ``ENERGY``, ``THETA``
 
 Header keywords: none
 

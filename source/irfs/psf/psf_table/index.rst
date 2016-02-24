@@ -23,8 +23,6 @@ Columns:
 * ``RPSF`` -- ndim: 3, unit: deg^-2
     * Point spread function value :math:`dP/d\Omega`, see :ref:`psf-pdf`.
 
-The ``RPSF`` array is three-dimensional:
-* Axis order: RAD, THETA, ENERGY
-* Shape: (len(RAD), len(THETA), len(ENERGY))
+Recommended axis order: ``RAD``, ``THETA``, ``ENERGY``.
 
 Header keywords: none

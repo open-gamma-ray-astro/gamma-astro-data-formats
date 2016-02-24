@@ -27,8 +27,7 @@ IRF axes
 --------
 
 Most IRFs are dependent on parameters, and the 1-dim. parameter arrays are
-stored in columns. The following names are recommended (TODO: are we consistent
-everywhere for our formats?):
+stored in columns. The following names are recommended:
 
 * For energy grids, see `here <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_003/cal_gen_92_003.html#tth_sEc7>`__
   for basic recommendations. Column names should be ``ENERGY`` or ``ENERG_LO``, ``ENERG_HI``
@@ -37,6 +36,11 @@ everywhere for our formats?):
 * Sky coordinates should be called ``RA``, ``DEC``, ``GLON``, ``GLAT``, ``ALT``, ``AZ``.
 * Field of view coordinates ``DETX``, ``DETY`` or ``THETA``, ``PHI`` for offset and azimuth angle in the field of view.
 * Offset wrt. the source position should be called ``RAD`` (this is what the OGIP PSF formats use).
+
+The IRF format specs mention a recommended axis format and axis units.
+But tools should not depend on this and instead:
+* Use the axis order specified by the ``CREF`` header keyword (see :ref:`fits-arrays-bintable-hdu`)
+* Use the axis unit specifiec by the ``CUNIT`` header keywords (see :ref:`fits-arrays-bintable-hdu`)
 
 Specific IRFs
 -------------
