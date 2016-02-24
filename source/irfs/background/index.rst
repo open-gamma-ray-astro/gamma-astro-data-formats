@@ -47,7 +47,7 @@ rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
 Header keywords:
 
 * ``HDU_CLASS = bkg_2d``
-* ``HDU_DOC = ???`` (TODO: https://github.com/gammapy/gamma-astro-data-formats/issues/10)
+* ``HDU_DOC = TODO``
 
 Columns:
 
@@ -101,6 +101,6 @@ Recommended axis order for ``BKG``: ``ENERGY``, ``DETX``, ``DETY``
 Header keywords:
 
 * ``HDU_CLASS = bkg_3d``
-* ``HDU_DOC = ???`` (TODO: https://github.com/gammapy/gamma-astro-data-formats/issues/10)
+* ``HDU_DOC = TODO``
 
 Example data file: TODO

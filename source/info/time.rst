@@ -209,7 +209,7 @@ class, which supports all common scales and formats.
 Internally times are stored as two 64-bit floats.
 
 TODO: describe how MET values from event list ``TIME`` columns are converted
-to that internal format on read / write in `Gammapy time`_.
+to that internal format on read / write in ``gammapy.time``.
 TODO: where do they store leap seconds / how are those updated?
 
 Examples

@@ -8,7 +8,6 @@
 .. _Times in Gammalib: http://cta.irap.omp.eu/gammalib-devel/user_manual/modules/obs.html#times-in-gammalib
 .. _xTime: https://heasarc.gsfc.nasa.gov/cgi-bin/Tools/xTime/xTime.pl
 .. _Astropy time: http://docs.astropy.org/en/latest/time/index.html
-.. _Gammapy time: http://gammapy.readthedocs.org/en/latest/time/
 .. _ISO 8601: https://en.wikipedia.org/wiki/ISO_8601
 .. _2015A%26A...574A..36R: http://adsabs.harvard.edu/abs/2015A%26A...574A..36R
 .. _Sherpa: http://cxc.harvard.edu/sherpa/
