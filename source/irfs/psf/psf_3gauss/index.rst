@@ -45,22 +45,21 @@ TODO: give test case value and Python function for easy checking?
 
 Columns:
 
-* ``ENERG_LO``, ``ENERG_HI`` -- 1D, unit: TeV
-    * Energy axis
-* ``THETA_LO``, ``THETA_HI`` -- 1D, unit: deg
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
-* ``SCALE`` -- 1D, unit: none
+* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
+    * Energy axis
+* ``SCALE`` -- ndim: 2, unit: none
     * Absolute scale of the 1st Gaussian
-* ``SIGMA_1`` -- 1D, unit: deg
-    * Sigma of the 1st Gaussian
-* ``AMPL_2`` -- 1D, unit: none
-    * Relative amplitude of the 2nd Gaussian with respect to the 1st Gaussian
-* ``SIGMA_2`` -- 1D, unit: deg
-    * Sigma of the 2nd Gaussian
-* ``AMPL_3`` -- 1D, unit: none
-    * Relative amplitude of the 3rd Gaussian with respect to the 1st Gaussian
-* ``SIGMA_3`` -- 1D, unit: deg
-    * Sigma of the 3rd Gaussian
+* ``SIGMA_1``, ``SIGMA_2``, ``SIGMA_3`` -- ndim: 2, unit: deg
+    * Model parameter (see formula above)
+* ``AMPL_2``, ``AMPL_3`` -- ndim: 2, unit: none
+    * Model parameter (see formula above)
+
+The ``SCALE``, ``SIGMA_*`` and ``AMPL_*`` arrays are 2-dimensional:
+* Axis order: THETA, ENERGY
+* Shape: (len(THETA), len(ENERGY))
+
 
 Header keywords: none
 

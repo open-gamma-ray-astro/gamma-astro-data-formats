@@ -44,25 +44,26 @@ reconstructed energy band *J*.
 ``edisp_2d`` format
 -------------------
 
-Valid names for the extension holding the energy dispersion are ``ENERGY
-DISPERSION`` and ``edisp_2d``. The energy dispersion information is saved as a
+The energy dispersion information is saved as a
 :ref:`fits-arrays-bintable-hdu` with the following required columns.
 
 Columns:
 
-* ``ETRUE_LO`` type: float, unit: TeV
-    * Lower true energy bin edges 
-* ``ETRUE_HI`` type: float, unit: TeV
-    * Upper true energy bin edges 
-* ``THETA_LO`` type: float, unit: deg
-    * Lower offset bin edges
-* ``THETA_HI`` type: float, unit: deg
-    * Upper offset bin edges
-* ``MIGRA_LO`` type: float
-    * Energy migration lower bin edges
-* ``MIGRA_HI`` type: float
-    * Energy migration upper bin edges
 * ``MATRIX`` type: float, dimensions: 3 
     * Matrix holding the probability for a given energy migration at a certain true energy and offset.
+
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
+    * Field of view offset axis
+* ``MIGRA_LO``, ``MIGRA_HI`` -- ndim: 1, unit: dimensionless
+    * Energy migration axis (defined above)
+* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
+    * Energy axis
+* ``MATRIX`` -- ndim: 3, unit: dimensionless
+    * Energy dispersion :math:`dP/d\mu`, see formula above.
+
+The ``MATRIX`` array is three-dimensional:
+* Axis order: THETA, MIGRA, ENERGY
+* Shape: (len(THETA), len(MIGRA), len(ENERGY))
+
 
 Header keywords: none

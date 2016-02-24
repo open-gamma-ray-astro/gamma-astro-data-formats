@@ -9,7 +9,7 @@ The King function parametrisations for PSFs has been in use in astronomy
 as an analytical PSF model for many instruments, for example
 by the Fermi-LAT (see `2013ApJ...765...54A`_).
 
-The distribution has to parameters gamma :math:`\gamma` and sigma :math:`\sigma`
+The distribution has two parameters ``GAMMA`` :math:`\gamma` and ``SIGMA`` :math:`\sigma`
 and is given by the following formula:
 
 .. math::
@@ -23,14 +23,18 @@ This formula integrates to 1 (see :ref:`psf-intro`).
 
 Columns:
 
-* ``ENERG_LO``, ``ENERG_HI`` -- 1D, unit: TeV
-    * Energy axis
-* ``THETA_LO``, ``THETA_HI`` -- 1D, unit: deg
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
-* ``GAMMA`` -- 1D, unit: none
-    * gamma parameter of the King-Function 
-* ``SIGMA`` -- 1D, unit: deg
-    * sigma parameter of the King-Function
+* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
+    * Energy axis
+* ``GAMMA`` -- ndim: 2, unit: none
+    * Model parameter (see formula above)
+* ``SIGMA`` -- ndim: 2, unit: deg
+    * Model parameter (see formula above)
+
+The ``GAMMA`` and ``SIGMA`` arrays are 2-dimensional:
+* Axis order: THETA, ENERGY
+* Shape: (len(THETA), len(ENERGY))
 
 Header keywords: none
 
