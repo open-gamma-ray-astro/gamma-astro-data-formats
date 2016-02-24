@@ -9,20 +9,20 @@ This is a PSF FITS format we agree on for IACTs.
 This file contains the offset- and energy-dependent table distribution of the PSF.
 
 This format is almost identical to the `OGIP radial PSF`_ format.
-
-The differences are that we don't have the dependency on azimuthal field of view position and the
-units are different.
+The differences are that we don't have the dependency on azimuthal field of
+view position and the units are different.
 
 Columns:
 
-* ``RAD_LO``, ``RAD_HI`` -- 1D, unit: deg
+* ``RAD_LO``, ``RAD_HI`` -- ndim: 1, unit: deg
     * Offset angle from source position
-* ``THETA_LO``, ``THETA_HI`` -- 1D, unit: deg
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
-* ``ENERG_LO``, ``ENERG_HI`` -- 1D, unit: TeV
+* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
     * Energy axis
-* ``RPSF`` -- 3D (deg^-2), shape = (len(RAD), len(THETA), len(ENERGY))
+* ``RPSF`` -- ndim: 3, unit: deg^-2
     * Point spread function value :math:`dP/d\Omega`, see :ref:`psf-pdf`.
-    * Axis order: RAD, THETA, ENERGY
+
+Recommended axis order: ``RAD``, ``THETA``, ``ENERGY``.
 
 Header keywords: none

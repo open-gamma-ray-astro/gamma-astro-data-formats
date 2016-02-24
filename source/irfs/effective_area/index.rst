@@ -21,33 +21,29 @@ will likely be included in future releases.
 ``aeff_2d`` format
 ------------------
 
-Valid names for the extension holding the effective area are ``EFFECTIVE AREA``
-and ``aeff_2d``. The effective area information is saved as a
-:ref:`fits-arrays-bintable-hdu` with required columns listed below. In addition
-to the standard header keywords the recommended energy range for the observation
-corresponding to the effective area file is stored in two additional header.
-Another optional header keyword contains the theta squared cut that was applied
-in the case of a effective area generation for point-like sources.
-
-An example file is provided  :download:`here <./aeff_2d_example.fits>`.
+The effective area information is saved as a :ref:`fits-arrays-bintable-hdu`
+with required columns listed below.
 
 Columns:
 
-* ``ENERG_LO`` type: float, unit: TeV
-    * Lower energy bin edges 
-* ``ENERG_HI`` type: float, unit: TeV
-    * Upper energy bin edges 
-* ``THETA_LO`` type: float, unit: deg
-    * Lower offset bin edges
-* ``THETA_HI`` type: float, unit: deg
-    * Upper offset bin edges
-* ``EFFAREA`` type: float, dimensions: 2
-    * Matrix holding the effective area for a given true energy and offset.
-* ``EFFAREA_RECO`` type: float, dimensions: 2
-    * Matrix holding the effective area for a given reconstructed energy and offset.
-    * TODO: Is this still up-to-date?
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
+    * Field of view offset axis
+* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
+    * Energy axis
+* ``EFFAREA`` -- ndim: 2, unit: none
+    * Effective area value as a function of true energy
+* ``EFFAREA_RECO`` -- ndim: 2, unit: deg
+    * Effective area value as a function of reco energy
+
+Recommended axis order: ``ENERGY``, ``THETA``
 
 Header keywords:
+
+In addition to the standard header keywords the recommended energy range for the
+observation corresponding to the effective area file is stored in two additional
+header keywords. Another optional header keyword contains the theta squared cut
+that was applied in the case of a effective area generation for point-like
+sources.
 
 * ``OBS_ID`` type: int
     * Observation ID, run number
@@ -57,3 +53,5 @@ Header keywords:
     * High energy threshold
 * ``RAD_MAX`` type: float, unit: deg
     * On region radius for point-like observations
+
+An example file is provided  :download:`here <./aeff_2d_example.fits>`.

@@ -51,20 +51,23 @@ Header keywords:
 
 Columns:
 
-* ``bkg`` unit: s^-1 MeV^-1 sr^-1
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
+    * Field of view offset axis
+    * Binning is often chosen with a square root scale,
+      so that each ``THETA`` bin has equal solid angle,
+      which means bins at the center of the field of view
+      have smaller width ``THETA_HI - THETA_LO``.
+* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
+    * Energy axis
+* ``BKG`` ndim: 2, unit: s^-1 MeV^-1 sr^-1
     * Absolute post-select background rate
       (expected background per time, energy and solid angle).
     * Note that this is not a "flux" or "surface brightness".
       This is already a count rate, it doesn't need to be multiplied with
       effective area to obtain predicted counts, like gamma-ray flux and
       surface brightness models do.
-* ``THETA_LO``, ``THETA_HI`` (deg)
-    * Field of view offset from the pointing position binning, see :ref:`sky-coordinates-fov`
-* ``ENERG_LO``, ``ENERG_HI`` (TeV)
-    * Energy binning, see TODO
 
-TODO: explain a bit about the THETA axis, i.e. that bins are usually
-chosen to have a constant solid angle per bin, i.e. with sqrt spacing.
+Recommended axis order: ``ENERGY``, ``THETA``
 
 Example data file: TODO
 
@@ -81,17 +84,19 @@ store energy in TeV?
 
 Columns:
 
-* ``bkg`` unit: s^-1 MeV^-1 sr^-1
+* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
+    * Energy axis
+* ``DETX_LO``, ``DETX_HI``, ``DETY_LO``, ``DETY_HI`` -- ndim: 1, unit: deg
+    * Field of view coordinates binning, see :ref:`sky-coordinates-fov`
+* ``BKG`` -- ndim: 3, unit: s^-1 MeV^-1 sr^-1
     * Absolute post-select background rate
       (expected background per time, energy and solid angle).
     * Note that this is not a "flux" or "surface brightness".
       This is already a count rate, it doesn't need to be multiplied with
       effective area to obtain predicted counts, like gamma-ray flux and
       surface brightness models do.
-* ``DETX_LO``, ``DETX_HI``, ``DETY_LO``, ``DETY_HI`` (deg)
-    * Field of view coordinates binning, see :ref:`sky-coordinates-fov`
-* ``ENERG_LO``, ``ENERG_HI`` (TeV)
-    * Energy binning, see TODO
+
+Recommended axis order for ``BKG``: ``ENERGY``, ``DETX``, ``DETY``
 
 Header keywords:
 
