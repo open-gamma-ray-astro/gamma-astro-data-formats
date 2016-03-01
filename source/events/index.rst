@@ -5,6 +5,8 @@
 IACT event lists
 ================
 
+This document describes IACT DL3 event lists.
+
 Event lists are stored in FITS files with two required and one optional
 extensions (HDUs).
 
@@ -24,13 +26,19 @@ keywords are not necessarily required for an analysis. The information is,
 however, included as meta data in the event lists to enable instrument-dependent
 studies and selections of particular observations.
 
-Required Column Names
----------------------
+Required columns
+----------------
 
 * ``EVENT_ID`` type: int
-    * Event identification number
-    * TODO: explain requirements or recommendations (unique per OBS_ID? Sorted? Ascending?)
-      (using ``OBS_ID``, ``BUNCH_ID`` and ``EVENT_ID`` one can build unique event identifiers across an experiment)
+    * Event identification number at the DL3 level
+      (lower data levels could be different, see note below).
+    * Required: The pair (``OBS_ID``, ```EVENT_ID``) must be globally unique
+      for all events from a given instrument.
+      (to be discussed ... it's not clear if CTA will have "runs" ``OBS_ID``)
+    * Required: ``EVENT_ID`` should increase monotonically with ``TIME``.
+      (to be discussed if this should be changed to a recommendation only)
+    * Required: event lists should be sorted by ``EVENT_ID`` and ``TIME``.
+      (to be discussed if this should be changed to a recommendation only)
 * ``TIME`` type: double, unit: s
     * Time stamp of event in MET
 * ``RA`` type: float, unit: deg
@@ -40,6 +48,39 @@ Required Column Names
 * ``ENERGY`` type: float, unit: TeV
     * Reconstructed event energy
 
+Notes on EVENT_ID
+-----------------
+
+This paragraph contains some explanatory notes concerning the requirements
+and recommendations on ``EVENT_ID``.
+
+Most analyses with high-level science tools don't need ``EVENT_ID`` information.
+But being able to uniquely identify every event is important, e.g. when
+comparing the high-level reconstructed event parameters (``RA``, ``DEC``,
+``ENERGY``) for different calibrations, reconstructions or gamma-hadron
+separations.
+
+Assigning a unique ``EVENT_ID`` during data taking can be difficult or
+impossible. E.g. in H.E.S.S. we have two numbers ``BUNCH_ID_HESS`` and
+``EVENT_ID_HESS`` that only together uniquely identify an event within a given
+run (i.e. ``OBS_ID``). Probably the scheme to uniquely identify events at the
+DL0 level for CTA will be even more complicated, because of the much larger
+number of telescopes and events.
+
+So given that data taking and event identification is different for every IACT
+at low data levels and is already fixed for existing IACTs, we propose here
+to have an ``EVENT_ID`` that is simpler and works the same for all IACTs at
+the DL3 level.
+
+As an example: for H.E.S.S. we achive this by using an INT64 for ``EVENT_ID``
+and to store ``EVENT_ID = (BUNCH_ID_HESS << 32) & (EVENT_ID_HESS)``, i.e.
+use the upper bits to contain the low-level bunch ID and the lower bits
+to contains the low-level event ID.
+This encoding is unique and reversible, i.e. it's easy to go back to
+``BUNCH_ID_HESS`` and ``EVENT_ID_HESS`` for a given ``EVENT_ID``,
+and to low-level checks (e.g. look at the shower images for a given event
+that behaves strangely in reconstructed high-level parameters).
+
 Optional Column Names
 ---------------------
 
@@ -47,8 +88,6 @@ Optional Column Names
     * Telescope multiplicity. Number of telescopes that have seen the event
 * ``OBS_ID`` type: int
     * Unique observation identifier (Run number)
-* ``BUNCH_ID`` type: int
-    * Number of bunch that contained the event
 * ``DIR_ERR`` type: float, unit: deg
     * Direction error of reconstruction 
 * ``ENERGY_ERR`` type: float, unit: TeV
