@@ -39,6 +39,7 @@ stored in columns. The following names are recommended:
 
 The IRF format specs mention a recommended axis format and axis units.
 But tools should not depend on this and instead:
+
 * Use the axis order specified by the ``CREF`` header keyword (see :ref:`fits-arrays-bintable-hdu`)
 * Use the axis unit specifiec by the ``CUNIT`` header keywords (see :ref:`fits-arrays-bintable-hdu`)
 
