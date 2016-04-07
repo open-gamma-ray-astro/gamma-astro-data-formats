@@ -7,7 +7,7 @@ IACT IRFs
 
 The instrument response function (IRF) formats currently in use
 for imaging atmospheric Cherenkov telescopes (IACTs) are stored in FITS
-binary tables using the "multidimentional array" convention (binary tables with a
+binary tables using the "multidimensional array" convention (binary tables with a
 single row and array columns) described at :ref:`fits-arrays-bintable-hdu`.
 
 This format has been used for calibration data and IRF of X-ray instruments,
@@ -41,7 +41,7 @@ The IRF format specs mention a recommended axis format and axis units.
 But tools should not depend on this and instead:
 
 * Use the axis order specified by the ``CREF`` header keyword (see :ref:`fits-arrays-bintable-hdu`)
-* Use the axis unit specifiec by the ``CUNIT`` header keywords (see :ref:`fits-arrays-bintable-hdu`)
+* Use the axis unit specified by the ``CUNIT`` header keywords (see :ref:`fits-arrays-bintable-hdu`)
 
 Specific IRFs
 -------------
