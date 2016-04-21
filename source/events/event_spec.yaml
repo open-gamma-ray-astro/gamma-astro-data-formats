@@ -1,0 +1,9 @@
+columns_required:
+  - name: EVENT_ID
+    type: int
+    extra1: "Event identification number at the DL3 level (lower data levels could be different, see note below)."
+    extra2: "Required: The pair (``OBS_ID``, ```EVENT_ID``) must be globally unique for all events from a given instrument. (to be discussed ... it's not clear if CTA will have 'runs' ``OBS_ID``)."
+    extra3: "Required: ``EVENT_ID`` should increase monotonically with ``TIME``. (to be discussed if this should be changed to a recommendation only)"
+    extra4: "Required: event lists should be sorted by ``EVENT_ID`` and ``TIME``. (to be discussed if this should be changed to a recommendation only)"
+
+
