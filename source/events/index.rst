@@ -25,6 +25,10 @@ keywords to be contained in each FITS event list is also documented. Many of the
 keywords are not necessarily required for an analysis. The information is,
 however, included as meta data in the event lists to enable instrument-dependent
 studies and selections of particular observations.
+Since GTIs are specific to the event list they must be stored in the same file as the event list.
+To ensure consistency, the event list header must contain a reference to the GTI extension. This reference
+is stored using DSS keywords (See `here <https://cta-redmine.irap.omp.eu/attachments/download/1822/SDS07.pdf>`__ (sect 1.13) and `here
+<https://cta-redmine.irap.omp.eu/attachments/download/1823/fits_standard30aa.pdf>`__).
 
 Required columns
 ----------------
@@ -176,6 +180,18 @@ Required Header keywords:
 * ``ALTITUDE`` type: float, unit: km
     * Altitude of array center above sea level (1.835 for HESS)
 
+Required header keywords to link GTI extension
+----------------------------------------------
+
+* ``DSTYP1`` type: string
+    * Type of DS keyword, should be "TIME"
+* ``DSUNI1`` type: string
+    * Unit of GTIs, should be "s"
+* ``DSVAL1`` type: string
+    * GTI type, should be "TABLE"
+* ``DSREF1`` type: string
+    * Name of GTI extension (starting with colon), should e.g. be ":GTI"
+
 Optional header keywords
 ------------------------
 
@@ -242,10 +258,11 @@ values are in units of seconds with respect to the reference time defined in the
 associated header (keywords MJDREFI and MJDREFF). This extension allows for a
 detailed handling of good time intervals (i.e. excluding periods with cloud
 cover or lightning during one observation). Eventually, this extension could
-disappear from the required extensions. High-level Science tools could add the
-GTIs to the files according to user parameter. See e.g. `gtmktime`_ for an
+disappear from the required extensions. High-level Science tools could update the
+GTIs in the files according to user parameter. See e.g. `gtmktime`_ for an
 application example from the Fermi Science Tools. The column names and FITS
-header keywords are documented in the following, respectively.
+header keywords are documented in the following, respectively. The GTIs should be linked
+from the corresponding event list.
 
 GTI Column Names
 ----------------
