@@ -1,7 +1,7 @@
 0|IMAGE    | PRIMARY | nypix X nypix | TS map of the region using the test source
 1|BINTABLE | SCANDATA  | nypix X nypix | Table with the data from the likelihood v. normalization scans
-2|BINTABLE | BASELINE | 1 ROW | Parameters and Covariences of Baseline fit
-3|BINTABLE | EBOUNDS  | nebins ROWS | Energy bin edges, fluxes and NPREDs for test source in each energy bin
+2|BINTABLE | BASELINE |  | Parameters and Covariences of Baseline fit
+3|BINTABLE | EBOUNDS  | nebins | Energy bin edges, fluxes and NPREDs for test source in each energy bin
 4|IMAGE    | TSMAP_OK | nypix X nypix | Fit status flags for fits at each PIXEL (across the entire energy range)
 5|IMAGE    | N_MAP | nypix X nypix | Normalization values for the test source for each PIXEL (across the entire energy range)
 6|IMAGE    | ERRP_MAP | nypix X nypix | Positive Error on Normalization of Test Source

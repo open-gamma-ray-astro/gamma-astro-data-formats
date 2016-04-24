@@ -8,7 +8,6 @@ Binned Likelihood Profiles
 This page describes formats for bin-by-bin likelihood profiles as
 currently used in some LAT analyses.  
 
-
 2D Binned Likelihood
 --------------------
 
@@ -16,8 +15,12 @@ The 2D binned likelihood is a representation of the profile likelihood
 for the normalization of a source vs. energy.  The 2D likelihood can
 be used in the same way as a traditional SED but has the advantage
 that it retains information about the shape of the likelihood function
-around the likelihood maximum.  The proposed format is a BINTABLE with
-the following columns:
+around the likelihood maximum.  In the following we use *nebins* to
+designate the number of energy bins and *nnorms* to designate the
+number of points in the normalization scan.  The proposed format is a
+BINTABLE with the following columns.  
+
+Columns:
 
 * ``E_MIN`` -- ndim: 1, unit: MeV
     * Dimension: nebins
@@ -44,9 +47,9 @@ the following columns:
 * ``NORM_ERRN`` -- ndim: 1, unit: None
     * Dimension: nebins
     * Negative error on the source normalization.
-* ``NORM_UL`` -- ndim: 1, unit: None
+* ``NORM_UL95`` -- ndim: 1, unit: None
     * Dimension: nebins
-    * Upper limit on the source normalization.            
+    * 95% C.L. upper limit on the source normalization.            
 * ``TS`` -- ndim: 1, unit: counts
     * Dimension: nebins
     * Source test statistic as a function of energy bin.
