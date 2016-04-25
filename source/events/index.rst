@@ -1,5 +1,8 @@
 .. include:: ../references.txt
 
+.. include:: events.rst
+.. include:: gti.rst
+
 IACT event lists
 ================
 
