@@ -13,3 +13,4 @@ extensions (HDUs):
 
    events
    gti
+   pointing

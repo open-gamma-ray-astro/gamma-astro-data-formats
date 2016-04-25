@@ -198,28 +198,10 @@ Mandatory header keywords
       Is comprised in [0,1]. Defined to be 0 if ``ONTIME=0``.
 * ``EVENT_CLASS`` type: int
     * Event class (the 'cut' that has been used, e.g. 'STD', 'HARD', 'SOFT')'.
-* ``RA_PNT`` type: float, unit: deg
-    * Observation pointing right ascension (see :ref:`sky-coordinates-radec`)
-      See also `HFWG Recommendation R3`_ for the OGIP standard.
-
-      .. note::
-         This keyword can be removed if a pointing table is added.
-* ``DEC_PNT`` type: float, unit: deg
-    * Observation pointing declination (see :ref:`sky-coordinates-radec`)
-      See also `HFWG Recommendation R3`_ for the OGIP standard.
-
-      .. note::
-         This keyword can be removed if a pointing table is added.
 
 
 Optional header keywords
 ------------------------
-
-.. warning::
-
-   This section needs review. It contains for the moment a long list of things
-   that may appear in an IACT DL3 file. This list could be separate into
-   keywords actually needed by H.E.S.S. and other keywords.
 
 * ``CREATED`` type: string
     * Time when file was created in ISO standard date representation
@@ -228,40 +210,6 @@ Optional header keywords
     * Right ascension of ``OBJECT``
 * ``DEC_OBJ`` type: float, unit: deg
     * Declination of ``OBJECT``                
-* ``ALT_PNT`` float, deg
-    * Observation pointing altitude at observation mid-time ``TMID``
-      (see :ref:`sky-coordinates-altaz`).
-
-      .. note::
-         This keyword can be removed if a pointing table is added.
-* ``AZ_PNT`` type: float, unit: deg
-    * Observation pointing azimuth at observation mid-time ``TMID``
-      (see :ref:`sky-coordinates-altaz`).
-
-      .. note::
-         This keyword can be removed if a pointing table is added.
-* ``GEOLON`` type: float, unit: deg
-    * Geographic longitude of array centre (e.g. -23.27 for HESS)     
-
-      .. note::
-         This keyword can be removed if a pointing table is added.
-         It should probably become a pointing table keyword.
-* ``GEOLAT`` type: float, unit: deg
-    * Geographic latitude of array centre (e.g. -16.5 for HESS)
-
-      .. note::
-         This keyword can be removed if a pointing table is added.
-         It should probably become a pointing table keyword.
-* ``ALTITUDE`` type: float, unit: m
-    * Altitude of array center above sea level (1835 for HESS)
-
-      .. note::
-         This keyword can be removed if a pointing table is added.
-         It should probably become a pointing table keyword.
-* ``TELLIST`` type: string
-    * Telescope IDs in observation (e.g. '1,2,3,4')   
-* ``N_TELS`` type: int
-    * Number of observing telescopes       
 
 .. warning::
    Keywords below seem to be pretty low-level and eventually instrument
@@ -269,6 +217,10 @@ Optional header keywords
    keywords should be made, or whether the definition should be left
    to the respective consortia.
 
+* ``TELLIST`` type: string
+    * Telescope IDs in observation (e.g. '1,2,3,4')   
+* ``N_TELS`` type: int
+    * Number of observing telescopes       
 * ``TASSIGN`` type: string
     * Place of time reference ('Namibia')
 * ``DST_VER`` type: string
