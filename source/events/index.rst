@@ -13,5 +13,5 @@ extensions (HDUs).
 * Suggested HDU name good time intervals: ``GTI``
 * Suggested optional HDU name telescope array: ``TELARRAY``
 
-.. include:: events.rst
-.. include:: gti.rst
+:ref:`iact_events`
+:ref:`iact_gti`
