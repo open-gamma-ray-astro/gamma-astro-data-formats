@@ -1,53 +1,78 @@
+.. include:: ../references.txt
+
 .. iact_events:
 
-EVENTS extension
-----------------
+``EVENTS`` extension
+====================
 
-The first extension is a binary FITS table that contains an event list.
+The ``EVENTS`` extension is a binary FITS table that contains an event list.
 Each row of the table provides information that characterises one event.
 The mandatory and optional columns of the table are listed below. In
 addition, a list of header keywords providing metadata is specified.
 Also here there are mandatory and optional keywords.
 The suggested extension name of the binary table is ``EVENTS``.
 
+
 Mandatory columns
 -----------------
 
-* ``EVENT_ID`` tform: ``1J``, unit: N.A.
+* ``EVENT_ID`` tform: ``1J``
     * Event identification number at the DL3 level
       (lower data levels could be different, see note below).
 * ``TIME`` tform: ``1D``, unit: s
-    * Time stamp of event in MET
+    * Time stamp of event in instrument specific MJD time reference. See the
+      header keywords ``MJDREFI`` and ``MJDREFF`` for the zero point of
+      the reference time.
+      See also the `OGIP event list`_ standard.
 * ``RA`` tform: ``1E``, unit: deg
-    * Reconstructed event Right Ascension (see :ref:`sky-coordinates-radec`)
+    * Reconstructed event Right Ascension (see :ref:`sky-coordinates-radec`).
+      See also `HFWG Recommendation R3`_ for the OGIP standard.
 * ``DEC`` tform: ``1E``, unit: deg
-    * Reconstructed event Declination (see :ref:`sky-coordinates-radec`)
+    * Reconstructed event Declination (see :ref:`sky-coordinates-radec`).
+      See also `HFWG Recommendation R3`_ for the OGIP standard.
 * ``ENERGY`` tform: ``1E``, unit: TeV
-    * Reconstructed event energy
+    * Reconstructed event energy.
+      See also the `OGIP event list`_ standard.
 * ``DETX`` tform: ``1E``, unit: deg
-    * Reconstructed event X-coordinate in detector system (nominal system, see :ref:`sky-coordinates-fov`) 
+    * Reconstructed event X-coordinate in detector system
+      (nominal system, see :ref:`sky-coordinates-fov`).
+      See also the `OGIP event list`_ standard.
 * ``DETY`` tform: ``1E``, unit: deg
-    * Reconstructed event Y-coordinate in detector system (nominal system, see :ref:`sky-coordinates-fov`)
+    * Reconstructed event Y-coordinate in detector system
+      (nominal system, see :ref:`sky-coordinates-fov`).
+      See also the `OGIP event list`_ standard.
+* ``EVENT_TYPE`` tform: ``32X``
+    * Event quality partition.
 
-Optional Column Names
----------------------
+      .. note::
+         It needs to be discussed whether this should be a mandatory column
+         or an optional column. The partition of events into quality classes
+         seems sufficiently fundamental so that all IACT should in principle
+         support this. For example event multiplicity could be translated
+         into quality partitions, and the IRFs computed accordingly.
 
-None of the following columns is required to be part of an IACT DL3 FITS file.
-Any software using these columns should first check whether the columns exist,
-and warn in case of their absence.
+
+Optional columns
+----------------
+
+.. note::
+   None of the following columns is required to be part of an ``EVENTS``
+   extension. Any software using these columns should first check whether the
+   columns exist, and warn in case of their absence.
 
 * ``ALT`` tform: ``1E``, unit: deg
-    * Reconstructed altitude coordinate of event (horizon system, see :ref:`sky-coordinates-altaz`)  
+    * Reconstructed altitude coordinate of event
+      (horizon system, see :ref:`sky-coordinates-altaz`)
 * ``AZ`` tform: ``1E``, unit: deg
-    * Reconstructed azimuth coordinate of event (horizon system, see :ref:`sky-coordinates-altaz`)  
+    * Reconstructed azimuth coordinate of event
+      (horizon system, see :ref:`sky-coordinates-altaz`)
 * ``THETA`` tform: ``1E``, unit: deg
     * Reconstructed offset from the observation pointing position
 * ``PHI`` tform: ``1E``, unit: deg
-    * Reconstructed position angle from the observation pointing position (position angles are counted counterclockwise from celestial North)
+    * Reconstructed position angle from the observation pointing position
+      (position angles are counted counterclockwise from celestial North)
 * ``MULTIP`` tform: ``1I``
     * Telescope multiplicity. Number of telescopes that have seen the event
-* ``OBS_ID`` tform: ``1I``
-    * Unique observation identifier (Run number)
 * ``DIR_ERR`` tform: ``1E``, unit: deg
     * Direction error of reconstruction 
 * ``ENERGY_ERR`` tform: ``1E``, unit: TeV
@@ -71,44 +96,71 @@ and warn in case of their absence.
 * ``HIL_MSL_ERR`` tform: ``1E``
     * Hillas mean scaled length error
 
-Mandatory Header keywords:
---------------------------
 
+Mandatory header keywords
+-------------------------
+
+* ``HDUCLASS`` type: string
+    * Signal conformance with HEASARC/OGIP conventions (option: 'OGIP').
+      For more information, refer to the `OGIP standard
+      <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/hduclas.html>`_.
+* ``HDUDOC`` type: string
+    * Reference to documentation where data format is documented.
+      For more information, refer to the `OGIP standard
+      <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/hduclas.html>`_.
+* ``HDUVERS`` type: string
+    * Version of the format (e.g. '1.0.0')
+      For more information, refer to the `OGIP standard
+      <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/hduclas.html>`_.
+* ``HDUCLAS1`` type: string
+    * Primary extension class (option: 'EVENTS').
+      For more information, refer to the `OGIP standard
+      <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/hduclas.html>`_.
+* ``HDUCLAS2`` type: string
+    * Secondary extension class (option: 'ACCEPTED').
+      For more information, refer to the `OGIP standard
+      <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/hduclas.html>`_.
 * ``ORIGIN`` type: string
     * Organisation that created the FITS file.
 * ``CREATOR`` type: string
-    * Software that created the file.
-      When appropriate, the value of the CREATOR keyword should also reference the specific
-      version of the program that created the FITS file.
-      It is intented that this keyword should refer to the program that originally defined the
-      FITS file structure and wrote the contents. If a FITS file is subsequently copied largely
-      intact into a new FITS by another program, then the value of the CREATOR keyword should
-      still refer to the original program. ``HISTORY`` keywords should be used instead to document
-      any further processing that is performed on the file after it is created.
+    * Software that created the file. When appropriate, the value of the
+      ``CREATOR`` keyword should also reference the specific version of the
+      program that created the FITS file. It is intented that this keyword
+      should refer to the program that originally defined the FITS file
+      structure and wrote the contents. If a FITS file is subsequently
+      copied largely intact into a new FITS by another program, then the value
+      of the ``CREATOR`` keyword should still refer to the original program.
+      ``HISTORY`` keywords should be used instead to document any further
+      processing that is performed on the file after it is created.
+      For more reading on the OGIP standard, see
+      `here <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/r7.html>`_.
 * ``TELESCOP`` type: string
     * Telescope (e.g. 'CTA', 'HESS', 'VERITAS', 'MAGIC')
 * ``INSTRUME`` type: string
-    * Instrument used to aquire the data contained in the file (e.g. 'North', 'South')
+    * Instrument used to aquire the data contained in the file
+      (e.g. 'North', 'South')
 * ``OBSERVER`` type: string
-    * Name of observer (e.g. 'Joe Public'). This could be the PI of a proposal later on.
+    * Name of observer (e.g. 'Joe Public'). This could be for example the PI
+      of a proposal.
 * ``OBJECT`` type: string
     * Observed object (e.g. 'Crab')
 * ``OBS_MODE`` type: string
-    * Observation mode (e.g. 'Wobble', 'Scan', 'Slew', or any mode that is supported by ``TELESCOP``) 
+    * Observation mode (e.g. 'WOBBLE', 'SCAN', 'SLEW', or any mode that is
+      supported by ``TELESCOP``; string should be upper case)
 * ``OBS_ID`` type: int
     * Unique observation identifier (Run number)
-* ``DATE_OBS`` type: string
-    * Start date of observation in UTC string format: "YYYY-MM-DD"
-* ``TIME_OBS`` type: string
-    * Start time of observation in UTC string format: "HH:MM:SS"
-* ``DATE_END`` type: string
-    * End date of observation in UTC string format: "YYYY-MM-DD"
-* ``TIME_END`` type: string
-    * End time of observation in UTC string format: "HH:MM:SS"
+* ``DATE-OBS`` type: string
+    * Start date of observation in ISO standard date representation
+      "ccyy-mm-ddThh:mm:ss" (UTC)
+* ``DATE-END`` type: string
+    * End date of observation in ISO standard date representation
+      "ccyy-mm-ddThh:mm:ss" (UTC)
 * ``TSTART`` type: float, unit: s
-    * Start time of observation (given in instrument specific time reference, see below)
+    * Start time of observation
+      (given in instrument specific time reference, see below)
 * ``TSTOP`` type: float, unit: s
-    * End time of observation (given in instrument specific time reference, see below)
+    * End time of observation
+      (given in instrument specific time reference, see below)
 * ``MJDREFI`` type: int, unit: days
     * Integer part of instrument specific MJD time reference
 * ``MJDREFF`` type: float, unit: days
@@ -120,56 +172,103 @@ Mandatory Header keywords:
 * ``TIMEREF`` type: string
     * Time reference frame, used for example for barycentric corrections
       (options: 'LOCAL', 'SOLARSYSTEM', 'HELIOCENTRIC', 'GEOCENTRIC')
+* ``EQUINOX`` type: float
+    * Equinox in years for the celestial coordinate system in which positions
+      given in either the header or data are expressed (options: 2000.0).
+      See also `HFWG Recommendation R3`_ for the OGIP standard.
+* ``RADECSYS`` type: string
+    * Stellar reference frame used for the celestial coordinate system in
+      which positions given in either the header or data are expressed.
+      (options: 'ICRS', 'FK5').
+      See also `HFWG Recommendation R3`_ for the OGIP standard.
 * ``TELAPSE`` type: float, unit: s
     * Time interval between start and stop time (``TELAPSE=TSTOP-TSTART``).
-      Any gaps due to bad weather, or high background counts and/or other anomalies, are included.
+      Any gaps due to bad weather, or high background counts and/or other
+      anomalies, are included.
 * ``ONTIME`` type: float, unit: s
     * Total *good time* (sum of length of all Good Time Intervals).
-      If a Good Time Interval (GTI) table is provided, ``ONTIME`` should be calculated as the sum of those intervals.
-      Corrections for instrumental *dead time* effects are **NOT** included.
+      If a Good Time Interval (GTI) table is provided, ``ONTIME`` should be
+      calculated as the sum of those intervals. Corrections for instrumental
+      *dead time* effects are **NOT** included.
 * ``LIVETIME`` type: float, unit: s
-    * Total time (in seconds) on source, corrected for the *total* instrumental dead time effect.
+    * Total time (in seconds) on source, corrected for the *total* instrumental
+      dead time effect.
 * ``DEADC`` type: float
     * Dead time correction, defined by ``LIVETIME/ONTIME``.
       Is comprised in [0,1]. Defined to be 0 if ``ONTIME=0``.
+* ``EVENT_CLASS`` type: int
+    * Event class (the 'cut' that has been used, e.g. 'STD', 'HARD', 'SOFT')'.
 * ``RA_PNT`` type: float, unit: deg
     * Observation pointing right ascension (see :ref:`sky-coordinates-radec`)
-         Note: this keyword can be removed in a pointing table is added
+      See also `HFWG Recommendation R3`_ for the OGIP standard.
+
+      .. note::
+         This keyword can be removed if a pointing table is added.
 * ``DEC_PNT`` type: float, unit: deg
     * Observation pointing declination (see :ref:`sky-coordinates-radec`)
-         Note: this keyword can be removed in a pointing table is added
+      See also `HFWG Recommendation R3`_ for the OGIP standard.
+
+      .. note::
+         This keyword can be removed if a pointing table is added.
+
 
 Optional header keywords
 ------------------------
 
-Note: This section needs review. It contains for the moment a long list of things that
-may appear in an IACT DL3 file. This list could be separate into keywords actually needed
-by H.E.S.S. and other keywords.
+.. warning::
 
+   This section needs review. It contains for the moment a long list of things
+   that may appear in an IACT DL3 file. This list could be separate into
+   keywords actually needed by H.E.S.S. and other keywords.
+
+* ``CREATED`` type: string
+    * Time when file was created in ISO standard date representation
+      "ccyy-mm-ddThh:mm:ss" (UTC)
 * ``RA_OBJ`` type: float, unit: deg
     * Right ascension of ``OBJECT``
 * ``DEC_OBJ`` type: float, unit: deg
     * Declination of ``OBJECT``                
 * ``ALT_PNT`` float, deg
-    * Observation pointing altitude at observation mid-time ``TMID`` (see :ref:`sky-coordinates-altaz`)
+    * Observation pointing altitude at observation mid-time ``TMID``
+      (see :ref:`sky-coordinates-altaz`).
+
+      .. note::
+         This keyword can be removed if a pointing table is added.
 * ``AZ_PNT`` type: float, unit: deg
-    * Observation pointing azimuth at observation mid-time ``TMID`` (see :ref:`sky-coordinates-altaz`)    
+    * Observation pointing azimuth at observation mid-time ``TMID``
+      (see :ref:`sky-coordinates-altaz`).
+
+      .. note::
+         This keyword can be removed if a pointing table is added.
 * ``GEOLON`` type: float, unit: deg
     * Geographic longitude of array centre (e.g. -23.27 for HESS)     
+
+      .. note::
+         This keyword can be removed if a pointing table is added.
+         It should probably become a pointing table keyword.
 * ``GEOLAT`` type: float, unit: deg
     * Geographic latitude of array centre (e.g. -16.5 for HESS)
+
+      .. note::
+         This keyword can be removed if a pointing table is added.
+         It should probably become a pointing table keyword.
 * ``ALTITUDE`` type: float, unit: m
     * Altitude of array center above sea level (1835 for HESS)
+
+      .. note::
+         This keyword can be removed if a pointing table is added.
+         It should probably become a pointing table keyword.
 * ``TELLIST`` type: string
     * Telescope IDs in observation (e.g. '1,2,3,4')   
 * ``N_TELS`` type: int
     * Number of observing telescopes       
-* ``CREATED`` type: string
-    * Time when file was created (UTC): "YYYY-MM-DD HH:MM:SS"
-* ``RADECSYS`` type: string
-    * Equatorial system type (e.g. 'FK5')
-* ``EQUINOX`` type: float
-    * Base equinox (e.g. 2000.) 
+
+.. warning::
+   Keywords below seem to be pretty low-level and eventually instrument
+   specific. It needs to be discussed whether a recommendation on these
+   keywords should be made, or whether the definition should be left
+   to the respective consortia.
+
 * ``TASSIGN`` type: string
     * Place of time reference ('Namibia')
 * ``DST_VER`` type: string
@@ -190,7 +289,8 @@ by H.E.S.S. and other keywords.
     * Zenith equivalent mean system trigger rate    
 * ``MUONEFF`` type: float
     * Mean muon efficiency
-    * TODO: define how muon efficiency is defined (it's very tricky to get a comparable number in HESS from HD and PA calibration)
+    * TODO: define how muon efficiency is defined (it's very tricky to get a
+      comparable number in HESS from HD and PA calibration)
 * ``BROKPIX`` type: float
     * Fraction of broken pixels (0.15 means 15% broken pixels)
 * ``AIRTEMP`` type: float, unit: deg C
@@ -199,14 +299,18 @@ by H.E.S.S. and other keywords.
    * Mean air pressure at ground during the observation.
 * ``NSBLEVEL`` type: float, unit: a.u.
    * Measure for NSB level
-   * TODO: how is this defined? at least leave a comment if it doesn't have a clear definition and can only be used in one chain.
+   * TODO: how is this defined? at least leave a comment if it doesn't have
+     a clear definition and can only be used in one chain.
 * ``RELHUM`` type: float
    * Relative humidity
    * TODO: link to definition ... wikipedia?
 
 
-Notes on EVENT_ID
------------------
+Notes
+-----
+
+EVENT_ID column
+~~~~~~~~~~~~~~~
 
 This paragraph contains some explanatory notes concerning the requirements
 and recommendations on ``EVENT_ID``.

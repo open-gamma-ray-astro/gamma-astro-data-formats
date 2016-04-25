@@ -3,15 +3,13 @@
 IACT event lists
 ================
 
-This document describes IACT DL3 event lists.
+This document describes the IACT DL3 event list format.
 
-Event lists are stored in FITS files with two required and one optional
-extensions (HDUs).
+Event lists are stored in FITS files that contain the following
+extensions (HDUs):
 
-* Suggested filename: ``events_OBS_ID.fits.gz``
-* Suggested HDU name events: ``EVENTS``
-* Suggested HDU name good time intervals: ``GTI``
-* Suggested optional HDU name telescope array: ``TELARRAY``
+.. toctree::
+   :maxdepth: 1
 
-:ref:`iact_events`
-:ref:`iact_gti`
+   events
+   gti
