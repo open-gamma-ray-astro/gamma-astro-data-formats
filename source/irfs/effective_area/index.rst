@@ -61,7 +61,7 @@ Effective Area vs reconstructed energy
 
 Although not required, it is generally useful to store the effective area as a function of the reconstructed energy, 
 containing the information of the effective area already folded with the energy dispersion. It may be stored as an 
-additional HDU within the FITS file, following an analog format as ``aeff_2d``:
+additional HDU within the FITS file, following an analog format as described in ``aeff_2d``:
 
 Columns:
 
