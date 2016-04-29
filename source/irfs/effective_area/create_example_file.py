@@ -26,6 +26,7 @@ header['OBS_ID'] = 31415 , 'Observation ID'
 header['LO_THRES'] = 0.1 , 'Low energy threshold [TeV]'
 header['HI_THRES'] = 50 , 'High energy threshold [TeV]'
 header['RAD_MAX'] = 0.1, 'On region radius for point-like observations'
+header['HDUCLAS2'] = "EFF_AREA", 'Secondary extension class'
 
 tbhdu = fits.BinTableHDU(data, header, name='EFFECTIVE AREA')
 
@@ -45,7 +46,8 @@ header['OBS_ID'] = 31415 , 'Observation ID'
 header['LO_THRES'] = 0.1 , 'Low energy threshold [TeV]'
 header['HI_THRES'] = 50 , 'High energy threshold [TeV]'
 header['RAD_MAX'] = 0.1, 'On region radius for point-like observations'
- 
+header['HDUCLAS2'] = "EFF_AREA_RECO", 'Secondary extension class'
+
 tbrecohdu = fits.BinTableHDU(data, header, name='EFFECTIVE AREA (RECO)')
 
 for colname in table.colnames:
