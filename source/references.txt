@@ -38,3 +38,8 @@
 .. _Wikipedia - PSF: https://en.wikipedia.org/wiki/Point_spread_function
 .. _2013ApJ...765...54A: http://adsabs.harvard.edu/abs/2013ApJ...765...54A
 .. _2013PASP..125..719H: http://adsabs.harvard.edu/abs/2013PASP..125..719H
+.. _2016JCAP...02..039M: http://adsabs.harvard.edu/abs/2016JCAP...02..039M
+.. _2015PhRvD..91j2001B: http://adsabs.harvard.edu/abs/2015PhRvD..91j2001B
+.. _2014PhRvD..89d2001A: http://adsabs.harvard.edu/abs/2014PhRvD..89d2001A
+.. _2015PhRvL.115w1301A: http://adsabs.harvard.edu/abs/2015PhRvL.115w1301A
+.. _2016PhRvD..93f2004C: http://adsabs.harvard.edu/abs/2016PhRvD..93f2004C
