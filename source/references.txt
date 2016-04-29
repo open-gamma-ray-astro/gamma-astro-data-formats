@@ -43,3 +43,4 @@
 .. _2014PhRvD..89d2001A: http://adsabs.harvard.edu/abs/2014PhRvD..89d2001A
 .. _2015PhRvL.115w1301A: http://adsabs.harvard.edu/abs/2015PhRvL.115w1301A
 .. _2016PhRvD..93f2004C: http://adsabs.harvard.edu/abs/2016PhRvD..93f2004C
+.. _LAT_edisp_usage: http://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Pass8_edisp_usage.html

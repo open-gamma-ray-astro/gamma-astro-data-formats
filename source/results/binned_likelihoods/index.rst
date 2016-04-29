@@ -60,7 +60,7 @@ limit their use for certain applications:
   components (e.g. when the spatial models are partially degenerate)
   can limit the utility of this approach.  Although such correlations
   can be accounted for by profiling the corresponding nuisance
-  parameters, the may result in unphysical background models with
+  parameters, this may result in unphysical background models with
   large bin-to-bin fluctuations in the model amplitude.  One technique
   to avoid this issue (see `2015PhRvD..91j2001B`_ and
   `2016PhRvD..93f2004C`_) is to apply a Gaussian prior that constrains
@@ -73,14 +73,14 @@ limit their use for certain applications:
   of energy dispersion.  A first order correction can be obtained by
   scanning the likelihood with a spectral model (e.g. a power-law with
   index 2) that is close in shape to the spectral models that will be
-  ultimately be tested.  However in analyses where the influence of
-  energy response is broad and non-diagonal the systematic errors
+  ultimately be tested.  However in analyses where the energy response
+  matrix is particularly broad or non-diagonal the systematic errors
   arising from the approximate treatment of energy dispersion may
   exceed the statistical errors.  In LAT analyses energy dispersion
-  can become significant effect when using data below 100 MeV (see ).
-  However when using an Index=2.0 and considering energies above 100
-  MeV, the spectral bias is less than 3\% for models with indices
-  between 1 and 3.5.
+  can become significant effect when using data below 100 MeV (see
+  `LAT_edisp_usage`_).  However when using an Index=2.0 and
+  considering energies above 100 MeV, the spectral bias is less than
+  3\% for models with indices between 1 and 3.5.
   
 
 .. _likelihood_sed:
@@ -237,7 +237,10 @@ columns:
     * Differential flux of reference model evaluated at the upper edge of the energy bin.
 * ``REF_DFDE`` -- ndim: 1, unit: MeV^{-1} cm^{-2} s^{-1}
     * Dimension: nebins
-    * Differential flux of reference model evaluated at the center of the energy bin.         
+    * Differential flux of reference model evaluated at the center of the energy bin.
+* ``REF_E2DFDE`` -- ndim: 1, unit: MeV cm^{-2} s^{-1}
+    * Dimension: nebins
+    * E^{2} times differential flux of reference model evaluated at the center of the energy bin.      
 * ``REF_EFLUX`` -- ndim: 1, unit: MeV cm^{-2} s^{-1}
     * Dimension: nebins
     * Energy flux of reference model integrated over the energy bin.
@@ -248,13 +251,14 @@ columns:
     * Dimension: nebins
     * Number of predicted counts of reference model.
         
-The SCANDATA HDU is a table with 1 row per spatial pixel and the
-following columns:
+The SCANDATA HDU is a table with 1 row per spatial pixel (*nsbins*) and
+the following columns:
 
 * ``NLL_SCAN`` -- ndim: 3, unit: None
-    * Dimension: nebins X nnorms
-    * Normalization values for the test source.
-* ``NORM_SCAN`` -- ndim: 3, unit: None
-    * Dimension: nebins X nnorms
+    * Dimension: nsbins X nebins X nnorms
     * Negative log-likelihood values.
+* ``NORM_SCAN`` -- ndim: 3, unit: None
+    * Dimension: nsbins X nebins X nnorms
+    * Normalization values for the test source.
+    
 
