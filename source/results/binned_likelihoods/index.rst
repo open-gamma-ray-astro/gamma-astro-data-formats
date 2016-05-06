@@ -188,7 +188,7 @@ Columns:
 * ``LOGLIKE`` -- ndim: 1, unit: None
     * Dimension: nebins 
     * Model LogLikelihood value for the best-fit normalization.      
-* ``DELTA_LOGLIKE_SCAN`` -- ndim: 2, unit: None
+* ``DLOGLIKE_SCAN`` -- ndim: 2, unit: None
     * Dimension: nebins x nnorms
     * Delta LogLikelihood value vs. normalization.  The
       Delta-Loglikelihood is evaluated with respect to the maximum of
@@ -215,7 +215,7 @@ Sample FITS files:
 
 Columns:
   
-* ``DELTA_LOGLIKE_SCAN`` -- ndim: 3, unit: None
+* ``DLOGLIKE_SCAN`` -- ndim: 3, unit: None
     * Dimension: nrows x nebins x nnorms
     * Delta-LogLikelihood value vs. normalization.  The
       Delta-Loglikelihood is evaluated with respect to the maximum of
