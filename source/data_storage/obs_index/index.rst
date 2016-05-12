@@ -53,9 +53,10 @@ Required columns
     * Telescope IDs (e.g. '1,2,3,4')
 * ``QUALITY`` type: int
     * Observation data quality. The following levels of data quality are defined:
-        * 0 = best quality, suitable for spectral analysis.
-        * 1 = medium quality, suitable for detection, but not spectra (typically if the atmosphere was hazy).
-        * 2 = bad quality, usually not to be used for analysis. 
+        * -1 = unknown quality
+        *  0 = best quality, suitable for spectral analysis.
+        *  1 = medium quality, suitable for detection, but not spectra (typically if the atmosphere was hazy).
+        *  2 = bad quality, usually not to be used for analysis. 
 
 .. _obs-index-optional-columns:
 
