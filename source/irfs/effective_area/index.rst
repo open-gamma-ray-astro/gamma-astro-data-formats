@@ -26,13 +26,13 @@ with required columns listed below.
 
 Columns:
 
-* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1
     * Field of view offset axis
-* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
+* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1
     * Energy axis
-* ``EFFAREA`` -- ndim: 2, unit: none
+* ``EFFAREA`` -- ndim: 2
     * Effective area value as a function of true energy
-* ``EFFAREA_RECO`` -- ndim: 2, unit: deg
+* ``EFFAREA_RECO`` -- ndim: 2
     * Effective area value as a function of reco energy
 
 Recommended axis order: ``ENERGY``, ``THETA``
