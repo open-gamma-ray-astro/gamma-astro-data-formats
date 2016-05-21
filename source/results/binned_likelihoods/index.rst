@@ -2,8 +2,8 @@
 
 .. _binned_likelihoods:
 
-Binned Likelihood Profiles
-==========================
+Bin-by-bin Likelihood Profiles
+******************************
 
 This page describes formats for bin-by-bin likelihood profiles as
 currently used in some LAT analyses.  The bin-by-bin likelihood
@@ -70,24 +70,25 @@ limit their use for certain applications:
   (computed without the test source).
   
 * Because the likelihoods in each energy bin are calculated
-  independently, this technique cannot fully account for the influence
-  of energy dispersion.  A first order correction can be obtained by
-  scanning the likelihood with a spectral model (e.g. a power-law with
-  index 2) that is close in shape to the spectral models that will be
-  ultimately be tested.  However in analyses where the energy response
-  matrix is particularly broad or non-diagonal the systematic errors
-  arising from the approximate treatment of energy dispersion may
-  exceed the statistical errors.  In LAT analyses energy dispersion
-  can become significant effect when using data below 100 MeV (see
-  `LAT_edisp_usage`_).  However when using an Index=2.0 and
-  considering energies above 100 MeV, the spectral bias is less than
-  3\% for models with indices between 1 and 3.5.
+  independently, this technique cannot fully account for bin-to-bin
+  correlations caused by energy dispersion.  The effect of energy
+  dispersion can be corrected to first order by scanning the
+  likelihood with a spectral model (e.g. a power-law with index 2)
+  that is close in shape to the spectral models of interest.  However
+  in analyses where the energy response matrix is particularly broad
+  or non-diagonal the systematic errors arising from the approximate
+  treatment of energy dispersion may exceed the statistical errors.
+  In LAT analyses energy dispersion can become a significant effect when
+  using data below 100 MeV (see `LAT_edisp_usage`_).  However when
+  using an Index=2.0 and considering energies above 100 MeV, the
+  spectral bias is less than 3\% for models with indices between 1 and
+  3.5.
   
 
 .. _likelihood_sed:
 
 Likelihood SED
---------------
+==============
 
 The likelihood SED is a representation of spectral energy distribution
 of a source that contains a likelihood for the source normalization in
@@ -132,32 +133,36 @@ Sample FITS files:
 * Low Significance Source: :download:`llsed_lowts.fits`
 * High Significance Source: :download:`llsed_hights.fits`
 
-Columns:
+Header Keywords
+---------------
+
+* ``UL_CONF``, **optional**
+    * Confidence level of the upper limit given in the ``NORM_UL`` column.
+
+Required Columns
+----------------
 
 * ``E_MIN`` -- ndim: 1, unit: MeV
     * Dimension: nebins
     * Lower edge of energy bin.
-* ``E_CTR`` -- ndim: 1, unit: MeV
-    * Dimension: nebins
-    * Center of energy bin.      
 * ``E_MAX`` -- ndim: 1, unit: MeV
     * Dimension: nebins
-    * Upper edge of energy bin.     
-* ``REF_DFDE_E_MIN`` -- ndim: 1, unit: MeV^{-1} cm^{-2} s^{-1}
+    * Upper edge of energy bin.
+* ``E_REF`` -- ndim: 1, unit: MeV
     * Dimension: nebins
-    * Differential flux of reference model evaluated at the lower edge of the energy bin.
-* ``REF_DFDE_E_MAX`` -- ndim: 1, unit: MeV^{-1} cm^{-2} s^{-1}
-    * Dimension: nebins
-    * Differential flux of reference model evaluated at the upper edge of the energy bin.
+    * Bin reference energy that defines the energy at which
+      ``REF_DFDE`` is evaluated.  This can be the geometric center
+      of the bin or some weighted average of the energy distribution
+      within the bin.      
 * ``REF_DFDE`` -- ndim: 1, unit: MeV^{-1} cm^{-2} s^{-1}
     * Dimension: nebins
-    * Differential flux of reference model evaluated at the center of the energy bin.
+    * Differential flux of reference model evaluated at the energy in ``E_REF``.
 * ``REF_EFLUX`` -- ndim: 1, unit: MeV cm^{-2} s^{-1}
     * Dimension: nebins
-    * Energy flux of reference model integrated over the energy bin.
+    * Energy flux (integral of E x dF/dE) of reference model in the energy bin.
 * ``REF_FLUX`` -- ndim: 1, unit: cm^{-2} s^{-1}
     * Dimension: nebins
-    * Flux of reference model integrated over the energy bin.      
+    * Flux (integral of dF/dE) of reference model in the energy bin. 
 * ``REF_NPRED`` -- ndim: 1, unit: counts
     * Dimension: nebins
     * Number of predicted counts of reference model.
@@ -167,25 +172,16 @@ Columns:
 * ``NORM_ERR`` -- ndim: 1, unit: None
     * Dimension: nebins
     * Symmetric error on the source normalization in units of the reference model amplitude.  
-* ``NORM_ERRP`` -- ndim: 1, unit: None, optional
-    * Dimension: nebins
-    * Positive error on the source normalization in units of the reference model amplitude.
-* ``NORM_ERRN`` -- ndim: 1, unit: None, optional
-    * Dimension: nebins
-    * Negative error on the source normalization in units of the reference model amplitude.
-* ``NORM_UL`` -- ndim: 1, unit: None, optional
-    * Dimension: nebins
-    * Upper limit on the source normalization in units of the reference model amplitude.
 * ``NORM_SCAN`` -- ndim: 2, unit: None
     * Dimension: nebins x nnorms
     * Normalization scan values in each energy bin in units of the
       reference model amplitude.  Scan matrix can be multiplied by
-      ``REF_EFLUX``, ``REF_FLUX``, ``REF_DFDE``, or ``REF_NPRED`` columns to get the
-      normalization in the respective units.    
+      ``REF_EFLUX``, ``REF_FLUX``, ``REF_DFDE``, or ``REF_NPRED``
+      columns to get the normalization in the respective units.
 * ``TS`` -- ndim: 1, unit: counts
     * Dimension: nebins
     * Source test statistic as a function of energy bin.
-* ``LOGLIKE`` -- ndim: 1, unit: None
+* ``LOGLIKE`` -- ndim: 1, unit: None, format : double
     * Dimension: nebins 
     * Model LogLikelihood value for the best-fit normalization.      
 * ``DLOGLIKE_SCAN`` -- ndim: 2, unit: None
@@ -196,25 +192,75 @@ Columns:
       ``LOGLIKE`` column.
 
 
+Optional Columns
+----------------
+
+* ``REF_DFDE_E_MIN`` -- ndim: 1, unit: MeV^{-1} cm^{-2} s^{-1}
+    * Dimension: nebins
+    * Differential flux of reference model evaluated at the lower edge
+      of the energy bin.
+* ``REF_DFDE_E_MAX`` -- ndim: 1, unit: MeV^{-1} cm^{-2} s^{-1}
+    * Dimension: nebins
+    * Differential flux of reference model evaluated at the upper edge
+      of the energy bin.
+* ``NORM_ERRP`` -- ndim: 1, unit: None
+    * Dimension: nebins
+    * Positive error on the source normalization in units of the reference model amplitude.
+* ``NORM_ERRN`` -- ndim: 1, unit: None
+    * Dimension: nebins
+    * Negative error on the source normalization in units of the
+      reference model amplitude.  A negative or NaN value indicates
+      that the negative error is undefined.
+* ``NORM_UL`` -- ndim: 1, unit: None, optional
+    * Dimension: nebins
+    * Upper limit on the source normalization in units of the reference model amplitude.
+
 .. _likelihood_sed_cube:
       
 Likelihood SED Cube
--------------------
+===================
 
 The Likelihood SED Cube is format for storing a sequence of Likelihood
-SEDs in a single table.  Table rows can be mapped to individual
-sources, spatial pixels, or observations epochs.  In the following we
-use *nrows* to designate table rows, *nebins* to designate the number
-of energy bins and *nnorms* to designate the number of points in the
-normalization scan.
+SEDs in a single table.  The format defines a file with two BINTABLE
+HDUs: :ref:`SCANDATA <scandata>` and :ref:`EBOUNDS <ebounds>`.
+SCANDATA has one row per Likelihood SED while EBOUNDS has one row per
+energy bin.  Table rows in SCANDATA can be mapped to a list of
+sources, spatial pixels, or observations epochs.  Because the row
+mapping is not defined by the format itself additional columns can be
+added to SCANDATA that defined the mapping of each row.  Examples
+would be columns for source name designation, pixel coordinate, or
+observation epoch.
+
+
+In the following we use *nrows* to designate table rows, *nebins* to
+designate the number of energy bins and *nnorms* to designate the
+number of points in the normalization scan.  As for the Likelihood SED
+format, columns that contain ``NORM`` are expressed in units of the
+reference model amplitude.  These can be multiplied by ``REF_EFLUX``,
+``REF_FLUX``, ``REF_DFDE``, or ``REF_NPRED`` columns in the EBOUNDS
+HDU to get the normalization in the respective units.
 
 Sample FITS files:
 
-* Low Significance Source: :download:`llsedcube_lowts.fits`
-* High Significance Source: :download:`llsedcube_hights.fits`
+* Low Significance Source: :download:`tscube_lowts.fits`
+* High Significance Source: :download:`tscube_hights.fits`
 
-Columns:
-  
+.. _scandata:
+
+SCANDATA Table
+--------------
+
+The SCANDATA HDU is a BINTABLE with the following columns:
+
+Header Keywords
+~~~~~~~~~~~~~~~
+
+* ``UL_CONF``, **optional**
+    * Confidence level of the upper limit given in the ``NORM_UL`` column.
+
+Required Columns
+~~~~~~~~~~~~~~~~
+
 * ``DLOGLIKE_SCAN`` -- ndim: 3, unit: None
     * Dimension: nrows x nebins x nnorms
     * Delta-LogLikelihood value vs. normalization.  The
@@ -223,53 +269,15 @@ Columns:
       ``LOGLIKE`` column.
 * ``NORM_SCAN`` -- ndim: 3, unit: None
     * Dimension: nrows x nebins x nnorms
-    * Normalization values for the test source in units of the reference model amplitude.
-* ``E_MIN`` --  ndim: 2, unit: keV
-    * Dimension: nrows x nebins
-    * Lower edge of energy bin.
-* ``E_CTR`` -- ndim: 2, unit: keV
-    * Dimension: nrows x nebins
-    * Center of energy bin.
-* ``E_MAX`` -- ndim: 2, unit: keV
-    * Dimension: nrows x nebins
-    * Upper edge of energy bin.
-* ``REF_DFDE_E_MIN`` -- ndim: 2, unit: MeV^{-1} cm^{-2} s^{-1}
-    * Dimension: nrows x nebins
-    * Differential flux of reference model evaluated at the lower edge of the energy bin.
-* ``REF_DFDE_E_MAX`` -- ndim: 2, unit: MeV^{-1} cm^{-2} s^{-1}
-    * Dimension: nrows x nebins
-    * Differential flux of reference model evaluated at the upper edge of the energy bin.
-* ``REF_DFDE`` -- ndim: 2, unit: MeV^{-1} cm^{-2} s^{-1}
-    * Dimension: nrows x nebins
-    * Differential flux of reference model evaluated at the center of the energy bin.
-* ``REF_EFLUX`` -- ndim: 2, unit: MeV cm^{-2} s^{-1}
-    * Dimension: nrows x nebins
-    * Energy flux of reference model integrated over the energy bin.
-* ``REF_FLUX`` -- ndim: 2, unit: cm^{-2} s^{-1}
-    * Dimension: nrows x nebins
-    * Flux of reference model integrated over the energy bin.      
-* ``REF_NPRED`` -- ndim: 2, unit: counts, optional
-    * Dimension: nrows x nebins
-    * Number of predicted counts of reference model.
+    * Normalization values for the test source in units of the
+      reference model amplitude.
 * ``NORM`` -- ndim: 2, unit: None
     * Dimension: nebins
     * Best-fit amplitude in units of the reference model amplitude.       
 * ``NORM_ERR`` -- ndim: 2, unit: None
     * Dimension: nrows x nebins
-    * Symmetric error on the source normalization in units of the reference model amplitude.  
-* ``NORM_ERRP`` -- ndim: 2, unit: None, optional
-    * Dimension: nrows x nebins
-    * Positive error on the source normalization in units of the reference model amplitude.
-* ``NORM_ERRN`` -- ndim: 2, unit: None, optional
-    * Dimension: nrows x nebins
-    * Negative error on the source normalization in units of the reference model amplitude.
-* ``NORM_UL`` -- ndim: 2, unit: None, optional
-    * Dimension: nrows x nebins      
-    * Upper limit on the source normalization in units of the
-      reference model amplitude.  Confidence level of upper limit is
-      saved to the ``UL_CONFIDENCE`` keyword of the FITS header.  If
-      no confidence level is defined a default of 95% should be
-      assumed.
+    * Symmetric error on the source normalization in units of the
+      reference model amplitude.
 * ``TS`` -- ndim: 2, unit: counts
     * Dimension: nrows x nebins
     * Source test statistic as a function of energy bin.
@@ -278,10 +286,80 @@ Columns:
     * Model LogLikelihood value evaluated at the normalization MLE.
 
 
+Optional Columns
+~~~~~~~~~~~~~~~~
+
+* ``REF_NPRED`` -- ndim: 2, unit: counts
+    * Dimension: nrows x nebins
+    * Number of predicted counts of reference model.  This is an
+      optional column that can be included to account for row-to-row
+      changes in exposure.
+* ``NORM_ERRP`` -- ndim: 2, unit: None
+    * Dimension: nrows x nebins
+    * Positive error on the source normalization in units of the
+      reference model amplitude.
+* ``NORM_ERRN`` -- ndim: 2, unit: None
+    * Dimension: nrows x nebins
+    * Negative error on the source normalization in units of the
+      reference model amplitude.  A negative or NaN value indicates
+      that the negative error is undefined.
+* ``NORM_UL`` -- ndim: 2, unit: None
+    * Dimension: nrows x nebins      
+    * Upper limit on the source normalization in units of the
+      reference model amplitude.  Confidence level of upper limit is
+      saved to the ``UL_CONF`` keyword of the FITS header.  If
+      no confidence level is defined a default of 95% should be
+      assumed.
+* ``BIN_STATUS`` -- ndim: 2, unit: None
+    * Dimension: nrows x nebins
+    * Fit status code. 0 = OK, >0 = Not OK
+      
+.. _ebounds:
+
+EBOUNDS Table
+-------------
+
+The EBOUNDS HDU is a BINTABLE with 1 row per energy bin and the following
+columns:
+
+Required Columns
+~~~~~~~~~~~~~~~~
+
+* ``E_MIN``, unit: keV
+    * Lower edge of energy bin.
+* ``E_REF``, unit: keV
+    * Bin reference energy that defines the energy at which
+      ``REF_DFDE`` is evaluated.  This can be the geometric center of
+      the bin or some weighted average of the energy distribution
+      within the bin.
+* ``E_MAX``, unit: keV
+    * Upper edge of energy bin.
+* ``REF_DFDE`` -- ndim: 1, unit: MeV^{-1} cm^{-2} s^{-1}
+    * Dimension: nebins
+    * Differential flux of reference model evaluated at the energy in ``E_REF``.
+* ``REF_EFLUX`` -- ndim: 1, unit: MeV cm^{-2} s^{-1}
+    * Dimension: nebins
+    * Energy flux (integral of E x dF/dE) of reference model in the energy bin.
+* ``REF_FLUX`` -- ndim: 1, unit: cm^{-2} s^{-1}
+    * Dimension: nebins
+    * Flux (integral of dF/dE) of reference model in the energy bin.      
+
+Optional Columns
+~~~~~~~~~~~~~~~~
+* ``REF_DFDE_E_MIN`` -- ndim: 1, unit: MeV^{-1} cm^{-2} s^{-1}
+    * Dimension: nebins
+    * Differential flux of reference model evaluated at the lower edge of the energy bin.
+* ``REF_DFDE_E_MAX`` -- ndim: 1, unit: MeV^{-1} cm^{-2} s^{-1}
+    * Dimension: nebins
+    * Differential flux of reference model evaluated at the upper edge of the energy bin.
+* ``REF_NPRED`` -- ndim: 1, unit: counts
+    * Dimension: nebins
+    * Number of predicted counts of reference model.
+
 .. _tscube:
 
 TSCube Output Format
---------------------
+====================
 
 Recent releases of the Fermi ScienceTools provide a *gttscube*
 application that fits a test source on a grid of spatial positions
@@ -291,80 +369,58 @@ following information:
 * TS and best-fit amplitude of the test source.  
 * A likelihood SED.
 
-The output of the tool is a FITS file containing maps that encode the
-fit results.  The PRIMARY HDU contains the same output as *gttsmap* --
-a 2-dimensional map with the test source TS evaluated at each
+The output of the tool is a FITS file containing a Likelihood SED Cube
+with *nrows* in which each table row maps to a pixel in the grid scan.
+The PRIMARY HDU contains the same output as *gttsmap* -- a
+2-dimensional FITS IMAGE with the test source TS evaluated at each
 position.  The primary fit results are contained in the following
 BINTABLE HDUs:
 
-* ``SCANDATA`` : A :ref:`likelihood_sed_cube` containing likelihood
-  SEDs at each spatial pixel.
+* A :ref:`scandata` containing the likelihood SEDs for each spatial pixel.
+* A :ref:`fitdata` containing fit results for the reference model at each spatial pixel over the full energy range.
+* A :ref:`ebounds` containing the bin definitions and the amplitude of the reference model.
 
-* ``FITDATA`` : A table containing fit results for the reference model
-  at each spatial pixel over the full energy range.
-
-Following the usual FITS convention both tables use columnwise
-ordering for mapping rows to pixel indices.  The other HDUs contain
-the fit results information as IMAGE HDUs for visualization.
-
-Sample FITS files:
-
-* Low Significance Source: :download:`tscube_lowts.fits`
+The mapping of rows to pixels is defined by the WCS header keywords in
+the SCANDATA HDU.  Following the usual FITS convention both tables
+use columnwise ordering for mapping rows to pixel indices.  
 
 Here is the list of HDUs:
 
 .. csv-table:: TS Cube HDUs
-   :header:    HDU, HDU Type, HDU Name, Dimensions, Description
+   :header:    HDU, HDU Type, HDU Name, Description
    :file: tscube_hdus.csv
    :delim: |
-   :widths: 10,10,10,10,80
+   :widths: 10,10,10,80
 
-The EBOUNDS HDU is a BINTABLE with 1 row per energy bin and the following
-columns:
 
-* ``E_MIN``, unit: keV
-    * Lower edge of energy bin.
-* ``E_CTR``, unit: keV
-    * Center of energy bin.
-* ``E_MAX``, unit: keV
-    * Upper edge of energy bin.
-* ``REF_DFDE_E_MIN`` -- ndim: 1, unit: MeV^{-1} cm^{-2} s^{-1}
-    * Dimension: nebins
-    * Differential flux of reference model evaluated at the lower edge of the energy bin.
-* ``REF_DFDE_E_MAX`` -- ndim: 1, unit: MeV^{-1} cm^{-2} s^{-1}
-    * Dimension: nebins
-    * Differential flux of reference model evaluated at the upper edge of the energy bin.
-* ``REF_DFDE`` -- ndim: 1, unit: MeV^{-1} cm^{-2} s^{-1}
-    * Dimension: nebins
-    * Differential flux of reference model evaluated at the center of the energy bin.
-* ``REF_EFLUX`` -- ndim: 1, unit: MeV cm^{-2} s^{-1}
-    * Dimension: nebins
-    * Energy flux of reference model integrated over the energy bin.
-* ``REF_FLUX`` -- ndim: 1, unit: cm^{-2} s^{-1}
-    * Dimension: nebins
-    * Flux of reference model integrated over the energy bin.      
-* ``REF_NPRED`` -- ndim: 1, unit: counts, optional
-    * Dimension: nebins
-    * Number of predicted counts of reference model.
-        
+.. _fitdata:
+
+FITDATA Table
+-------------
+            
 The FITDATA HDU is a BINTABLE with 1 row per spatial pixel (*nrows*)
-and the following columns.  
-      
-* ``NORM`` -- ndim: 1, unit: None
+and the following columns:
+
+
+* ``FIT_NORM`` -- ndim: 1, unit: None
     * Dimension: nrows
     * Best-fit normalization for the global model in units of the reference model amplitude.       
-* ``NORM_ERR`` -- ndim: 1, unit: None
-    * Dimension: nsbins 
+* ``FIT_NORM_ERR`` -- ndim: 1, unit: None
+    * Dimension: nrows 
     * Symmetric error on the global model normalization in units of the reference model amplitude.  
-* ``NORM_ERRP`` -- ndim: 1, unit: None, optional
-    * Dimension: nsbins 
+* ``FIT_NORM_ERRP`` -- ndim: 1, unit: None
+    * Dimension: nrows 
     * Positive error on the global model normalization in units of the reference model amplitude.
-* ``NORM_ERRN`` -- ndim: 1, unit: None, optional
-    * Dimension: nsbins 
+* ``FIT_NORM_ERRN`` -- ndim: 1, unit: None
+    * Dimension: nrows 
     * Negative error on the global model normalization in units of the reference model amplitude.
-* ``NORM_UL`` -- ndim: 1, unit: None, optional
-    * Dimension: nsbins 
+* ``FIT_NORM_UL`` -- ndim: 1, unit: None
+    * Dimension: nrows 
     * Upper limit on the global model normalization in units of the reference model amplitude.
-* ``TS`` -- ndim: 1, unit: None, optional
-    * Dimension: nsbins 
+* ``FIT_TS`` -- ndim: 1, unit: None
+    * Dimension: nrows 
     * Test statistic of the best-fit global model.
+* ``FIT_STATUS`` -- ndim: 1, unit: None
+    * Dimension: nrows 
+    * Status code for the fit. 0 = OK, >0 = Not OK
+
