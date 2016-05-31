@@ -1,14 +1,5 @@
-0|IMAGE    | PRIMARY | nypix X nypix | TS map of the region using the test source
-1|BINTABLE | SCANDATA  | nypix X nypix | Table with the data from the likelihood v. normalization scans
-2|BINTABLE | BASELINE |  | Parameters and Covariences of Baseline fit
-3|BINTABLE | EBOUNDS  | nebins | Energy bin edges, fluxes and NPREDs for test source in each energy bin
-4|IMAGE    | TSMAP_OK | nypix X nypix | Fit status flags for fits at each PIXEL (across the entire energy range)
-5|IMAGE    | N_MAP | nypix X nypix | Normalization values for the test source for each PIXEL (across the entire energy range)
-6|IMAGE    | ERRP_MAP | nypix X nypix | Positive Error on Normalization of Test Source
-7|IMAGE    | ERRN_MAP | nypix X nypix | Negative Error on Normalization of Test Source
-8|IMAGE    | TSCUBE | nypix X nypix X nebins | TS values for each pixel, for each energy bin
-9|IMAGE    | TSCUBE_OK | nypix X nypix X nebins | Fit status flags for fits at each PIXEL, for each energy bin
-10|IMAGE   | N_CUBE | nypix X nypix X nebins | Normalization values for the test source for each PIXEL, for each energy bin
-11|IMAGE   | ERRPCUBE | nypix X nypix X nebins | Positive Error on Normalization of Test Source
-12|IMAGE   | ERRNCUBE | nypix X nypix X nebins | Negative Error on Normalization of Test Source
-13|IMAGE   | NLL_CUBE | nypix X nypix X nebins | Negative log-likelihood at MLE estimate for each PIXEL, for each energy bin
+0|IMAGE    | PRIMARY | TS map of the region using the test source
+1|BINTABLE | SCANDATA  | Table with the data from the likelihood v. normalization scans.  Follows format specification given in :ref:`scandata`.
+2|BINTABLE | FITDATA  | Table with the data from the reference model fits.
+3|BINTABLE | BASELINE | Parameters and Covariences of Baseline fit.
+4|BINTABLE | EBOUNDS  | Energy bin edges, fluxes and NPREDs for test source in each energy bin.  Follows format specification given in :ref:`ebounds`.
