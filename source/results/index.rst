@@ -12,5 +12,4 @@ other codes (e.g. to check results, combine results in one plot, ...).
    :maxdepth: 1
 
    flux_points/index
-   light_curves/index
    binned_likelihoods/index
