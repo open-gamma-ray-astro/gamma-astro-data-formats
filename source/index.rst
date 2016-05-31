@@ -15,7 +15,7 @@ Table of contents
 .. toctree::
    :maxdepth: 1
 
-   info/index
+   general/index
    events/index
    irfs/index
    data_storage/index
