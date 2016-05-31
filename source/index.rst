@@ -20,5 +20,4 @@ Table of contents
    irfs/index
    data_storage/index
    ogip/index
-   source-models/index
    results/index
