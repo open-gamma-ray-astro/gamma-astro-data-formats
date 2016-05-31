@@ -1,5 +1,8 @@
 .ipynb_checkpoints
 .idea
+.cproject
+.project
+.pydevproject
 build
 *pyc
 *~
