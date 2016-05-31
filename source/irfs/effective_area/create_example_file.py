@@ -1,6 +1,4 @@
-"""This script generates an example effective area
-
-It complies to the specifications at http://gamma-astro-data-formats.readthedocs.org/en/latest/irfs/effective_area/index.html
+"""Generate an example effective area file.
 """
 
 from astropy.io import fits
@@ -28,7 +26,7 @@ header['HI_THRES'] = 50 , 'High energy threshold [TeV]'
 header['RAD_MAX'] = 0.1, 'On region radius for point-like observations'
 header['HDUCLAS2'] = "EFF_AREA", 'Secondary extension class'
 
-tbhdu = fits.BinTableHDU(data, header, name='EFFECTIVE AREA')
+tbhdu = fits.BinTableHDU(data, header, name='EFF_AREA')
 
 for colname in table.colnames:
     tbhdu.columns[colname].unit = str(table[colname].unit)
@@ -48,7 +46,7 @@ header['HI_THRES'] = 50 , 'High energy threshold [TeV]'
 header['RAD_MAX'] = 0.1, 'On region radius for point-like observations'
 header['HDUCLAS2'] = "EFF_AREA_RECO", 'Secondary extension class'
 
-tbrecohdu = fits.BinTableHDU(data, header, name='EFFECTIVE AREA (RECO)')
+tbrecohdu = fits.BinTableHDU(data, header, name='EFF_AREA_RECO')
 
 for colname in table.colnames:
     tbrecohdu.columns[colname].unit = str(table[colname].unit)
@@ -56,5 +54,6 @@ for colname in table.colnames:
 prihdu = fits.PrimaryHDU()
 
 thdulist = fits.HDUList([prihdu, tbhdu, tbrecohdu])
-thdulist.writeto('aeff_2d_example.fits', clobber=True)
-
+filename = 'aeff_2d_example.fits'
+print('Writing {}'.format(filename))
+thdulist.writeto(filename, clobber=True)
