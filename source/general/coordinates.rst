@@ -33,8 +33,8 @@ declination (DEC) in the `equatorial coordinate system`_.
 
 Actually there are several equatorial coordinate systems in use, the most common
 ones being FK4, FK5 and ICRS. If you're interested to learn more about these and
-other astronomical coordinate systems, the references `here
-<astropy-coordinates-see-also>`__ are a good starting point.
+other astronomical coordinate systems, the references in the `see also section
+for astropy.coordinates`_ are a good starting point.
 
 But in practice it's pretty simple: when someone gives or talks about RA / DEC
 coordinates, they mean either ICRS or FK5 J2000 coordinates. The difference
@@ -85,7 +85,7 @@ given location on earth and point in time.
 * Azimuth is oriented east of north (i.e. north is at 0 deg, east at 90 deg,
   south at 180 deg and west at 270 deg). This is the convention used by
   `astropy.coordinates.AltAz`_ and quoted as the most common convention in
-  astronomy on Wikipedia (see `here <horizontal coordinate system>`_).
+  astronomy on Wikipedia (see `horizontal coordinate system`_).
 * The zenith angle is defined as the angular separation from the `zenith`_,
   which is the direction defined by the line connecting the Earth's center and the observer.
   Altitude and elevation are the same thing, and are defined as 90 degree minus the zenith angle.
