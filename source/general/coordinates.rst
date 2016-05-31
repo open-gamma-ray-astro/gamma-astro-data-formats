@@ -1,9 +1,9 @@
 .. include:: ../references.txt
 
-.. _sky-coordinates:
+.. _coords:
 
-Sky coordinates
-===============
+Coordinates
+===========
 
 This section describes the sky coordinates in use by science tools. It is
 referenced from the description of data formats to explain the exact meaning of
@@ -23,7 +23,7 @@ examples are given using `astropy.coordinates` to obtain a reference value that
 can be used to check a given software package (in case it's not based on
 `astropy.coordinates`).
 
-.. _sky-coordinates-radec:
+.. _coords-radec:
 
 RA / DEC
 --------
@@ -45,7 +45,7 @@ We recommend you by default assume RA / DEC is in the ICRS frame, which is the
 default in `astropy.coordinates.SkyCoord`_ and also the current standard
 celestial reference system adopted by the IAU (see `Wikipedia - ICRS`_).
 
-.. _sky-coordinates-galactic:
+.. _coords-galactic:
 
 Galactic
 --------
@@ -74,7 +74,7 @@ To check your software, you can use the ``(l, b) = (0, 0)`` position:
     >>> SkyCoord(0, 0, unit='deg', frame='galactic').icrs
     <SkyCoord (ICRS): (ra, dec) in deg (266.40498829, -28.93617776)>
 
-.. _sky-coordinates-altaz:
+.. _coords-altaz:
 
 Alt / Az
 --------
@@ -126,7 +126,7 @@ Astropy, i.e. this is without refraction corrections):
     # RA =   83.63308, DEC =   22.01450
 
 
-.. _sky-coordinates-fov:
+.. _coords-fov:
 
 Field of view
 -------------
