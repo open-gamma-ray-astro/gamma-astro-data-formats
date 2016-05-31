@@ -131,34 +131,25 @@ Astropy, i.e. this is without refraction corrections):
 Field of view
 -------------
 
-Field of view coordinates for a given observation have the pointing position at
-``(0, 0)``.
+In Gammapy-ray astronomy, sometimes field of view (FOV) coordinates are used.
+Specifically some :ref:`background models <bkg>` are in the FOV coordinate system
+and FOV coordinates can also be used for other IRFs.
 
-At the moment they are only used for background modeling, where off runs are
-stacked in the field of view coordinate system. We are also discussing if we
-should use them for IRFs like effective area, where for large field of views a
-gradient due to varying zenith angle can be present and we'd like to store this
-dependency / use it in exposure computations.
+The basic idea is to have a coordinate system that is centered on the array
+pointing position. We define FOV coordinates here to be spherical coordinates,
+there is no projection or WCS, only a spherical rotation.
 
-In detail the definition of field of view coordinates is tricky and still under
-discussion.
+Two versions of FOV coordinates are defined:
 
-The main questions are:
+1. ``(LON, LAT)`` with the pointing position on the equator at ``(0, 0)``
+     * ``LON`` range -180 deg to + 180 deg
+     * ``LAT`` range -90 deg to + 90 deg
+2. ``(THETA, PHI)`` with the pointing position at the pole ``THETA=0``
+     * ``THETA`` range 0 deg to +180 deg
+     * ``PHI`` range 0 deg to 360 deg
+     * ``THETA`` is the angular separation wrt. the pointing position.
+     * TODO: define PHI orientation
+     * TODO: give example with numbers to make PHI orientation clear
 
-* How exactly are the field of view coordinates defined?
-* Is a projection (e.g. the FITS TAN aka gnomonic projection) involved or are they spherical coordinates?
-  I.e. are they angles or lengths?
-* Are the field of view coordinate axes aligned with RA / DEC or ALT / AZ?
-  (we probably need or at least want both for different applications / investigations,
-  i.e. there are two field of view coordinates.)
-* How should this be stored in FITS (e.g. axis info or even WCS object in background cube models)
 
-Here's some useful links about the TAN projection:
-
-* https://en.wikipedia.org/wiki/Gnomonic_projection
-* http://mathworld.wolfram.com/GnomonicProjection.html
-* http://bl.ocks.org/mbostock/3795048
-* http://adsabs.harvard.edu/abs/2002A%26A...395.1077C
-
-TODO: document what exactly is filled / assumed at the moment in the HESS
-exporters, Gammalib and Gammapy.
+See the description of `Astropy astrometric frames`_.
