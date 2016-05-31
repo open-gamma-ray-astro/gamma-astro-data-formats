@@ -1,9 +1,9 @@
-.. _info:
+.. _general:
 
-Background information
-======================
+General
+=======
 
-This section contains background information and basic definitions.
+This section contains general information and basic definitions.
 
 It's purpose is two-fold:
 
