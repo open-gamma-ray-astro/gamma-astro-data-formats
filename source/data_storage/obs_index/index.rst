@@ -39,14 +39,18 @@ Required columns
     * Dead time correction.
     * It is defined such that ``LIVETIME`` = ``DEADC`` * ``ONTIME``
       i.e. the fraction of time the telescope was actually able to take data.
-* ``TSTART`` type: float, unit: days
-    * Start of observation in MJD
-* ``TSTART_STR`` type: string
-    * Start of observation in UTC string format: "YYYY-MM-DD HH:MM:SS"
-* ``TSTOP`` type: float, unit: days
-    * End time of observation in MJD
-* ``TSTOP_STR`` type: string
-    * End of observation in UTC string format: "YYYY-MM-DD HH:MM:SS"
+* ``TSTART`` type: float, unit: s
+    * Start time of observation relative to the reference time
+* ``TSTOP`` type: float, unit: s
+    * End time of observation relative to the reference time
+* ``DATE_OBS`` type: string
+    * Start date of observation in UTC string format: "YYYY-MM-DD"
+* ``TIME_OBS`` type: string
+    * Start time of observation in UTC string format: "HH:MM:SS"
+* ``DATE_END`` type: string
+    * End date of observation in UTC string format: "YYYY-MM-DD"
+* ``TIME_END`` type: string
+    * End time of observation in UTC string format: "HH:MM:SS"
 * ``N_TELS`` type: int
     * Number of participating telescopes 
 * ``TELLIST`` type: string
@@ -120,24 +124,29 @@ selection or data quality checks or analysis, but aren't needed for most users.
    * Relative humidity
    * `Definition <https://en.wikipedia.org/wiki/Relative_humidity>`__
 
+Mandatory Header keywords
+-------------------------
+
+* ``MJDREFI`` type: int, unit: days
+    * Integer part of instrument specific MJD time reference
+* ``MJDREFF`` type: float, unit: days
+    * Float part of instrument specific MJD time reference
+* ``TIMEUNIT`` type: string
+    * Time unit (e.g. 's')
+* ``TIMESYS`` type: string
+    * Time system (e.g. 'TT', 'UTC')
+
 .. _obs-index-notes:
 
 Notes
 -----
 
-* This table doesn't require header keywords. We recommend FITS is used,
-  but it can be stored e.g. in CSV as well.
 * Some of the required columns are redundant. E.g. ``ONTIME`` = ``TSTOP`` - ``TSTART``.
   The motivation to declare those columns required is to make it easy for users
   and tools to browse the observation lists and select observations via cuts
   on these parameters without having to compute them on the fly.
 * Observation runs where the telescopes don't point to a fixed RA / DEC position
   (e.g. drift scan runs) aren't supported at the moment by this format.
-* Times are given as a UTC string or MJD float.
-  This is preferred over the use of mission elapsed time (MET),
-  because MET requires a reference timepoint stored in header keywords
-  ``MJDREFI`` and ``MJDREFF``, and we felt that having a simpler table
-  format here that doesn't require a header would be nice.
 * Purpose / definition of ``BKG_SCALE``:
   For a 3D likelihood analysis a good estimate of the background is important. The run-by-run
   varation of the background rate is ~20%. The main reasons are the changing atmospheric conditions.
