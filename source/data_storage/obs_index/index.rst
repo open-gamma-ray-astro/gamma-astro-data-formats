@@ -131,6 +131,10 @@ Mandatory Header keywords
     * Integer part of instrument specific MJD time reference
 * ``MJDREFF`` type: float, unit: days
     * Float part of instrument specific MJD time reference
+* ``TIMEUNIT`` type: string
+    * Time unit (e.g. 's')
+* ``TIMESYS`` type: string
+    * Time system (e.g. 'TT', 'UTC')
 
 .. _obs-index-notes:
 
