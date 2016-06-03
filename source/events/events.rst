@@ -191,7 +191,7 @@ Mandatory header keywords
 * ``DEADC`` type: float
     * Dead time correction, defined by ``LIVETIME/ONTIME``.
       Is comprised in [0,1]. Defined to be 0 if ``ONTIME=0``.
-* ``EVENT_CLASS`` type: int
+* ``EVENT_CLASS`` type: str
     * Event class (the 'cut' that has been used, e.g. 'STD', 'HARD', 'SOFT')'.
 
 
