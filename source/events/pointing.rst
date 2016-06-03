@@ -14,7 +14,9 @@ The ``POINTING`` extension is a binary FITS table that contains for a number
 of time stamps the pointing direction of the telescopes. A *pointing* is here
 defined as the centre of the field of view (or centre of the camera
 coordinates). In reality, all telescopes may point to different positions
-(for example for divergent pointing mode).
+(for example for divergent pointing mode). The main purpose of the ``POINTING``
+extension is to provide time dependent information on how to transform
+between celestial and terrestial coordinates.
 
 
 Mandatory columns

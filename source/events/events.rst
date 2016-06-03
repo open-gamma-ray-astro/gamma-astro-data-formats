@@ -1,6 +1,6 @@
 .. include:: ../references.txt
 
-.. iact_events:
+.. iact-events:
 
 ``EVENTS`` extension
 ====================
@@ -10,7 +10,7 @@ Each row of the table provides information that characterises one event.
 The mandatory and optional columns of the table are listed below. In
 addition, a list of header keywords providing metadata is specified.
 Also here there are mandatory and optional keywords.
-The suggested extension name of the binary table is ``EVENTS``.
+The recommended extension name of the binary table is ``EVENTS``.
 
 
 Mandatory columns
@@ -41,15 +41,6 @@ Mandatory columns
     * Reconstructed event Y-coordinate in detector system
       (nominal system, see :ref:`sky-coordinates-fov`).
       See also the `OGIP event list`_ standard.
-* ``EVENT_TYPE`` tform: ``32X``
-    * Event quality partition.
-
-      .. note::
-         It needs to be discussed whether this should be a mandatory column
-         or an optional column. The partition of events into quality classes
-         seems sufficiently fundamental so that all IACT should in principle
-         support this. For example event multiplicity could be translated
-         into quality partitions, and the IRFs computed accordingly.
 
 
 Optional columns
@@ -57,9 +48,13 @@ Optional columns
 
 .. note::
    None of the following columns is required to be part of an ``EVENTS``
-   extension. Any software using these columns should first check whether the
-   columns exist, and warn in case of their absence.
+   extension. Any software **using** these columns should first check whether the
+   columns exist, and warn in case of their absence. Any software **ignoring**
+   these columns should make sure that their presence does not detoriate the
+   functioning of the software.
 
+* ``EVENT_TYPE`` tform: ``32X``
+    * Event quality partition.
 * ``ALT`` tform: ``1E``, unit: deg
     * Reconstructed altitude coordinate of event
       (horizon system, see :ref:`sky-coordinates-altaz`)
