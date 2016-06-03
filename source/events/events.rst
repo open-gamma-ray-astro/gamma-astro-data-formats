@@ -73,11 +73,11 @@ Optional columns
 * ``ENERGY_ERR`` tform: ``1E``, unit: TeV
     * Error on reconstructed event energy
 * ``COREX`` tform: ``1E``, unit: m
-    * Core position X of shower
+    * Reconstructed core position X of shower
 * ``COREY`` tform: ``1E``, unit: m
-    * Core position Y of shower
+    * Reconstructed core position Y of shower
 * ``CORE_ERR`` tform: ``1E``, unit: m
-    * Error on core position of shower    
+    * Error on reconstructed core position of shower
 * ``XMAX`` tform: ``1E``, unit: radiation lengths
     * First interaction depth 
 * ``XMAX_ERR`` tform: ``1E``, unit: radiation lengths
