@@ -26,13 +26,13 @@ Mandatory columns
 * ``TIME`` type: float64, unit: s
     * Time stamp of pointing.
 * ``RA_PNT`` type: float, unit: deg
-    * Pointing Right Ascension (see :ref:`sky-coordinates-radec`).
+    * Pointing Right Ascension (see :ref:`coords-radec`).
 * ``DEC_PNT`` type: float, unit: deg
-    * Pointing declination (see :ref:`sky-coordinates-radec`).
+    * Pointing declination (see :ref:`coords-radec`).
 * ``ALT_PNT`` type: float, unit: deg
-    * Pointing altitude (see :ref:`sky-coordinates-altaz`).
+    * Pointing altitude (see :ref:`coords-altaz`).
 * ``AZ_PNT`` type: float, unit: deg
-    * Pointing azimuth  (see :ref:`sky-coordinates-altaz`).
+    * Pointing azimuth  (see :ref:`coords-altaz`).
 
 
 Mandatory header keywords
