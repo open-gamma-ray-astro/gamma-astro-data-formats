@@ -18,22 +18,21 @@ coordinates). In reality, all telescopes may point to different positions
 extension is to provide time dependent information on how to transform
 between celestial and terrestial coordinates.
 
+See also `HFWG Recommendation R3`_ for the OGIP standard.
 
 Mandatory columns
 -----------------
 
-* ``TIME`` tform: ``1D``, unit: s
+* ``TIME`` type: float64, unit: s
     * Time stamp of pointing.
 * ``RA_PNT`` type: float, unit: deg
     * Pointing Right Ascension (see :ref:`sky-coordinates-radec`).
-      See also `HFWG Recommendation R3`_ for the OGIP standard.
 * ``DEC_PNT`` type: float, unit: deg
     * Pointing declination (see :ref:`sky-coordinates-radec`).
-      See also `HFWG Recommendation R3`_ for the OGIP standard.
-* ``ALT_PNT`` float, deg
-    * Pointing altitude.
+* ``ALT_PNT`` type: float, unit: deg
+    * Pointing altitude (see :ref:`sky-coordinates-altaz`).
 * ``AZ_PNT`` type: float, unit: deg
-    * Pointing azimuth.
+    * Pointing azimuth  (see :ref:`sky-coordinates-altaz`).
 
 
 Mandatory header keywords
@@ -51,8 +50,8 @@ Mandatory header keywords
     * Time reference frame, used for example for barycentric corrections
       (options: 'LOCAL', 'SOLARSYSTEM', 'HELIOCENTRIC', 'GEOCENTRIC')
 * ``GEOLON`` type: float, unit: deg
-    * Geographic longitude of array centre (e.g. -23.27 for HESS)     
+    * Geographic longitude of array centre
 * ``GEOLAT`` type: float, unit: deg
-    * Geographic latitude of array centre (e.g. -16.5 for HESS)
+    * Geographic latitude of array centre
 * ``GEOALT`` type: float, unit: m
-    * Altitude of array center above sea level (1835 for HESS)
+    * Altitude of array center above sea level
