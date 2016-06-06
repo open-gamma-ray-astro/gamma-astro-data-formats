@@ -151,18 +151,23 @@ Two versions of FOV coordinates are defined:
      * TODO: define PHI orientation
      * TODO: give example with numbers to make PHI orientation clear
 
-We also define ... TODO
+Also, there are two versions of FOV coordinates defined:
 
 1. Aligned with ``ALTAZ``
 2. Aligned with ``RADEC``
 
-===============  ===========
+To summarise, the following coordinates are defined:
+
+===============  ==================================
 Field            Description
-===============  ===========
-FOV_ALTAZ_LON    tbd
-FOV_ALTAZ_THETA  tbd
-===============  ===========
-
-See the description of `Astropy astrometric frames`_.
-
-TODO: give code and numeric example.
+===============  ==================================
+FOV_ALTAZ_LON    Longitude in ALTAZ FOV system
+FOV_ALTAZ_LAT    Latitude in ALTAZ FOV system
+FOV_ALTAZ_THETA  Offset in ALTAZ FOV system
+FOV_ALTAZ_PHI    Position angle in ALTAZ FOV system
+---------------  ----------------------------------
+FOV_RADEC_LON    Longitude in RADEC FOV system
+FOV_RADEC_LAT    Latitude in RADEC FOV system
+FOV_RADEC_THETA  Offset in RADEC FOV system
+FOV_RADEC_PHI    Position angle in RADEC FOV system
+===============  ==================================
