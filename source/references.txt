@@ -13,6 +13,7 @@
 .. _Sherpa: http://cxc.harvard.edu/sherpa/
 .. _SESAME: http://cds.u-strasbg.fr/cgi-bin/Sesame
 .. _HFWG Recommendation R3: https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/r3.html
+.. _OGIP HDUCLAS recommendation: https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/hduclas.html
 .. _OGIP event list: https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/events/ogip_94_003/ogip_94_003.html
 .. _OGIP GTI: http://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/rates/ogip_93_003/ogip_93_003.html#tth_sEc6.3
 .. _OGIP effective area: https://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_019/cal_gen_92_019.html

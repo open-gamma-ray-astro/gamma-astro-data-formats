@@ -97,24 +97,19 @@ Mandatory header keywords
 
 * ``HDUCLASS`` type: string
     * Signal conformance with HEASARC/OGIP conventions (option: 'OGIP').
-      For more information, refer to the `OGIP standard
-      <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/hduclas.html>`_.
+      For more information, refer to the `OGIP HDUCLAS recommendation`_.
 * ``HDUDOC`` type: string
     * Reference to documentation where data format is documented.
-      For more information, refer to the `OGIP standard
-      <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/hduclas.html>`_.
+      For more information, refer to the `OGIP HDUCLAS recommendation`_.
 * ``HDUVERS`` type: string
     * Version of the format (e.g. '1.0.0')
-      For more information, refer to the `OGIP standard
-      <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/hduclas.html>`_.
+      For more information, refer to the `OGIP HDUCLAS recommendation`_.
 * ``HDUCLAS1`` type: string
     * Primary extension class (option: 'EVENTS').
-      For more information, refer to the `OGIP standard
-      <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/hduclas.html>`_.
+      For more information, refer to the `OGIP HDUCLAS recommendation`_.
 * ``HDUCLAS2`` type: string
     * Secondary extension class (option: 'ACCEPTED').
-      For more information, refer to the `OGIP standard
-      <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/hduclas.html>`_.
+      For more information, refer to the `OGIP HDUCLAS recommendation`_.
 * ``ORIGIN`` type: string
     * Organisation that created the FITS file.
 * ``CREATOR`` type: string
