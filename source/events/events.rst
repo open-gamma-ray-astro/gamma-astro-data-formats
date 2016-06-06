@@ -1,6 +1,6 @@
 .. include:: ../references.txt
 
-.. iact-events:
+.. _iact-events:
 
 ``EVENTS`` extension
 ====================
