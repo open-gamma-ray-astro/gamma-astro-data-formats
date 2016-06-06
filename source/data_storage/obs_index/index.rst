@@ -21,15 +21,15 @@ Required columns
 * ``OBS_ID`` type: int
     * Unique observation identifier (Run number)
 * ``RA_PNT`` type: float, unit: deg
-    * Obsevation pointing right ascension (see :ref:`sky-coordinates-radec`)
+    * Obsevation pointing right ascension (see :ref:`coords-radec`)
 * ``DEC_PNT`` type: float, unit: deg
-    * Observation pointing declination (see :ref:`sky-coordinates-radec`)
+    * Observation pointing declination (see :ref:`coords-radec`)
 * ``ZEN_PNT`` type: float, unit: deg
-    * Observation pointing zenith angle at observation mid-time ``TMID`` (see :ref:`sky-coordinates-altaz`)
+    * Observation pointing zenith angle at observation mid-time ``TMID`` (see :ref:`coords-altaz`)
 * ``ALT_PNT`` float, deg
-    * Observation pointing altitude at observation mid-time ``TMID`` (see :ref:`sky-coordinates-altaz`)
+    * Observation pointing altitude at observation mid-time ``TMID`` (see :ref:`coords-altaz`)
 * ``AZ_PNT`` type: float, unit: deg
-    * Observation pointing azimuth at observation mid-time ``TMID`` (see :ref:`sky-coordinates-altaz`)
+    * Observation pointing azimuth at observation mid-time ``TMID`` (see :ref:`coords-altaz`)
 * ``ONTIME`` type: float, unit: s
     * Total observation time (including dead time).
     * Equals ``TSTOP`` - ``TSTART``

@@ -22,20 +22,16 @@
 .. _restructured text (RST): http://sphinx-doc.org/rest.html
 .. _Sphinx: http://sphinx-doc.org/index.html
 .. _Readthedocs: https://readthedocs.org
-.. _sphinx-rtd-local: http://docs.readthedocs.org/en/latest/theme.html#how-do-i-use-this-locally-and-on-read-the-docs
+.. _Sphinx RTD theme FAQ entry: http://docs.readthedocs.io/en/latest/faq.html#i-want-to-use-the-read-the-docs-theme-locally
 .. _WCSLIB: http://www.atnf.csiro.au/people/mcalabre/WCS/
 .. _FITS WCS: http://fits.gsfc.nasa.gov/fits_wcs.html
 .. _FITS standard: http://adsabs.harvard.edu/abs/2010A%26A...524A..42P
-.. _astropy.coordinates: http://astropy.readthedocs.org/en/latest/coordinates/index.html
-.. _astropy-coordinates-see-also: http://astropy.readthedocs.org/en/latest/coordinates/index.html#see-also
-.. _astropy.coordinates.SkyCoord: http://astropy.readthedocs.org/en/latest/api/astropy.coordinates.SkyCoord.html
 .. _equatorial coordinate system: https://en.wikipedia.org/wiki/Equatorial_coordinate_system
 .. _Wikipedia - ICRS: https://en.wikipedia.org/wiki/International_Celestial_Reference_System
 .. _Galactic coordinate system: https://en.wikipedia.org/wiki/Galactic_coordinate_system
 .. _epoch: https://en.wikipedia.org/wiki/Epoch_(astronomy)
 .. _equinox: https://en.wikipedia.org/wiki/Equinox_(celestial_coordinates)
 .. _horizontal coordinate system: https://en.wikipedia.org/wiki/Horizontal_coordinate_system
-.. _astropy.coordinates.AltAz: http://astropy.readthedocs.org/en/latest/api/astropy.coordinates.AltAz.html
 .. _zenith: https://en.wikipedia.org/wiki/Zenith
 .. _1995A%26AS..113..159C: http://adsabs.harvard.edu/abs/1995A%26AS..113..159C
 .. _Wikipedia - PSF: https://en.wikipedia.org/wiki/Point_spread_function
@@ -47,3 +43,10 @@
 .. _2015PhRvL.115w1301A: http://adsabs.harvard.edu/abs/2015PhRvL.115w1301A
 .. _2016PhRvD..93f2004C: http://adsabs.harvard.edu/abs/2016PhRvD..93f2004C
 .. _LAT_edisp_usage: http://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Pass8_edisp_usage.html
+
+.. _astropy.coordinates: http://astropy.readthedocs.io/en/latest/coordinates/index.html
+.. _see also section for astropy.coordinates: http://astropy.readthedocs.io/en/latest/coordinates/index.html#see-also
+.. _astropy.coordinates.SkyCoord: http://astropy.readthedocs.io/en/latest/api/astropy.coordinates.SkyCoord.html
+.. _astropy.coordinates.AstrometricFrame: http://astropy.readthedocs.io/en/latest/api/astropy.coordinates.AstrometricFrame.html
+.. _astropy.coordinates.AltAz: http://astropy.readthedocs.io/en/latest/api/astropy.coordinates.AltAz.html
+.. _Astropy astrometric frames: http://astropy.readthedocs.io/en/latest/coordinates/matchsep.html#astropy-astrometric-frames

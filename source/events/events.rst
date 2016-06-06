@@ -25,21 +25,21 @@ Mandatory columns
       the reference time.
       See also the `OGIP event list`_ standard.
 * ``RA`` tform: ``1E``, unit: deg
-    * Reconstructed event Right Ascension (see :ref:`sky-coordinates-radec`).
+    * Reconstructed event Right Ascension (see :ref:`coords-radec`).
       See also `HFWG Recommendation R3`_ for the OGIP standard.
 * ``DEC`` tform: ``1E``, unit: deg
-    * Reconstructed event Declination (see :ref:`sky-coordinates-radec`).
+    * Reconstructed event Declination (see :ref:`coords-radec`).
       See also `HFWG Recommendation R3`_ for the OGIP standard.
 * ``ENERGY`` tform: ``1E``, unit: TeV
     * Reconstructed event energy.
       See also the `OGIP event list`_ standard.
 * ``DETX`` tform: ``1E``, unit: deg
     * Reconstructed event X-coordinate in detector system
-      (nominal system, see :ref:`sky-coordinates-fov`).
+      (nominal system, see :ref:`coords-fov`).
       See also the `OGIP event list`_ standard.
 * ``DETY`` tform: ``1E``, unit: deg
     * Reconstructed event Y-coordinate in detector system
-      (nominal system, see :ref:`sky-coordinates-fov`).
+      (nominal system, see :ref:`coords-fov`).
       See also the `OGIP event list`_ standard.
 
 
@@ -57,10 +57,10 @@ Optional columns
     * Event quality partition.
 * ``ALT`` tform: ``1E``, unit: deg
     * Reconstructed altitude coordinate of event
-      (horizon system, see :ref:`sky-coordinates-altaz`)
+      (horizon system, see :ref:`coords-altaz`)
 * ``AZ`` tform: ``1E``, unit: deg
     * Reconstructed azimuth coordinate of event
-      (horizon system, see :ref:`sky-coordinates-altaz`)
+      (horizon system, see :ref:`coords-altaz`)
 * ``THETA`` tform: ``1E``, unit: deg
     * Reconstructed offset from the observation pointing position
 * ``PHI`` tform: ``1E``, unit: deg

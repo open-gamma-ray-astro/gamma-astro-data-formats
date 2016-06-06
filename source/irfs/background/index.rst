@@ -87,7 +87,7 @@ Columns:
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
     * Energy axis
 * ``DETX_LO``, ``DETX_HI``, ``DETY_LO``, ``DETY_HI`` -- ndim: 1, unit: deg
-    * Field of view coordinates binning, see :ref:`sky-coordinates-fov`
+    * Field of view coordinates binning, see :ref:`coords-fov`
 * ``BKG`` -- ndim: 3, unit: s^-1 MeV^-1 sr^-1
     * Absolute post-select background rate
       (expected background per time, energy and solid angle).

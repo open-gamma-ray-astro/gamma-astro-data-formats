@@ -1,9 +1,9 @@
 .. include:: ../references.txt
 
-.. _sky-coordinates:
+.. _coords:
 
-Sky coordinates
-===============
+Coordinates
+===========
 
 This section describes the sky coordinates in use by science tools. It is
 referenced from the description of data formats to explain the exact meaning of
@@ -23,7 +23,7 @@ examples are given using `astropy.coordinates` to obtain a reference value that
 can be used to check a given software package (in case it's not based on
 `astropy.coordinates`).
 
-.. _sky-coordinates-radec:
+.. _coords-radec:
 
 RA / DEC
 --------
@@ -33,8 +33,8 @@ declination (DEC) in the `equatorial coordinate system`_.
 
 Actually there are several equatorial coordinate systems in use, the most common
 ones being FK4, FK5 and ICRS. If you're interested to learn more about these and
-other astronomical coordinate systems, the references `here
-<astropy-coordinates-see-also>`__ are a good starting point.
+other astronomical coordinate systems, the references in the `see also section
+for astropy.coordinates`_ are a good starting point.
 
 But in practice it's pretty simple: when someone gives or talks about RA / DEC
 coordinates, they mean either ICRS or FK5 J2000 coordinates. The difference
@@ -45,7 +45,7 @@ We recommend you by default assume RA / DEC is in the ICRS frame, which is the
 default in `astropy.coordinates.SkyCoord`_ and also the current standard
 celestial reference system adopted by the IAU (see `Wikipedia - ICRS`_).
 
-.. _sky-coordinates-galactic:
+.. _coords-galactic:
 
 Galactic
 --------
@@ -74,7 +74,7 @@ To check your software, you can use the ``(l, b) = (0, 0)`` position:
     >>> SkyCoord(0, 0, unit='deg', frame='galactic').icrs
     <SkyCoord (ICRS): (ra, dec) in deg (266.40498829, -28.93617776)>
 
-.. _sky-coordinates-altaz:
+.. _coords-altaz:
 
 Alt / Az
 --------
@@ -85,7 +85,7 @@ given location on earth and point in time.
 * Azimuth is oriented east of north (i.e. north is at 0 deg, east at 90 deg,
   south at 180 deg and west at 270 deg). This is the convention used by
   `astropy.coordinates.AltAz`_ and quoted as the most common convention in
-  astronomy on Wikipedia (see `here <horizontal coordinate system>`_).
+  astronomy on Wikipedia (see `horizontal coordinate system`_).
 * The zenith angle is defined as the angular separation from the `zenith`_,
   which is the direction defined by the line connecting the Earth's center and the observer.
   Altitude and elevation are the same thing, and are defined as 90 degree minus the zenith angle.
@@ -126,39 +126,48 @@ Astropy, i.e. this is without refraction corrections):
     # RA =   83.63308, DEC =   22.01450
 
 
-.. _sky-coordinates-fov:
+.. _coords-fov:
 
 Field of view
 -------------
 
-Field of view coordinates for a given observation have the pointing position at
-``(0, 0)``.
+In Gammapy-ray astronomy, sometimes field of view (FOV) coordinates are used.
+Specifically some :ref:`background models <bkg>` are in the FOV coordinate system
+and FOV coordinates can also be used for other IRFs.
 
-At the moment they are only used for background modeling, where off runs are
-stacked in the field of view coordinate system. We are also discussing if we
-should use them for IRFs like effective area, where for large field of views a
-gradient due to varying zenith angle can be present and we'd like to store this
-dependency / use it in exposure computations.
+The basic idea is to have a coordinate system that is centered on the array
+pointing position. We define FOV coordinates here to be spherical coordinates,
+there is no projection or WCS, only a spherical rotation.
 
-In detail the definition of field of view coordinates is tricky and still under
-discussion.
+Two versions of FOV coordinates are defined:
 
-The main questions are:
+1. ``(LON, LAT)`` with the pointing position on the equator at ``(0, 0)``
+     * ``LON`` range -180 deg to + 180 deg
+     * ``LAT`` range -90 deg to + 90 deg
+2. ``(THETA, PHI)`` with the pointing position at the pole ``THETA=0``
+     * ``THETA`` range 0 deg to +180 deg
+     * ``PHI`` range 0 deg to 360 deg
+     * ``THETA`` is the angular separation wrt. the pointing position.
+     * TODO: define PHI orientation
+     * TODO: give example with numbers to make PHI orientation clear
 
-* How exactly are the field of view coordinates defined?
-* Is a projection (e.g. the FITS TAN aka gnomonic projection) involved or are they spherical coordinates?
-  I.e. are they angles or lengths?
-* Are the field of view coordinate axes aligned with RA / DEC or ALT / AZ?
-  (we probably need or at least want both for different applications / investigations,
-  i.e. there are two field of view coordinates.)
-* How should this be stored in FITS (e.g. axis info or even WCS object in background cube models)
+Also, there are two versions of FOV coordinates defined:
 
-Here's some useful links about the TAN projection:
+1. Aligned with ``ALTAZ``
+2. Aligned with ``RADEC``
 
-* https://en.wikipedia.org/wiki/Gnomonic_projection
-* http://mathworld.wolfram.com/GnomonicProjection.html
-* http://bl.ocks.org/mbostock/3795048
-* http://adsabs.harvard.edu/abs/2002A%26A...395.1077C
+To summarise, the following coordinates are defined:
 
-TODO: document what exactly is filled / assumed at the moment in the HESS
-exporters, Gammalib and Gammapy.
+===============  ==================================
+Field            Description
+===============  ==================================
+FOV_ALTAZ_LON    Longitude in ALTAZ FOV system
+FOV_ALTAZ_LAT    Latitude in ALTAZ FOV system
+FOV_ALTAZ_THETA  Offset in ALTAZ FOV system
+FOV_ALTAZ_PHI    Position angle in ALTAZ FOV system
+---------------  ----------------------------------
+FOV_RADEC_LON    Longitude in RADEC FOV system
+FOV_RADEC_LAT    Latitude in RADEC FOV system
+FOV_RADEC_THETA  Offset in RADEC FOV system
+FOV_RADEC_PHI    Position angle in RADEC FOV system
+===============  ==================================

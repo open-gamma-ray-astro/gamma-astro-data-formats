@@ -36,9 +36,9 @@ sending comments and feedback via the Github issue tracker, or, for
 high-level and important things, to 
 https://lists.nasa.gov/mailman/listinfo/open-gamma-ray-astro .
 
-We use the Sphinx Readthedocs theme as described `here <sphinx-rtd-local>`_,
-i.e. to build the HTML docs locally you have to ``pip install sphinx_rtd_theme``
-before ``make html``.
+We use the Sphinx Readthedocs theme as described in this `Sphinx RTD theme FAQ
+entry`_, i.e. to build the HTML docs locally you have to ``pip install
+sphinx_rtd_theme`` before ``make html``.
 
 References
 ----------
