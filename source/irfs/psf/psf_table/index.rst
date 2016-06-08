@@ -20,7 +20,7 @@ Columns:
     * Field of view offset axis
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
     * Energy axis
-* ``RPSF`` -- ndim: 3, unit: deg^-2
+* ``RPSF`` -- ndim: 3, unit: sr^-1
     * Point spread function value :math:`dP/d\Omega`, see :ref:`psf-pdf`.
 
 Recommended axis order: ``RAD``, ``THETA``, ``ENERGY``.
