@@ -44,21 +44,16 @@ Here we specify two formats for such background template models:
 The ``bkg_2d`` format contains a 2-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
 
-Header keywords:
+Required columns:
 
-* ``HDU_CLASS = bkg_2d``
-* ``HDU_DOC = TODO``
-
-Columns:
-
+* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
+    * Energy axis
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
     * Binning is often chosen with a square root scale,
       so that each ``THETA`` bin has equal solid angle,
       which means bins at the center of the field of view
       have smaller width ``THETA_HI - THETA_LO``.
-* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
-    * Energy axis
 * ``BKG`` ndim: 2, unit: s^-1 MeV^-1 sr^-1
     * Absolute post-select background rate
       (expected background per time, energy and solid angle).
@@ -68,6 +63,11 @@ Columns:
       surface brightness models do.
 
 Recommended axis order: ``ENERGY``, ``THETA``
+
+Header keywords:
+
+* ``HDU_CLASS = bkg_2d``
+* ``HDU_DOC = TODO``
 
 Example data file: TODO
 
@@ -79,10 +79,7 @@ Example data file: TODO
 The ``bkg_3d`` format contains a 3-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
 
-TODO: maybe we should we use TeV as units, since we use this for IACTs and also
-store energy in TeV?
-
-Columns:
+Required columns:
 
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
     * Energy axis
@@ -96,7 +93,7 @@ Columns:
       effective area to obtain predicted counts, like gamma-ray flux and
       surface brightness models do.
 
-Recommended axis order for ``BKG``: ``ENERGY``, ``DETX``, ``DETY``
+Recommended axis order: ``ENERGY``, ``DETX``, ``DETY``
 
 Header keywords:
 
