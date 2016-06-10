@@ -33,14 +33,6 @@ Mandatory columns
 * ``ENERGY`` tform: ``1E``, unit: TeV
     * Reconstructed event energy.
       See also the `OGIP event list`_ standard.
-* ``DETX`` tform: ``1E``, unit: deg
-    * Reconstructed event X-coordinate in detector system
-      (nominal system, see :ref:`coords-fov`).
-      See also the `OGIP event list`_ standard.
-* ``DETY`` tform: ``1E``, unit: deg
-    * Reconstructed event Y-coordinate in detector system
-      (nominal system, see :ref:`coords-fov`).
-      See also the `OGIP event list`_ standard.
 
 
 Optional columns
@@ -65,6 +57,14 @@ Optional columns
 * ``AZ`` tform: ``1E``, unit: deg
     * Reconstructed azimuth coordinate of event
       (horizon system, see :ref:`coords-altaz`)
+* ``DETX`` tform: ``1E``, unit: deg
+    * Reconstructed event X-coordinate in detector system
+      (nominal system, see :ref:`coords-fov`).
+      See also the `OGIP event list`_ standard.
+* ``DETY`` tform: ``1E``, unit: deg
+    * Reconstructed event Y-coordinate in detector system
+      (nominal system, see :ref:`coords-fov`).
+      See also the `OGIP event list`_ standard.
 * ``THETA`` tform: ``1E``, unit: deg
     * Reconstructed offset from the observation pointing position
 * ``PHI`` tform: ``1E``, unit: deg
