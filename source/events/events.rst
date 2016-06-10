@@ -55,6 +55,10 @@ Optional columns
 
 * ``EVENT_TYPE`` tform: ``32X``
     * Event quality partition.
+* ``GLON`` tform: ``1E``, unit: deg
+    * Reconstructed event Galactic longitude (see :ref:`coords-galactic`).
+* ``GLAT`` tform: ``1E``, unit: deg
+    * Reconstructed event Galactic latitude (see :ref:`coords-galactic`).
 * ``ALT`` tform: ``1E``, unit: deg
     * Reconstructed altitude coordinate of event
       (horizon system, see :ref:`coords-altaz`)

@@ -76,6 +76,10 @@ selection or data quality checks or analysis, but aren't needed for most users.
         * Use a name that can be resolved by `SESAME`_
         * For survey observations, use "survey".
         * For :ref:`glossary-obs-off`, use "off observation"
+* ``GLON_PNT`` type: float, unit: deg
+    * Observation pointing Galactic longitude (see :ref:`coords-galactic`).
+* ``GLAT_PNT`` type: float, unit: deg
+    * Observation pointing Galactic latitude (see :ref:`coords-galactic`).
 * ``RA_OBJ`` type: float, unit: deg
     * Right ascension of ``OBJECT``
 * ``DEC_OBJ`` type: float, unit: deg
