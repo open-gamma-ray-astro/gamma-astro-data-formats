@@ -24,7 +24,11 @@ likelihoods versus normalization in each energy bin.
 The SED format does not enforce a specific set of units but units
 should be defined in the column metadata for all quantities with
 physical dimensions.  Recommended units are provided in the
-:ref:`sed_columns` section to indicate the dimensionality of each column.
+:ref:`sed_columns` section to indicate the dimensionality of each
+column.  Column UCDs are intended for defining the type of physical
+quantity associated to each column (e.g. energy, photon flux, etc.).
+The convention for including UCDs in the column metdata is still under
+discussion and the UCDs defined in the current format are optional.
 
 The intended serialization format is a FITS BINTABLE with one row per
 energy bin.  However any serialization format that supports tabular
@@ -41,37 +45,37 @@ Normalization Representation
 
 The SED format supports both differential and integral representations
 of the source normalization.  Integral representations correspond to
-quantities integrated over an energy bin as defined by the ``E_MIN``
-and ``E_MAX`` columns.  Differential representations are quantities
-evaluated at a discrete energies defined by the ``E_REF`` column.  The
+quantities integrated over an energy bin as defined by the ``e_min``
+and ``e_max`` columns.  Differential representations are quantities
+evaluated at a discrete energies defined by the ``e_ref`` column.  The
 supported :ref:`norm_columns` are:
 
-* ``DNDE`` : Differential photon flux at ``E_REF``. Dimensionality:
+* ``dnde`` : Differential photon flux at ``e_ref``. Dimensionality:
   photons / (time * area * energy)
-* ``RATE`` : Photon rate between ``E_MIN`` and ``E_MAX``. Dimensionality:
+* ``RATE`` : Photon rate between ``e_min`` and ``e_max``. Dimensionality:
   photons / time.
-* ``FLUX`` : Photon flux (integral of ``DNDE``) between ``E_MIN`` and
-  ``E_MAX``. Dimensionality: photons / ( time * area )
-* ``EFLUX`` : Energy flux (integral of E times ``DNDE``) between
-  ``E_MIN`` and ``E_MAX``. Dimensionality: energy / ( time * area )
-* ``NPRED`` : Photon counts between ``E_MIN`` and ``E_MAX``.
+* ``flux`` : Photon flux (integral of ``dnde``) between ``e_min`` and
+  ``e_max``. Dimensionality: photons / ( time * area )
+* ``eflux`` : Energy flux (integral of E times ``dnde``) between
+  ``e_min`` and ``e_max``. Dimensionality: energy / ( time * area )
+* ``npred`` : Photon counts between ``e_min`` and ``e_max``.
   Dimensionality: photons
-* ``NORM`` : Normalization in units of the reference model.
+* ``norm`` : Normalization in units of the reference model.
   Dimensionality: unitless
 
 An SED should contain at least one of the normalization
-representations listed above.  Multiple representations (e.g. ``FLUX``
-and ``DNDE``) may be included in a single SED.
+representations listed above.  Multiple representations (e.g. ``flux``
+and ``dnde``) may be included in a single SED.
 
 Errors and upper limits on the normalization are defined with the
 :ref:`error_columns` by appending the appropriate suffix to the
 normalization column name.  For example in the case of photon flux the
 error and upper limit columns are:
 
-* ``FLUX_ERR`` : Symmetric 1-sigma error.
-* ``FLUX_ERRP`` : Asymmtric 1-sigma positive error.
-* ``FLUX_ERRN`` : Asymmtric 1-sigma negative error.
-* ``FLUX_UL`` : Upper limit with confidence level given by ``UL_CONF``
+* ``flux_err`` : Symmetric 1-sigma error.
+* ``flux_errp`` : Asymmtric 1-sigma positive error.
+* ``flux_errn`` : Asymmtric 1-sigma negative error.
+* ``flux_ul`` : Upper limit with confidence level given by ``UL_CONF``
   header keyword.
 
 .. _ref_model:
@@ -86,10 +90,10 @@ are rapidly changing across a bin or when energy dispersion is large
 relative to the bin size.  The :ref:`refmodel_columns` define the
 reference model in different representations.  When an SED includes a
 reference model, the normalizations, errors, and upper limits can be
-given in the ``NORM`` representation which is expressed in units of
-the reference model.  ``NORM`` columns can be converted to another
+given in the ``norm`` representation which is expressed in units of
+the reference model.  ``norm`` columns can be converted to another
 representation by performing an element-wise multiplication of the
-column with the ``REF`` column of the desired representation.
+column with the ``ref`` column of the desired representation.
 
 .. _likelihood:
 
@@ -114,9 +118,9 @@ SED format defines an *SED Type* string which is set with the
 columns that must be present in the SED.  The SED types and their
 required columns are given in the following list:
 
-* ``DIFF_FLUX_POINTS``: ``E_REF``, ``DNDE``, ``DNDE_ERR``
-* ``INT_FLUX_POINTS``: ``E_MIN``, ``E_MAX``, ``FLUX``, and ``FLUX_ERR``
-* ``LIKELIHOOD``: See :ref:`likelihood_sed`.
+* ``diff_flux_points``: ``e_ref``, ``dnde``, ``dnde_err``
+* ``int_flux_points``: ``e_min``, ``e_max``, ``flux``, and ``flux_err``
+* ``likelihood``: See :ref:`likelihood_sed`.
 
 .. _sample_files:
   
@@ -131,7 +135,7 @@ Header Keywords
 ---------------
 
 * ``UL_CONF``, **optional**
-    * Confidence level of the upper limit given in the ``NORM_UL`` column.
+    * Confidence level of the upper limit given in the ``norm_ul`` column.
 
 * ``SED_TYPE``, **optional**
     * SED type string (see :ref:`sed_types` for more details).
@@ -146,21 +150,21 @@ Columns
 Energy Columns
 ~~~~~~~~~~~~~~
 
-* ``E_MIN`` -- ndim: 1, unit: MeV
+* ``e_min`` -- ndim: 1, unit: MeV
     * Dimension: nebins
     * ucd : ``em.energy``
     * Lower edge of energy bin.  This defines the lower integration
       bound for integral representations of the normalization.
-* ``E_MAX`` -- ndim: 1, unit: MeV
+* ``e_max`` -- ndim: 1, unit: MeV
     * Dimension: nebins
     * ucd : ``em.energy``
     * Upper edge of energy bin.  This defines the upper integration
       bound for integral representations of the normalization.
-* ``E_REF`` -- ndim: 1, unit: MeV
+* ``e_ref`` -- ndim: 1, unit: MeV
     * Dimension: nebins
     * ucd : ``em.energy``
     * Energy at which differential representations of the normalization
-      are evaluated (e.g. ``DNDE``).  This can be the geometric center
+      are evaluated (e.g. ``dnde``).  This can be the geometric center
       of the bin or some weighted average of the energy distribution
       within the bin.
 
@@ -169,24 +173,24 @@ Energy Columns
 Normalization Columns
 ~~~~~~~~~~~~~~~~~~~~~
       
-* ``NORM`` -- ndim: 1, unit: None
+* ``norm`` -- ndim: 1, unit: None
     * Dimension: nebins
     * Measured normalization in units of the reference model.  
-* ``DNDE`` -- ndim: 1, unit: ph / (cm2 s MeV)
+* ``dnde`` -- ndim: 1, unit: ph / (cm2 s MeV)
     * Dimension: nebins
     * ucd : ``phot.flux.density``
-    * Measured differential photon flux at ``E_REF``. 
-* ``FLUX`` -- ndim: 1, unit: ph / (cm2 s)
+    * Measured differential photon flux at ``e_ref``. 
+* ``flux`` -- ndim: 1, unit: ph / (cm2 s)
     * Dimension: nebins
     * ucd : ``phot.count``
-    * Measured photon flux between ``E_MIN`` and ``E_MAX``.
-* ``EFLUX`` -- ndim: 1, unit: MeV / (cm2 s)
+    * Measured photon flux between ``e_min`` and ``e_max``.
+* ``eflux`` -- ndim: 1, unit: MeV / (cm2 s)
     * Dimension: nebins
     * ucd : ``phot.flux``
-    * Measured energy flux between ``E_MIN`` and ``E_MAX``.
-* ``NPRED`` -- ndim: 1, unit: ph
+    * Measured energy flux between ``e_min`` and ``e_max``.
+* ``npred`` -- ndim: 1, unit: ph
     * Dimension: nebins
-    * Measured counts between ``E_MIN`` and ``E_MAX``.
+    * Measured counts between ``e_min`` and ``e_max``.
 
 .. _error_columns:
       
@@ -196,22 +200,22 @@ Error Columns
 The error columns define the error and upper limit for a given
 representation of the normalization.  In the following column
 specifications ``{NORM_REP}`` indicates a placeholder for the name of
-the normalization column (e.g. ``FLUX_ERR``).
+the normalization column (e.g. ``flux_err``).
 
-* ``{NORM_REP}_ERR`` -- ndim: 1
+* ``{NORM_REP}_err`` -- ndim: 1
     * Dimension: nebins
     * Symmetric error on the normalization in the representation
       ``{NORM_REP}``.
-* ``{NORM_REP}_ERRP`` -- ndim: 1
+* ``{NORM_REP}_errp`` -- ndim: 1
     * Dimension: nebins
     * Positive error on the normalization in the representation
       ``{NORM_REP}``.
-* ``{NORM_REP}_ERRN`` -- ndim: 1
+* ``{NORM_REP}_errn`` -- ndim: 1
     * Dimension: nebins      
     * Negative error on the normalization in the representation
       ``{NORM_REP}``.  A negative or NaN value indicates that the
       negative error is undefined.
-* ``{NORM_REP}_UL`` -- ndim: 1
+* ``{NORM_REP}_ul`` -- ndim: 1
     * Dimension: nebins
     * Upper limit on the normalization in the representation
       ``{NORM_REP}``.  The upper limit confidence level is specified
@@ -222,23 +226,23 @@ the normalization column (e.g. ``FLUX_ERR``).
 Reference Model Columns
 ~~~~~~~~~~~~~~~~~~~~~~~
       
-* ``REF_DNDE`` -- ndim: 1, unit: ph / (MeV cm2 s)
+* ``ref_dnde`` -- ndim: 1, unit: ph / (MeV cm2 s)
     * Dimension: nebins
-    * Differential flux of reference model at the ``E_REF``.
-* ``REF_EFLUX`` -- ndim: 1, unit: MeV / (cm2 s)
+    * Differential flux of reference model at the ``e_ref``.
+* ``ref_eflux`` -- ndim: 1, unit: MeV / (cm2 s)
     * Dimension: nebins
-    * Energy flux (integral of E times ``DNDE``) of reference model
-      from ``E_MIN`` to ``E_MAX``.
-* ``REF_FLUX`` -- ndim: 1, unit: ph / (cm2 s)
+    * Energy flux (integral of E times ``dnde``) of reference model
+      from ``e_min`` to ``e_max``.
+* ``ref_flux`` -- ndim: 1, unit: ph / (cm2 s)
     * Dimension: nebins
-    * Flux (integral of ``DNDE``) of reference model from ``E_MIN`` to ``E_MAX``.
-* ``REF_DFDE_E_MIN`` -- ndim: 1, unit: ph / (MeV cm2 s)
+    * Flux (integral of ``dnde``) of reference model from ``e_min`` to ``e_max``.
+* ``ref_dnde_e_min`` -- ndim: 1, unit: ph / (MeV cm2 s)
     * Dimension: nebins
-    * Differential flux of reference model at ``E_MIN``.
-* ``REF_DFDE_E_MAX`` -- ndim: 1, unit: ph / (MeV cm2 s)
+    * Differential flux of reference model at ``e_min``.
+* ``ref_dnde_e_max`` -- ndim: 1, unit: ph / (MeV cm2 s)
     * Dimension: nebins
-    * Differential flux of reference model at ``E_MAX``.
-* ``REF_NPRED`` -- ndim: 1, unit: counts
+    * Differential flux of reference model at ``e_max``.
+* ``ref_npred`` -- ndim: 1, unit: counts
     * Dimension: nebins
     * Number of photon counts of reference model.
 
@@ -247,23 +251,23 @@ Reference Model Columns
 Likelihood Columns
 ~~~~~~~~~~~~~~~~~~
       
-* ``TS`` -- ndim: 1, unit: none
+* ``ts`` -- ndim: 1, unit: none
     * Dimension: nebins
     * Source test statistic in each energy bin defined as twice the
       difference between best-fit and null log-likelihood values.  In the
       asymptotic limit this is square of the significance.
-* ``LOGLIKE`` -- ndim: 1, unit: none
+* ``loglike`` -- ndim: 1, unit: none
     * Dimension: nebins
     * Log-Likelihood value of the best-fit model.
-* ``LOGLIKE_NULL`` -- ndim: 1, unit: none
+* ``loglike_null`` -- ndim: 1, unit: none
     * Dimension: nebins
     * Log-Likelihood value of the zero normalization model.
-* ``{NORM_REP}_SCAN`` -- ndim: 2, unit: None
+* ``{NORM_REP}_scan`` -- ndim: 2, unit: None
     * Dimension: nebins x nnorms
     * Likelihood scan points in each energy bin in the representation
       ``{NORM_REP}``.       
-* ``DLOGLIKE_SCAN`` -- ndim: 2, unit: none
+* ``dloglike_scan`` -- ndim: 2, unit: none
     * Dimension: nebins x nnorms
     * Scan over delta LogLikelihood value vs. normalization in each
       energy bin.  The Delta-Loglikelihood is evaluated with respect
-      to the zero normalization model (``LOGLIKE_NULL``).
+      to the zero normalization model (``loglike_null``).
