@@ -52,7 +52,7 @@ supported :ref:`norm_columns` are:
 
 * ``dnde`` : Differential photon flux at ``e_ref``. Dimensionality:
   photons / (time * area * energy)
-* ``RATE`` : Photon rate between ``e_min`` and ``e_max``. Dimensionality:
+* ``rate`` : Photon rate between ``e_min`` and ``e_max``. Dimensionality:
   photons / time.
 * ``flux`` : Photon flux (integral of ``dnde``) between ``e_min`` and
   ``e_max``. Dimensionality: photons / ( time * area )
@@ -60,6 +60,8 @@ supported :ref:`norm_columns` are:
   ``e_min`` and ``e_max``. Dimensionality: energy / ( time * area )
 * ``npred`` : Photon counts between ``e_min`` and ``e_max``.
   Dimensionality: photons
+* ``rate`` : Photon rate between ``e_min`` and ``e_max``.
+  Dimensionality: photons / time
 * ``norm`` : Normalization in units of the reference model.
   Dimensionality: unitless
 
@@ -127,8 +129,9 @@ required columns are given in the following list:
 Sample Files
 ------------
 
-* Differential Flux Points: :download:`FITS <diff_flux_points.fits>` :download:`ECSV <diff_flux_points.ecsv>`
-* Integral Flux Points: :download:`FITS <int_flux_points.fits>` :download:`ECSV <int_flux_points.ecsv>`
+* Differential Flux Points: :download:`FITS <diff_flux_points.fits>` :download:`ECSV <diff_flux_points.ecsv>` :download:`H5 <diff_flux_points.h5>`
+* Integral Flux Points: :download:`FITS <int_flux_points.fits>` :download:`ECSV <int_flux_points.ecsv>` :download:`H5 <int_flux_points.h5>`
+* Binned Likelihood: :download:`FITS <binlike.fits>` :download:`H5 <binlike.h5>`
 * H.E.S.S. 1ES0229 Spectrum: :download:`FITS <1es0229_hess_spectrum.fits>` :download:`ECSV <1es0229_hess_spectrum.ecsv>`
 
 Header Keywords
