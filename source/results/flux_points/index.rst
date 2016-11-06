@@ -131,7 +131,7 @@ Sample Files
 
 * Differential Flux Points: :download:`FITS <diff_flux_points.fits>` :download:`ECSV <diff_flux_points.ecsv>` :download:`H5 <diff_flux_points.h5>`
 * Integral Flux Points: :download:`FITS <int_flux_points.fits>` :download:`ECSV <int_flux_points.ecsv>` :download:`H5 <int_flux_points.h5>`
-* Binned Likelihood: :download:`FITS <binlike.fits>` :download:`H5 <binlike.h5>`
+* Likelihood SED: :download:`FITS <binlike.fits>` :download:`H5 <binlike.h5>`
 * H.E.S.S. 1ES0229 Spectrum: :download:`FITS <1es0229_hess_spectrum.fits>` :download:`ECSV <1es0229_hess_spectrum.ecsv>`
 
 Header Keywords
