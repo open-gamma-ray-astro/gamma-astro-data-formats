@@ -16,7 +16,7 @@ The recommended extension name of the binary table is ``EVENTS``.
 Mandatory columns
 -----------------
 
-* ``EVENT_ID`` tform: ``1J``
+* ``EVENT_ID`` tform: ``1K``
     * Event identification number at the DL3 level
       (lower data levels could be different, see note below).
 * ``TIME`` tform: ``1D``, unit: s
