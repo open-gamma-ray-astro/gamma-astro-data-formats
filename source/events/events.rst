@@ -16,7 +16,7 @@ The recommended extension name of the binary table is ``EVENTS``.
 Mandatory columns
 -----------------
 
-* ``EVENT_ID`` tform: ``1J``
+* ``EVENT_ID`` tform: ``1K``
     * Event identification number at the DL3 level
       (lower data levels could be different, see note below).
 * ``TIME`` tform: ``1D``, unit: s
@@ -279,8 +279,8 @@ at low data levels and is already fixed for existing IACTs, we propose here
 to have an ``EVENT_ID`` that is simpler and works the same for all IACTs at
 the DL3 level.
 
-As an example: for H.E.S.S. we achive this by using an INT64 for ``EVENT_ID``
-and to store ``EVENT_ID = (BUNCH_ID_HESS << 32) || (EVENT_ID_HESS)``, i.e.
+As an example: for H.E.S.S. we achieve this by using an INT64 for ``EVENT_ID``
+and to store ``EVENT_ID = (BUNCH_ID_HESS << 32) | (EVENT_ID_HESS)``, i.e.
 use the upper bits to contain the low-level bunch ID and the lower bits
 to contains the low-level event ID.
 This encoding is unique and reversible, i.e. it's easy to go back to
