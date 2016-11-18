@@ -137,7 +137,7 @@ Header Keywords
 ---------------
 
 * ``SED_TYPE``
-    * SED type string.  Should be set to ``LIKELIHOOD``.
+    * SED type string.  Should be set to ``likelihood``.
 * ``UL_CONF``, **optional**
     * Confidence level of the upper limit given in the ``norm_ul`` column.
       
@@ -251,24 +251,26 @@ EBOUNDS Table
 
 The EBOUNDS HDU is a BINTABLE with 1 row per energy bin and the
 following columns.  The columns listed here are a subset of the
-columns in the :ref:`flux-points` format.  See :ref:`sed_columns`
-for the full column specifications.
+columns in the :ref:`flux-points` format.  See :ref:`sed_columns` for
+the full column specifications.  Note that for backwards compatibility
+with existing EBOUNDS table convention (e.g. as used for WCS counts
+cubes) columns names are upper case.
 
 Required Columns
 ~~~~~~~~~~~~~~~~
 
-* ``e_min``, unit: keV, Dimension: nebins
-* ``e_ref``, unit: keV, Dimension: nebins
-* ``e_max``, unit: keV, Dimension: nebins
-* ``ref_dnde`` -- ndim: 1, Dimension: nebins
-* ``ref_eflux`` -- ndim: 1, Dimension: nebins
-* ``ref_flux`` -- ndim: 1, Dimension: nebins
+* ``E_MIN``, unit: keV, Dimension: nebins
+* ``E_REF``, unit: keV, Dimension: nebins
+* ``E_MAX``, unit: keV, Dimension: nebins
+* ``REF_DNDE`` -- ndim: 1, Dimension: nebins
+* ``REF_EFLUX`` -- ndim: 1, Dimension: nebins
+* ``REF_FLUX`` -- ndim: 1, Dimension: nebins
 
 Optional Columns
 ~~~~~~~~~~~~~~~~
-* ``ref_dnde_e_min`` -- ndim: 1, Dimension: nebins
-* ``ref_dnde_e_max`` -- ndim: 1, Dimension: nebins
-* ``ref_npred`` -- ndim: 1, Dimension: nebins
+* ``REF_DNDE_E_MIN`` -- ndim: 1, Dimension: nebins
+* ``REF_DNDE_E_MAX`` -- ndim: 1, Dimension: nebins
+* ``REF_NPRED`` -- ndim: 1, Dimension: nebins
 
 .. _tscube:
 
