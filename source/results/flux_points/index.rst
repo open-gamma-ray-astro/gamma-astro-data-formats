@@ -60,8 +60,6 @@ supported :ref:`norm_columns` are:
   ``e_min`` and ``e_max``. Dimensionality: energy / ( time * area )
 * ``npred`` : Photon counts between ``e_min`` and ``e_max``.
   Dimensionality: photons
-* ``rate`` : Photon rate between ``e_min`` and ``e_max``.
-  Dimensionality: photons / time
 * ``norm`` : Normalization in units of the reference model.
   Dimensionality: unitless
 
@@ -80,6 +78,33 @@ error and upper limit columns are:
 * ``flux_ul`` : Upper limit with confidence level given by ``UL_CONF``
   header keyword.
 
+A row may have a value and any combination of upper limits and errors:
+
+.. code::
+
+   e_ref dnde dnde_err dnde_errp dnde_errn dnde_ul
+   1000.0 1.0 0.1 0.1 0.1 1.16
+   3000.0 1.0 0.1 0.1 0.1 1.16
+
+A ``nan`` value should be used for empty or missing data such as a bin
+for which there is an upper limit but no value and vice versa, e.g.
+
+.. code::
+
+   e_ref dnde dnde_err dnde_ul
+   1000.0 1.0 0.1 nan
+   3000.0 nan nan 1.16
+   
+The ``ul`` column is an optional boolean flag that can be used to
+designate whether the measurement in a given row should be interpreted
+as a two-sided confidence interval or an upper limit:
+
+.. code::
+
+   e_ref dnde dnde_err dnde_ul ul
+   1000.0 1.0 0.1 nan False
+   3000.0 nan nan 1.16 True
+  
 .. _ref_model:
 
 Reference Model
@@ -120,8 +145,9 @@ SED format defines an *SED Type* string which is set with the
 columns that must be present in the SED.  The SED types and their
 required columns are given in the following list:
 
-* ``diff_flux_points``: ``e_ref``, ``dnde``, ``dnde_err``
-* ``int_flux_points``: ``e_min``, ``e_max``, ``flux``, and ``flux_err``
+* ``dnde``: ``e_ref``, ``dnde``
+* ``flux``: ``e_min``, ``e_max``, ``flux``
+* ``eflux``: ``e_min``, ``e_max``, ``eflux``
 * ``likelihood``: See :ref:`likelihood_sed`.
 
 .. _sample_files:
@@ -130,7 +156,7 @@ Sample Files
 ------------
 
 * Differential Flux Points: :download:`FITS <diff_flux_points.fits>` :download:`ECSV <diff_flux_points.ecsv>` :download:`H5 <diff_flux_points.h5>`
-* Integral Flux Points: :download:`FITS <int_flux_points.fits>` :download:`ECSV <int_flux_points.ecsv>` :download:`H5 <int_flux_points.h5>`
+* Integral Flux Points: :download:`FITS <flux_points.fits>` :download:`ECSV <flux_points.ecsv>` :download:`H5 <flux_points.h5>`
 * Likelihood SED: :download:`FITS <binlike.fits>` :download:`H5 <binlike.h5>`
 * H.E.S.S. 1ES0229 Spectrum: :download:`FITS <1es0229_hess_spectrum.fits>` :download:`ECSV <1es0229_hess_spectrum.ecsv>`
 
@@ -138,7 +164,7 @@ Header Keywords
 ---------------
 
 * ``UL_CONF``, **optional**
-    * Confidence level of the upper limit given in the ``norm_ul`` column.
+    * Confidence level of the upper limit in ``{NORM_REP}_ul``.
 
 * ``SED_TYPE``, **optional**
     * SED type string (see :ref:`sed_types` for more details).
@@ -147,6 +173,9 @@ Header Keywords
       
 Columns
 -------
+
+This sections lists the column specifications.  Unless otherwise
+specified the data type of all columns should be float32 or float64.
 
 .. _energy_columns:
 
@@ -223,7 +252,16 @@ the normalization column (e.g. ``flux_err``).
     * Upper limit on the normalization in the representation
       ``{NORM_REP}``.  The upper limit confidence level is specified
       with the ``UL_CONF`` header keyword.
-
+* ``ul`` -- ndim: 1, type: bool
+    * Dimension: nebins
+    * Boolean flag indicating whether a row should be interpreted as
+      an upper limit.  If ``True`` then one should represent the
+      measurement with the one-sided confidence interval defined by
+      ``{NORM_REP}_ul``.  If ``False`` then the measurement should be
+      represented by the two-sided intervals defined by
+      ``{NORM_REP}_err`` or ``{NORM_REP}_errp`` and
+      ``{NORM_REP}_errn``.
+      
 .. _refmodel_columns:
       
 Reference Model Columns
