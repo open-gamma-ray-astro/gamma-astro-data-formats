@@ -6,10 +6,11 @@
 # - {name: flux, unit: ph / (cm2 s), datatype: float64}
 # - {name: flux_err, unit: ph / (cm2 s), datatype: float64}
 # - {name: flux_ul, unit: ph / (cm2 s), datatype: float64}
-# - {name: ul, datatype: bool}
+# - {name: is_ul, datatype: bool}
 # meta: !!omap
 # - {SED_TYPE: flux}
-e_min e_max flux flux_err flux_ul ul
+# - {UL_CONF: 0.95}
+e_min e_max flux flux_err flux_ul is_ul
 100.0 133.352143216 3.84363636364e-09 5.91118843891e-11 nan False
 133.352143216 177.827941004 2.67090909091e-09 4.92757463013e-11 nan False
 177.827941004 237.137370566 1.89090909091e-09 4.14609245491e-11 nan False

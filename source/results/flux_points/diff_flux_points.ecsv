@@ -7,6 +7,7 @@
 # - {name: dnde_ul, unit: ph / (cm2 MeV s), datatype: float64}
 # meta: !!omap
 # - {SED_TYPE: dnde}
+# - {UL_CONF: 0.95}
 e_ref dnde dnde_err dnde_ul
 115.478198469 1.15069456054e-10 1.76967114978e-12 nan
 153.992652606 5.99621053298e-11 1.10624412489e-12 nan

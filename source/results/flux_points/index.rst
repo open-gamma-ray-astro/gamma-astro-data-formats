@@ -80,7 +80,7 @@ error and upper limit columns are:
 
 A row may have a value and any combination of upper limits and errors:
 
-.. code::
+.. code-block:: none
 
    e_ref dnde dnde_err dnde_errp dnde_errn dnde_ul
    1000.0 1.0 0.1 0.1 0.1 1.16
@@ -89,22 +89,29 @@ A row may have a value and any combination of upper limits and errors:
 A ``nan`` value should be used for empty or missing data such as a bin
 for which there is an upper limit but no value and vice versa, e.g.
 
-.. code::
+.. code-block:: none
 
    e_ref dnde dnde_err dnde_ul
    1000.0 1.0 0.1 nan
    3000.0 nan nan 1.16
    
-The ``ul`` column is an optional boolean flag that can be used to
+The ``is_ul`` column is an optional boolean flag that can be used to
 designate whether the measurement in a given row should be interpreted
 as a two-sided confidence interval or an upper limit:
 
-.. code::
+.. code-block:: none
 
-   e_ref dnde dnde_err dnde_ul ul
+   e_ref dnde dnde_err dnde_ul is_ul
    1000.0 1.0 0.1 nan False
    3000.0 nan nan 1.16 True
-  
+
+Setting UL values to ``nan`` is an implicit way of flagging rows that
+do not contain an upper limit.  When parsing an SED one should first
+check for the existence of the ``is_ul`` column and otherwise check
+for ``nan`` values in the UL column.  The ``is_ul`` column is only
+required if you want to explicitly flag ULs when both the UL and
+two-sided interval may be defined in a row.
+   
 .. _ref_model:
 
 Reference Model
@@ -252,7 +259,7 @@ the normalization column (e.g. ``flux_err``).
     * Upper limit on the normalization in the representation
       ``{NORM_REP}``.  The upper limit confidence level is specified
       with the ``UL_CONF`` header keyword.
-* ``ul`` -- ndim: 1, type: bool
+* ``is_ul`` -- ndim: 1, type: bool
     * Dimension: nebins
     * Boolean flag indicating whether a row should be interpreted as
       an upper limit.  If ``True`` then one should represent the
