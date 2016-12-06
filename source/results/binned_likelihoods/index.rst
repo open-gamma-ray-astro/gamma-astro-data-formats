@@ -139,7 +139,7 @@ Header Keywords
 * ``SED_TYPE``
     * SED type string.  Should be set to ``likelihood``.
 * ``UL_CONF``, **optional**
-    * Confidence level of the upper limit given in the ``norm_ul`` column.
+    * Confidence level of the upper limit (range: 0 to 1) of the value in the ``norm_ul`` column.
       
 Columns
 -------
@@ -339,4 +339,3 @@ and the following columns:
 * ``fit_status`` -- ndim: 1, unit: None
     * Dimension: nrows 
     * Status code for the fit. 0 = OK, >0 = Not OK
-

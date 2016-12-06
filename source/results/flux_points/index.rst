@@ -171,7 +171,7 @@ Header Keywords
 ---------------
 
 * ``UL_CONF``, **optional**
-    * Confidence level of the upper limit in ``{NORM_REP}_ul``.
+    * Confidence level of the upper limit (range: 0 to 1) of the value in the ``{NORM_REP}_ul`` column.
 
 * ``SED_TYPE``, **optional**
     * SED type string (see :ref:`sed_types` for more details).
