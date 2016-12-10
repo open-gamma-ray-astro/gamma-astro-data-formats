@@ -50,10 +50,13 @@ and ``e_max`` columns.  Differential representations are quantities
 evaluated at a discrete energies defined by the ``e_ref`` column.  The
 supported :ref:`norm_columns` are:
 
-* ``dnde`` : Differential photon flux at ``e_ref``. Dimensionality:
-  photons / (time * area * energy)
-* ``rate`` : Photon rate between ``e_min`` and ``e_max``. Dimensionality:
-  photons / time.
+* ``dnde`` : Differential photon flux at ``e_ref``.
+  Dimensionality: photons / (time * area * energy)
+* ``e2dnde`` : Defined as ``(e_ref ^ 2) * dnde``.
+  A commonly published and plotted differential flux quantity.
+  Dimensionality: energy / (time * area)
+* ``rate`` : Photon rate between ``e_min`` and ``e_max``.
+  Dimensionality: photons / time.
 * ``flux`` : Photon flux (integral of ``dnde``) between ``e_min`` and
   ``e_max``. Dimensionality: photons / ( time * area )
 * ``eflux`` : Energy flux (integral of E times ``dnde``) between
@@ -153,6 +156,7 @@ columns that must be present in the SED.  The SED types and their
 required columns are given in the following list:
 
 * ``dnde``: ``e_ref``, ``dnde``
+* ``e2dnde``: ``e_ref``, ``e2dnde``
 * ``flux``: ``e_min``, ``e_max``, ``flux``
 * ``eflux``: ``e_min``, ``e_max``, ``eflux``
 * ``likelihood``: See :ref:`likelihood_sed`.
@@ -219,6 +223,10 @@ Normalization Columns
     * Dimension: nebins
     * ucd : ``phot.flux.density``
     * Measured differential photon flux at ``e_ref``. 
+* ``e2dnde`` -- ndim: 1, unit: MeV / (cm2 s)
+    * Dimension: nebins
+    * ucd : ``phot.flux.density``
+    * Measured differential photon flux at ``e_ref``, multiplied with ``e_ref ^ 2``.
 * ``flux`` -- ndim: 1, unit: ph / (cm2 s)
     * Dimension: nebins
     * ucd : ``phot.count``
