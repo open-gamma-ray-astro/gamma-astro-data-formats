@@ -70,6 +70,9 @@ An SED should contain at least one of the normalization
 representations listed above.  Multiple representations (e.g. ``flux``
 and ``dnde``) may be included in a single SED.
 
+The ``dnde`` and ``e2dnde`` representations are equivalent. We define
+both here, because both are in common use for publications and plots.
+
 Errors and upper limits on the normalization are defined with the
 :ref:`error_columns` by appending the appropriate suffix to the
 normalization column name.  For example in the case of photon flux the
