@@ -131,7 +131,7 @@ Astropy, i.e. this is without refraction corrections):
 Field of view
 -------------
 
-In Gammapy-ray astronomy, sometimes field of view (FOV) coordinates are used.
+In Gamma-ray astronomy, sometimes field of view (FOV) coordinates are used.
 Specifically some :ref:`background models <bkg>` are in the FOV coordinate system
 and FOV coordinates can also be used for other IRFs.
 
