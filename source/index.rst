@@ -20,4 +20,5 @@ Table of contents
    irfs/index
    data_storage/index
    ogip/index
+   skymaps/index
    results/index
