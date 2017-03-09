@@ -13,7 +13,7 @@ single row and array columns) described at :ref:`fits-arrays-bintable-hdu`.
 This format has been used for calibration data and IRF of X-ray instruments,
 as well as for the IRFs that are distributed with the Fermi-LAT science tools.
 In order to support fully enclosed IRFs, describing instrument response for a given 
-region of interest, this format has been extended closely following previous standards.
+region of interest, this format has been extended closely following previous conventions.
 
 At the moment (November 2015), this format is used by H.E.S.S. and
 VERITAS and supported by Gammapy and Gammalib and is being proposed for
@@ -36,7 +36,11 @@ stored in columns. The following names are recommended:
 * Field of view coordinates ``DETX``, ``DETY`` or ``THETA``, ``PHI`` for offset and azimuth angle in the field of view.
 * Offset wrt. the source position should be called ``RAD`` (this is what the OGIP PSF formats use).
 
-The IRF format specs mention a recommended axis format and axis units.
+In the case of fully enclosed IRFs:
+
+* The energy-dependent radius of the selected region of interest should be ``RAD_MAX``  
+   
+The IRF format specifications mention a recommended axis format and axis units.
 But tools should not depend on this and instead:
 
 * Use the axis order specified by the ``CREF`` header keyword (see :ref:`fits-arrays-bintable-hdu`)
