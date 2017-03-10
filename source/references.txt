@@ -43,7 +43,7 @@
 .. _2015PhRvL.115w1301A: http://adsabs.harvard.edu/abs/2015PhRvL.115w1301A
 .. _2016PhRvD..93f2004C: http://adsabs.harvard.edu/abs/2016PhRvD..93f2004C
 .. _LAT_edisp_usage: http://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Pass8_edisp_usage.html
-
+.. _HEALPix algorithm: http://healpix.jpl.nasa.gov/
 .. _astropy.coordinates: http://astropy.readthedocs.io/en/latest/coordinates/index.html
 .. _see also section for astropy.coordinates: http://astropy.readthedocs.io/en/latest/coordinates/index.html#see-also
 .. _astropy.coordinates.SkyCoord: http://astropy.readthedocs.io/en/latest/api/astropy.coordinates.SkyCoord.html
