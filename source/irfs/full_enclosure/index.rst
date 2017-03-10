@@ -5,11 +5,30 @@
 Full-enclosure IRFs
 ===================
 
-This fully enclosed IRF format has been used for calibration data and IRF of 
+Full-enclosure IRF format has been used for calibration data and IRF of 
 X-ray instruments, as well as for the IRFs that are distributed with the Fermi-LAT 
-science tools.
+science tools. 
 
-Here we specify the IRFs in use for IACT data.
+
+
+
+MC productions need to be performed to estimate the instrument performance for these 
+specific conditions,  therefore dedicated MC production 
+
+
+Given the limitation in computational resources, these IRFs generally lack sufficient
+  MC event statistics to provide the best instrument response estimation possible for a given FoV position.
+
+
+* full FoV
+* MC stats
+
+Although due to the high number of fast changing parameters affecting IACT IRFs, there are 
+also associated disadvantages:
+
+* full FoV
+* Given the limited computational resources, as simulated gamma rays areLimited MC statistics
+
 
 .. _irf-axes:
 

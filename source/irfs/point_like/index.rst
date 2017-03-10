@@ -5,6 +5,11 @@
 Point-like IRFs
 ===============
 
+
+Allow excellent MC statistics for the generation of IRFs. They also allow
+  to extract simultaneous background from reflected regions, significantly reducing the systematic uncertainty 
+  of the background.
+
 The instrument response function (IRF) formats currently in use
 for imaging atmospheric Cherenkov telescopes (IACTs) are stored in FITS
 binary tables using the "multidimensional array" convention (binary tables with a

@@ -13,17 +13,21 @@ single row and array columns) described at :ref:`fits-arrays-bintable-hdu`.
 This format has been used for calibration data and IRF of X-ray instruments,
 as well as for the IRFs that are distributed with the Fermi-LAT science tools.
 
-BLAH BLAH BLAH why we need 2 types of IRFs: full-enclosure IRFs and point-like IRFs.
+Unlike spaceborne instruments, IACT IRFs are affected by fast-changing parameters (weather, atmospheric 
+density profile, night-sky background). The absence of these changing conditions in the MC is the main source of 
+systematic uncertainty for the current generation of IACTs. In addition, IRF uncertainty is limited by the
+statistics of generated MC events, requiring large computational resources. 
+
+Given the large amount of parameters to be included within the simulations and the limited resources, two 
+different approaches are generally used to calculate the IACTs response:
 
 * Full-enclosure IRFs: contain the instrument response for the whole field of view (FoV) of the instrument.
   Storing such IRFs allow the scientific analysis of any source within the instrument FoV, with no prior 
-  assumption on its position. Given the limitation in computational resources, these IRFs generally lack sufficient
-  MC event statistics to provide the best instrument response estimation possible for a given FoV position.
+  assumption on its position. Require simulation of gamma rays over the whole instrument field of view
  
 * Point-like IRFs: contain the instrument response for a given point within the FoV, which restricts their
-  use to that specific position. Allow excellent MC statistics for the generation of IRFs. They also allow
-  to extract simultaneous background from reflected regions, significantly reducing the systematic uncertainty 
-  of the background.
+  use to that specific position. All simulated gamma rays come from a single point within the FoV, significantly
+  reducing required resources to reach a given IRF uncertainty level
 
 
 At the moment (November 2015), this format is used by H.E.S.S., MAGIC and
