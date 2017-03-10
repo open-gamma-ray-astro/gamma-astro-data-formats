@@ -5,7 +5,7 @@
 OGIP 1D spectrum data formats
 =============================
 
-The :ref:`iact-events` and 2D :ref:`iact-irfs` can be transformed into a 1D
+The :ref:`iact-events` and 2D :ref:`iact-irf` can be transformed into a 1D
 counts vector and 1D IRFs that can serve as input to general X-ray spectral
 analysis packages such as Sherpa_. For an introduction to this so-called OGIP
 data format please refer to the official `Documentation

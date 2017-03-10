@@ -1,45 +1,19 @@
 .. include:: ../../../references.txt
 
-.. _bkg:
+.. _iact-background-format:
 
-Background
-==========
+Background format
+=================
 
-One method of background modeling for IACTs is to construct spatial and / or
-spectral model templates of the irreducible cosmic ray background for a given
-reconstruction and gamma-hadron separation from :ref:`glossary-obs-off`. These
-templates can then be used as an ingredient to model the background in
-observations that contain gamma-ray emission of interest, or to compute the
-sensitivity for that set of cuts.
-
-Here we specify two formats for such background template models:
+Here we specify two formats for the background template models of a full-enclosure IRF:
 
 * ``bkg_2d`` models depend on ``ENERGY`` and ``THETA``, i.e. are radially symmetric.
 * ``bkg_3d`` models depend on ``ENERGY`` and field of view coordinates ``DETX`` and ``DETY``.
 
-.. note::
-
-    Generating background models requires the construction of several
-    intermediate products (counts and livetime histograms, both filled by cutting
-    out exclusion regions around sources like AGN) to arrive at the models
-    containing an absolute rate described here. At this time we don't specify a
-    format for those intermediate formats.
-
-.. note::
-
-    Background models are sometimes considered an instrument response function
-    (IRF) and sometimes not (e.g. when the background is estimated from different
-    parts of the field of view for the same observation).
-
-    Here we have the background format specifications listed under IRFs,
-    simply because the storage format is very similar to the other IRFs
-    (e.g. effective area) and we didn't want to introduce a new top-level
-    section besides IRFs.
-
 .. _bkg_2d:
 
-``bkg_2d`` format
------------------
+``bkg_2d``
+----------
 
 The ``bkg_2d`` format contains a 2-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
@@ -73,8 +47,8 @@ Example data file: TODO
 
 .. _bkg_3d:
 
-``bkg_3d`` format
------------------
+``bkg_3d``
+----------
 
 The ``bkg_3d`` format contains a 3-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.

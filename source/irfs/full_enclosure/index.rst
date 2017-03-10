@@ -9,57 +9,21 @@ Full-enclosure IRF format has been used for calibration data and IRF of
 X-ray instruments, as well as for the IRFs that are distributed with the Fermi-LAT 
 science tools. 
 
+These IRFs are calculated for the whole field of view (FoV) of the instrument, with no 
+prior assumption on the source position, allowing the analysis of any point-like 
+or diffuse source within the instrument FoV. 
 
+As discussed within the :ref:`iact-irf` section, IACTs have a couple of limitations to calculate
+full-enclosure IRFs:
 
+* As simulated gamma-ray events are distributed through the whole FoV, the IRFs may lack enough statistics 
+  (for instance, to properly calculate the energy migration or the PSF tails for high energy bins) 
+* Full-enclosure IRFs require a precise background model for the whole FoV, a rather complicated task for 
+  IACTs (in highly populated areas or regions with diffuse signals larger than the instrument FoV).
 
-MC productions need to be performed to estimate the instrument performance for these 
-specific conditions,  therefore dedicated MC production 
+Any full-enclosure IRF component should contain the header keyword: 
 
-
-Given the limitation in computational resources, these IRFs generally lack sufficient
-  MC event statistics to provide the best instrument response estimation possible for a given FoV position.
-
-
-* full FoV
-* MC stats
-
-Although due to the high number of fast changing parameters affecting IACT IRFs, there are 
-also associated disadvantages:
-
-* full FoV
-* Given the limited computational resources, as simulated gamma rays areLimited MC statistics
-
-
-.. _irf-axes:
-
-IRF axes
---------
-
-Most IRFs are dependent on parameters, and the 1-dim. parameter arrays are
-stored in columns. The following names are recommended:
-
-* For energy grids, see `here <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_003/cal_gen_92_003.html#tth_sEc7>`__
-  for basic recommendations. Column names should be ``ENERGY`` or ``ENERG_LO``, ``ENERG_HI``
-  because that is used (consistently I think) for OGIP and Fermi-LAT.
-  For separate HDUs, the extension names should be ``ENERGIES`` or ``EBOUNDS`` (used by Fermi-LAT consistently).
-* Sky coordinates should be called ``RA``, ``DEC``, ``GLON``, ``GLAT``, ``ALT``, ``AZ``.
-* Field of view coordinates ``DETX``, ``DETY`` or ``THETA``, ``PHI`` for offset and azimuth angle in the field of view.
-* Offset wrt. the source position should be called ``RAD`` (this is what the OGIP PSF formats use).
-
-In the case of fully enclosed IRFs:
-
-* The energy-dependent radius of the selected region of interest should be ``RAD_MAX``  
-   
-The IRF format specifications mention a recommended axis format and axis units.
-But tools should not depend on this and instead:
-
-* Use the axis order specified by the ``CREF`` header keyword (see :ref:`fits-arrays-bintable-hdu`)
-* Use the axis unit specified by the ``CUNIT`` header keywords (see :ref:`fits-arrays-bintable-hdu`)
-
-.. _specific-irfs:
-
-Specific IRFs
--------------
+* ``HDU_CLAS3 = full-enclosure``
 
 .. toctree::
 
