@@ -38,8 +38,8 @@ for CTA).
 .. toctree::
    :maxdepth: 1
    
-   irf_axes/index
    irf_components/index   
+   irf_axes/index
    full_enclosure/index  
    point_like/index
   

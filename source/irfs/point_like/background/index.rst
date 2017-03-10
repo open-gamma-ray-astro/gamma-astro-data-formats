@@ -9,10 +9,12 @@ In the case of point-like IRFs, background is calculated from... TODO
 
 TODO: add figures of simultaneous background?
 
+Here we specify the format for the background of a point-like IRF:
+
 .. _point_bkg:
 
 ``point_bkg``
-----------
+-------------
 
 The ``point_bkg`` format contains a 1-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.

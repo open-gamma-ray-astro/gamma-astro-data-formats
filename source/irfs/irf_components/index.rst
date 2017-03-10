@@ -5,8 +5,6 @@
 IRF components
 ==============
 
-	TODO: Talk about the IRF parameterisation? 
-
 The IRF is made up of several components, described here:
 
 .. _iact-aeff:

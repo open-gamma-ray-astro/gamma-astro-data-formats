@@ -1,32 +1,32 @@
 .. include:: ../../../references.txt
 
-.. _iact-aeff-format:
+.. _iact-point-aeff-format:
 
 Effective area format
 =====================
 
-Here we specify the format to store the effective area of a full-enclosure 
+Here we specify the format to store the effective area of a point-like 
 IRF. It is possible to store as a function of the true energy or as a function 
 of the reconstructed energy.
 
-.. _aeff_2d:
+.. _point-aeff:
 
-``aeff_2d``
------------
+``point_aeff``
+--------------
 
 Effective Area vs true energy
 +++++++++++++++++++++++++++++
 
-The effective area as a function of the true energy and offset angle is saved as
+The effective area as a function of the true energy is saved as
 a :ref:`fits-arrays-bintable-hdu` with required columns listed below.
 
 Columns:
 
-* ``THETA_LO``, ``THETA_HI`` -- ndim: 1
-    * Field of view offset axis
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
     * True energy axis
-* ``EFFAREA`` -- ndim: 2
+* ``RAD_MAX`` -- ndim: 1, unit: deg
+    * Radial cut applied to each energy bin to calculate the IRF
+* ``EFFAREA`` -- ndim: 1
     * Effective area value as a function of true energy
 
 Recommended axis order: ``ENERGY``, ``THETA``
@@ -35,9 +35,7 @@ Header keywords:
 
 In addition to the standard header keywords, the recommended energy range for
 the observation corresponding to the effective area file is stored in two
-additional header keywords. Another optional header keyword contains the theta
-squared cut that was applied in the case of a effective area generation for
-point-like sources. A hierarchical ``HDUCLASS`` keyword is used to declare the
+additional header keywords. A hierarchical ``HDUCLASS`` keyword is used to declare the
 effective area type contained within the HDU.
 
 * ``OBS_ID`` type: int
@@ -46,28 +44,26 @@ effective area type contained within the HDU.
     * Low energy threshold
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
-* ``RAD_MAX`` type: float, unit: deg
-    * On region radius for point-like observations
 * ``HDUCLAS2`` type: string
     * Secondary extension class (option: 'EFF_AREA').
     
 Although not a requirement, the recommended ``EXTNAME`` keyword is "EFFECTIVE AREA".
 
-.. _aeff_reco_2d:
+.. _point-aeff-reco:
 
 Effective Area vs reconstructed energy
 ++++++++++++++++++++++++++++++++++++++
 
 The effective area as a function of the reconstructed energy, may be stored as
 an additional HDU within  the FITS file, following an analog format as described
-in ``aeff_2d``:
+in ``point_aeff``:
 
 Columns:
 
-* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
-    * Field of view offset axis
 * ``ERECO_LO``, ``ERECO_HI`` -- ndim: 1, unit: TeV
     * Reconstructed energy axis
+* ``RAD_MAX`` -- ndim: 1, unit: deg
+    * Radial cut applied to each energy bin to calculate the IRF
 * ``EFFAREA`` -- ndim: 2, unit: none
     * Effective area value as a function of reconstructed energy
 
@@ -81,13 +77,11 @@ Header keywords:
     * Low energy threshold
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
-* ``RAD_MAX`` type: float, unit: deg
-    * On region radius for point-like observations
 * ``HDUCLAS2`` type: string
     * Secondary extension class (option: 'EFF_AREA_RECO').
     
 
-Same header keywords as in ``aeff_2d`` are required, although is recommended to
+Same header keywords as in ``point_aeff`` are required, although is recommended to
 change the ``EXTNAME`` keyword to "EFFECTIVE AREA (RECO)".
 
 Note within the IRFs, we label the true energy as ``ENERGY`` and the

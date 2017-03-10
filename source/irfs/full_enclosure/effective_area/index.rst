@@ -35,9 +35,7 @@ Header keywords:
 
 In addition to the standard header keywords, the recommended energy range for
 the observation corresponding to the effective area file is stored in two
-additional header keywords. Another optional header keyword contains the theta
-squared cut that was applied in the case of a effective area generation for
-point-like sources. A hierarchical ``HDUCLASS`` keyword is used to declare the
+additional header keywords. A hierarchical ``HDUCLASS`` keyword is used to declare the
 effective area type contained within the HDU.
 
 * ``OBS_ID`` type: int
@@ -46,8 +44,6 @@ effective area type contained within the HDU.
     * Low energy threshold
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
-* ``RAD_MAX`` type: float, unit: deg
-    * On region radius for point-like observations
 * ``HDUCLAS2`` type: string
     * Secondary extension class (option: 'EFF_AREA').
     
