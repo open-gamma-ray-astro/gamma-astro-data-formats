@@ -9,10 +9,10 @@ Here we specify the format to store the effective area of a full-enclosure
 IRF. It is possible to store as a function of the true energy or as a function 
 of the reconstructed energy.
 
-.. _aeff_2d:
+.. _aeff_2d_full:
 
-``aeff_2d``
------------
+``aeff_2d_full``
+----------------
 
 Effective Area vs true energy
 +++++++++++++++++++++++++++++
@@ -44,19 +44,19 @@ effective area type contained within the HDU.
     * Low energy threshold
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
-* ``HDUCLAS2`` type: string
-    * Secondary extension class (option: 'EFF_AREA').
+* ``HDUCLAS3`` type: string
+    * Secondary extension class (option: 'EFF_AREA_FULL').
     
 Although not a requirement, the recommended ``EXTNAME`` keyword is "EFFECTIVE AREA".
 
-.. _aeff_reco_2d:
+.. _aeff_reco_2d_full:
 
 Effective Area vs reconstructed energy
 ++++++++++++++++++++++++++++++++++++++
 
 The effective area as a function of the reconstructed energy, may be stored as
 an additional HDU within  the FITS file, following an analog format as described
-in ``aeff_2d``:
+in ``aeff_2d_full``:
 
 Columns:
 
@@ -78,10 +78,10 @@ Header keywords:
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
 * ``HDUCLAS2`` type: string
-    * Secondary extension class (option: 'EFF_AREA_RECO').
+    * Secondary extension class (option: 'EFF_AREA_RECO_FULL').
     
 
-Same header keywords as in ``aeff_2d`` are required, although is recommended to
+Same header keywords as in ``aeff_2d_full`` are required, although is recommended to
 change the ``EXTNAME`` keyword to "EFFECTIVE AREA (RECO)".
 
 Note within the IRFs, we label the true energy as ``ENERGY`` and the

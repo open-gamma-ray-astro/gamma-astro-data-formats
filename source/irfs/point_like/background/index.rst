@@ -5,15 +5,11 @@
 Background format
 =================
 
-In the case of point-like IRFs, background is calculated from... TODO
-
-TODO: add figures of simultaneous background?
-
 Here we specify the format for the background of a point-like IRF:
 
-.. _point_bkg:
+.. _bkg_2d_point:
 
-``point_bkg``
+``bkg_2d_point``
 -------------
 
 The ``point_bkg`` format contains a 1-dimensional array of post-select background
@@ -23,9 +19,15 @@ Required columns:
 
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
     * Energy axis
-* ``RAD_MAX`` -- ndim: 1, unit: deg
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
+    * Field of view offset axis
+    * Binning is often chosen with a square root scale,
+      so that each ``THETA`` bin has equal solid angle,
+      which means bins at the center of the field of view
+      have smaller width ``THETA_HI - THETA_LO``.
+* ``RAD_MAX`` -- ndim: 2, unit: deg
     * Radial cut applied to each energy bin to calculate the IRF
-* ``BKG`` ndim: 1, unit: s^-1 MeV^-1 sr^-1
+* ``BKG`` ndim: 2, unit: s^-1 MeV^-1 sr^-1
     * Absolute post-select background rate
       (expected background per time, energy and solid angle).
     * Note that this is not a "flux" or "surface brightness".
@@ -35,7 +37,8 @@ Required columns:
 
 Header keywords:
 
-* ``HDU_CLASS = point_bkg``
+* ``HDUCLAS3`` type: string
+    * Secondary extension class (option: 'BKG_2D_POINT').
 * ``HDU_DOC = TODO``
 
 

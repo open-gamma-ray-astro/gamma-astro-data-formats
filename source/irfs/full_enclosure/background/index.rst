@@ -7,13 +7,13 @@ Background format
 
 Here we specify two formats for the background template models of a full-enclosure IRF:
 
-* ``bkg_2d`` models depend on ``ENERGY`` and ``THETA``, i.e. are radially symmetric.
-* ``bkg_3d`` models depend on ``ENERGY`` and field of view coordinates ``DETX`` and ``DETY``.
+* ``bkg_2d_full`` models depend on ``ENERGY`` and ``THETA``, i.e. are radially symmetric.
+* ``bkg_3d_full`` models depend on ``ENERGY`` and field of view coordinates ``DETX`` and ``DETY``.
 
-.. _bkg_2d:
+.. _bkg_2d_full:
 
-``bkg_2d``
-----------
+``bkg_2d_full``
+---------------
 
 The ``bkg_2d`` format contains a 2-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
@@ -40,17 +40,18 @@ Recommended axis order: ``ENERGY``, ``THETA``
 
 Header keywords:
 
-* ``HDU_CLASS = bkg_2d``
+* ``HDUCLAS3`` type: string
+    * Secondary extension class (option: 'BKG_2D_FULL').
 * ``HDU_DOC = TODO``
 
 Example data file: TODO
 
-.. _bkg_3d:
+.. _bkg_3d_full:
 
-``bkg_3d``
-----------
+``bkg_3d_full``
+---------------
 
-The ``bkg_3d`` format contains a 3-dimensional array of post-select background
+The ``bkg_3d_full`` format contains a 3-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
 
 Required columns:
@@ -71,7 +72,8 @@ Recommended axis order: ``ENERGY``, ``DETX``, ``DETY``
 
 Header keywords:
 
-* ``HDU_CLASS = bkg_3d``
+* ``HDUCLAS3`` type: string
+    * Secondary extension class (option: 'BKG_3D_FULL').
 * ``HDU_DOC = TODO``
 
 Example data file: TODO
