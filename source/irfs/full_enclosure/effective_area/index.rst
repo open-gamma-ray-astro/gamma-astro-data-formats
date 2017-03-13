@@ -22,10 +22,10 @@ a :ref:`fits-arrays-bintable-hdu` with required columns listed below.
 
 Columns:
 
-* ``THETA_LO``, ``THETA_HI`` -- ndim: 1
-    * Field of view offset axis
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
     * True energy axis
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1
+    * Field of view offset axis
 * ``EFFAREA`` -- ndim: 2
     * Effective area value as a function of true energy
 
@@ -60,10 +60,10 @@ in ``aeff_2d_full``:
 
 Columns:
 
-* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
-    * Field of view offset axis
 * ``ERECO_LO``, ``ERECO_HI`` -- ndim: 1, unit: TeV
     * Reconstructed energy axis
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
+    * Field of view offset axis
 * ``EFFAREA`` -- ndim: 2, unit: none
     * Effective area value as a function of reconstructed energy
 

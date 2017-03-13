@@ -10,7 +10,7 @@ Here we specify the format for the background of a point-like IRF:
 .. _bkg_2d_point:
 
 ``bkg_2d_point``
--------------
+----------------
 
 The ``point_bkg`` format contains a 1-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
@@ -26,7 +26,7 @@ Required columns:
       which means bins at the center of the field of view
       have smaller width ``THETA_HI - THETA_LO``.
 * ``RAD_MAX`` -- ndim: 2, unit: deg
-    * Radial cut applied to each energy bin to calculate the IRF
+    * Radial cut applied to each energy bin to calculate the IRF component
 * ``BKG`` ndim: 2, unit: s^-1 MeV^-1 sr^-1
     * Absolute post-select background rate
       (expected background per time, energy and solid angle).

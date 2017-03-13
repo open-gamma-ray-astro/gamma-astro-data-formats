@@ -9,10 +9,10 @@ Here we specify the format to store the effective area of a point-like
 IRF. It is possible to store as a function of the true energy or as a function 
 of the reconstructed energy.
 
-.. _point-aeff:
+.. _aeff_2d_point:
 
-``point_aeff``
---------------
+``aeff_2d_point``
+-----------------
 
 Effective Area vs true energy
 +++++++++++++++++++++++++++++
@@ -24,12 +24,14 @@ Columns:
 
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
     * True energy axis
-* ``RAD_MAX`` -- ndim: 1, unit: deg
-    * Radial cut applied to each energy bin to calculate the IRF
-* ``EFFAREA`` -- ndim: 1
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1
+    * Field of view offset axis
+* ``RAD_MAX`` -- ndim: 2, unit: deg
+    * Radial cut applied to each energy bin to calculate the IRF component
+* ``EFFAREA`` -- ndim: 2
     * Effective area value as a function of true energy
 
-Recommended axis order: ``ENERGY``, ``THETA``
+Recommended axis order: ``ENERGY``, ``THETA``, ``RAD_MAX``
 
 Header keywords:
 
@@ -44,8 +46,8 @@ effective area type contained within the HDU.
     * Low energy threshold
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
-* ``HDUCLAS2`` type: string
-    * Secondary extension class (option: 'EFF_AREA').
+* ``HDUCLAS3`` type: string
+    * Secondary extension class (option: 'EFF_AREA_POINT').
     
 Although not a requirement, the recommended ``EXTNAME`` keyword is "EFFECTIVE AREA".
 
@@ -62,12 +64,14 @@ Columns:
 
 * ``ERECO_LO``, ``ERECO_HI`` -- ndim: 1, unit: TeV
     * Reconstructed energy axis
-* ``RAD_MAX`` -- ndim: 1, unit: deg
-    * Radial cut applied to each energy bin to calculate the IRF
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1
+    * Field of view offset axis
+* ``RAD_MAX`` -- ndim: 2, unit: deg
+    * Radial cut applied to each energy bin to calculate the IRF component
 * ``EFFAREA`` -- ndim: 2, unit: none
     * Effective area value as a function of reconstructed energy
 
-Recommended axis order: ``ERECO``, ``THETA``
+Recommended axis order: ``ERECO``, ``THETA``, ``RAD_MAX``
 
 Header keywords:
 
@@ -77,16 +81,16 @@ Header keywords:
     * Low energy threshold
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
-* ``HDUCLAS2`` type: string
-    * Secondary extension class (option: 'EFF_AREA_RECO').
+* ``HDUCLAS3`` type: string
+    * Secondary extension class (option: 'EFF_AREA_RECO_POINT').
     
 
-Same header keywords as in ``point_aeff`` are required, although is recommended to
+Same header keywords as in ``aeff_point`` are required, although is recommended to
 change the ``EXTNAME`` keyword to "EFFECTIVE AREA (RECO)".
 
 Note within the IRFs, we label the true energy as ``ENERGY`` and the
 reconstructed energy as ``ERECO``, while in the  event lists ``ENERGY`` refers
 to the reconstructed energy. Although it may be formally inconsistent, this
-convention follows  current standards.
+convention follows current standards.
 
 An example file is provided  :download:`here <./aeff_2d_example.fits>`.
