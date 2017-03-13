@@ -25,6 +25,8 @@ Any full-enclosure IRF component should contain the header keyword:
 
 * ``HDU_CLAS3 = full-enclosure``
 
+From here on, the specific format of each IRF component: 
+
 .. toctree::
 
    effective_area/index

@@ -5,7 +5,7 @@
 IRF axes
 ========
 
-Most IRFs are dependent on parameters, and the 1-dim. parameter arrays are
+Most IRFs are dependent on parameters, and the 1-dimensional parameter arrays are
 stored in columns. The following names are recommended:
 
 * For energy grids, see `here <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_003/cal_gen_92_003.html#tth_sEc7>`__
