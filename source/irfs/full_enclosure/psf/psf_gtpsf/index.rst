@@ -1,9 +1,9 @@
 .. include:: ../../../../references.txt
 
-.. _psf_gtpsf:
+.. _psf_gtpsf_full:
 
-``gtpsf``
-=========
+``gtpsf_full``
+==============
 
 The FITS file has the following BinTable HDUs / columns:
 

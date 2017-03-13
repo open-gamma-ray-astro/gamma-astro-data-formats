@@ -1,14 +1,14 @@
-.. _iact-point-edisp-format:
+.. _iact-edisp-point-format:
 
 Energy dispersion format
 ========================
 
 The format to store point-like energy dispersion is the following:
 
-.. _point_edisp:
+.. _edisp_2d_point:
 
-``point_edisp``
----------------
+``edisp_2d_point``
+------------------
 
 The energy dispersion information is saved as a
 :ref:`fits-arrays-bintable-hdu` with the following required columns.
@@ -19,11 +19,19 @@ Columns:
     * Energy axis
 * ``MIGRA_LO``, ``MIGRA_HI`` -- ndim: 1, unit: dimensionless
     * Energy migration axis (defined above)
-* ``RAD_MAX`` -- ndim: 1, unit: deg
-    * Radial cut applied to each energy bin to calculate the IRF
-* ``MATRIX`` -- ndim: 2, unit: dimensionless
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
+    * Field of view offset axis
+* ``RAD_MAX`` -- ndim: 3, unit: deg
+    * Radial cut applied to calculate the IRF component
+* ``MATRIX`` -- ndim: 3, unit: dimensionless
     * Energy dispersion :math:`dP/d\mu`, see :ref:`iact-edisp`.
 
-Recommended axis order: ``ENERGY``, ``MIGRA``, ``RAD_MAX``
+Recommended axis order: ``ENERGY``, ``MIGRA``, ``THETA``, ``RAD_MAX``
 
-Header keywords: none
+Header keywords:
+
+* ``HDUCLAS3`` type: string
+    * Third extension class (option: 'EDISP_2D_POINT').
+* ``HDU_DOC = TODO``
+
+Example data file: TODO

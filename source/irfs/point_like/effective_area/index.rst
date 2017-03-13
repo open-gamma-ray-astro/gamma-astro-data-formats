@@ -27,7 +27,7 @@ Columns:
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1
     * Field of view offset axis
 * ``RAD_MAX`` -- ndim: 2, unit: deg
-    * Radial cut applied to each energy bin to calculate the IRF component
+    * Radial cut applied to calculate the IRF component
 * ``EFFAREA`` -- ndim: 2
     * Effective area value as a function of true energy
 
@@ -47,7 +47,7 @@ effective area type contained within the HDU.
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
 * ``HDUCLAS3`` type: string
-    * Secondary extension class (option: 'EFF_AREA_POINT').
+    * Third extension class (option: 'EFF_AREA_POINT').
     
 Although not a requirement, the recommended ``EXTNAME`` keyword is "EFFECTIVE AREA".
 
@@ -67,7 +67,7 @@ Columns:
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1
     * Field of view offset axis
 * ``RAD_MAX`` -- ndim: 2, unit: deg
-    * Radial cut applied to each energy bin to calculate the IRF component
+    * Radial cut applied to calculate the IRF component
 * ``EFFAREA`` -- ndim: 2, unit: none
     * Effective area value as a function of reconstructed energy
 
@@ -82,7 +82,7 @@ Header keywords:
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
 * ``HDUCLAS3`` type: string
-    * Secondary extension class (option: 'EFF_AREA_RECO_POINT').
+    * Third extension class (option: 'EFF_AREA_RECO_POINT').
     
 
 Same header keywords as in ``aeff_point`` are required, although is recommended to
@@ -93,4 +93,4 @@ reconstructed energy as ``ERECO``, while in the  event lists ``ENERGY`` refers
 to the reconstructed energy. Although it may be formally inconsistent, this
 convention follows current standards.
 
-An example file is provided  :download:`here <./aeff_2d_example.fits>`.
+An example file is provided  :download:`here <./aeff_2d_point_example.fits>`.

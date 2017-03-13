@@ -1,14 +1,14 @@
-.. _iact-edisp-format:
+.. _iact-edisp-full-format:
 
 Energy dispersion format
 ========================
 
 The format to store full-enclosure energy dispersion is the following:
 
-.. _edisp_2d:
+.. _edisp_2d_full:
 
-``edisp_2d``
-------------
+``edisp_2d_full``
+-----------------
 
 The energy dispersion information is saved as a
 :ref:`fits-arrays-bintable-hdu` with the following required columns.
@@ -26,4 +26,10 @@ Columns:
 
 Recommended axis order: ``ENERGY``, ``MIGRA``, ``THETA``
 
-Header keywords: none
+Header keywords:
+
+* ``HDUCLAS3`` type: string
+    * Third extension class (option: 'EDISP_2D_FULL').
+* ``HDU_DOC = TODO``
+
+Example data file: TODO

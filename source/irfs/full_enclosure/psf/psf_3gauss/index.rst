@@ -1,9 +1,9 @@
 .. include:: ../../../../references.txt
 
-.. _psf_3gauss:
+.. _psf_3gauss_full:
 
-``psf_3gauss``
-==============
+``psf_3gauss_full``
+===================
 
 Multi-Gauss mixture models are a common way to model distributions
 (for source intensity profiles, PSFs, anything really), see e.g.

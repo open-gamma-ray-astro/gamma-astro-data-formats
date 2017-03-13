@@ -1,9 +1,9 @@
 .. include:: ../../../../references.txt
 
-.. _psf_king:
+.. _psf_king_full:
 
-``psf_king``
-============
+``psf_king_full``
+=================
 
 The King function parametrisations for PSFs has been in use in astronomy
 as an analytical PSF model for many instruments, for example

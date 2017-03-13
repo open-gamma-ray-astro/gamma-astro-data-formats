@@ -1,9 +1,9 @@
 .. include:: ../../../../references.txt
 
-.. _psf-table:
+.. _psf-table_full:
 
-``psf_table``
-=============
+``psf_table_full``
+==================
 
 This is a PSF FITS format we agree on for IACTs.
 This file contains the offset- and energy-dependent table distribution of the PSF.

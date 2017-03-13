@@ -45,7 +45,7 @@ effective area type contained within the HDU.
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
 * ``HDUCLAS3`` type: string
-    * Secondary extension class (option: 'EFF_AREA_FULL').
+    * Third extension class (option: 'EFF_AREA_FULL').
     
 Although not a requirement, the recommended ``EXTNAME`` keyword is "EFFECTIVE AREA".
 
@@ -78,7 +78,7 @@ Header keywords:
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
 * ``HDUCLAS2`` type: string
-    * Secondary extension class (option: 'EFF_AREA_RECO_FULL').
+    * Third extension class (option: 'EFF_AREA_RECO_FULL').
     
 
 Same header keywords as in ``aeff_2d_full`` are required, although is recommended to
@@ -89,4 +89,4 @@ reconstructed energy as ``ERECO``, while in the  event lists ``ENERGY`` refers
 to the reconstructed energy. Although it may be formally inconsistent, this
 convention follows  current standards.
 
-An example file is provided  :download:`here <./aeff_2d_example.fits>`.
+An example file is provided  :download:`here <./aeff_2d_full_example.fits>`.

@@ -15,7 +15,7 @@ Here we specify two formats for the background template models of a full-enclosu
 ``bkg_2d_full``
 ---------------
 
-The ``bkg_2d`` format contains a 2-dimensional array of post-select background
+The ``bkg_2d_full`` format contains a 2-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
 
 Required columns:
@@ -28,7 +28,7 @@ Required columns:
       so that each ``THETA`` bin has equal solid angle,
       which means bins at the center of the field of view
       have smaller width ``THETA_HI - THETA_LO``.
-* ``BKG`` ndim: 2, unit: s^-1 MeV^-1 sr^-1
+* ``BKG`` -- ndim: 2, unit: s^-1 MeV^-1 sr^-1
     * Absolute post-select background rate
       (expected background per time, energy and solid angle).
     * Note that this is not a "flux" or "surface brightness".
@@ -41,7 +41,7 @@ Recommended axis order: ``ENERGY``, ``THETA``
 Header keywords:
 
 * ``HDUCLAS3`` type: string
-    * Secondary extension class (option: 'BKG_2D_FULL').
+    * Third extension class (option: 'BKG_2D_FULL').
 * ``HDU_DOC = TODO``
 
 Example data file: TODO
@@ -73,7 +73,7 @@ Recommended axis order: ``ENERGY``, ``DETX``, ``DETY``
 Header keywords:
 
 * ``HDUCLAS3`` type: string
-    * Secondary extension class (option: 'BKG_3D_FULL').
+    * Third extension class (option: 'BKG_3D_FULL').
 * ``HDU_DOC = TODO``
 
 Example data file: TODO

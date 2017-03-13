@@ -15,7 +15,7 @@ as well as for the IRFs that are distributed with the Fermi-LAT science tools.
 Two different approaches are used to store the IRF of IACTs:
 
 * Full-enclosure IRF: all IRF components are stored as a function of the offset with respect to the source 
-  position. This format allows 3D analysis
+  position.
  
 * Point-like IRF: IRF components are calculated after applying a cut in direction offset. This format has been 
   used by the current generation of IACTs to perform spectral analysis and light curves.
