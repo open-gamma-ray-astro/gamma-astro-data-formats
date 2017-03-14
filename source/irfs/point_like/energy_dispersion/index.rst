@@ -21,8 +21,9 @@ Columns:
     * Energy migration axis (defined above)
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
-* ``RAD_MAX`` -- ndim: 3, unit: deg
-    * Radial cut applied to calculate the IRF component
+* ``RAD_MAX`` -- ndim: 2, unit: deg
+    * Radial cut applied to calculate the IRF component. This cut will 
+      change as a function of energy and theta.
 * ``MATRIX`` -- ndim: 3, unit: dimensionless
     * Energy dispersion :math:`dP/d\mu`, see :ref:`iact-edisp`.
 
