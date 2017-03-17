@@ -5,18 +5,18 @@
 This page describes data format conventions for FITS binned data and model
 representations pixelized with the `HEALPix algorithm`_.  
 
-ST HEALPix Formats
-==================
+HEALPix Formats
+===============
 
-This section describes HEALPix format conventions currently used
-within the Fermi Science Tools (STs).  The ST HEALPix format is used
-for representing maps and cubes of both integral and differential
-quantities including:
+This section describes a proposal for HEALPix format conventions which
+is based on the format currently used within the Fermi Science Tools
+(STs).  This format is intended for representing maps and cubes
+of both integral and differential quantities including:
 
-* Photon count maps and cubes (generated with *gtbin*).
-* Exposure cubes (generated with *gtexpcube2*).
+* Photon count maps and cubes (e.g. as generated with with *gtbin*).
+* Exposure cubes (e.g. as generated with *gtexpcube2*).
 * Source maps -- product of exposure cube with instrument response in
-  spatial dimension (generated with *gtsrcmaps*).
+  spatial dimension (e.g. as generated with *gtsrcmaps*).
 * Model maps and cubes (the IEM and other diffuse components).
 
 The format uses a ``SKYMAP`` BINTABLE for storing pixel amplitudes and
@@ -35,8 +35,8 @@ structures for mapping table entries to HEALPix pixel and energy plane:
 * :ref:`hpx_explicit`: The row to pixel mapping is determined explicitly from
   the ``PIX`` column.  This can be used to define maps or cubes that
   only encompass a partial region of the sky.
-* :ref:`hpx_explicit_edep`: Same as **EXPLICIT** convention but with a
-  different pixel size (HEALPix order) in each energy plane.  
+* :ref:`hpx_explicit_edep`: Same as :ref:`hpx_explicit` convention but
+  with a different pixel size (HEALPix order) in each energy plane.
 * :ref:`hpx_sparse`: The row to pixel mapping is determined explicitly
   from the ``IDX`` column which is an unrolled index for both pixel
   and energy plane.  This format can be used to represent maps that
@@ -64,6 +64,8 @@ This section lists the keywords that should be written to the
 ``SKYMAP`` BINTABLE HDU header.  These keywords define the pixel size
 and ordering scheme that was used to construct the HEALPix map.
 
+* ``PIXTYPE``, type: string
+    * Should be set to ``HEALPIX``.
 * ``INDXSCHM``, type: string
     * Indexing scheme.  Can be one of ``IMPLICIT``, ``EXPLICIT``,
       ``EXPLICIT_EDEP``, ``SPARSE``, ``SPARSE_EDEP``.  If this keyword
@@ -81,7 +83,7 @@ and ordering scheme that was used to construct the HEALPix map.
     * Number of healpix pixels per side.
 * ``FIRSTPIX``, type: int
 * ``LASTPIX``, type: int
-* ``HPXREGION``, type: string, **optional**
+* ``HPX_REG``, type: string, **optional**
     * Region string for the geometric selection that was used to
       construct a partial-sky map.  See :ref:`hpx_region_string` for
       additional details.
@@ -95,20 +97,21 @@ HEALPix Region String
 
 For partial-sky maps that correspond to a particular geometric
 selection one can optionally specify the selection that was used in
-constructing the map with the ``HPXREGION`` header keyword.  The
+constructing the map with the ``HPX_REG`` header keyword.  The
 following region strings are supported:
 
-* ``(DISK,{LON},{LAT},{RADIUS})``: A circular selection centered on
-  the coordinates (``{LON}``, ``{LAT}``) with radius ``{RADIUS}`` with
-  all quantities given in degrees.  A pixel is included in the
-  selection if its center is encompassed by the circle.
+* ``DISK({LON},{LAT},{RADIUS})``: A circular selection centered on the
+  coordinates (``{LON}``, ``{LAT}``) with radius ``{RADIUS}`` with all
+  quantities given in degrees.  A pixel is included in the selection
+  if its center is within ``{RADIUS}`` deg of coordinates (``{LON}``,
+  ``{LAT}``).
 
-* ``(DISK_INC,{LON},{LAT},{RADIUS})``: A circular selection centered
+* ``DISK_INC({LON},{LAT},{RADIUS})``: A circular selection centered
   on the coordinates (``{LON}``, ``{LAT}``) with radius ``{RADIUS}``
   with all quantities given in degrees.  A pixel is included in the
   selection if any part of it is encompassed by the circle.
 
-* ``(HPX_PIXEL,{ORDERING},{ORDER},{PIX})``: A selection encompassing
+* ``HPX_PIXEL({ORDERING},{ORDER},{PIX})``: A selection encompassing
   all pixels contained in the HEALPix pixel of the given pixelization
   where ordering is ``{ORDERING}`` (i.e. ``NESTED`` or ``RING``),
   order is ``{ORDER}``, and pixel index is ``{PIX}``.
@@ -141,7 +144,7 @@ Columns
 * ``ORDER`` -- ndim: 1,
     * Dimension: nebins
     * Order of the HEALPix pixelization in each energy plane.
-      Onlyrequired for energy-dependent pixelization formats
+      Only required for energy-dependent pixelization formats
       (``EXPLICIT_EDEP`` and ``SPARSE_EDEP``).
 
 .. _hpx_implicit:
