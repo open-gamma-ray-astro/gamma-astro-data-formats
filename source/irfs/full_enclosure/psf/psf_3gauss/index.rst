@@ -58,6 +58,16 @@ Columns:
 
 Recommended axis order: ``ENERGY``, ``THETA``
 
-Header keywords: none
+Header keywords:
+
+* ``HDUCLAS1`` type: string
+    * First extension class (option: 'RESPONSE').
+* ``HDUCLAS2`` type: string
+    * Second extension class (option: 'RPSF').
+* ``HDUCLAS3`` type: string
+    * Third extension class (option: 'FULL-ENCLOSURE').
+* ``HDUCLAS4`` type: string
+    * Fourth extension class (option: 'psf_3gauss').
+* ``HDU_DOC = TODO``
 
 Example data file: TODO: add HESS HAP example file as soon as available.

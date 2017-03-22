@@ -28,8 +28,14 @@ Recommended axis order: ``ENERGY``, ``MIGRA``, ``THETA``
 
 Header keywords:
 
+* ``HDUCLAS1`` type: string
+    * First extension class (option: 'RESPONSE').
+* ``HDUCLAS2`` type: string
+    * Second extension class (option: 'EDISP').
 * ``HDUCLAS3`` type: string
-    * Third extension class (option: 'EDISP_2D_FULL').
+    * Third extension class (option: 'FULL-ENCLOSURE').
+* ``HDUCLAS4`` type: string
+    * Fourth extension class (option: 'edisp_2d').
 * ``HDU_DOC = TODO``
 
 Example data file: TODO

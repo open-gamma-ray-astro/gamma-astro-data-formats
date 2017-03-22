@@ -40,8 +40,14 @@ Recommended axis order: ``ENERGY``, ``THETA``
 
 Header keywords:
 
+* ``HDUCLAS1`` type: string
+    * First extension class (option: 'RESPONSE').
+* ``HDUCLAS2`` type: string
+    * Second extension class (option: 'BKG').
 * ``HDUCLAS3`` type: string
-    * Third extension class (option: 'BKG_2D_FULL').
+    * Third extension class (option: 'FULL-ENCLOSURE').
+* ``HDUCLAS4`` type: string
+    * Fourth extension class (option: 'bkg_2d').  
 * ``HDU_DOC = TODO``
 
 Example data file: TODO
@@ -72,8 +78,14 @@ Recommended axis order: ``ENERGY``, ``DETX``, ``DETY``
 
 Header keywords:
 
+* ``HDUCLAS1`` type: string
+    * First extension class (option: 'RESPONSE').
+* ``HDUCLAS2`` type: string
+    * Second extension class (option: 'BKG').
 * ``HDUCLAS3`` type: string
-    * Third extension class (option: 'BKG_3D_FULL').
+    * Third extension class (option: 'FULL-ENCLOSURE').
+* ``HDUCLAS4`` type: string
+    * Fourth extension class (option: 'bkg_3d').  
 * ``HDU_DOC = TODO``
 
 Example data file: TODO

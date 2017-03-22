@@ -11,7 +11,7 @@ science tools.
 
 Any full-enclosure IRF component should contain the header keyword: 
 
-* ``HDU_CLAS2 = FULL-ENCLOSURE``
+* ``HDU_CLAS3 = FULL-ENCLOSURE``
 
 From here on, the specific format of each IRF component: 
 

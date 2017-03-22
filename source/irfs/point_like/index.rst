@@ -10,7 +10,7 @@ events surviving an energy dependent directional cut around the assumed source p
 
 Any point-like IRF component should contain the header keyword: 
 
-* ``HDU_CLAS2 = POINT-LIKE``
+* ``HDU_CLAS3 = POINT-LIKE``
 
 From here on, the specific format of each IRF component: 
 

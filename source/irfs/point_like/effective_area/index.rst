@@ -46,8 +46,14 @@ effective area type contained within the HDU.
     * Low energy threshold
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
+* ``HDUCLAS1`` type: string
+    * First extension class (option: 'RESPONSE').
+* ``HDUCLAS2`` type: string
+    * Second extension class (option: 'EFF_AREA').
 * ``HDUCLAS3`` type: string
-    * Third extension class (option: 'EFF_AREA_POINT').
+    * Third extension class (option: 'POINT-LIKE').
+* ``HDUCLAS4`` type: string
+    * Fourth extension class (option: 'aeff_2d').
     
 Although not a requirement, the recommended ``EXTNAME`` keyword is "EFFECTIVE AREA".
 
@@ -81,9 +87,14 @@ Header keywords:
     * Low energy threshold
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
+* ``HDUCLAS1`` type: string
+    * First extension class (option: 'RESPONSE').
+* ``HDUCLAS2`` type: string
+    * Second extension class (option: 'EFF_AREA').
 * ``HDUCLAS3`` type: string
-    * Third extension class (option: 'EFF_AREA_RECO_POINT').
-    
+    * Third extension class (option: 'POINT-LIKE').
+* ``HDUCLAS4`` type: string
+    * Fourth extension class (option: 'aeff_2d_reco').  
 
 Same header keywords as in ``aeff_point`` are required, although is recommended to
 change the ``EXTNAME`` keyword to "EFFECTIVE AREA (RECO)".
