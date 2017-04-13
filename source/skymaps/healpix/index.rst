@@ -9,25 +9,30 @@ HEALPix Formats
 ===============
 
 This section describes a proposal for HEALPix format conventions which
-is based on the format currently used within the Fermi Science Tools
-(STs).  This format is intended for representing maps and cubes
-of both integral and differential quantities including:
+is based on formats currently used within the Fermi Science Tools
+(STs) and pointlike.  This format is intended for representing maps
+and cubes of both integral and differential quantities including:
 
 * Photon count maps and cubes (e.g. as generated with with *gtbin*).
 * Exposure cubes (e.g. as generated with *gtexpcube2*).
-* Source maps -- product of exposure cube with instrument response in
+* Source maps -- product of exposure with instrument response in
   spatial dimension (e.g. as generated with *gtsrcmaps*).
-* Model maps and cubes (the IEM and other diffuse components).
+* Model maps and cubes (the Fermi IEM and other diffuse emission
+  components).
 
-The format uses a ``SKYMAP`` BINTABLE for storing pixel amplitudes and
-a separate BINTABLE to store energy bin edges for integral quantities
-(``EBOUNDS``) or bin centers for differential quantities
-(``ENERGIES``).  Note that 2D maps are treated as cubes with a single
-energy plane and can be accomodated by all of the formats described
-here.
+The format defines a ``SKYMAP`` BINTABLE for storing a sequence of
+image slices (*bands*) and a :ref:`hpx_bands_table` to store the
+geometry and selection parameters for each band.  A band can represent
+any selection on non-spatial coordinates such as energy, time, or FoV
+angle.  The most common use-case is to have a sequence of bands
+representing energy bins (for counts maps) or energy nodes (for source
+or model maps).  To allow for backwards compatibility with existing
+HEALPix format conventions the specification defines optional
+:ref:`hpx_ebounds_table` and :ref:`hpx_energies_table` to store bin
+edges or nodes for integral or differential cubes in energy.
   
-There are four primary HEALPix map formats which use different table
-structures for mapping table entries to HEALPix pixel and energy plane:
+There are three primary HEALPix map formats which use different table
+structures for mapping table entries to HEALPix pixel and band:
 
 * :ref:`hpx_implicit`: The row to pixel mapping is determined implicitly from
   the row number.  The row number corresponds to the HEALPix pixel
@@ -35,13 +40,11 @@ structures for mapping table entries to HEALPix pixel and energy plane:
 * :ref:`hpx_explicit`: The row to pixel mapping is determined explicitly from
   the ``PIX`` column.  This can be used to define maps or cubes that
   only encompass a partial region of the sky.
-* :ref:`hpx_explicit_edep`: Same as :ref:`hpx_explicit` convention but
-  with a different pixel size (HEALPix order) in each energy plane.
 * :ref:`hpx_sparse`: The row to pixel mapping is determined explicitly
-  from the ``IDX`` column which is an unrolled index for both pixel
-  and energy plane.  This format can be used to represent maps that
-  have a different spatial geometry in each energy plane and also
-  supports energy-dependent pixel size.
+  from the ``PIX`` column but with a variable number of pixels in each
+  band.  This format can be used to represent maps that have a
+  different spatial geometry in each band and also supports
+  band-dependent pixel size.
 
 Note that there are variations of these primary formats which use
 different conventions for column, HDU, and header keywords names.  The
@@ -68,19 +71,20 @@ and ordering scheme that was used to construct the HEALPix map.
     * Should be set to ``HEALPIX``.
 * ``INDXSCHM``, type: string
     * Indexing scheme.  Can be one of ``IMPLICIT``, ``EXPLICIT``,
-      ``EXPLICIT_EDEP``, ``SPARSE``, ``SPARSE_EDEP``.  If this keyword
-      is not provided then the ``IMPLICIT`` indexing scheme will be
-      assumed.
+      ``SPARSE``.  If this keyword is not provided then the
+      ``IMPLICIT`` indexing scheme will be assumed.
 * ``ORDERING``, type: string
     * HEALPix ordering scheme.   Can be ``NESTED`` or ``RING``.
 * ``COORDSYS``, type: string
-    * Map coordinate system.  Can be ``CEL`` (celestial coordinates) or ``GAL`` (galactic coordinates).
+    * Map coordinate system.  Can be ``CEL`` (celestial coordinates)
+      or ``GAL`` (galactic coordinates).
 * ``ORDER``, type: int
-    * Healpix order.  ``NSIDE`` is 2 ** ``ORDER``.  For
-      ``EXPLICIT_EDEP`` and ``SPARSE_EDEP`` this keyword is superseded
-      by the ``ORDER`` column in the ``EBOUNDS`` table.
+    * Healpix order.  ``ORDER`` = log2(``NSIDE``) if ``NSIDE`` is a
+      power of 2 and -1 otherwise.  If the ``BANDS`` table is defined
+      this keyword is superseded by the ``NSIDE`` column.
 * ``NSIDE``, type: int
-    * Number of healpix pixels per side.
+    * Number of healpix pixels per side.  If the ``BANDS`` table is defined
+      this keyword is superseded by the ``NSIDE`` column.
 * ``FIRSTPIX``, type: int
 * ``LASTPIX``, type: int
 * ``HPX_REG``, type: string, **optional**
@@ -89,6 +93,15 @@ and ordering scheme that was used to construct the HEALPix map.
       additional details.
 * ``HPX_CONV``, type: string, **optional**
     * Convention for HEALPix format.
+* ``BANDSHDU``, type: string, **optional**
+    * Name of HDU containing the BANDS table.  If undefined the
+      extension name should be assumed to be ``BANDS``.
+* ``EBNDSHDU``, type: string, **optional**
+    * Name of HDU containing the EBOUNDS table.  If undefined the
+      extension name should be assumed to be ``EBOUNDS``.
+* ``ENERGHDU``, type: string, **optional**
+    * Name of HDU containing the ENERGIES table.  If undefined the
+      extension name should be assumed to be ``ENERGIES``.
 
 .. _hpx_region_string:
   
@@ -116,22 +129,69 @@ following region strings are supported:
   where ordering is ``{ORDERING}`` (i.e. ``NESTED`` or ``RING``),
   order is ``{ORDER}``, and pixel index is ``{PIX}``.
 
-
+In the case of ``SPARSE`` maps pixels that are undefined but contained
+within the geometric selection are assumed to be zero while pixels
+outside the geometric selection are undefined.
+  
 .. _hpx_sample_files:
   
 Sample Files
 ------------
 
-* Spatial-sky Counts Cube (EXPLICIT Format): :download:`FITS <hpx_ccube_explicit.fits>`
-* Spatial-sky Counts Map (EXPLICIT Format)::download:`FITS <hpx_cmap_explicit.fits>`
+* All-sky Counts Cube (IMPLICIT Format): :download:`FITS <hpx_ccube_implicit.fits>`
+* Partial-sky Counts Cube (EXPLICIT Format): :download:`FITS <hpx_ccube_explicit.fits>`
+* Partial-sky Counts Map (EXPLICIT Format): :download:`FITS <hpx_cmap_explicit.fits>`
+* Partial-sky Counts Cube (SPARSE Format)::download:`FITS <hpx_ccube_sparse.fits>`
+
+.. _hpx_bands_table:
+   
+BANDS Table
+-----------
+
+The BANDS HDU contains a BINTABLE with 1 row per band.  A band is a sequence
+of HEALPix pixels that contain events for selections on any of the
+following:
+
+* Energy: ``E_MIN``, ``E_REF``, ``E_MAX``
+* Event Type: ``EVENT_TYPE``
+* Time: ``T_MIN``, ``T_MAX``
+* FoV Angle: ``THETA_MIN``, ``THETA_MAX``
+
+Where a band is defined by multiple selections (e.g. energy and event
+type) columns for all selections should be included in the table.
+  
+Columns
+~~~~~~~
+
+* ``BAND``, ndim: 1
+    * Dimension: nbands
+* ``NPIX``, ndim: 1
+    * Dimension: nbands
+    * Number of pixels in each band.
+* ``NSIDE`` -- ndim: 1,
+    * Dimension: nbands
+    * NSIDE of the HEALPix pixelization in this band.  Only required
+      for formats that support energy-dependent pixelization
+      (``SPARSE``).
+* ``E_MIN``, ndim: 1, unit: keV,
+    * Dimension: nbands
+    * Lower energy bound for integral quantities.
+* ``E_MAX``, ndim: 1, unit: keV,
+    * Dimension: nbands
+    * Upper energy bound for integral quantities.      
+* ``E_REF``, ndim: 1, unit: keV,
+    * Dimension: nbands
+    * Energy value for differential quantities.
+
   
 .. _hpx_ebounds_table:
    
 EBOUNDS Table
 -------------
 
-The EBOUNDS HDU is a BINTABLE with 1 row per energy bin and the
-following columns.  
+The EBOUNDS HDU is a BINTABLE with 1 row per energy bin.  For cubes
+that only contain energy bands this table contains the same
+information as the BANDS table.
 
 Columns
 ~~~~~~~
@@ -141,14 +201,15 @@ Columns
     * Dimension: nebins
 * ``E_MAX``, ndim: 1, unit: keV,
     * Dimension: nebins
-* ``ORDER`` -- ndim: 1,
-    * Dimension: nebins
-    * Order of the HEALPix pixelization in each energy plane.
-      Only required for energy-dependent pixelization formats
-      (``EXPLICIT_EDEP`` and ``SPARSE_EDEP``).
 
-.. _hpx_implicit:
+
+.. _hpx_energies_table:
+   
+ENERGIES Table
+--------------
       
+.. _hpx_implicit:
+
 IMPLICIT Format
 ---------------
 
@@ -161,7 +222,9 @@ HDUS
 ~~~~
 
 * ``SKYMAP``
-* ``EBOUNDS``
+* ``BANDS``
+* ``EBOUNDS``, *optional*
+* ``ENERGIES``, *optional*
 
 HEADER
 ~~~~~~
@@ -171,9 +234,9 @@ HEADER
 SKYMAP Columns
 ~~~~~~~~~~~~~~
 
-* ``CHANNEL{BIN_IDX}`` -- ndim: 1
+* ``CHANNEL{BAND_IDX}`` -- ndim: 1
     * Dimension: nrows
-    * Amplitude in energy plane ``{BIN_IDX}``.  The HEALPix pixel
+    * Amplitude in energy plane ``{BAND_IDX}``.  The HEALPix pixel
       index is determined from the table row.
 
 .. _hpx_explicit:
@@ -182,16 +245,19 @@ EXPLICIT Format
 ---------------
 
 The EXPLICIT format uses an additional ``PIX`` column to explicitly
-define the pixel number corresponding to each table row.  Each energy
-plane is represented by a separate column (``CHANNEL0``, ``CHANNEL1``,
-etc.).  This format can be used for both all-sky and partial-sky maps.
+define the pixel number corresponding to each table row.  Pixel values
+for each band are represented by a separate column (``CHANNEL0``,
+``CHANNEL1``, etc.).  This format can be used for both all-sky and
+partial-sky maps but requires the same pixel size for all bands.
 
 HDUS
 ~~~~
 
 * ``SKYMAP``
-* ``EBOUNDS``
-
+* ``BANDS``
+* ``EBOUNDS``, *optional*
+* ``ENERGIES``, *optional*
+  
 HEADER
 ~~~~~~
 
@@ -202,76 +268,49 @@ SKYMAP Columns
 
 * ``PIX`` -- ndim: 1, unit: None
     * Dimension: nrows
-    * Spatial pixel index.  This index is common to all energy planes.
+    * Spatial pixel index.  This index is common to all bands.
 
-* ``CHANNEL{BIN_IDX}`` -- ndim: 1
+* ``CHANNEL{BAND_IDX}`` -- ndim: 1
     * Dimension: nrows
-    * Amplitude in HEALPix pixel ``PIX`` and energy plane
-      ``{BIN_IDX}``.
-
-.. _hpx_explicit_edep:
-      
-EXPLICIT_EDEP Format
---------------------
-
-HDUS
-~~~~
-
-* ``SKYMAP``
-* ``EBOUNDS``
-
-HEADER
-~~~~~~
-
-* ``INDXSCHM`` : ``EXPLICIT_EDEP``
-  
-SKYMAP Columns
-~~~~~~~~~~~~~~
-
-* ``PIX{BIN_IDX}`` -- ndim: 2, unit: None
-    * Dimension: 1 x npix
-    * Spatial pixel index in energy plane ``{BIN_IDX}``.
-
-* ``CHANNEL{BIN_IDX}`` -- ndim: 2, unit: None
-    * Dimension: 1 x npix
-    * Amplitude in pixel ``PIX{BIN_IDX}`` and energy plane ``{BIN_IDX}``.  
+    * Amplitude in HEALPix pixel ``PIX`` and band
+      ``{BAND_IDX}``.
       
 .. _hpx_sparse:
       
 SPARSE Format
 -------------
 
-The SPARSE format uses a single index to represent indices for pixel
-and energy plane.  This allows one to define energy-dependent
-partial-sky selections.  This format also supports energy-dependent
-pixel size by including an ``ORDER`` column in the ``EBOUNDS`` table
-and setting ``INDXSCHM`` to ``SPARSE_EDEP``.
+The SPARSE format allows for an arbitrary list of pixels to be defined
+in each band.  The ``SKYMAP`` table contains two columns with the
+pixel index and amplitude for all bands.  Pixel values for each band
+are continguous and arranged in order of band index.  The mapping
+between row and band number can be derived from the ``NPIX`` column of
+the ``BANDS`` table which contains the number of pixels defined in
+each band.  This format supports an independent pixel size in each
+band defined by the ``NSIDE`` column in the ``BANDS`` table.
 
 HDUS
 ~~~~
 
 * ``SKYMAP``
-* ``EBOUNDS``
+* ``BANDS``
 
 HEADER
 ~~~~~~
 
-* ``INDXSCHM`` : ``SPARSE`` or ``SPARSE_EDEP``
+* ``INDXSCHM`` : ``SPARSE``
   
 SKYMAP Columns
 ~~~~~~~~~~~~~~
       
-* ``KEY`` -- ndim: 2, unit: None
-    * Dimension: 1 x npix
-    * Unrolled index representing both the healpix pixel and energy
-      plane such that ``KEY`` = ``{BIN_IDX}`` x ``NPIX`` + ``PIX``
-      where ``NPIX`` and ``PIX`` are the total number of HEALPix
-      pixels and healpix index respectively.  For maps with
-      energy-dependent pixel size ``NPIX`` is the sum of the number of
-      pixels in each energy plane up to ``{BIN_IDX}``.
+* ``PIX`` -- ndim: 1, unit: None
+    * Dimension: nrows
+    * Spatial pixel index.  Pixels are ordered by band number.  The
+      row to band mapping is defined by the ``NPIX`` column of the
+      ``BANDS`` table.
 
-* ``VALUE`` -- ndim: 2, unit: None
-    * Dimension: 1 x npix
-    * Amplitude in pixel indexed by ``KEY``.  
+* ``VALUE`` -- ndim: 1, unit: None
+    * Dimension: nrows
+    * Amplitude in pixel indexed by ``PIX``.  
       
 
