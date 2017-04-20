@@ -100,20 +100,15 @@ Mandatory header keywords
 -------------------------
 
 * ``HDUCLASS`` type: string
-    * Signal conformance with HEASARC/OGIP conventions (option: 'OGIP').
-      For more information, refer to the `OGIP HDUCLAS recommendation`_.
+    * Signal conformance with HEASARC/OGIP conventions (option: 'OGIP'). See :ref:`hduclass`.
 * ``HDUDOC`` type: string
-    * Reference to documentation where data format is documented.
-      For more information, refer to the `OGIP HDUCLAS recommendation`_.
+    * Reference to documentation where data format is documented. See :ref:`hduclass`.
 * ``HDUVERS`` type: string
-    * Version of the format (e.g. '1.0.0')
-      For more information, refer to the `OGIP HDUCLAS recommendation`_.
+    * Version of the format (e.g. '1.0.0'). See :ref:`hduclass`.
 * ``HDUCLAS1`` type: string
-    * Primary extension class (option: 'EVENTS').
-      For more information, refer to the `OGIP HDUCLAS recommendation`_.
+    * Primary extension class (option: 'EVENTS'). See :ref:`hduclass`.
 * ``HDUCLAS2`` type: string
-    * Secondary extension class (option: 'ACCEPTED').
-      For more information, refer to the `OGIP HDUCLAS recommendation`_.
+    * Secondary extension class (option: 'ACCEPTED'). See :ref:`hduclass`.
 * ``ORIGIN`` type: string
     * Organisation that created the FITS file.
 * ``CREATOR`` type: string

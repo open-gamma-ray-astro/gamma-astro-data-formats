@@ -34,14 +34,25 @@ The current scheme used is the following:
 
 * HDUCLAS4: In case of ``RESPONSE`` type, refers to the name of the specific format
 
+The different HDUs defined in the current specifications are listed here:
+
+* EVENTS: Table containing the event lists. See :ref:`iact-events`.
+
+* GTI: Table containing the Good Time Intervals ('GTIs') for the event list. See :ref:`iact-gti`.
+
+* POINTING: Table containing the pointing direction of the telescopes for a number of time stamps. See :ref:`iact-pnt`.
+
+* RESPONSE: Table containing any of the different instrument response function components defined in the specs. See :ref:`iact-irf`. 
 
 
 +-----------+------------+-----------------+--------------+
 |  HDUCLAS1 |  HDUCLAS2  |    HDUCLAS3     |   HDUCLAS4   |
 +===========+============+=================+==============+
+|  EVENTS   |            |                 |              |
++-----------+------------+-----------------+--------------+
 |    GTI    |            |                 |              |
 +-----------+------------+-----------------+--------------+
-|  EVENTS   |            |                 |              |
+|  POINTING |            |                 |              |
 +-----------+------------+-----------------+--------------+
 |  RESPONSE | EFF_AREA   |   POINT-LIKE    |   AEFF_2D    |
 +-----------+------------+-----------------+--------------+
