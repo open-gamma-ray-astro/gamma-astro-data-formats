@@ -53,6 +53,8 @@ Header keywords:
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
     
+And as described in :ref:`hduclass`:
+    
 * ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
 * ``HDUVERS``  = '0.2'
 * ``HDUCLASS`` = 'GADF'
