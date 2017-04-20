@@ -45,10 +45,10 @@ TODO: give test case value and Python function for easy checking?
 
 Columns:
 
+* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
+    * True energy axis
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
-* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
-    * Energy axis
 * ``SCALE`` -- ndim: 2, unit: none
     * Absolute scale of the 1st Gaussian
 * ``SIGMA_1``, ``SIGMA_2``, ``SIGMA_3`` -- ndim: 2, unit: deg

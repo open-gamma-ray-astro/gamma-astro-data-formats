@@ -21,7 +21,7 @@ rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
 Required columns:
 
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
-    * Energy axis
+    * Reconstructed energy axis
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
     * Binning is often chosen with a square root scale,
@@ -64,7 +64,7 @@ rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
 Required columns:
 
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
-    * Energy axis
+    * Reconstructed energy axis
 * ``DETX_LO``, ``DETX_HI``, ``DETY_LO``, ``DETY_HI`` -- ndim: 1, unit: deg
     * Field of view coordinates binning, see :ref:`coords-fov`
 * ``BKG`` -- ndim: 3, unit: s^-1 MeV^-1 sr^-1

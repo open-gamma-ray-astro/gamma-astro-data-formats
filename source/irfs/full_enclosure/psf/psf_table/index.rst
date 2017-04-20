@@ -16,7 +16,7 @@ position, the units are different and the recommended axis order is different
 Columns:
 
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
-    * Energy axis
+    * True energy axis
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
 * ``RAD_LO``, ``RAD_HI`` -- ndim: 1, unit: deg

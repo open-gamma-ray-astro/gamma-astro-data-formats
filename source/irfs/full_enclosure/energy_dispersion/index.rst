@@ -16,7 +16,7 @@ The energy dispersion information is saved as a
 Columns:
 
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
-    * Energy axis
+    * True energy axis
 * ``MIGRA_LO``, ``MIGRA_HI`` -- ndim: 1, unit: dimensionless
     * Energy migration axis (defined above)
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg

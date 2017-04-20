@@ -16,7 +16,7 @@ Any point-like IRF component should contain the header keyword:
 * ``HDU_CLAS3 = POINT-LIKE``
 
 ``RAD_MAX`` column
-++++++++++++++++++
+------------------
 
 In addition, binary tables should contain the ``RAD_MAX`` column, containing the radial cut applied
 to calculate the IRF component (unit: deg). As this value is allowed to change as a function of the energy and field 
@@ -29,7 +29,7 @@ of view (FoV) coordinates, the dimension of this column is equal to:
 As an example, the format of a point-like effective area (as a function of the true energy) is shown below. 
 
 Example: point-like effective Area vs true energy
-+++++++++++++++++++++++++++++++++++++++++++++++++
+-------------------------------------------------
 
 Columns:
 
