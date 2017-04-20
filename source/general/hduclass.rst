@@ -18,7 +18,17 @@ Some useful links from other projects:
 * http://www.starlink.rl.ac.uk/docs/sun167.htx/sun167se3.html
 * https://confluence.slac.stanford.edu/display/ST/LAT+Photons
 
-The current scheme used is the following:
+The different HDUs defined in the current specifications are listed here:
+
+* EVENTS: Table containing the event lists. See :ref:`iact-events`.
+
+* GTI: Table containing the Good Time Intervals ('GTIs') for the event list. See :ref:`iact-gti`.
+
+* POINTING: Table containing the pointing direction of the telescopes for a number of time stamps. See :ref:`iact-pnt`.
+
+* RESPONSE: Table containing any of the different instrument response function components defined in the specs. See :ref:`iact-irf`. 
+
+The current HDU class scheme used is the following:
 
 * HDUCLASS: General identifier of the data format. Recommended value: "CTA"
 
@@ -33,16 +43,6 @@ The current scheme used is the following:
 * HDUCLAS3: In case of ``RESPONSE`` type, refers to the way the IRF component was produced (``POINT-LIKE`` or ``FULL-ENCLOSURE``)
 
 * HDUCLAS4: In case of ``RESPONSE`` type, refers to the name of the specific format
-
-The different HDUs defined in the current specifications are listed here:
-
-* EVENTS: Table containing the event lists. See :ref:`iact-events`.
-
-* GTI: Table containing the Good Time Intervals ('GTIs') for the event list. See :ref:`iact-gti`.
-
-* POINTING: Table containing the pointing direction of the telescopes for a number of time stamps. See :ref:`iact-pnt`.
-
-* RESPONSE: Table containing any of the different instrument response function components defined in the specs. See :ref:`iact-irf`. 
 
 
 +-----------+------------+-----------------+--------------+
