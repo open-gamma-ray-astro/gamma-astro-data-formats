@@ -23,6 +23,6 @@ It's purpose is two-fold:
   time
   coordinates
   fits-arrays
-  hdu-hierarchy
+  hduclass
   notes
   glossary

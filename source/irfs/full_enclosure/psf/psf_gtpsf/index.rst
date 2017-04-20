@@ -19,14 +19,15 @@ The FITS file has the following BinTable HDUs / columns:
 
 Header keywords:
 
-* ``HDUCLAS1`` type: string
-    * First extension class (option: 'RESPONSE').
-* ``HDUCLAS2`` type: string
-    * Second extension class (option: 'RPSF').
-* ``HDUCLAS3`` type: string
-    * Third extension class (option: 'FULL-ENCLOSURE').
-* ``HDUCLAS4`` type: string
-    * Fourth extension class (option: 'gtpsf').
-* ``HDU_DOC = TODO``
+As explained in :ref:`hduclass`, the following header keyword should be used to 
+declare the type of HDU:
+
+* ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
+* ``HDUVERS``  = '0.2'
+* ``HDUCLASS`` = 'GADF'
+* ``HDUCLAS1`` = 'RESPONSE'
+* ``HDUCLAS2`` = 'PSF'
+* ``HDUCLAS3`` = 'FULL-ENCLOSURE'
+* ``HDUCLAS4`` = 'GTPSF'  
 
 Example data file: :download:`psf-fermi.fits`

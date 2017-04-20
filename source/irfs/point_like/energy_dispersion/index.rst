@@ -31,14 +31,15 @@ Recommended axis order: ``ENERGY``, ``MIGRA``, ``THETA``, ``RAD_MAX``
 
 Header keywords:
 
-* ``HDUCLAS1`` type: string
-    * First extension class (option: 'RESPONSE').
-* ``HDUCLAS2`` type: string
-    * Second extension class (option: 'EDISP').
-* ``HDUCLAS3`` type: string
-    * Third extension class (option: 'POINT-LIKE').
-* ``HDUCLAS4`` type: string
-    * Fourth extension class (option: 'edisp_2d').
-* ``HDU_DOC = TODO``
+As explained in :ref:`hduclass`, the following header keyword should be used to 
+declare the type of HDU:
+
+* ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
+* ``HDUVERS``  = '0.2'
+* ``HDUCLASS`` = 'GADF'
+* ``HDUCLAS1`` = 'RESPONSE'
+* ``HDUCLAS2`` = 'EDISP'
+* ``HDUCLAS3`` = 'POINT-LIKE'
+* ``HDUCLAS4`` = 'EDISP_2D'
 
 Example data file: TODO

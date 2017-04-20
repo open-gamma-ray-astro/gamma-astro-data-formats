@@ -44,14 +44,17 @@ effective area type contained within the HDU.
     * Low energy threshold
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
-* ``HDUCLAS1`` type: string
-    * First extension class (option: 'RESPONSE').
-* ``HDUCLAS2`` type: string
-    * Second extension class (option: 'EFF_AREA').
-* ``HDUCLAS3`` type: string
-    * Third extension class (option: 'FULL-ENCLOSURE').
-* ``HDUCLAS4`` type: string
-    * Fourth extension class (option: 'aeff_2d'). 
+    
+As explained in :ref:`hduclass`, the following header keyword should be used to 
+declare the type of HDU:
+
+* ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
+* ``HDUVERS``  = '0.2'
+* ``HDUCLASS`` = 'GADF'
+* ``HDUCLAS1`` = 'RESPONSE'
+* ``HDUCLAS2`` = 'EFF_AREA'
+* ``HDUCLAS3`` = 'FULL-ENCLOSURE'
+* ``HDUCLAS4`` = 'AEFF_2D'
     
 Although not a requirement, the recommended ``EXTNAME`` keyword is "EFFECTIVE AREA".
 
@@ -83,15 +86,18 @@ Header keywords:
     * Low energy threshold
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
-* ``HDUCLAS1`` type: string
-    * First extension class (option: 'RESPONSE').
-* ``HDUCLAS2`` type: string
-    * Second extension class (option: 'EFF_AREA').
-* ``HDUCLAS3`` type: string
-    * Third extension class (option: 'FULL-ENCLOSURE').
-* ``HDUCLAS4`` type: string
-    * Fourth extension class (option: 'aeff_2d_reco'). 
     
+As explained in :ref:`hduclass`, the following header keyword should be used to 
+declare the type of HDU:
+
+* ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
+* ``HDUVERS``  = '0.2'
+* ``HDUCLASS`` = 'GADF'
+* ``HDUCLAS1`` = 'RESPONSE'
+* ``HDUCLAS2`` = 'EFF_AREA'
+* ``HDUCLAS3`` = 'FULL-ENCLOSURE'
+* ``HDUCLAS4`` = 'AEFF_2D_RECO'
+
 
 Same header keywords as in ``aeff_2d_full`` are required, although is recommended to
 change the ``EXTNAME`` keyword to "EFFECTIVE AREA (RECO)".
