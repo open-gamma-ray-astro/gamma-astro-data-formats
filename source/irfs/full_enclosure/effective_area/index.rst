@@ -56,7 +56,7 @@ declare the type of HDU:
 * ``HDUCLAS3`` = 'FULL-ENCLOSURE'
 * ``HDUCLAS4`` = 'AEFF_2D'
     
-Although not a requirement, the recommended ``EXTNAME`` keyword is "EFFECTIVE AREA".
+The recommended ``EXTNAME`` keyword is "EFFECTIVE AREA".
 
 .. _aeff_reco_2d_full:
 
@@ -99,8 +99,8 @@ declare the type of HDU:
 * ``HDUCLAS4`` = 'AEFF_2D_RECO'
 
 
-Same header keywords as in ``aeff_2d_full`` are required, although is recommended to
-change the ``EXTNAME`` keyword to "EFFECTIVE AREA (RECO)".
+Same header keywords as in ``aeff_2d_full`` are required, while the ``EXTNAME`` keyword is recommended to
+be "EFFECTIVE AREA (RECO)".
 
 Note within the IRFs, we label the true energy as ``ENERGY`` and the
 reconstructed energy as ``ERECO``, while in the  event lists ``ENERGY`` refers
