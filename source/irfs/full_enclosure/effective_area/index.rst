@@ -5,7 +5,7 @@
 Effective area format
 =====================
 
-Here we specify the format to store the effective area of a full-enclosure 
+Here we specify the format to store the effective area (see :ref:`iact-aeff`) of a full-enclosure 
 IRF. It is possible to store as a function of the true energy or as a function 
 of the reconstructed energy.
 

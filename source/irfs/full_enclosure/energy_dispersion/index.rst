@@ -3,7 +3,7 @@
 Energy dispersion format
 ========================
 
-The format to store full-enclosure energy dispersion is the following:
+The format to store full-enclosure energy dispersion (see :ref:`iact-edisp`) is the following:
 
 .. _edisp_2d_full:
 

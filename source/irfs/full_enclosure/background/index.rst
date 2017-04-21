@@ -5,7 +5,7 @@
 Background format
 =================
 
-Here we specify two formats for the background template models of a full-enclosure IRF:
+Here we specify two formats for the background template models (see :ref:`bkg`) of a full-enclosure IRF:
 
 * ``bkg_2d_full`` models depend on ``ENERGY`` and ``THETA``, i.e. are radially symmetric.
 * ``bkg_3d_full`` models depend on ``ENERGY`` and field of view coordinates ``DETX`` and ``DETY``.
