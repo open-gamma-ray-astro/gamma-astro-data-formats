@@ -13,3 +13,4 @@ other codes (e.g. to check results, combine results in one plot, ...).
 
    flux_points/index
    binned_likelihoods/index
+   light_curve/index
