@@ -1,9 +1,9 @@
-.. include:: ../../../references.txt
+.. include:: ../../../../references.txt
 
-.. _psf_3gauss:
+.. _psf_3gauss_full:
 
-``psf_3gauss`` format
-=====================
+``psf_3gauss_full``
+===================
 
 Multi-Gauss mixture models are a common way to model distributions
 (for source intensity profiles, PSFs, anything really), see e.g.
@@ -45,10 +45,10 @@ TODO: give test case value and Python function for easy checking?
 
 Columns:
 
+* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
+    * True energy axis
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
-* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
-    * Energy axis
 * ``SCALE`` -- ndim: 2, unit: none
     * Absolute scale of the 1st Gaussian
 * ``SIGMA_1``, ``SIGMA_2``, ``SIGMA_3`` -- ndim: 2, unit: deg
@@ -58,6 +58,17 @@ Columns:
 
 Recommended axis order: ``ENERGY``, ``THETA``
 
-Header keywords: none
+Header keywords:
+
+As explained in :ref:`hduclass`, the following header keyword should be used to 
+declare the type of HDU:
+
+* ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
+* ``HDUVERS``  = '0.2'
+* ``HDUCLASS`` = 'GADF'
+* ``HDUCLAS1`` = 'RESPONSE'
+* ``HDUCLAS2`` = 'PSF'
+* ``HDUCLAS3`` = 'FULL-ENCLOSURE'
+* ``HDUCLAS4`` = 'PSF_3GAUSS'  
 
 Example data file: TODO: add HESS HAP example file as soon as available.

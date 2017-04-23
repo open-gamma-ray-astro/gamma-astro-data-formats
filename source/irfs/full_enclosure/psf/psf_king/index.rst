@@ -1,9 +1,9 @@
-.. include:: ../../../references.txt
+.. include:: ../../../../references.txt
 
-.. _psf_king:
+.. _psf_king_full:
 
-``psf_king`` format
-===================
+``psf_king_full``
+=================
 
 The King function parametrisations for PSFs has been in use in astronomy
 as an analytical PSF model for many instruments, for example
@@ -23,10 +23,10 @@ This formula integrates to 1 (see :ref:`psf-intro`).
 
 Columns:
 
+* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
+    * True energy axis
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
-* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
-    * Energy axis
 * ``GAMMA`` -- ndim: 2, unit: none
     * Model parameter (see formula above)
 * ``SIGMA`` -- ndim: 2, unit: deg
@@ -34,6 +34,17 @@ Columns:
 
 Recommended axis order: ``ENERGY``, ``THETA``
 
-Header keywords: none
+Header keywords:
+
+As explained in :ref:`hduclass`, the following header keyword should be used to 
+declare the type of HDU:
+
+* ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
+* ``HDUVERS``  = '0.2'
+* ``HDUCLASS`` = 'GADF'
+* ``HDUCLAS1`` = 'RESPONSE'
+* ``HDUCLAS2`` = 'PSF'
+* ``HDUCLAS3`` = 'FULL-ENCLOSURE'
+* ``HDUCLAS4`` = 'PSF_KING'  
 
 Example data file: TODO: add HESS HAP example file as soon as available.

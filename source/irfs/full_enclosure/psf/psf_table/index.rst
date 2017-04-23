@@ -1,9 +1,9 @@
-.. include:: ../../../references.txt
+.. include:: ../../../../references.txt
 
-.. _psf-table:
+.. _psf-table_full:
 
-``psf_table`` format
-====================
+``psf_table_full``
+==================
 
 This is a PSF FITS format we agree on for IACTs.
 This file contains the offset- and energy-dependent table distribution of the PSF.
@@ -16,7 +16,7 @@ position, the units are different and the recommended axis order is different
 Columns:
 
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
-    * Energy axis
+    * True energy axis
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
 * ``RAD_LO``, ``RAD_HI`` -- ndim: 1, unit: deg
@@ -26,4 +26,17 @@ Columns:
 
 Recommended axis order: ``ENERGY``, ``THETA``, ``RAD``.
 
-Header keywords: none
+Header keywords:
+
+As explained in :ref:`hduclass`, the following header keyword should be used to 
+declare the type of HDU:
+
+* ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
+* ``HDUVERS``  = '0.2'
+* ``HDUCLASS`` = 'GADF'
+* ``HDUCLAS1`` = 'RESPONSE'
+* ``HDUCLAS2`` = 'PSF'
+* ``HDUCLAS3`` = 'FULL-ENCLOSURE'
+* ``HDUCLAS4`` = 'PSF_TABLE'  
+
+Example data file: TODO

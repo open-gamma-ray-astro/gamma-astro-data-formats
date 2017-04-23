@@ -1,11 +1,10 @@
 .. include:: ../references.txt
 
-.. _iact-pnt:
-
 .. warning::
    This is a first draft proposal of a pointing table. Please note that
    the format is likely subject to change.
-
+   
+.. _iact-pnt:
 
 ``POINTING`` extension
 ======================

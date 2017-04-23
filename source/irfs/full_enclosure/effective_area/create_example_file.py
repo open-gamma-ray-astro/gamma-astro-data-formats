@@ -23,10 +23,10 @@ header = fits.Header()
 header['OBS_ID'] = 31415 , 'Observation ID'
 header['LO_THRES'] = 0.1 , 'Low energy threshold [TeV]'
 header['HI_THRES'] = 50 , 'High energy threshold [TeV]'
-header['RAD_MAX'] = 0.1, 'On region radius for point-like observations'
-header['HDUCLAS2'] = "EFF_AREA", 'Secondary extension class'
+header['HDUCLAS2'] = "FULL-ENCLOSURE", 'Secondary extension class'
+header['HDUCLAS3'] = "EFF_AREA_FULL", 'Third extension class'
 
-tbhdu = fits.BinTableHDU(data, header, name='EFF_AREA')
+tbhdu = fits.BinTableHDU(data, header, name='EFFECTIVE AREA')
 
 for colname in table.colnames:
     tbhdu.columns[colname].unit = str(table[colname].unit)
@@ -43,10 +43,10 @@ header = fits.Header()
 header['OBS_ID'] = 31415 , 'Observation ID'
 header['LO_THRES'] = 0.1 , 'Low energy threshold [TeV]'
 header['HI_THRES'] = 50 , 'High energy threshold [TeV]'
-header['RAD_MAX'] = 0.1, 'On region radius for point-like observations'
-header['HDUCLAS2'] = "EFF_AREA_RECO", 'Secondary extension class'
+header['HDUCLAS2'] = "FULL-ENCLOSURE", 'Secondary extension class'
+header['HDUCLAS3'] = "EFF_AREA_RECO_FULL", 'Third extension class'
 
-tbrecohdu = fits.BinTableHDU(data, header, name='EFF_AREA_RECO')
+tbrecohdu = fits.BinTableHDU(data, header, name='EFFECTIVE AREA (RECO)')
 
 for colname in table.colnames:
     tbrecohdu.columns[colname].unit = str(table[colname].unit)
@@ -54,6 +54,6 @@ for colname in table.colnames:
 prihdu = fits.PrimaryHDU()
 
 thdulist = fits.HDUList([prihdu, tbhdu, tbrecohdu])
-filename = 'aeff_2d_example.fits'
+filename = 'aeff_2d_full_example.fits'
 print('Writing {}'.format(filename))
 thdulist.writeto(filename, clobber=True)
