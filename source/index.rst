@@ -21,4 +21,4 @@ Table of contents
    data_storage/index
    ogip/index
    skymaps/index
-   results/index
+   spectra/index
