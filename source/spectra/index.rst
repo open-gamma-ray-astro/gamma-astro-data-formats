@@ -1,9 +1,9 @@
-.. _results:
+.. _spectra:
 
-High-level results
-==================
+Spectra
+=======
 
-Here we describe a few data format specs for high-level results.
+Here we describe data formats for high-level spectral analysis results.
 
 Science tools are encouraged to use these formats for easy interoperability with
 other codes (e.g. to check results, combine results in one plot, ...).
