@@ -1,6 +1,6 @@
 .. include:: ../../../../references.txt
 
-.. _psf-table:
+.. _psf_table:
 
 ``psf_table``
 =============

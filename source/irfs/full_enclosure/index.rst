@@ -17,7 +17,7 @@ From here on, the specific format of each IRF component:
 
 .. toctree::
 
-   effective_area/index
-   energy_dispersion/index
+   aeff/index
+   edisp/index
    psf/index
-   background/index
+   bkg/index
