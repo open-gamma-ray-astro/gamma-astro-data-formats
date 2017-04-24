@@ -68,10 +68,9 @@ Valid ``HDU_CLASS`` values:
 * ``gti`` - see format spec: :ref:`iact-gti`
 * ``aeff_2d`` - see format spec: :ref:`aeff_2d`
 * ``edisp_2d`` - see format spec: :ref:`edisp_2d`
-* ``psf_table`` - see format spec: :ref:`psf-table`
+* ``psf_table`` - see format spec: :ref:`psf_table`
 * ``psf_3gauss`` - see format spec: :ref:`psf_3gauss`
 * ``psf_king`` - see format spec: :ref:`psf_king`
-* ``psf_gtpsf`` -- see format spec: :ref:`psf_gtpsf`
 * ``bkg_2d`` - see format spec: :ref:`bkg_2d`
 * ``bkg_3d`` - see format spec: :ref:`bkg_3d`
 

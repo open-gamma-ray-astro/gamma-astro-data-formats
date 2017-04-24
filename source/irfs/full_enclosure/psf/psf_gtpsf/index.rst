@@ -2,8 +2,8 @@
 
 .. _psf_gtpsf:
 
-``gtpsf``
-==============
+``psf_gtpsf``
+=============
 
 The FITS file has the following BinTable HDUs / columns:
 
