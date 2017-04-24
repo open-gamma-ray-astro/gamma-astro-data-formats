@@ -9,7 +9,7 @@ Point-like IRFs has been classically used within the IACT community. Each IRF co
 events surviving an energy dependent directional cut around the assumed source position. 
 
 The format of each point-like IRF component is analog to the ones already described within the full enclosure 
-IRF specifications (see :ref:`full-enclosure-irfs`:), with certain differences listed in this section.
+IRF specifications (see :ref:`full-enclosure-irfs`), with certain differences listed in this section.
 
 Any point-like IRF component should contain the header keyword: 
 
@@ -22,9 +22,8 @@ In addition, binary tables should contain the ``RAD_MAX`` column, containing the
 to calculate the IRF component (unit: deg). As this value is allowed to change as a function of the energy and field 
 of view (FoV) coordinates, the dimension of this column is equal to: 
 
-* -- ndim: 2 in case that the FoV coordinate is ``THETA``
-
-* -- ndim: 3 in case that the FoV coordinates are ``DETX`` and ``DETY`` 
+* ndim: 2 in case that the FoV coordinate is ``THETA``
+* ndim: 3 in case that the FoV coordinates are ``DETX`` and ``DETY``
 
 As an example, the format of a point-like effective area (as a function of the true energy) is shown below. 
 

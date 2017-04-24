@@ -9,10 +9,10 @@ Here we specify the format to store the effective area (see :ref:`iact-aeff`) of
 IRF. It is possible to store as a function of the true energy or as a function 
 of the reconstructed energy.
 
-.. _aeff_2d_full:
+.. _aeff_2d:
 
-``aeff_2d_full``
-----------------
+``aeff_2d``
+-----------
 
 Effective Area vs true energy
 +++++++++++++++++++++++++++++
@@ -58,14 +58,14 @@ declare the type of HDU:
     
 The recommended ``EXTNAME`` keyword is "EFFECTIVE AREA".
 
-.. _aeff_reco_2d_full:
+.. _aeff_reco_2d:
 
 Effective Area vs reconstructed energy
 ++++++++++++++++++++++++++++++++++++++
 
 The effective area as a function of the reconstructed energy, may be stored as
 an additional HDU within  the FITS file, following an analog format as described
-in ``aeff_2d_full``:
+in ``aeff_2d``:
 
 Columns:
 
@@ -99,7 +99,7 @@ declare the type of HDU:
 * ``HDUCLAS4`` = 'AEFF_2D_RECO'
 
 
-Same header keywords as in ``aeff_2d_full`` are required, while the ``EXTNAME`` keyword is recommended to
+Same header keywords as in ``aeff_2d`` are required, while the ``EXTNAME`` keyword is recommended to
 be "EFFECTIVE AREA (RECO)".
 
 Note within the IRFs, we label the true energy as ``ENERGY`` and the
@@ -107,4 +107,4 @@ reconstructed energy as ``ERECO``, while in the  event lists ``ENERGY`` refers
 to the reconstructed energy. Although it may be formally inconsistent, this
 convention follows  current standards.
 
-An example file is provided  :download:`here <./aeff_2d_full_example.fits>`.
+Example data file: :download:`here <./aeff_2d_full_example.fits>`.
