@@ -1,13 +1,12 @@
 .. include:: ../../../../references.txt
 
-.. _psf_3gauss_full:
+.. _psf_3gauss:
 
-``psf_3gauss_full``
-===================
+``psf_3gauss``
+==============
 
 Multi-Gauss mixture models are a common way to model distributions
-(for source intensity profiles, PSFs, anything really), see e.g.
-`2013PASP..125..719H`_.
+(for source intensity profiles, PSFs, anything really), see e.g. `2013PASP..125..719H`_.
 For H.E.S.S., radial PSFs have been modeled as 1, 2 or 3 two-dimensional
 Gaussians :math:`dP/d\Omega`.
 
@@ -71,4 +70,4 @@ declare the type of HDU:
 * ``HDUCLAS3`` = 'FULL-ENCLOSURE'
 * ``HDUCLAS4`` = 'PSF_3GAUSS'  
 
-Example data file: TODO: add HESS HAP example file as soon as available.
+Example data file: TODO

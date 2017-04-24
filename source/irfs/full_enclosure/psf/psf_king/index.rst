@@ -1,8 +1,8 @@
 .. include:: ../../../../references.txt
 
-.. _psf_king_full:
+.. _psf_king:
 
-``psf_king_full``
+``psf_king``
 =================
 
 The King function parametrisations for PSFs has been in use in astronomy
@@ -47,4 +47,4 @@ declare the type of HDU:
 * ``HDUCLAS3`` = 'FULL-ENCLOSURE'
 * ``HDUCLAS4`` = 'PSF_KING'  
 
-Example data file: TODO: add HESS HAP example file as soon as available.
+Example data file: TODO
