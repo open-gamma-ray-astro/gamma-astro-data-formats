@@ -36,7 +36,7 @@ data and column metadata could also be supported (e.g. ECSV or HDF5).
 Because the SED occupies a single HDU multiple SEDs can be written to
 a single FITS file with an identifier (e.g. source name or observation
 epoch) used as the HDU name.  Sample FITS and ECSV files are provided
-in :ref:`sample_files`.
+in :ref:`sed_sample_files`.
 
 .. _norm_representations:
 
@@ -164,7 +164,7 @@ required columns are given in the following list:
 * ``eflux``: ``e_min``, ``e_max``, ``eflux``
 * ``likelihood``: See :ref:`likelihood_sed`.
 
-.. _sample_files:
+.. _sed_sample_files:
   
 Sample Files
 ------------
@@ -200,12 +200,16 @@ Energy Columns
     * Dimension: nebins
     * ucd : ``em.energy``
     * Lower edge of energy bin.  This defines the lower integration
-      bound for integral representations of the normalization.
+      bound for integral representations of the normalization.  Can
+      also define the energy band used to evaluate differential
+      representations (``dnde`` or ``e2dnde``).
 * ``e_max`` -- ndim: 1, unit: MeV
     * Dimension: nebins
     * ucd : ``em.energy``
     * Upper edge of energy bin.  This defines the upper integration
-      bound for integral representations of the normalization.
+      bound for integral representations of the normalization.  Can
+      also define the energy band used to evaluate differential
+      representations (``dnde`` or ``e2dnde``).
 * ``e_ref`` -- ndim: 1, unit: MeV
     * Dimension: nebins
     * ucd : ``em.energy``

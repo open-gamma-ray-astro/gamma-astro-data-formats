@@ -92,13 +92,14 @@ Likelihood SED
 
 The likelihood SED is a representation of spectral energy distribution
 of a source that contains a likelihood for the source normalization in
-each energy bin.  Depending on the requirements of the analysis these
-likelihoods can be evaluated with either profiled or fixed nuisance
-parameters.  The likelihood SED can be used in the same way as a
-traditional SED but contains additional information about the shape of
-the likelihood function around the maximum.  A 2D visualization of the
-likelihood functions can be produced by creating a colormap in which
-the intensity is mapped to the likelihood value:
+each energy bin.  This format is a special case of the more general
+:ref:`flux-points` format.  Depending on the requirements of the
+analysis the likelihoods can be evaluated with either profiled or
+fixed nuisance parameters.  The likelihood SED can be used in the same
+way as a traditional SED but contains additional information about the
+shape of the likelihood function around the maximum.  A 2D
+visualization of the likelihood functions can be produced by creating
+a colormap with intensity mapped to the likelihood value:
 
 .. |image0| image:: llsed_lowts.png
    :width: 100%
@@ -115,8 +116,8 @@ the intensity is mapped to the likelihood value:
 
 In the following we use *nebins* to designate the number of energy
 bins and *nnorms* to designate the number of points in the
-normalization scan.  The proposed format is a BINTABLE with one row
-per energy bin containing the columns listed below.
+normalization scan.  The format is a BINTABLE with one row per energy
+bin containing the columns listed below.
 
 The best-fit model amplitudes, errors, and upper limits are all
 normalized to a reference spectral model.  The ``ref`` columns define
@@ -128,10 +129,11 @@ the reference model amplitude.  Unit conversion of the ``norm``
 columns can be performed by doing a row-wise multiplication with the
 respective ``ref`` column.
 
-Sample FITS files:
 
-* Low Significance Source: :download:`llsed_lowts.fits`
-* High Significance Source: :download:`llsed_hights.fits`
+Sample Files
+------------
+
+See the ``likelihood`` files in :ref:`sed_sample_files`.
 
 Header Keywords
 ---------------
