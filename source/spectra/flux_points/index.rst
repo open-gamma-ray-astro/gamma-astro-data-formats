@@ -226,7 +226,7 @@ Normalization Columns
 * ``norm`` -- ndim: 1, unit: None
     * Dimension: nebins
     * Measured normalization in units of the reference model.  
-* ``dnde`` -- ndim: 1, unit: ph / (cm2 s MeV)
+* ``dnde`` -- ndim: 1, unit: 1 / (cm2 s MeV)
     * Dimension: nebins
     * ucd : ``phot.flux.density``
     * Measured differential photon flux at ``e_ref``. 
@@ -234,7 +234,7 @@ Normalization Columns
     * Dimension: nebins
     * ucd : ``phot.flux.density``
     * Measured differential photon flux at ``e_ref``, multiplied with ``e_ref ^ 2``.
-* ``flux`` -- ndim: 1, unit: ph / (cm2 s)
+* ``flux`` -- ndim: 1, unit: 1 / (cm2 s)
     * Dimension: nebins
     * ucd : ``phot.count``
     * Measured photon flux between ``e_min`` and ``e_max``.
@@ -242,7 +242,7 @@ Normalization Columns
     * Dimension: nebins
     * ucd : ``phot.flux``
     * Measured energy flux between ``e_min`` and ``e_max``.
-* ``npred`` -- ndim: 1, unit: ph
+* ``npred`` -- ndim: 1
     * Dimension: nebins
     * Measured counts between ``e_min`` and ``e_max``.
 
@@ -289,20 +289,20 @@ the normalization column (e.g. ``flux_err``).
 Reference Model Columns
 ~~~~~~~~~~~~~~~~~~~~~~~
       
-* ``ref_dnde`` -- ndim: 1, unit: ph / (MeV cm2 s)
+* ``ref_dnde`` -- ndim: 1, unit: 1 / (MeV cm2 s)
     * Dimension: nebins
     * Differential flux of reference model at the ``e_ref``.
 * ``ref_eflux`` -- ndim: 1, unit: MeV / (cm2 s)
     * Dimension: nebins
     * Energy flux (integral of E times ``dnde``) of reference model
       from ``e_min`` to ``e_max``.
-* ``ref_flux`` -- ndim: 1, unit: ph / (cm2 s)
+* ``ref_flux`` -- ndim: 1, unit: 1 / (cm2 s)
     * Dimension: nebins
     * Flux (integral of ``dnde``) of reference model from ``e_min`` to ``e_max``.
-* ``ref_dnde_e_min`` -- ndim: 1, unit: ph / (MeV cm2 s)
+* ``ref_dnde_e_min`` -- ndim: 1, unit: 1 / (MeV cm2 s)
     * Dimension: nebins
     * Differential flux of reference model at ``e_min``.
-* ``ref_dnde_e_max`` -- ndim: 1, unit: ph / (MeV cm2 s)
+* ``ref_dnde_e_max`` -- ndim: 1, unit: 1 / (MeV cm2 s)
     * Dimension: nebins
     * Differential flux of reference model at ``e_max``.
 * ``ref_npred`` -- ndim: 1, unit: counts
