@@ -51,7 +51,7 @@ declare the type of HDU:
 * ``HDUCLAS3`` = 'FULL-ENCLOSURE'
 * ``HDUCLAS4`` = 'BKG_2D'
 
-Example data file: TODO
+Example data file: :download:`here <./bkg_2d_full_example.fits>`.
 
 .. _bkg_3d:
 
@@ -90,4 +90,4 @@ declare the type of HDU:
 * ``HDUCLAS3`` = 'FULL-ENCLOSURE'
 * ``HDUCLAS4`` = 'BKG_3D'
 
-Example data file: TODO
+Example data file: :download:`here <./bkg_3d_full_example.fits>`.
