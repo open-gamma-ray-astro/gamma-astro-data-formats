@@ -23,8 +23,14 @@ header = fits.Header()
 header['OBS_ID'] = 31415 , 'Observation ID'
 header['LO_THRES'] = 0.1 , 'Low energy threshold [TeV]'
 header['HI_THRES'] = 50 , 'High energy threshold [TeV]'
-header['HDUCLAS2'] = "FULL-ENCLOSURE", 'Secondary extension class'
-header['HDUCLAS3'] = "EFF_AREA_FULL", 'Third extension class'
+header['HDUDOC'] = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats', ''
+header['HDUVERS'] = '0.2', ''
+header['HDUCLASS'] = 'GADF', ''
+header['HDUCLAS1'] = 'RESPONSE', ''
+header['HDUCLAS2'] = 'EFF_AREA', ''
+header['HDUCLAS3'] = 'FULL-ENCLOSURE', ''
+header['HDUCLAS4'] = 'AEFF_2D', ''
+
 
 tbhdu = fits.BinTableHDU(data, header, name='EFFECTIVE AREA')
 
@@ -34,7 +40,7 @@ for colname in table.colnames:
 table = Table([[e_axis[:-1]],[e_axis[1:]],
                [o_axis[:-1]],[o_axis[1:]],
                [effarea]],
-              names=('ERECO_LO', 'ERECO_HI',
+              names=('ENERG_LO', 'ENERG_HI',
                      'THETA_LO', 'THETA_HI',
                      'EFFAREA'))
  
@@ -43,8 +49,13 @@ header = fits.Header()
 header['OBS_ID'] = 31415 , 'Observation ID'
 header['LO_THRES'] = 0.1 , 'Low energy threshold [TeV]'
 header['HI_THRES'] = 50 , 'High energy threshold [TeV]'
-header['HDUCLAS2'] = "FULL-ENCLOSURE", 'Secondary extension class'
-header['HDUCLAS3'] = "EFF_AREA_RECO_FULL", 'Third extension class'
+header['HDUDOC'] = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats', ''
+header['HDUVERS'] = '0.2', ''
+header['HDUCLASS'] = 'GADF', ''
+header['HDUCLAS1'] = 'RESPONSE', ''
+header['HDUCLAS2'] = 'EFF_AREA', ''
+header['HDUCLAS3'] = 'FULL-ENCLOSURE', ''
+header['HDUCLAS4'] = 'AEFF_2D_RECO', ''
 
 tbrecohdu = fits.BinTableHDU(data, header, name='EFFECTIVE AREA (RECO)')
 

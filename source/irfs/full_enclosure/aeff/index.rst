@@ -58,53 +58,19 @@ declare the type of HDU:
     
 The recommended ``EXTNAME`` keyword is "EFFECTIVE AREA".
 
-.. _aeff_reco_2d:
+.. _aeff_2d_reco:
 
 Effective Area vs reconstructed energy
 ++++++++++++++++++++++++++++++++++++++
 
 The effective area as a function of the reconstructed energy, may be stored as
-an additional HDU within  the FITS file, following an analog format as described
-in ``aeff_2d``:
+an additional HDU within  the FITS file. Note in this case, the ``ENERG_LO`` and ``ENERG_HI`` columns
+contain the reconstructed energy instead of the true energy.
 
-Columns:
+The format is analog to the one described in ``aeff_2d``, except for the ``HDUCLAS4`` keyword:
 
-* ``ERECO_LO``, ``ERECO_HI`` -- ndim: 1, unit: TeV
-    * Reconstructed energy axis
-* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
-    * Field of view offset axis
-* ``EFFAREA`` -- ndim: 2, unit: none
-    * Effective area value as a function of reconstructed energy
-
-Recommended axis order: ``ERECO``, ``THETA``
-
-Header keywords:
-
-* ``OBS_ID`` type: int
-    * Observation ID, run number
-* ``LO_THRES`` type: float, unit: TeV
-    * Low energy threshold
-* ``HI_THRES`` type: float, unit: TeV
-    * High energy threshold
-    
-As explained in :ref:`hduclass`, the following header keyword should be used to 
-declare the type of HDU:
-
-* ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
-* ``HDUVERS``  = '0.2'
-* ``HDUCLASS`` = 'GADF'
-* ``HDUCLAS1`` = 'RESPONSE'
-* ``HDUCLAS2`` = 'EFF_AREA'
-* ``HDUCLAS3`` = 'FULL-ENCLOSURE'
 * ``HDUCLAS4`` = 'AEFF_2D_RECO'
 
-
-Same header keywords as in ``aeff_2d`` are required, while the ``EXTNAME`` keyword is recommended to
-be "EFFECTIVE AREA (RECO)".
-
-Note within the IRFs, we label the true energy as ``ENERGY`` and the
-reconstructed energy as ``ERECO``, while in the  event lists ``ENERGY`` refers
-to the reconstructed energy. Although it may be formally inconsistent, this
-convention follows  current standards.
+The ``EXTNAME`` keyword is recommended to be "EFFECTIVE AREA (RECO)".
 
 Example data file: :download:`here <./aeff_2d_full_example.fits>`.
