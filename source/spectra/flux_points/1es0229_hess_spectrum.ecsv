@@ -2,10 +2,10 @@
 # ---
 # datatype:
 # - {name: e_ref, unit: TeV, datatype: float64}
-# - {name: flux, unit: ph / (m2 s TeV), datatype: float64}
-# - {name: flux_err, unit: ph / (m2 s TeV), datatype: float64}
+# - {name: dnde, unit: 1 / (m2 s TeV), datatype: float64}
+# - {name: dnde_err, unit: 1 / (m2 s TeV), datatype: float64}
 # meta: !!omap
-# - SED_TYPE: diff_flux_points
+# - SED_TYPE: dnde
 # - COMMENTS: [Name=1ES0229+200_HESS_2005-2006, LiveTime(h)=70.2, Excess=261, significance=6.6]
 e_ref dnde dnde_err
 0.598414 3.2234e-08 1.3277e-08

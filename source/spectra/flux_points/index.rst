@@ -36,7 +36,7 @@ data and column metadata could also be supported (e.g. ECSV or HDF5).
 Because the SED occupies a single HDU multiple SEDs can be written to
 a single FITS file with an identifier (e.g. source name or observation
 epoch) used as the HDU name.  Sample FITS and ECSV files are provided
-in :ref:`sample_files`.
+in :ref:`sed_sample_files`.
 
 .. _norm_representations:
 
@@ -164,7 +164,7 @@ required columns are given in the following list:
 * ``eflux``: ``e_min``, ``e_max``, ``eflux``
 * ``likelihood``: See :ref:`likelihood_sed`.
 
-.. _sample_files:
+.. _sed_sample_files:
   
 Sample Files
 ------------
@@ -200,12 +200,16 @@ Energy Columns
     * Dimension: nebins
     * ucd : ``em.energy``
     * Lower edge of energy bin.  This defines the lower integration
-      bound for integral representations of the normalization.
+      bound for integral representations of the normalization.  Can
+      also define the energy band used to evaluate differential
+      representations (``dnde`` or ``e2dnde``).
 * ``e_max`` -- ndim: 1, unit: MeV
     * Dimension: nebins
     * ucd : ``em.energy``
     * Upper edge of energy bin.  This defines the upper integration
-      bound for integral representations of the normalization.
+      bound for integral representations of the normalization.  Can
+      also define the energy band used to evaluate differential
+      representations (``dnde`` or ``e2dnde``).
 * ``e_ref`` -- ndim: 1, unit: MeV
     * Dimension: nebins
     * ucd : ``em.energy``
@@ -222,7 +226,7 @@ Normalization Columns
 * ``norm`` -- ndim: 1, unit: None
     * Dimension: nebins
     * Measured normalization in units of the reference model.  
-* ``dnde`` -- ndim: 1, unit: ph / (cm2 s MeV)
+* ``dnde`` -- ndim: 1, unit: 1 / (cm2 s MeV)
     * Dimension: nebins
     * ucd : ``phot.flux.density``
     * Measured differential photon flux at ``e_ref``. 
@@ -230,7 +234,7 @@ Normalization Columns
     * Dimension: nebins
     * ucd : ``phot.flux.density``
     * Measured differential photon flux at ``e_ref``, multiplied with ``e_ref ^ 2``.
-* ``flux`` -- ndim: 1, unit: ph / (cm2 s)
+* ``flux`` -- ndim: 1, unit: 1 / (cm2 s)
     * Dimension: nebins
     * ucd : ``phot.count``
     * Measured photon flux between ``e_min`` and ``e_max``.
@@ -238,7 +242,7 @@ Normalization Columns
     * Dimension: nebins
     * ucd : ``phot.flux``
     * Measured energy flux between ``e_min`` and ``e_max``.
-* ``npred`` -- ndim: 1, unit: ph
+* ``npred`` -- ndim: 1
     * Dimension: nebins
     * Measured counts between ``e_min`` and ``e_max``.
 
@@ -285,20 +289,20 @@ the normalization column (e.g. ``flux_err``).
 Reference Model Columns
 ~~~~~~~~~~~~~~~~~~~~~~~
       
-* ``ref_dnde`` -- ndim: 1, unit: ph / (MeV cm2 s)
+* ``ref_dnde`` -- ndim: 1, unit: 1 / (MeV cm2 s)
     * Dimension: nebins
     * Differential flux of reference model at the ``e_ref``.
 * ``ref_eflux`` -- ndim: 1, unit: MeV / (cm2 s)
     * Dimension: nebins
     * Energy flux (integral of E times ``dnde``) of reference model
       from ``e_min`` to ``e_max``.
-* ``ref_flux`` -- ndim: 1, unit: ph / (cm2 s)
+* ``ref_flux`` -- ndim: 1, unit: 1 / (cm2 s)
     * Dimension: nebins
     * Flux (integral of ``dnde``) of reference model from ``e_min`` to ``e_max``.
-* ``ref_dnde_e_min`` -- ndim: 1, unit: ph / (MeV cm2 s)
+* ``ref_dnde_e_min`` -- ndim: 1, unit: 1 / (MeV cm2 s)
     * Dimension: nebins
     * Differential flux of reference model at ``e_min``.
-* ``ref_dnde_e_max`` -- ndim: 1, unit: ph / (MeV cm2 s)
+* ``ref_dnde_e_max`` -- ndim: 1, unit: 1 / (MeV cm2 s)
     * Dimension: nebins
     * Differential flux of reference model at ``e_max``.
 * ``ref_npred`` -- ndim: 1, unit: counts
