@@ -28,7 +28,7 @@ The different HDUs defined in the current specifications are listed here:
 
 The current HDU class scheme used is the following:
 
-* ``HDUCLASS`` : General identifier of the data format. Recommended value: "CTA"
+* ``HDUCLASS`` : General identifier of the data format. Recommended value: "GADF" (for "gamma-astro-data-formats")
 * ``HDUDOC`` : Link to the DL3 specifications documentation
 * ``HDUVERS`` : Version of the DL3 specification format
 * ``HDUCLAS1`` : General type of HDU, currently: ``EVENTS``, ``GTI`` or ``RESPONSE``
