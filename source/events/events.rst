@@ -107,8 +107,6 @@ Mandatory header keywords
     * Version of the format (e.g. '1.0.0'). See :ref:`hduclass`.
 * ``HDUCLAS1`` type: string
     * Primary extension class (option: 'EVENTS'). See :ref:`hduclass`.
-* ``HDUCLAS2`` type: string
-    * Secondary extension class (option: 'ACCEPTED'). See :ref:`hduclass`.
 * ``ORIGIN`` type: string
     * Organisation that created the FITS file.
 * ``CREATOR`` type: string
@@ -185,7 +183,7 @@ Mandatory header keywords
 * ``DEADC`` type: float
     * Dead time correction, defined by ``LIVETIME/ONTIME``.
       Is comprised in [0,1]. Defined to be 0 if ``ONTIME=0``.
-* ``EVENT_CLASS`` type: str
+* ``EV_CLASS`` type: str
     * Event class (the 'cut' that has been used, e.g. 'STD', 'HARD', 'SOFT')'.
 
 
@@ -206,6 +204,8 @@ Optional header keywords
    keywords should be made, or whether the definition should be left
    to the respective consortia.
 
+* ``HDUCLAS2`` type: string
+    * Secondary extension class (option: 'ACCEPTED'). See :ref:`hduclass`.
 * ``TELLIST`` type: string
     * Telescope IDs in observation (e.g. '1,2,3,4')   
 * ``N_TELS`` type: int
