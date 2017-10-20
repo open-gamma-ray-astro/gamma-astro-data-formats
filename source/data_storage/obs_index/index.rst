@@ -84,8 +84,8 @@ selection or data quality checks or analysis, but aren't needed for most users.
     * Right ascension of ``OBJECT``
 * ``DEC_OBJ`` type: float, unit: deg
     * Declination of ``OBJECT``
-* ``TMID`` type: float, unit: days
-    * Mid time of observation in MJD (= ``TSTART`` + 0.5 * ``ONTIME``)
+* ``TMID`` type: float, unit: s
+    * Mid time of observation relative to the reference time
 * ``TMID_STR`` type: string
     * Mid time of observation in UTC string format: "YYYY-MM-DD HH:MM:SS"
 * ``EVENT_COUNT`` type: int

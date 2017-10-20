@@ -154,9 +154,10 @@ Here's a summary of how times are stored in files:
 
 * :ref:`obs-index`
 
-  * Column ``TSTART``, ``TSTOP``, ``TMID`` -- float, MJD, days
+  * Column ``TSTART``, ``TSTOP``, ``TMID`` -- MET
   * Column ``TSTART_STR``, ``TSTOP_STR``, ``TMID_STR`` -- UTC string
-  * No time-related header keywords.
+  * Header keywords ``MJDREFI``, ``MJDREFF`` -- Reference time
+  * Header keywords ``TIMEUNIT``, ``TIMESYS``
 
 .. _time-tools:
 
