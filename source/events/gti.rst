@@ -41,7 +41,7 @@ Mandatory header keywords
 * ``TIMEUNIT`` type: string
     * Time unit (e.g. 's')
 * ``TIMESYS`` type: string
-    * Time system (e.g. 'TT', 'MJD', 'JD', 'TJD')
+    * Time system, also referred as time scale (e.g. 'UT', 'UTC', 'TT', 'TAI') 
 * ``TIMEREF`` type: string
     * Time reference frame, used for example for barycentric corrections
       (options: 'LOCAL', 'SOLARSYSTEM', 'HELIOCENTRIC', 'GEOCENTRIC')
