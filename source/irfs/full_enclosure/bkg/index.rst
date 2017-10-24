@@ -92,5 +92,5 @@ The background rate is not a "flux" or "surface brightness".
 It is already a count rate, it doesn't need to be multiplied with
 effective area to obtain predicted counts, like gamma-ray flux and
 surface brightness models do.
-The rate is computed per observation time (without any dead time correction,
+The rate is computed per observation time (without any dead-time correction,
 don't use livetime when computing or using the background rate).
