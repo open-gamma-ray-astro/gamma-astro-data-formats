@@ -31,10 +31,6 @@ Required columns:
 * ``BKG`` -- ndim: 2, unit: s^-1 MeV^-1 sr^-1
     * Absolute post-select background rate
       (expected background per time, energy and solid angle).
-    * Note that this is not a "flux" or "surface brightness".
-      This is already a count rate, it doesn't need to be multiplied with
-      effective area to obtain predicted counts, like gamma-ray flux and
-      surface brightness models do.
 
 Recommended axis order: ``ENERGY``, ``THETA``
 
@@ -70,10 +66,6 @@ Required columns:
 * ``BKG`` -- ndim: 3, unit: s^-1 MeV^-1 sr^-1
     * Absolute post-select background rate
       (expected background per time, energy and solid angle).
-    * Note that this is not a "flux" or "surface brightness".
-      This is already a count rate, it doesn't need to be multiplied with
-      effective area to obtain predicted counts, like gamma-ray flux and
-      surface brightness models do.
 
 Recommended axis order: ``ENERGY``, ``DETX``, ``DETY``
 
@@ -91,3 +83,14 @@ declare the type of HDU:
 * ``HDUCLAS4`` = 'BKG_3D'
 
 Example data file: :download:`here <./bkg_3d_full_example.fits>`.
+
+
+Notes
+-----
+
+The background rate is not a "flux" or "surface brightness".
+It is already a count rate, it doesn't need to be multiplied with
+effective area to obtain predicted counts, like gamma-ray flux and
+surface brightness models do.
+The rate is computed per observation time (without any dead time correction,
+don't use livetime when computing or using the background rate).
