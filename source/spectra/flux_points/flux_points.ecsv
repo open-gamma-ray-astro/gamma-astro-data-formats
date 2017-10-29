@@ -10,6 +10,7 @@
 # meta: !!omap
 # - {SED_TYPE: flux}
 # - {UL_CONF: 0.95}
+# schema: astropy-2.0
 e_min e_max flux flux_err flux_ul is_ul
 100.00 133.35 3.844e-09 5.911e-11 nan False
 133.35 177.83 2.671e-09 4.928e-11 nan False

@@ -1,7 +1,6 @@
-from fermipy.spectrum import *
+from fermipy.spectrum import PowerLaw
 import numpy as np
 from astropy.table import Table, Column
-import matplotlib.pyplot as plt
 
 np.random.seed(1)
 
@@ -137,8 +136,12 @@ tab.meta['SED_TYPE'] = 'likelihood'
 tab.meta['UL_CONF'] = 0.95
 
 tab.write('binlike.fits', overwrite=True)
-# tab.write('binlike.ecsv',format='ascii.ecsv')
 tab.write('binlike.h5', format='hdf5', path='/sed', overwrite=True)
+
+# ECSV doesn't support multi-dimensional columns
+tab2 = tab.copy()
+tab2.remove_columns(['dloglike_scan', 'norm_scan'])
+tab2.write('binlike.ecsv',format='ascii.ecsv', overwrite=True)
 
 
 tab = Table.read('1es0229_hess_spectrum.ecsv',format='ascii.ecsv')

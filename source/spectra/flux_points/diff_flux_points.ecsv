@@ -8,6 +8,7 @@
 # meta: !!omap
 # - {SED_TYPE: dnde}
 # - {UL_CONF: 0.95}
+# schema: astropy-2.0
 e_ref dnde dnde_err dnde_ul
 115.48 1.151e-10 1.77e-12 nan
 153.99 5.996e-11 1.106e-12 nan
