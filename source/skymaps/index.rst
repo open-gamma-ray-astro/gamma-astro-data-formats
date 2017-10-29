@@ -1,15 +1,14 @@
 .. _skymaps:
 
+Sky Maps
+========
+
 .. toctree::
    :maxdepth: 1
    :hidden: 
               
    healpix/index
    wcs/index
-
-
-Sky Maps
-========
 
 This page describes data formats for data structures representing
 images in celestial coordinates.  A sky map may have one or more
