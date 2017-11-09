@@ -46,6 +46,10 @@ image plane.
 Sample Files
 ------------
 
+* Counts Cube: :download:`FITS <wcs_ccube.fits>`
+* Counts Cube (Multi-resolution/non-regular): :download:`FITS <wcs_ccube_irregular.fits>`
+* Counts Cube (SPARSE Format): :download:`FITS <wcs_ccube_sparse.fits>`
+
 
 .. _wcs_image_hdu:
    
@@ -62,13 +66,13 @@ WCS FITS Header Keywords
 The keywords listed here are those required by the FITS WCS
 specification.
 
-* ``CRPIX{IDX}``, type : float
+* ``CRPIX{IDX}``, type: float
     * Pixel coordinate of reference point for axis ``{IDX}``.
-* ``CDELT{IDX}``, type : float
+* ``CDELT{IDX}``, type: float
     * Coordinate increment at reference point for axis ``{IDX}``.
-* ``CTYPE{IDX}``, type : float
+* ``CTYPE{IDX}``, type: float
     * Coordinate system and projection code for axis ``{IDX}``.
-* ``CRVAL{IDX}``, type : float
+* ``CRVAL{IDX}``, type: float
     * Coordinate value at reference point for axis ``{IDX}``.
 
 Extra Header Keywords

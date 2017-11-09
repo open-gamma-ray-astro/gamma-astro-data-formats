@@ -128,12 +128,6 @@ and ordering scheme that was used to construct the HEALPix map.
 * ``HPX_CONV``, type: string, **optional**
     * Convention for HEALPix format.  See :ref:`hpx_conventions` for
       additional details.
-* ``AXCOLS{IDX}``, type: string
-    * Comma-separated list of columns in the BANDS table corresponding
-      to non-spatial dimension with zero-based index ``{IDX}``.  If
-      there are two elements the columns should be interpreted as the
-      lower and upper edges of each bin.  If there is a single element
-      the column should be interpreted as the bin center.
 * ``BANDSHDU``, type: string, **optional**  
     * Name of HDU containing the BANDS table.  If undefined the
       extension name should be ``EBOUNDS`` or ``ENERGIES``.  See
@@ -281,7 +275,10 @@ SKYMAP Columns
 * ``PIX`` -- ndim: 1, unit: None, type: int
     * Dimension: nrows
     * HEALPix pixel index.  Pixels are ordered by band number.  The
-      row to band mapping is defined by the ``CHANNEL`` column.  
+      row to band mapping is defined by the ``CHANNEL`` column.  The
+      column type may be either 32- or 64-bit depending on the maximum
+      index of the map geometry.  A 32-bit column type is sufficient
+      for maps with NSIDE as large as 8192.
 
 * ``CHANNEL`` -- ndim: 1, unit: None, type: int
     * Dimension: nrows

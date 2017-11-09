@@ -58,16 +58,32 @@ of quantities that can be used to define bands are as follows:
 * Time: ``T_MIN``, ``T_MAX``
 * FoV Angle: ``THETA_MIN``, ``THETA_MAX``
 
+The mapping of column to non-spatial dimension is defined with the
+``AXCOLS{IDX}`` header keyword.  For maps with multiple non-spatial
+dimensions the mapping of channel number to band indices follows a
+column-major ordering.  For instance for a map with a first energy
+dimension with 3 bins indexed by *i* and a second time dimension with
+2 bins indexed by *j* the band index mapping to channel number *k*
+would be as follows::
 
+  (i, j) = (0,0) : (k) = (0,)
+  (i, j) = (1,0) : (k) = (1,)
+  (i, j) = (2,0) : (k) = (2,)
+  (i, j) = (0,1) : (k) = (3,)
+  (i, j) = (1,1) : (k) = (4,)
+  (i, j) = (2,1) : (k) = (5,)
+
+  
 Header Keywords
 ~~~~~~~~~~~~~~~
 
 * ``AXCOLS{IDX}``, type: string, **optional**  
     * Comma-separated list of columns in the BANDS table corresponding
-      to non-spatial dimension with zero-based index ``{IDX}``.  If
+      to non-spatial dimension with one-based index ``{IDX}``.  If
       there are two elements the columns should be interpreted as the
       lower and upper edges of each bin.  If there is a single element
-      the column should be interpreted as the bin center.
+      the column should be interpreted as the bin center.  For
+      ``EBOUNDS`` or ``ENERGIES`` HDUs this keyword is optional.
   
 Columns
 ~~~~~~~
@@ -76,8 +92,8 @@ Columns
     * Dimension: nbands
     * Unique index of the band.  If this column is not defined then
       the band index should be inferred from the row number indexing
-      from zero.
-
+      from zero.  For maps with multiple non-spatial dimensions the
+      index mapping to channel number follows a column-major ordering.  
 * ``E_MIN``, ndim: 1, unit: keV, **optional**
     * Dimension: nbands
     * Lower energy bound for integral quantities.
@@ -98,13 +114,13 @@ This section lists BANDS table columns specific to the :ref:`WCS map
 format <wcs_skymap>`.  These are optional columns to specify the
 pixelization for non-regular geometries.
 
-* ``NPIX``, ndim: 2, type: int
+* ``NPIX``, ndim: 2, type: int, **optional**
     * Number of pixels in longitude and latitude in each image plane.
       
-* ``CRPIX``, ndim: 2, type: float
+* ``CRPIX``, ndim: 2, type: float, **optional**
     * Reference pixel coordinate [deg] in longitude and latitude in each image plane.  
       
-* ``CDELT``, ndim: 2, type: float
+* ``CDELT``, ndim: 2, type: float, **optional**
     * Pixel size [deg] in longitude and latitude in each image plane.  
   
 
