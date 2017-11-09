@@ -1,9 +1,11 @@
 .. include:: ../../references.txt
 
-.. _healpix:
+
 
 This page describes data format conventions for FITS binned data and model
 representations pixelized with the `HEALPix algorithm`_.  
+
+.. _healpix_skymap:
 
 HEALPix Formats
 ===============
@@ -21,7 +23,7 @@ and cubes of both integral and differential quantities including:
   components).
 
 The format defines a :ref:`hpx_skymap_table` for storing a sequence of
-image slices (*bands*) and a :ref:`hpx_bands_table` to store the
+image slices (*bands*) and a :ref:`bands_hdu` to store the
 geometry and coordinate mapping for each band.  A band can represent
 any selection on non-spatial coordinates such as energy, time, or FoV
 angle.  The most common use-case is a sequence of bands
@@ -37,6 +39,10 @@ structures for mapping table entries to HEALPix pixel and band:
 * :ref:`hpx_explicit`: The row to pixel mapping is determined explicitly from
   the ``PIX`` column.  This can be used to define maps or cubes that
   only encompass a partial region of the sky.
+* :ref:`hpx_local`: The row to pixel mapping is determined explicitly
+  from the ``PIX`` column but with a local indexing scheme.  This can
+  be used to define maps or cubes that only encompass a partial region
+  of the sky.
 * :ref:`hpx_sparse`: The row to pixel mapping is determined explicitly
   from the ``PIX`` column but with a variable number of pixels in each
   band.  This format can be used to represent maps that have a
@@ -57,6 +63,11 @@ here and in these other formats:
 * ``GALPROP``
 * ``GALPROP2``
 
+.. _hpx_conventions:
+
+Non-Standard HEALPix Conventions
+--------------------------------
+  
 .. _hpx_sample_files:
   
 Sample Files
@@ -70,8 +81,8 @@ Sample Files
   
 .. _hpx_skymap_table:
    
-SKYMAP Table
-------------
+SKYMAP HDU
+----------
 
 The SKYMAP table contains the map data and row-to-pixel mapping
 formatted according to one of three indexing schemes specified by the
@@ -79,7 +90,7 @@ formatted according to one of three indexing schemes specified by the
 or :ref:`hpx_sparse`.  By convention if a file contains a single map
 it is recommended to name the extension ``SKYMAP``.  For maps with
 non-spatial dimensions an accompanying BANDS table must also be
-defined (see :ref:`hpx_bands_table`).
+defined (see :ref:`bands_hdu`).
 
 Header Keywords
 ~~~~~~~~~~~~~~~
@@ -107,17 +118,20 @@ and ordering scheme that was used to construct the HEALPix map.
     * Number of healpix pixels per side.  If the ``BANDS`` table is defined
       this keyword is superseded by the ``NSIDE`` column.
 * ``FIRSTPIX``, type: int
+    * Index of first pixel in the map.
 * ``LASTPIX``, type: int
+    * Index of last pixel in the map.  
 * ``HPX_REG``, type: string, **optional**
     * Region string for the geometric selection that was used to
       construct a partial-sky map.  See :ref:`hpx_region_string` for
       additional details.
 * ``HPX_CONV``, type: string, **optional**
-    * Convention for HEALPix format.
+    * Convention for HEALPix format.  See :ref:`hpx_conventions` for
+      additional details.
 * ``BANDSHDU``, type: string, **optional**  
     * Name of HDU containing the BANDS table.  If undefined the
       extension name should be ``EBOUNDS`` or ``ENERGIES``.  See
-      :ref:`hpx_bands_table` for additional details.
+      :ref:`bands_hdu` for additional details.
 
 .. _hpx_region_string:
   
@@ -145,68 +159,6 @@ following region strings are supported:
   where ordering is ``{ORDERING}`` (i.e. ``NESTED`` or ``RING``),
   order is ``{ORDER}``, and pixel index is ``{PIX}``.  
 
-.. _hpx_bands_table:
-   
-BANDS Table
------------
-
-For HEALPix maps with non-spatial dimensions, the BANDS table defines
-the HEALPix geometry in each band and the band to coordinate mapping
-for non-spatial dimensions (e.g. energy).  The BANDS table is optional
-for maps with a single band.  
-
-The extension name of the BANDS table associated to a SKYMAP table is
-given by the ``BANDSHDU`` header keyword of the SKYMAP table.  If
-``BANDSHDU`` is undefined the BANDS table should be read from the
-``EBOUNDS`` or ``ENERGIES`` HDU.  The BANDS table extension names
-``EBOUNDS`` and ``ENERGIES`` are reserved for maps with a third energy
-dimension and are supported for backward compatibility with existing
-file format conventions of the Fermi STs.  Although each map will
-have its own SKYMAP table, a single BANDS table can be associated to
-multiple maps (if they share the same geometry).
-
-The BANDS table contains 1 row per band with columns that define the
-mapping of the band to the non-spatial dimensions of the map.  For
-integral quantities (e.g. counts) this should be the lower and upper
-edge values of the bin.  For differential quantities this should be
-the coordinates at which the map value was evaluated.  Some examples
-of quantities that can be used to define bands are as follows:
-
-* Energy (Integral): ``E_MIN``, ``E_MAX``
-* Energy (Differential): ``ENERGY``
-* Event Type: ``EVENT_TYPE``
-* Time: ``T_MIN``, ``T_MAX``
-* FoV Angle: ``THETA_MIN``, ``THETA_MAX``
-
-  
-Columns
-~~~~~~~
-
-* ``CHANNEL``, ndim: 1
-    * Dimension: nbands
-    * Unique index of the band.  If this column is not defined then
-      the band index should be inferred from the row number indexing
-      from zero.
-* ``NSIDE`` -- ndim: 1,
-    * Dimension: nbands
-    * NSIDE of the HEALPix pixelization in this band.  If not defined
-      then ``NSIDE`` should be inferred from the FITS header.  Only
-      required for formats that support energy-dependent pixelization
-      (``SPARSE``).
-* ``E_MIN``, ndim: 1, unit: keV, **optional**
-    * Dimension: nbands
-    * Lower energy bound for integral quantities.
-* ``E_MAX``, ndim: 1, unit: keV, **optional**
-    * Dimension: nbands
-    * Upper energy bound for integral quantities.      
-* ``ENERGY``, ndim: 1, unit: keV, **optional**
-    * Dimension: nbands
-    * Energy value for differential quantities.
-* ``EVENT_TYPE``, ndim: 1, **optional**
-    * Dimension: nbands
-    * Integer key for a sequence of independent data subselections (e.g. FRONT/BACK-converting LAT events). 
-      
-      
   
 .. _hpx_implicit:
 
@@ -259,6 +211,40 @@ SKYMAP Columns
     * Dimension: nrows
     * Amplitude in HEALPix pixel ``PIX`` and band
       ``{BAND_IDX}``.
+
+.. _hpx_local:
+      
+LOCAL Format
+------------
+
+The LOCAL format is identical to the :ref:`hpx_explicit` with the
+exception that the ``PIX`` column contains a local rather than global
+HEALPix index.  The local HEALPix index is a mapping of global indices
+in a partial-sky geometry to 0, ..., N-1 where N is the total number of
+pixels in the geometry.  For an all-sky geometry the local index is
+equal to the global index.  This format can be used for both all-sky
+and partial-sky maps as well as maps with a different pixel-size in
+each band.
+
+  
+HEADER
+~~~~~~
+
+* ``INDXSCHM`` : ``LOCAL``
+  
+SKYMAP Columns
+~~~~~~~~~~~~~~
+
+* ``PIX`` -- ndim: 1, unit: None, type: int
+    * Dimension: nrows
+    * Local HEALPix pixel index.  The mapping to global HEALPix index
+      is derived by finding the index of the ith pixel in the geometry
+      where pixels are ordered by their global index values.
+
+* ``CHANNEL{BAND_IDX}`` -- ndim: 1, type: float or int
+    * Dimension: nrows
+    * Amplitude in HEALPix pixel ``PIX`` and band
+      ``{BAND_IDX}``.
       
 .. _hpx_sparse:
       
@@ -289,7 +275,10 @@ SKYMAP Columns
 * ``PIX`` -- ndim: 1, unit: None, type: int
     * Dimension: nrows
     * HEALPix pixel index.  Pixels are ordered by band number.  The
-      row to band mapping is defined by the ``BAND`` column.  
+      row to band mapping is defined by the ``CHANNEL`` column.  The
+      column type may be either 32- or 64-bit depending on the maximum
+      index of the map geometry.  A 32-bit column type is sufficient
+      for maps with NSIDE as large as 8192.
 
 * ``CHANNEL`` -- ndim: 1, unit: None, type: int
     * Dimension: nrows
