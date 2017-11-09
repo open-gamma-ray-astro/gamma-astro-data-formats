@@ -28,7 +28,7 @@ def create_bands_table(nside, npix, emin, emax):
             Column(name='NPIX', data=npix, dtype='i8'),
             Column(name='E_MIN', data=emin, dtype='f8', unit='keV'),
             Column(name='E_MAX', data=emax, dtype='f8', unit='keV')]
-    return Table(cols,meta={'EXTNAME' : 'BANDS', 'AXCOLS0' : 'E_MIN,E_MAX'})
+    return Table(cols,meta={'EXTNAME' : 'BANDS', 'AXCOLS1' : 'E_MIN,E_MAX'})
 
 def create_ebounds_table(emin, emax):
 
@@ -57,6 +57,7 @@ hdr = dict(HPX_REG = 'DISK(%f,%f,%f)'%(lon,lat,rad),
            COORDSYS = 'GAL',
            NSIDE = nside0,
            ORDER = order0,
+           HPX_CONV = 'GADF',
            BANDSHDU = 'BANDS',
            PIXTYPE = 'HEALPIX',
            ORDERING = 'NESTED')
@@ -87,7 +88,7 @@ hdr_imp = hdr.copy()
 hdr_imp['ORDER'] = order
 hdr_imp['NSIDE'] = nside
 hdr_imp['INDXSCHM'] = 'IMPLICIT'
-hdr_imp['AXCOLS0'] = 'E_MIN,E_MAX'
+hdr_imp['AXCOLS1'] = 'E_MIN,E_MAX'
 
 # Write File
 tab_bands_imp = create_bands_table(np.ones(4)*nside, npix_imp, emin, emax)
@@ -116,7 +117,7 @@ hdr_exp = hdr.copy()
 hdr_exp['ORDER'] = order
 hdr_exp['NSIDE'] = nside
 hdr_exp['INDXSCHM'] = 'EXPLICIT'
-hdr_exp['AXCOLS0'] = 'E_MIN,E_MAX'
+hdr_exp['AXCOLS1'] = 'E_MIN,E_MAX'
 
 # Write File
 tab_bands_exp_ccube = create_bands_table(np.ones(4)*nside, npix_exp_ccube, emin, emax)
@@ -168,7 +169,7 @@ hdulist = [fits.PrimaryHDU(), fits.table_to_hdu(tab_sparse0),
            fits.table_to_hdu(tab_bands_sparse0)]
 hdr_sparse = hdr.copy()
 hdr_sparse['INDXSCHM'] = 'SPARSE'
-hdr_sparse['AXCOLS0'] = 'E_MIN,E_MAX'
+hdr_sparse['AXCOLS1'] = 'E_MIN,E_MAX'
 hdr_sparse.pop('ORDER',None)
 hdr_sparse.pop('NSIDE',None)
 update_header(hdulist[1].header, **hdr_sparse)
@@ -200,7 +201,7 @@ hdulist = [fits.PrimaryHDU(), fits.table_to_hdu(tab_sparse1),
            fits.table_to_hdu(tab_bands_sparse1)]
 hdr_sparse = hdr.copy()
 hdr_sparse['INDXSCHM'] = 'SPARSE'
-hdr_sparse['AXCOLS0'] = 'E_MIN,E_MAX'
+hdr_sparse['AXCOLS1'] = 'E_MIN,E_MAX'
 hdr_sparse.pop('ORDER',None)
 hdr_sparse.pop('NSIDE',None)
 update_header(hdulist[1].header, **hdr_sparse)
