@@ -35,10 +35,8 @@ these values. Note any DL3 file with a point-like IRF (with ``HDU_CLAS3`` = POIN
 keyword within the HDU should have this additional HDU.
  
 In case the directional cut is variable with energy or the FoV, point-like IRFs require this additional binary 
-table. It stores the values of ``RAD_MAX`` as a function of the reconstructed energy and camera offset following 
+table. It stores the values of ``RAD_MAX`` as a function of the reconstructed energy and FoV following 
 :ref:`fits-arrays-bintable-hdu` format.
-
-Depending on the FoV coordinates employed, the binary table is allowed to have two different formats.
 
 ``rad_max_2d``
 --------------
@@ -74,33 +72,5 @@ declare the type of HDU:
 * ``HDUCLAS3`` = 'POINT-LIKE'
 * ``HDUCLAS4`` = 'RAD_MAX_2D'
 
+Example data file: :download:`here <./rad_max_2d_point-like_example.fits>`.
 
-``rad_max_3d``
---------------
-
-The ``rad_max_3d`` format contains a 3-dimensional array of directional cut values, stored in the 
-:ref:`fits-arrays-bintable-hdu` format.
-
-Required columns:
-
-* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
-    * Reconstructed energy axis
-* ``DETX_LO``, ``DETX_HI``, ``DETY_LO``, ``DETY_HI`` -- ndim: 1, unit: deg
-    * Field of view coordinates binning, see :ref:`coords-fov`
-* ``RAD_MAX`` -- ndim: 2, unit: deg
-    * Radius of the directional cut applied to calculate the IRF, in degrees.
-
-Recommended axis order: ``ENERGY``, ``DETX``, ``DETY``, ``RAD_MAX``
-
-Header keywords:
-
-As explained in :ref:`hduclass`, the following header keyword should be used to 
-declare the type of HDU:
-
-* ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
-* ``HDUVERS``  = '0.2'
-* ``HDUCLASS`` = 'GADF'
-* ``HDUCLAS1`` = 'RESPONSE'
-* ``HDUCLAS2`` = 'RAD_MAX'
-* ``HDUCLAS3`` = 'POINT-LIKE'
-* ``HDUCLAS4`` = 'RAD_MAX_3D'
