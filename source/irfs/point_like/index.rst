@@ -54,10 +54,6 @@ Required columns:
     * Reconstructed energy axis
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
-    * Binning is often chosen with a square root scale,
-      so that each ``THETA`` bin has equal solid angle,
-      which means bins at the center of the field of view
-      have smaller width ``THETA_HI - THETA_LO``.
 * ``RAD_MAX`` -- ndim: 2, unit: deg
     * Radius of the directional cut applied to calculate the IRF, in degrees.
 
