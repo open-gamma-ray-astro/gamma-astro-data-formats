@@ -15,49 +15,62 @@ Any point-like IRF component should contain the header keyword:
 
 * ``HDU_CLAS3 = POINT-LIKE``
 
-``RAD_MAX`` column
-------------------
+.. _rad_max:
 
-In addition, binary tables should contain the ``RAD_MAX`` column, containing the radial cut applied
-to calculate the IRF component (unit: deg). As this value is allowed to change as a function of the energy and field 
-of view (FoV) coordinates, the dimension of this column is equal to: 
+``RAD_MAX``
++++++++++++
 
-* ndim: 2 in case that the FoV coordinate is ``THETA``
-* ndim: 3 in case that the FoV coordinates are ``DETX`` and ``DETY``
+In addition to the IRFs, the actual directional cut applied to the data needs to be stored. This cut is allowed 
+to be constant or variable along several axes, with a different format.
 
-As an example, the format of a point-like effective area (as a function of the true energy) is shown below. 
+In case the angular cut is constant along the energy and FoV, an additional header keyword may be added to the 
+IRF HDU:
 
-Example: point-like effective Area vs true energy
--------------------------------------------------
+Header keyword:
 
-Columns:
+* ``RAD_MAX`` type: float, unit: deg
+    * Radius of the directional cut applied to calculate the IRF, in degrees.
+
+If this keyword is present, the science tools should assume the directional cut of this point-like IRF is constant 
+over all axes. In case the angular cut is variable along any axis (reconstructed energy or FoV), an additional HDU 
+is required to store these values. Note any DL3 file with a point-like IRF (with ``HDU_CLAS3`` = POINT-LIKE) that 
+has no ``RAD_MAX`` keyword within the HDU metadata should have this additional HDU.
+ 
+In case the directional cut is variable with energy or the FoV, point-like IRFs require an additional binary 
+table. It stores the values of ``RAD_MAX`` as a function of the reconstructed energy and FoV following the 
+:ref:`fits-arrays-bintable-hdu` format.
+
+.. _rad_max_2d:
+
+``rad_max_2d``
+--------------
+
+The ``rad_max_2d`` format contains a 2-dimensional array of directional cut values, stored in the 
+:ref:`fits-arrays-bintable-hdu` format.
+
+Required columns:
 
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
-    * True energy axis
-* ``THETA_LO``, ``THETA_HI`` -- ndim: 1
+    * Reconstructed energy axis
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
 * ``RAD_MAX`` -- ndim: 2, unit: deg
-    * Radial cut applied to calculate the IRF component
-* ``EFFAREA`` -- ndim: 2
-    * Effective area value as a function of true energy
+    * Radius of the directional cut applied to calculate the IRF, in degrees.
 
 Recommended axis order: ``ENERGY``, ``THETA``, ``RAD_MAX``
 
 Header keywords:
 
-* ``OBS_ID`` type: int
-    * Observation ID, run number
-* ``LO_THRES`` type: float, unit: TeV
-    * Low energy threshold
-* ``HI_THRES`` type: float, unit: TeV
-    * High energy threshold
-    
-And as described in :ref:`hduclass`:
-    
+As explained in :ref:`hduclass`, the following header keyword should be used to 
+declare the type of HDU:
+
 * ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
 * ``HDUVERS``  = '0.2'
 * ``HDUCLASS`` = 'GADF'
 * ``HDUCLAS1`` = 'RESPONSE'
-* ``HDUCLAS2`` = 'EFF_AREA'
+* ``HDUCLAS2`` = 'RAD_MAX'
 * ``HDUCLAS3`` = 'POINT-LIKE'
-* ``HDUCLAS4`` = 'AEFF_2D'
+* ``HDUCLAS4`` = 'RAD_MAX_2D'
+
+Example data file: :download:`here <./rad_max_2d_point-like_example.fits>`.
+
