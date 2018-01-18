@@ -40,17 +40,17 @@ Required columns
     * It is defined such that ``LIVETIME`` = ``DEADC`` * ``ONTIME``
       i.e. the fraction of time the telescope was actually able to take data.
 * ``TSTART`` type: float, unit: s
-    * Start time of observation relative to the reference time
+    * Start time of observation relative to the reference time (see :ref:`time`)
 * ``TSTOP`` type: float, unit: s
-    * End time of observation relative to the reference time
-* ``DATE_OBS`` type: string
-    * Start date of observation in UTC string format: "YYYY-MM-DD"
-* ``TIME_OBS`` type: string
-    * Start time of observation in UTC string format: "HH:MM:SS"
-* ``DATE_END`` type: string
-    * End date of observation in UTC string format: "YYYY-MM-DD"
-* ``TIME_END`` type: string
-    * End time of observation in UTC string format: "HH:MM:SS"
+    * End time of observation relative to the reference time (see :ref:`time`)
+* ``DATE-OBS`` type: string
+    * Observation start date (see :ref:`time`)
+* ``TIME-OBS`` type: string
+    * Observation start time (see :ref:`time`)
+* ``DATE-END`` type: string
+    * Observation end date (see :ref:`time`)
+* ``TIME-END`` type: string
+    * Observation end time (see :ref:`time`)
 * ``N_TELS`` type: int
     * Number of participating telescopes 
 * ``TELLIST`` type: string
@@ -131,14 +131,7 @@ selection or data quality checks or analysis, but aren't needed for most users.
 Mandatory Header keywords
 -------------------------
 
-* ``MJDREFI`` type: int, unit: days
-    * Integer part of instrument specific MJD time reference
-* ``MJDREFF`` type: float, unit: days
-    * Float part of instrument specific MJD time reference
-* ``TIMEUNIT`` type: string
-    * Time unit (e.g. 's')
-* ``TIMESYS`` type: string
-    * Time system (e.g. 'TT', 'UTC')
+The standard FITS reference time header keywords should be used (see :ref:`time-formats`).
 
 .. _obs-index-notes:
 

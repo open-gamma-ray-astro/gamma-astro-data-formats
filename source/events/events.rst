@@ -16,14 +16,13 @@ The recommended extension name of the binary table is ``EVENTS``.
 Mandatory columns
 -----------------
 
+We follow the `OGIP event list`_ standard.
+
 * ``EVENT_ID`` tform: ``1K``
     * Event identification number at the DL3 level
       (lower data levels could be different, see note below).
 * ``TIME`` tform: ``1D``, unit: s
-    * Time stamp of event in instrument specific MJD time reference. See the
-      header keywords ``MJDREFI`` and ``MJDREFF`` for the zero point of
-      the reference time.
-      See also the `OGIP event list`_ standard.
+    * Event time (see :ref:`time`)
 * ``RA`` tform: ``1E``, unit: deg
     * Reconstructed event Right Ascension (see :ref:`coords-radec`).
       See also `HFWG Recommendation R3`_ for the OGIP standard.
@@ -32,7 +31,6 @@ Mandatory columns
       See also `HFWG Recommendation R3`_ for the OGIP standard.
 * ``ENERGY`` tform: ``1E``, unit: TeV
     * Reconstructed event energy.
-      See also the `OGIP event list`_ standard.
 
 
 Optional columns
@@ -99,6 +97,8 @@ Optional columns
 Mandatory header keywords
 -------------------------
 
+The standard FITS reference time header keywords should be used (see :ref:`time-formats`).
+
 * ``HDUCLASS`` type: string
     * Signal conformance with HEASARC/OGIP conventions (option: 'OGIP'). See :ref:`hduclass`.
 * ``HDUDOC`` type: string
@@ -136,29 +136,10 @@ Mandatory header keywords
       supported by ``TELESCOP``; string should be upper case)
 * ``OBS_ID`` type: int
     * Unique observation identifier (Run number)
-* ``DATE-OBS`` type: string
-    * Start date of observation in ISO standard date representation
-      "ccyy-mm-ddThh:mm:ss" (UTC)
-* ``DATE-END`` type: string
-    * End date of observation in ISO standard date representation
-      "ccyy-mm-ddThh:mm:ss" (UTC)
 * ``TSTART`` type: float, unit: s
-    * Start time of observation
-      (given in instrument specific time reference, see below)
+    * Start time of observation (relative to reference time, see :ref:`time`)
 * ``TSTOP`` type: float, unit: s
-    * End time of observation
-      (given in instrument specific time reference, see below)
-* ``MJDREFI`` type: int, unit: days
-    * Integer part of instrument specific MJD time reference
-* ``MJDREFF`` type: float, unit: days
-    * Float part of instrument specific MJD time reference       
-* ``TIMEUNIT`` type: string
-    * Time unit (e.g. 's')
-* ``TIMESYS`` type: string
-    * Time system, also referred as time scale (e.g. 'UT', 'UTC', 'TT', 'TAI')
-* ``TIMEREF`` type: string
-    * Time reference frame, used for example for barycentric corrections
-      (options: 'LOCAL', 'SOLARSYSTEM', 'HELIOCENTRIC', 'GEOCENTRIC')
+    * End time of observation (relative to reference time, see :ref:`time`)
 * ``EQUINOX`` type: float
     * Equinox in years for the celestial coordinate system in which positions
       given in either the header or data are expressed (options: 2000.0).
