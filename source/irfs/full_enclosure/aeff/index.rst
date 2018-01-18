@@ -24,9 +24,9 @@ Columns:
 
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
     * True energy axis
-* ``THETA_LO``, ``THETA_HI`` -- ndim: 1
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis
-* ``EFFAREA`` -- ndim: 2
+* ``EFFAREA`` -- ndim: 2, unit: m^2
     * Effective area value as a function of true energy
 
 Recommended axis order: ``ENERGY``, ``THETA``
