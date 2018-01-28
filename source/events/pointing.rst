@@ -23,7 +23,7 @@ Mandatory columns
 -----------------
 
 * ``TIME`` type: float64, unit: s
-    * Time stamp of pointing.
+    * Pointing time (see :ref:`time`)
 * ``RA_PNT`` type: float, unit: deg
     * Pointing Right Ascension (see :ref:`coords-radec`).
 * ``DEC_PNT`` type: float, unit: deg
@@ -37,17 +37,8 @@ Mandatory columns
 Mandatory header keywords
 -------------------------
 
-* ``MJDREFI`` type: int, unit: days
-    * Integer part of instrument specific MJD time reference
-* ``MJDREFF`` type: float, unit: days
-    * Float part of instrument specific MJD time reference       
-* ``TIMEUNIT`` type: string
-    * Time unit (e.g. 's')
-* ``TIMESYS`` type: string
-    * Time system (e.g. 'TT', 'MJD', 'JD', 'TJD')
-* ``TIMEREF`` type: string
-    * Time reference frame, used for example for barycentric corrections
-      (options: 'LOCAL', 'SOLARSYSTEM', 'HELIOCENTRIC', 'GEOCENTRIC')
+The standard FITS reference time header keywords should be used (see :ref:`time-formats`).
+
 * ``GEOLON`` type: float, unit: deg
     * Geographic longitude of array centre
 * ``GEOLAT`` type: float, unit: deg

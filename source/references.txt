@@ -24,8 +24,10 @@
 .. _Readthedocs: https://readthedocs.org
 .. _Sphinx RTD theme FAQ entry: http://docs.readthedocs.io/en/latest/faq.html#i-want-to-use-the-read-the-docs-theme-locally
 .. _WCSLIB: http://www.atnf.csiro.au/people/mcalabre/WCS/
-.. _FITS WCS: http://fits.gsfc.nasa.gov/fits_wcs.html
 .. _FITS standard: http://adsabs.harvard.edu/abs/2010A%26A...524A..42P
+.. _FITS WCS: http://fits.gsfc.nasa.gov/fits_wcs.html
+.. _FITS time paper: http://adsabs.harvard.edu/abs/2015A%26A...574A..36R
+.. _Dictionary of Commonly Used FITS Keywords: https://heasarc.gsfc.nasa.gov/docs/fcg/common_dict.html
 .. _equatorial coordinate system: https://en.wikipedia.org/wiki/Equatorial_coordinate_system
 .. _Wikipedia - ICRS: https://en.wikipedia.org/wiki/International_Celestial_Reference_System
 .. _Galactic coordinate system: https://en.wikipedia.org/wiki/Galactic_coordinate_system

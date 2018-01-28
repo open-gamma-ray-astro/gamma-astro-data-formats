@@ -24,24 +24,12 @@ Mandatory columns
 -----------------
 
 * ``START`` tform: ``1D``, unit: s
-    * Start time of good time interval (given in instrument specific time
-      reference, see below)
+    * Start time of good time interval (see :ref:`time`)
 * ``STOP`` tform: ``1D``, unit: s
-    * End time of good time interval (given in instrument specific time
-      reference, see below)
+    * End time of good time interval (see :ref:`time`)
 
 
 Mandatory header keywords
 -------------------------
 
-* ``MJDREFI`` type: int, unit: days
-    * Integer part of instrument specific MJD time reference
-* ``MJDREFF`` type: float, unit: days
-    * Float part of instrument specific MJD time reference       
-* ``TIMEUNIT`` type: string
-    * Time unit (e.g. 's')
-* ``TIMESYS`` type: string
-    * Time system, also referred as time scale (e.g. 'UT', 'UTC', 'TT', 'TAI') 
-* ``TIMEREF`` type: string
-    * Time reference frame, used for example for barycentric corrections
-      (options: 'LOCAL', 'SOLARSYSTEM', 'HELIOCENTRIC', 'GEOCENTRIC')
+The standard FITS reference time header keywords should be used (see :ref:`time-formats`).

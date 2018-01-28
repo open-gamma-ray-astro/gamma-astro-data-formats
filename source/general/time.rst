@@ -5,46 +5,98 @@
 Time
 ====
 
-This page gives background information on times in gamma-ray astronomy.
-
-It's not a format specification, rather a summary of the status quo:
-
-* How times are stored in files.
-* How times are represented in science tool codes
-* How times are input by users and output to users from these codes.
-
-.. _time-introduction:
-
 Introduction
 ------------
 
-Times are used in many places in high-level analysis, e.g.
+This page describes how times should be stored.
+This is a solved problem, we follow the `FITS standard`_.
+However, the FITS standard is very complex (see also `FITS time paper`_),
+and allows for different ways to store times in FITS, some of which
+are hard to understand and implement.
 
-* Observations have start and end times and sometimes are split up into
-  "good time intervals" GTIs when hardware issues occur or clouds pass the field of view.
-* Gamma-ray events are observed at given times, and those times are needed
-  to convert the reconstructed AltAz position to RaDec, or to select events in
-  a given GTI.
-* Some gamma-ray sources are variable, e.g. AGNs can flare on timescales of seconds or minutes,
-  or pulsars emit a periodic signal on timescales of seconds or milli-seconds.
+To keep things simple, we here agree on a way to store times that
+is fully compliant, but a subset of the ways allowed by the FITS standard
+(see :ref:`time-formats` below).
 
-This page contains specifications and recommendations how to work with times
-for high-level gamma-ray astronomy, i.e. how to store times in files
-(e.g. event lists, GTI extension, observation tables) and
-take times as input and output in analysis tools.
+This has the advantage of simplicity and uniformity for writers and readers
+(see :ref:`time-tools` below).
 
-Reference documents and tools
------------------------------
+One major point allowing for this simplicity is that we only need single 64-bit float precision for time
+in high-level (DL3 and up) gamma-ray astronomy, as explained in the :ref:`time-precision` section below.
 
-Basically we follow `Time in Fermi data analysis`_, so this is the number one
-reference.
+At the time of writing this general page on time, the following definitions reference it:
+
+* :ref:`iact-events` has the ``TIME`` column and several times given via header keywords
+* :ref:`iact-gti` has the ``START`` and ``STOP`` columns
+* :ref:`iact-pnt` has the ``TIME`` column
+* :ref:`obs-index` has the ``TSTART`` and ``TSTOP`` columns
+
+Other useful resources concerning time:
+
+* https://heasarc.gsfc.nasa.gov/docs/fcg/common_dict.html
+* `Time in Fermi data analysis`_
+
+.. _time-formats:
+
+Formats
+-------
+
+In tables, times should be given as 64-bit float values. For all the tables and columns mentioned
+in the introduction, the times are given as seconds since a reference time point.
+
+The reference time point is specified by the following FITS header keywords:
+
+* ``MJDREFI`` type: int, unit: days
+    * Integer part of instrument specific MJD time reference
+* ``MJDREFF`` type: float, unit: days
+    * Float part of instrument specific MJD time reference
+* ``TIMEUNIT`` type: string
+    * Time unit (e.g. 's')
+* ``TIMESYS`` type: string
+    * Time system, also referred as time scale (e.g. 'UT', 'UTC', 'TT', 'TAI')
+* ``TIMEREF`` type: string
+    * Time reference frame, used for example for barycentric corrections
+      (options: 'LOCAL', 'SOLARSYSTEM', 'HELIOCENTRIC', 'GEOCENTRIC')
+
+See the `FITS standard`_ and the `FITS time paper`_ for further information.
+
+For light curves (not specified yet), the use of ``TIMESYS='d'`` in days is also common.
+
+Some existing files don't give ``TIMEUNIT`` and / or ``TIMEREF``. In those cases, science tools
+should assume defaults of ``TIMEUNIT='s'`` and ``TIMEREF='LOCAL'``. No defaults exist for
+``MJDREFI``, ``MJDREFF`` and ``TIMESYS``, if those are missing science tools should raise an error and exit.
+New files should always be written with all five header keys.
+
+In addition to that main way of specifying times as a floating point number wrt. a reference time point,
+the following header keys with date and time values as strings can be added.
+This is for convenience and humans reading the information. Usually science tools will not access
+this redundant and optional information. The time system used should be the one given by ``TIMESYS``.
+
+* ``DATE-OBS`` type: string
+    * Observation start date (format: "yyyy-mm-dd")
+* ``TIME-OBS`` type: string
+    * Observation start time (format: "hh:mm:ss.sss...")
+* ``DATE-END`` type: string
+    * Observation end date (format: "yyyy-mm-dd")
+* ``TIME-END`` type: string
+    * Observation end time (format: "hh:mm:ss.sss...")
+
+Note that the FITS standard allows and it is quite common to instead put a
+``TIME-OBS`` key with value "yyyy-mm-ddThh:mm:ss.sss..." and to omit the ``DATE-OBS`` key
+(see `Dictionary of Commonly Used FITS Keywords`_). If science tools access these fields,
+they should support both conventions.
+
+.. _time-tools:
+
+Tools
+-----
 
 The `SOFA Time Scale and Calendar Tools`_ document provides a detailed
 description of times in the high-precision IAU SOFA library, which is the
 gold standard for times in astronomy.
 The SOFA time routines are available via the  `Astropy time`_ Python package,
 which makes it easy to convert between different **time scales**
-(``utc``, ``tt`` and ``mjd`` in this example)
+(``utc``, ``tt`` and ``mjd`` in this example).
 
 .. code-block:: python
 
@@ -71,8 +123,9 @@ as well as different **time formats** (``iso``, ``isot`` and ``fits`` in this ex
 If you don't want to install SOFA or Astropy (or to double-check),
 you can use the `xTime`_ time conversion utility provided by HEASARC as a web tool.
 
-Finally, the "Representation of Time Coordinates in FITS" standard (`2015A%26A...574A..36R`_)
-explains in detail how times should be stored in FITS files.
+* Gammapy uses `Astropy time`_, with custom utility functions for FITS I/O
+  to write in the formats recommended here.
+* Gammalib has custom code to hande times that is described in `Times in Gammalib`_.
 
 .. _time-precision:
 
@@ -91,15 +144,13 @@ For high-level gamma-ray astronomy, the situation can be summarised like this
   which is sufficient for any high-level analysis (including milli-second pulsars).
 * **Do not use 32-bit floats for times.**
   If you do, times will be incorrect at the 1 to 100 second level.
+* **Double-float precision is not needed.**
 
 For data acquisition and low-level analysis (event triggering, traces, ...),
 IACTs require nanosecond precision or better. There, the simple advice to use
 64-bit floats representing seconds wrt. a single reference time doesn't work!
 One either needs to have several reference times (e.g. per-observation) or
 two integer or float values. This is not covered by this spec.
-
-Computation
-+++++++++++
 
 The time precision obtained with a single 32-bit or 64-bit float can be computed
 with this function:
@@ -132,89 +183,3 @@ with this function:
     Time range: 10 years, float precision: 32 bit => time precision: 256 seconds.
     >>> time_precision(10, 64)
     Time range: 10 years, float precision: 64 bit => time precision: 4.77e-07 seconds.
-
-.. _time-files:
-
-Files
------
-
-Here's a summary of how times are stored in files:
-
-* :ref:`iact-events`:
-
-  * Table column ``TIME``, ``float64``, MET
-  * Header keywords ``MJDREFI``, ``MJDREFF`` -- Reference time
-  * Header keywords ``TSTART``, ``TSTOP`` -- MET
-  * ``TSTART_STR``, ``TSTOP_STR`` -- UTC or TT str -> TIMESYS.
-  * ``TIMESYS``, ``TIMEREF`` -- need it?
-* :ref:`iact-gti`:
-
-  * Table columns: ``TSTART``, ``TSTOP``, MET
-  * Header keywords: ``MJDREFI``, ``MJDREFF`` -- Reference time
-
-* :ref:`obs-index`
-
-  * Column ``TSTART``, ``TSTOP``, ``TMID`` -- MET
-  * Column ``TSTART_STR``, ``TSTOP_STR``, ``TMID_STR`` -- UTC string
-  * Header keywords ``MJDREFI``, ``MJDREFF`` -- Reference time
-  * Header keywords ``TIMEUNIT``, ``TIMESYS``
-
-.. _time-tools:
-
-Tools
------
-
-Here's a summary of how gamma-ray science tool codes handle times.
-
-Fermi Science Tools
-+++++++++++++++++++
-
-The Fermi Science tools (e.g. `gtselect`_) support only Fermi-LAT MET for user
-input / output (and probably also just use MET internally).
-Some info on other time scales and formats is given on a docs
-page at `Time in Fermi data analysis`_, converting to MET is left up to the user.
-Note that no leap second table is in the code, i.e. MET -- UTC conversions are
-not supported (one can use Astropy for this though).
-
-* TODO: Is this correct? How does the software store times internally?
-
-TODO: We should also document what time scales and formats are supported by the
-Fermi-LAT data selection tool:
-
-* http://fermi.gsfc.nasa.gov/cgi-bin/ssc/LAT/LATDataQuery.cgi
-* http://fermi.gsfc.nasa.gov/ssc/LATDataQuery_help.html#observationDates
-* http://fermi.gsfc.nasa.gov/ssc/LATDataQuery_help.html#timeSystem
-
-This is the equivalent of our :ref:`obs-index` format and observation selection
-tools and unless there's a good reason not to we should just adopt whatever
-Fermi-LAT does here.
-
-Gammalib / ctools
-+++++++++++++++++
-
-The ctools (e.g. `ctselect`_) use MET for user input (the reference time is taken
-from the event list header). Internally a time is represented as a ``GTime`` object,
-which has a time scale (supports JD, MJD, TT, UTC, leap second table in the library code)
-and supports different formats (including parsing ISO and ISOT strings).
-Internally times are stored as 64-bit float METs wrt. a single reference time
-defined by Gammalib. See `Times in Gammalib`_.
-
-TODO: this means that TIME columns in event lists are
-converted to that reference time on file read or attribute access?
-
-Astropy / Gammapy
-+++++++++++++++++
-
-As already mentioned above, the `Astropy time`_ package contains the ``Time``
-class, which supports all common scales and formats.
-Internally times are stored as two 64-bit floats.
-
-TODO: describe how MET values from event list ``TIME`` columns are converted
-to that internal format on read / write in ``gammapy.time``.
-TODO: where do they store leap seconds / how are those updated?
-
-Examples
---------
-
-TODO: write a set of tests doing equivalent time computations using Gammalib and
-Astropy time (or possibly Gammapy wrappers where useful).
