@@ -24,12 +24,12 @@ This has the advantage of simplicity and uniformity for writers and readers
 One major point allowing for this simplicity is that we only need single 64-bit float precision for time
 in high-level (DL3 and up) gamma-ray astronomy, as explained in the :ref:`time-precision` section below.
 
-The following formats contain times:
+At the time of writing this general page on time, the following definitions reference it:
 
-* :ref:`iact-events`
-* :ref:`iact-gti`
-* :ref:`iact-pnt`
-* :ref:`obs-index`
+* :ref:`iact-events` has the ``TIME`` column and several times given via header keywords
+* :ref:`iact-gti` has the ``START`` and ``STOP`` columns
+* :ref:`iact-pnt` has the ``TIME`` column
+* :ref:`obs-index` has the ``TSTART`` and ``TSTOP`` columns
 
 Other useful resources concerning time:
 
@@ -41,8 +41,10 @@ Other useful resources concerning time:
 Formats
 -------
 
-Times should be given as 64-bit float columns, relative to a reference time point
-that is specified by the following FITS header keywords:
+In tables, times should be given as 64-bit float values. For all the tables and columns mentioned
+in the introduction, the times are given as seconds since a reference time point.
+
+The reference time point is specified by the following FITS header keywords:
 
 * ``MJDREFI`` type: int, unit: days
     * Integer part of instrument specific MJD time reference
@@ -58,7 +60,14 @@ that is specified by the following FITS header keywords:
 
 See the `FITS standard`_ and the `FITS time paper`_ for further information.
 
-In addition to that main way of specifying times as a floating point number wrt. a reference timepoint,
+For light curves (not specified yet), the use of ``TIMESYS='d'`` in days is also common.
+
+Some existing files don't give ``TIMEUNIT`` and / or ``TIMEREF``. In those cases, science tools
+should assume defaults of ``TIMEUNIT='s'`` and ``TIMEREF='LOCAL'``. No defaults exist for
+``MJDREFI``, ``MJDREFF`` and ``TIMESYS``, if those are missing science tools should raise an error and exit.
+New files should always be written with all five header keys.
+
+In addition to that main way of specifying times as a floating point number wrt. a reference time point,
 the following header keys with date and time values as strings can be added.
 This is for convenience and humans reading the information. Usually science tools will not access
 this redundant and optional information. The time system used should be the one given by ``TIMESYS``.
@@ -74,7 +83,8 @@ this redundant and optional information. The time system used should be the one 
 
 Note that the FITS standard allows and it is quite common to instead put a
 ``TIME-OBS`` key with value "yyyy-mm-ddThh:mm:ss.sss..." and to omit the ``DATE-OBS`` key
-(see `Dictionary of Commonly Used FITS Keywords`_). That is allowed as well.
+(see `Dictionary of Commonly Used FITS Keywords`_). If science tools access these fields,
+they should support both conventions.
 
 .. _time-tools:
 
