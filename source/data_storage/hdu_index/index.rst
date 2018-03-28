@@ -79,3 +79,10 @@ or the ``HDU_CLASS`` names mentioned above. This is not a requirement, usually
 end users will access data via HDU index files and the HDU names don't matter.
 Or, if HDUs are accessed directly, the package or tool should be flexible to
 allow loading the HDU with any name.
+
+Finally, we note that the column names ``HDU_CLASS`` and ``HDU_TYPE``
+here in the index table contain an underscore, whereas the ``HDUCLAS*``
+FITS header keywords contain no underscore. This inconsistency was an
+oversight. Given that the current names are in use already, and this index
+format will very likely be superseded by a better way to handle IACT data,
+we decided to leave the names as-is.

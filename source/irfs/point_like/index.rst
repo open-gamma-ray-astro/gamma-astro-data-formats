@@ -6,24 +6,24 @@ Point-like IRFs
 ===============
 
 Point-like IRFs has been classically used within the IACT community. Each IRF component is calculated from the
-events surviving an energy dependent directional cut around the assumed source position. 
+events surviving an energy dependent directional cut around the assumed source position.
 
-The format of each point-like IRF component is analog to the ones already described within the full enclosure 
+The format of each point-like IRF component is analog to the ones already described within the full enclosure
 IRF specifications (see :ref:`full-enclosure-irfs`), with certain differences listed in this section.
 
-Any point-like IRF component should contain the header keyword: 
+Any point-like IRF component should contain the header keyword:
 
-* ``HDU_CLAS3 = POINT-LIKE``
+* ``HDUCLAS3 = POINT-LIKE``
 
 .. _rad_max:
 
 ``RAD_MAX``
 +++++++++++
 
-In addition to the IRFs, the actual directional cut applied to the data needs to be stored. This cut is allowed 
+In addition to the IRFs, the actual directional cut applied to the data needs to be stored. This cut is allowed
 to be constant or variable along several axes, with a different format.
 
-In case the angular cut is constant along the energy and FoV, an additional header keyword may be added to the 
+In case the angular cut is constant along the energy and FoV, an additional header keyword may be added to the
 IRF HDU:
 
 Header keyword:
@@ -31,13 +31,13 @@ Header keyword:
 * ``RAD_MAX`` type: float, unit: deg
     * Radius of the directional cut applied to calculate the IRF, in degrees.
 
-If this keyword is present, the science tools should assume the directional cut of this point-like IRF is constant 
-over all axes. In case the angular cut is variable along any axis (reconstructed energy or FoV), an additional HDU 
-is required to store these values. Note any DL3 file with a point-like IRF (with ``HDU_CLAS3`` = POINT-LIKE) that 
+If this keyword is present, the science tools should assume the directional cut of this point-like IRF is constant
+over all axes. In case the angular cut is variable along any axis (reconstructed energy or FoV), an additional HDU
+is required to store these values. Note any DL3 file with a point-like IRF (with ``HDUCLAS3 = POINT-LIKE``) that
 has no ``RAD_MAX`` keyword within the HDU metadata should have this additional HDU.
- 
-In case the directional cut is variable with energy or the FoV, point-like IRFs require an additional binary 
-table. It stores the values of ``RAD_MAX`` as a function of the reconstructed energy and FoV following the 
+
+In case the directional cut is variable with energy or the FoV, point-like IRFs require an additional binary
+table. It stores the values of ``RAD_MAX`` as a function of the reconstructed energy and FoV following the
 :ref:`fits-arrays-bintable-hdu` format.
 
 .. _rad_max_2d:
@@ -45,7 +45,7 @@ table. It stores the values of ``RAD_MAX`` as a function of the reconstructed en
 ``rad_max_2d``
 --------------
 
-The ``rad_max_2d`` format contains a 2-dimensional array of directional cut values, stored in the 
+The ``rad_max_2d`` format contains a 2-dimensional array of directional cut values, stored in the
 :ref:`fits-arrays-bintable-hdu` format.
 
 Required columns:
@@ -61,7 +61,7 @@ Recommended axis order: ``ENERGY``, ``THETA``, ``RAD_MAX``
 
 Header keywords:
 
-As explained in :ref:`hduclass`, the following header keyword should be used to 
+As explained in :ref:`hduclass`, the following header keyword should be used to
 declare the type of HDU:
 
 * ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
@@ -73,4 +73,3 @@ declare the type of HDU:
 * ``HDUCLAS4`` = 'RAD_MAX_2D'
 
 Example data file: :download:`here <./rad_max_2d_point-like_example.fits>`.
-
