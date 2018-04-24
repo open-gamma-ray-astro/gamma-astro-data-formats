@@ -45,15 +45,20 @@ Energy Dispersion
 -----------------
 
 The energy dispersion information is stored in a FITS file with one required
-extensions (HDU). The stored quantity is a PDF for the **energy migration**
+extensions (HDU). The stored quantity is :math:`\frac{dP}{d\mu}`, a PDF for the **energy migration**
 
 .. math::
 
      \mu = \frac{E_{\mathrm{reco}}}{E_{\mathrm{true}}}
 
-as a function of true energy and offset. It should be normalized to unity. The
-migration range covered in the file must be large enough to make this possible
-(Suggestion: :math:`1/3 < \mu < 3`)
+as a function of true energy and offset. It should be normalized to unity, i.e.,
+
+.. math::
+
+     \int_0^\infty \frac{dP}{d\mu}\,d\mu = 1\,.
+
+The migration range covered in the file must be large enough to make this possible
+(Suggestion: :math:`0.2 < \mu < 5`)
 
 .. _edisp_trafo:
 
@@ -104,7 +109,7 @@ Probability distributions
   This is the canonical form we use and the values we store in files.
 * Often, when comparing observered event distributions with a PSF model,
   the :math:`dP/dr^2` distributions in equal-width bins in :math:`r^2` is
-  used. The relation is :math:`d\Omega = \pi dr^2`, i.e. :math:`dP/dr^2=(1/\pi)(dP/d\Omega)`.
+  used. The relation is :math:`d\Omega = \pi dr^2`, i.e. :math:`dP/d\Omega=(1/\pi)(dP/dr^2)`.
 * Sometimes, the distribution :math:`dP/dr(r)` is used.
   The relation is :math:`dP/dr = 2 \pi r dP/d\Omega`.
 
@@ -118,8 +123,7 @@ PSFs must be normalised to integrate to total probability 1, i.e.
 
 .. math::
 
-    \int_{0}^{\infty} 2 \pi r dP/dr(r) dr = 1, where dP/dr = 2 \pi r dP/d\Omega
-
+    \int dP/d\Omega(r) d\Omega = 1\,.
     
 This implies that the PSF producer is responsible for choosing the Theta
 range and normalising. I.e. it's OK to choose a theta range that contains
