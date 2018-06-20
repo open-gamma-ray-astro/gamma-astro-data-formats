@@ -37,8 +37,21 @@ high-level and important things, to
 https://lists.nasa.gov/mailman/listinfo/open-gamma-ray-astro .
 
 We use the Sphinx Readthedocs theme as described in this `Sphinx RTD theme FAQ
-entry`_, i.e. to build the HTML docs locally you have to ``pip install
-sphinx_rtd_theme`` before ``make html``.
+entry`_, i.e. to build the HTML docs locally you first have to install Sphinx.
+
+With pip::
+
+    pip install sphinx sphinx_rtd_theme
+
+If you use conda::
+
+    conda create -n gadf python=3.6 sphinx sphinx_rtd_theme
+    conda activate gadf
+
+Then to build and view the HTML docs locally::
+
+    make html
+    open build/html/index.html
 
 References
 ----------
