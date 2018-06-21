@@ -98,6 +98,7 @@ Mandatory header keywords
 -------------------------
 
 The standard FITS reference time header keywords should be used (see :ref:`time-formats`).
+An observatory Earth location should be given as well (see :ref:`coords-location`).
 
 * ``HDUCLASS`` type: string
     * Signal conformance with HEASARC/OGIP conventions (option: 'OGIP'). See :ref:`hduclass`.

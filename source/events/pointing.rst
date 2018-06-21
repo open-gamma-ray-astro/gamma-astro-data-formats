@@ -33,15 +33,9 @@ Mandatory columns
 * ``AZ_PNT`` type: float, unit: deg
     * Pointing azimuth  (see :ref:`coords-altaz`).
 
-
 Mandatory header keywords
 -------------------------
 
 The standard FITS reference time header keywords should be used (see :ref:`time-formats`).
+An observatory Earth location should be given as well (see :ref:`coords-location`).
 
-* ``GEOLON`` type: float, unit: deg
-    * Geographic longitude of array centre
-* ``GEOLAT`` type: float, unit: deg
-    * Geographic latitude of array centre
-* ``GEOALT`` type: float, unit: m
-    * Altitude of array center above sea level
