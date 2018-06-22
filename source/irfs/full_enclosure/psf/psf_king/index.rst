@@ -26,7 +26,7 @@ Columns:
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
     * True energy axis
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
-    * Field of view offset axis
+    * Field of view offset axis (see :ref:`coords-fov`)
 * ``GAMMA`` -- ndim: 2, unit: none
     * Model parameter (see formula above)
 * ``SIGMA`` -- ndim: 2, unit: deg

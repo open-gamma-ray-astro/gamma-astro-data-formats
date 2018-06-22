@@ -131,46 +131,75 @@ Astropy, i.e. this is without refraction corrections):
 Field of view
 -------------
 
-In Gamma-ray astronomy, sometimes field of view (FOV) coordinates are used.
-Specifically some :ref:`background models <bkg>` are in the FOV coordinate system
-and FOV coordinates can also be used for other IRFs.
+FOV coordinates are currently used in two places in this spec:
 
+1. Some :ref:`background models <bkg>` are in the FOV coordinate system
+   and FOV coordinates can also be used for other IRFs.
+2. FOV coordinates appear is as optional columns in the :ref:`events <iact-events>` table.
+   While it is possible to compute FOV coordinates from the ``RA``, ``DEC``, ``TIME`` columns
+   and the observatory :ref:`coords-location`, some IACTs choose to add FOV
+   coordinate columns to their event lists for convenience.
+
+In Gamma-ray astronomy, sometimes field of view (FOV) coordinates are used.
 The basic idea is to have a coordinate system that is centered on the array
 pointing position. We define FOV coordinates here to be spherical coordinates,
 there is no projection or WCS, only a spherical rotation.
 
-Two versions of FOV coordinates are defined:
+Two ways to give the spherical coordinate are defined:
 
-1. ``(LON, LAT)`` with the pointing position on the equator at ``(0, 0)``
-     * ``LON`` range -180 deg to + 180 deg
-     * ``LAT`` range -90 deg to + 90 deg
+1. ``(LON, LAT)`` with the pointing position on the equator at ``(LON, LAT) = (0, 0)``
+     * ``LON``: Longitude (range -180 deg to + 180 deg)
+     * ``LAT``: Latitude (range -90 deg to + 90 deg)
 2. ``(THETA, PHI)`` with the pointing position at the pole ``THETA=0``
-     * ``THETA`` range 0 deg to +180 deg
-     * ``PHI`` range 0 deg to 360 deg
-     * ``THETA`` is the angular separation wrt. the pointing position.
-     * TODO: define PHI orientation
-     * TODO: give example with numbers to make PHI orientation clear
+     * ``THETA``: Offset angle (range 0 deg to +180 deg)
+     * ``PHI``: Position angle (range 0 deg to 360 deg)
 
-Also, there are two versions of FOV coordinates defined:
+Two orientations of the FOV coordinate system are defined:
 
-1. Aligned with ``ALTAZ``
-2. Aligned with ``RADEC``
+1. Aligned with the ``ALTAZ`` system
+2. Aligned with the ``RADEC`` system
 
-To summarise, the following coordinates are defined:
+This yields the following possible coordinates:
 
 ===============  ==================================
 Field            Description
 ===============  ==================================
 FOV_ALTAZ_LON    Longitude in ALTAZ FOV system
 FOV_ALTAZ_LAT    Latitude in ALTAZ FOV system
-FOV_ALTAZ_THETA  Offset in ALTAZ FOV system
+FOV_ALTAZ_THETA  Offset angle in ALTAZ FOV system
 FOV_ALTAZ_PHI    Position angle in ALTAZ FOV system
 ---------------  ----------------------------------
 FOV_RADEC_LON    Longitude in RADEC FOV system
 FOV_RADEC_LAT    Latitude in RADEC FOV system
-FOV_RADEC_THETA  Offset in RADEC FOV system
+FOV_RADEC_THETA  Offset angle in RADEC FOV system
 FOV_RADEC_PHI    Position angle in RADEC FOV system
 ===============  ==================================
+
+* The FOV offset angle (separation to pointing position) ``THETA`` doesn't depend
+  on the orientation. So in this spec, often simply ``THETA`` is used,
+  and that is equal to ``FOV_ALTAZ_THETA`` and ``FOV_RADEC_THETA``.
+* The other FOV coordinates depend on the alignment and orientation of a second
+  coordinate systems (``OTHER``, either ``ALTAZ`` or ``RADEC``).
+  * FOV PHI is counterclockwise from OTHER north,
+    i.e. ``PHI=0 deg`` pointing to OTHER LAT,
+    and ``PHI=270 deg`` pointing to OTHER LON
+  * FOV LON should increase with decreasing OTHER LON
+  * FOV LAT should increase with increasing OTHER LAT
+
+In the :ref:`events <iact-events>` table, the column names ``DETX`` and ``DETY``
+are sometimes used. This originates from the `OGIP event list`_ standard,
+which uses these names for "detector coordinates". Given that IACTs don't have
+a detector chip (or at least the FOV coordinates used in high-level analysis are
+different from the IACT camera coordinate detectors), it wasn't clear what to put,
+both ``(DETX, DETY) = (FOV_ALTAZ_LON, FOV_ALTAZ_LAT)``
+and ``(DETX, DETY) = (FOV_RADEC_LON, FOV_RADEC_LAT)``
+and very early on even TAN projections were used.
+
+Given this situation that there is no concensus yet, one suggestion is to avoid
+putting FOV coordinates in EVENTS, or if they are added, to clearly state how
+they are defined. This still leaves the problem with the background models,
+in case they are non-radially symmetric. We expect CTA to make a decision and to define
+FOV coordinate systems soon, to resolve this issue.
 
 .. _coords-location:
 

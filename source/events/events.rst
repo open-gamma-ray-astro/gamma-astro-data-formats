@@ -45,31 +45,24 @@ Optional columns
 
 * ``EVENT_TYPE`` tform: ``32X``
     * Event quality partition.
+* ``MULTIP`` tform: ``1I``
+    * Telescope multiplicity. Number of telescopes that have seen the event.
 * ``GLON`` tform: ``1E``, unit: deg
     * Reconstructed event Galactic longitude (see :ref:`coords-galactic`).
 * ``GLAT`` tform: ``1E``, unit: deg
     * Reconstructed event Galactic latitude (see :ref:`coords-galactic`).
 * ``ALT`` tform: ``1E``, unit: deg
-    * Reconstructed altitude coordinate of event
-      (horizon system, see :ref:`coords-altaz`)
+    * Reconstructed altitude (see :ref:`coords-altaz`)
 * ``AZ`` tform: ``1E``, unit: deg
-    * Reconstructed azimuth coordinate of event
-      (horizon system, see :ref:`coords-altaz`)
+    * Reconstructed azimuth (see :ref:`coords-altaz`)
 * ``DETX`` tform: ``1E``, unit: deg
-    * Reconstructed event X-coordinate in detector system
-      (nominal system, see :ref:`coords-fov`).
-      See also the `OGIP event list`_ standard.
+    * Reconstructed field of view X (see :ref:`coords-fov`).
 * ``DETY`` tform: ``1E``, unit: deg
-    * Reconstructed event Y-coordinate in detector system
-      (nominal system, see :ref:`coords-fov`).
-      See also the `OGIP event list`_ standard.
+    * Reconstructed field of view Y (see :ref:`coords-fov`).
 * ``THETA`` tform: ``1E``, unit: deg
-    * Reconstructed offset from the observation pointing position
+    * Reconstructed field of view offset angle (see :ref:`coords-fov`).
 * ``PHI`` tform: ``1E``, unit: deg
-    * Reconstructed position angle from the observation pointing position
-      (position angles are counted counterclockwise from celestial North)
-* ``MULTIP`` tform: ``1I``
-    * Telescope multiplicity. Number of telescopes that have seen the event
+    * Reconstructed field of view position angle (see :ref:`coords-fov`).
 * ``DIR_ERR`` tform: ``1E``, unit: deg
     * Direction error of reconstruction 
 * ``ENERGY_ERR`` tform: ``1E``, unit: TeV
