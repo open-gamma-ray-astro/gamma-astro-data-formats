@@ -20,7 +20,7 @@ Columns:
 * ``MIGRA_LO``, ``MIGRA_HI`` -- ndim: 1, unit: dimensionless
     * Energy migration axis (defined above)
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
-    * Field of view offset axis
+    * Field of view offset axis (see :ref:`coords-fov`)
 * ``MATRIX`` -- ndim: 3, unit: dimensionless
     * Energy dispersion :math:`dP/d\mu`, see :ref:`iact-edisp`.
 
