@@ -101,8 +101,42 @@ An observatory Earth location should be given as well (see :ref:`coords-location
     * Version of the format (e.g. '1.0.0'). See :ref:`hduclass`.
 * ``HDUCLAS1`` type: string
     * Primary extension class (option: 'EVENTS'). See :ref:`hduclass`.
+* ``OBS_ID`` type: int
+    * Unique observation identifier (Run number)
+* ``TSTART`` type: float, unit: s
+    * Start time of observation (relative to reference time, see :ref:`time`)
+* ``TSTOP`` type: float, unit: s
+    * End time of observation (relative to reference time, see :ref:`time`)
+* ``ONTIME`` type: float, unit: s
+    * Total *good time* (sum of length of all Good Time Intervals).
+      If a Good Time Interval (GTI) table is provided, ``ONTIME`` should be
+      calculated as the sum of those intervals. Corrections for instrumental
+      *dead time* effects are **NOT** included.
+* ``LIVETIME`` type: float, unit: s
+    * Total time (in seconds) on source, corrected for the *total* instrumental
+      dead time effect.
+* ``DEADC`` type: float
+    * Dead time correction, defined by ``LIVETIME/ONTIME``.
+      Is comprised in [0,1]. Defined to be 0 if ``ONTIME=0``.
+* ``EQUINOX`` type: float
+    * Equinox in years for the celestial coordinate system in which positions
+      given in either the header or data are expressed (options: 2000.0).
+      See also `HFWG Recommendation R3`_ for the OGIP standard.
+* ``RADECSYS`` type: string
+    * Stellar reference frame used for the celestial coordinate system in
+      which positions given in either the header or data are expressed.
+      (options: 'ICRS', 'FK5').
+      See also `HFWG Recommendation R3`_ for the OGIP standard.
+
+
+Optional header keywords
+------------------------
+
 * ``ORIGIN`` type: string
     * Organisation that created the FITS file.
+* ``OBSERVER`` type: string
+    * Name of observer (e.g. 'Joe Public'). This could be for example the PI
+      of a proposal.
 * ``CREATOR`` type: string
     * Software that created the file. When appropriate, the value of the
       ``CREATOR`` keyword should also reference the specific version of the
@@ -115,56 +149,6 @@ An observatory Earth location should be given as well (see :ref:`coords-location
       processing that is performed on the file after it is created.
       For more reading on the OGIP standard, see
       `here <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/r7.html>`_.
-* ``TELESCOP`` type: string
-    * Telescope (e.g. 'CTA', 'HESS', 'VERITAS', 'MAGIC')
-* ``INSTRUME`` type: string
-    * Instrument used to aquire the data contained in the file
-      (e.g. 'North', 'South')
-* ``OBSERVER`` type: string
-    * Name of observer (e.g. 'Joe Public'). This could be for example the PI
-      of a proposal.
-* ``OBJECT`` type: string
-    * Observed object (e.g. 'Crab')
-* ``OBS_MODE`` type: string
-    * Observation mode (e.g. 'WOBBLE', 'SCAN', 'SLEW', or any mode that is
-      supported by ``TELESCOP``; string should be upper case)
-* ``OBS_ID`` type: int
-    * Unique observation identifier (Run number)
-* ``TSTART`` type: float, unit: s
-    * Start time of observation (relative to reference time, see :ref:`time`)
-* ``TSTOP`` type: float, unit: s
-    * End time of observation (relative to reference time, see :ref:`time`)
-* ``EQUINOX`` type: float
-    * Equinox in years for the celestial coordinate system in which positions
-      given in either the header or data are expressed (options: 2000.0).
-      See also `HFWG Recommendation R3`_ for the OGIP standard.
-* ``RADECSYS`` type: string
-    * Stellar reference frame used for the celestial coordinate system in
-      which positions given in either the header or data are expressed.
-      (options: 'ICRS', 'FK5').
-      See also `HFWG Recommendation R3`_ for the OGIP standard.
-* ``TELAPSE`` type: float, unit: s
-    * Time interval between start and stop time (``TELAPSE=TSTOP-TSTART``).
-      Any gaps due to bad weather, or high background counts and/or other
-      anomalies, are included.
-* ``ONTIME`` type: float, unit: s
-    * Total *good time* (sum of length of all Good Time Intervals).
-      If a Good Time Interval (GTI) table is provided, ``ONTIME`` should be
-      calculated as the sum of those intervals. Corrections for instrumental
-      *dead time* effects are **NOT** included.
-* ``LIVETIME`` type: float, unit: s
-    * Total time (in seconds) on source, corrected for the *total* instrumental
-      dead time effect.
-* ``DEADC`` type: float
-    * Dead time correction, defined by ``LIVETIME/ONTIME``.
-      Is comprised in [0,1]. Defined to be 0 if ``ONTIME=0``.
-* ``EV_CLASS`` type: str
-    * Event class (the 'cut' that has been used, e.g. 'STD', 'HARD', 'SOFT')'.
-
-
-Optional header keywords
-------------------------
-
 * ``CREATED`` type: string
     * Time when file was created in ISO standard date representation
       "ccyy-mm-ddThh:mm:ss" (UTC)
@@ -172,6 +156,22 @@ Optional header keywords
     * Right ascension of ``OBJECT``
 * ``DEC_OBJ`` type: float, unit: deg
     * Declination of ``OBJECT``                
+* ``TELESCOP`` type: string
+    * Telescope (e.g. 'CTA', 'HESS', 'VERITAS', 'MAGIC')
+* ``INSTRUME`` type: string
+    * Instrument used to aquire the data contained in the file
+      (e.g. 'North', 'South')
+* ``OBJECT`` type: string
+    * Observed object (e.g. 'Crab')
+* ``OBS_MODE`` type: string
+    * Observation mode (e.g. 'WOBBLE', 'SCAN', 'SLEW', or any mode that is
+      supported by ``TELESCOP``; string should be upper case)
+* ``EV_CLASS`` type: str
+    * Event class (the 'cut' that has been used, e.g. 'STD', 'HARD', 'SOFT')'.
+* ``TELAPSE`` type: float, unit: s
+    * Time interval between start and stop time (``TELAPSE=TSTOP-TSTART``).
+      Any gaps due to bad weather, or high background counts and/or other
+      anomalies, are included.
 
 .. warning::
    Keywords below seem to be pretty low-level and eventually instrument
