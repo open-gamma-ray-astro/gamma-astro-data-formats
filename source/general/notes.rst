@@ -27,3 +27,16 @@ dicts to translate FITS BINTABLE TFORM codes to Numpy dtype codes::
 But normally you never should have to manually handle these dtypes from Python.
 ``astropy.io.fits`` or ``astropy.table.Table`` will read and write the
 TFORM FITS header keys correctly for you.
+
+References
+----------
+
+Existing FITS specs and recommendations:
+
+* http://fits.gsfc.nasa.gov/fits_home.html
+* http://fits.gsfc.nasa.gov/registry/grouping.html
+
+Existing HEASARC specs and recommendations:
+
+* https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/ofwg_recomm.html
+* http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/caldb_doc.html

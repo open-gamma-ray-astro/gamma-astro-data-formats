@@ -52,3 +52,9 @@
 .. _astropy.coordinates.AstrometricFrame: http://astropy.readthedocs.io/en/latest/api/astropy.coordinates.AstrometricFrame.html
 .. _astropy.coordinates.AltAz: http://astropy.readthedocs.io/en/latest/api/astropy.coordinates.AltAz.html
 .. _Astropy astrometric frames: http://astropy.readthedocs.io/en/latest/coordinates/matchsep.html#astropy-astrometric-frames
+.. _PyGamma15 workshop: http://gammapy.github.io/PyGamma15/
+.. _meeting in April 2016 in Meudon: https://github.com/open-gamma-ray-astro/2016-04_IACT_DL3_Meeting
+.. _meeting in March 2017 in Heidelberg: https://github.com/open-gamma-ray-astro/2017-03_IACT_DL3_Meeting
+.. _Gammapy: http://gammapy.org/
+.. _ctools: http://cta.irap.omp.eu/ctools/
+.. _gamma-cat: https://gamma-cat.readthedocs.io/
