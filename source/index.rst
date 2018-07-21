@@ -22,3 +22,4 @@ Table of contents
    data_storage/index
    skymaps/index
    spectra/index
+   lightcurves/index
