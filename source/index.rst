@@ -19,6 +19,5 @@ Table of contents
    events/index
    irfs/index
    data_storage/index
-   ogip/index
    skymaps/index
    spectra/index
