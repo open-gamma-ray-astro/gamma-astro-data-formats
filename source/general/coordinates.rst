@@ -180,6 +180,7 @@ FOV_RADEC_PHI    Position angle in RADEC FOV system
   and that is equal to ``FOV_ALTAZ_THETA`` and ``FOV_RADEC_THETA``.
 * The other FOV coordinates depend on the alignment and orientation of a second
   coordinate systems (``OTHER``, either ``ALTAZ`` or ``RADEC``).
+
   * FOV PHI is counterclockwise from OTHER north,
     i.e. ``PHI=0 deg`` pointing to OTHER LAT,
     and ``PHI=270 deg`` pointing to OTHER LON
