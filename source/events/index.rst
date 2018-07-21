@@ -1,11 +1,11 @@
 .. include:: ../references.txt
 
-IACT event lists
-================
+IACT events
+===========
 
-This document describes the IACT DL3 event list format.
+This document describes the format to store DL3 event data for IACTs.
 
-Event lists and associated information are stored in FITS files that contain
+Event lists and associated information are stored in FITS tables that contain
 the following extensions (HDUs):
 
 .. toctree::
