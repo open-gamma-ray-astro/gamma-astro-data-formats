@@ -19,7 +19,6 @@ It's purpose is two-fold:
 .. toctree::
   :maxdepth: 1
 
-  about
   time
   coordinates
   fits-arrays
