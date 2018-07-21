@@ -1,9 +1,13 @@
-.. include:: ../references.txt
+.. include:: ../../references.txt
 
 .. _ogip:
 
-OGIP 1D spectrum data formats
-=============================
+1D counts spectra
+=================
+
+This section describes a data format for 1D counts spectra and associated
+reduced responses (ARF and RMF) that has been used for decades in X-ray astronomy,
+and is also used in VHE gamma-ray astronomy.
 
 The :ref:`iact-events` and 2D :ref:`iact-irf` can be transformed into a 1D
 counts vector and 1D IRFs that can serve as input to general X-ray spectral
