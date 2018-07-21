@@ -23,9 +23,9 @@ See e.g. `gtmktime`_ for an application example from the Fermi Science Tools.
 Mandatory columns
 -----------------
 
-* ``START`` tform: ``1D``, unit: s
+* ``START`` type: float64, unit: s
     * Start time of good time interval (see :ref:`time`)
-* ``STOP`` tform: ``1D``, unit: s
+* ``STOP`` type: float64, unit: s
     * End time of good time interval (see :ref:`time`)
 
 

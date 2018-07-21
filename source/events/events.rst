@@ -18,18 +18,18 @@ Mandatory columns
 
 We follow the `OGIP event list`_ standard.
 
-* ``EVENT_ID`` tform: ``1K``
+* ``EVENT_ID`` type: int64
     * Event identification number at the DL3 level
       (lower data levels could be different, see note below).
-* ``TIME`` tform: ``1D``, unit: s
+* ``TIME`` type: float64, unit: s
     * Event time (see :ref:`time`)
-* ``RA`` tform: ``1E``, unit: deg
+* ``RA`` type: float, unit: deg
     * Reconstructed event Right Ascension (see :ref:`coords-radec`).
       See also `HFWG Recommendation R3`_ for the OGIP standard.
-* ``DEC`` tform: ``1E``, unit: deg
+* ``DEC`` type: float, unit: deg
     * Reconstructed event Declination (see :ref:`coords-radec`).
       See also `HFWG Recommendation R3`_ for the OGIP standard.
-* ``ENERGY`` tform: ``1E``, unit: TeV
+* ``ENERGY`` type: float, unit: TeV
     * Reconstructed event energy.
 
 
@@ -43,47 +43,47 @@ Optional columns
    these columns should make sure that their presence does not detoriate the
    functioning of the software.
 
-* ``EVENT_TYPE`` tform: ``32X``
+* ``EVENT_TYPE`` type: bit field (in FITS ``tform=32X``)
     * Event quality partition.
-* ``MULTIP`` tform: ``1I``
+* ``MULTIP`` type: int
     * Telescope multiplicity. Number of telescopes that have seen the event.
-* ``GLON`` tform: ``1E``, unit: deg
+* ``GLON`` type: float, unit: deg
     * Reconstructed event Galactic longitude (see :ref:`coords-galactic`).
-* ``GLAT`` tform: ``1E``, unit: deg
+* ``GLAT`` type: float, unit: deg
     * Reconstructed event Galactic latitude (see :ref:`coords-galactic`).
-* ``ALT`` tform: ``1E``, unit: deg
+* ``ALT`` type: float, unit: deg
     * Reconstructed altitude (see :ref:`coords-altaz`)
-* ``AZ`` tform: ``1E``, unit: deg
+* ``AZ`` type: float, unit: deg
     * Reconstructed azimuth (see :ref:`coords-altaz`)
-* ``DETX`` tform: ``1E``, unit: deg
+* ``DETX`` type: float, unit: deg
     * Reconstructed field of view X (see :ref:`coords-fov`).
-* ``DETY`` tform: ``1E``, unit: deg
+* ``DETY`` type: float, unit: deg
     * Reconstructed field of view Y (see :ref:`coords-fov`).
-* ``THETA`` tform: ``1E``, unit: deg
+* ``THETA`` type: float, unit: deg
     * Reconstructed field of view offset angle (see :ref:`coords-fov`).
-* ``PHI`` tform: ``1E``, unit: deg
+* ``PHI`` type: float, unit: deg
     * Reconstructed field of view position angle (see :ref:`coords-fov`).
-* ``DIR_ERR`` tform: ``1E``, unit: deg
+* ``DIR_ERR`` type: float, unit: deg
     * Direction error of reconstruction 
-* ``ENERGY_ERR`` tform: ``1E``, unit: TeV
+* ``ENERGY_ERR`` type: float, unit: TeV
     * Error on reconstructed event energy
-* ``COREX`` tform: ``1E``, unit: m
+* ``COREX`` type: float, unit: m
     * Reconstructed core position X of shower
-* ``COREY`` tform: ``1E``, unit: m
+* ``COREY`` type: float, unit: m
     * Reconstructed core position Y of shower
-* ``CORE_ERR`` tform: ``1E``, unit: m
+* ``CORE_ERR`` type: float, unit: m
     * Error on reconstructed core position of shower
-* ``XMAX`` tform: ``1E``, unit: radiation lengths
+* ``XMAX`` type: float, unit: radiation lengths
     * First interaction depth 
-* ``XMAX_ERR`` tform: ``1E``, unit: radiation lengths
+* ``XMAX_ERR`` type: float, unit: radiation lengths
     * Error on first interaction depth 
-* ``HIL_MSW`` tform: ``1E``
+* ``HIL_MSW`` type: float
     * Hillas mean scaled width
-* ``HIL_MSW_ERR`` tform: ``1E``
+* ``HIL_MSW_ERR`` type: float
     * Hillas mean scaled width error
-* ``HIL_MSL`` tform: ``1E``
+* ``HIL_MSL`` type: float
     * Hillas mean scaled length
-* ``HIL_MSL_ERR`` tform: ``1E``
+* ``HIL_MSL_ERR`` type: float
     * Hillas mean scaled length error
 
 
