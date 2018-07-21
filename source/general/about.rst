@@ -24,34 +24,7 @@ development and discussion is done openly on Github.
 Especially if you are a software library or tool developer,
 we encourage you to support the formats described here instead of inventing your own.
 
-How to contribute?
-------------------
-
-The documentation is written in `restructured text (RST)`_ and rendered to HTML
-and PDF with `Sphinx`_ and hosted at `Readthedocs`_.
-
-Everyone can contribute by making a pull request with a change or addition
-to https://github.com/open-gamma-ray-astro/gamma-astro-data-formats or by
-sending comments and feedback via the Github issue tracker, or, for
-high-level and important things, to 
-https://lists.nasa.gov/mailman/listinfo/open-gamma-ray-astro .
-
-We use the Sphinx Readthedocs theme as described in this `Sphinx RTD theme FAQ
-entry`_, i.e. to build the HTML docs locally you first have to install Sphinx.
-
-With pip::
-
-    pip install sphinx sphinx_rtd_theme
-
-If you use conda::
-
-    conda create -n gadf python=3.6 sphinx sphinx_rtd_theme
-    conda activate gadf
-
-Then to build and view the HTML docs locally::
-
-    make html
-    open build/html/index.html
+Information how to contribute is given in ``CONTRIBUTING.md``.
 
 References
 ----------
