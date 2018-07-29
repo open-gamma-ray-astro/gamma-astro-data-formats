@@ -15,10 +15,15 @@ The HDU index table can be used to locate HDUs. E.g. for a given ``OBS_ID`` and
 information in the ``FILE_DIR``, ``FILE_NAME`` and ``HDU_NAME`` columns.
 The path listed in ``FILE_DIR`` has to be relative to the location of the index file.
 
-TODO: discuss if we want to support a ``BASE_DIR`` header keyword, to allow the
-use case where ``FILE_DIR`` is not relative to the index file location (e.g. in
-cases where the user creates or modifies the index file and doesn't have write
-permission in the folder where the data files are.)
+By default, file locations should be relative to the location of this HDU index
+file, i.e. the total file path is ``PATH_INDEX_TABLE / FILE_DIR / FILE_NAME``.
+Tools are expected to support relative file paths in POSIX notation like
+``FILE_DIR = "../../data/"`` as well as absolute file path like ``FILE_DIR =
+"/data/cta"``.
+
+To allow for some additional flexibility, an optional header keyword ``BASE_DIR``
+can be used. If it is given, the file path is ``BASE_DIR / FILE_DIR / FILE_NAME``,
+i.e. the location of the HDU index table becomes irrelevant.
 
 .. _hdu-index-columns:
 
