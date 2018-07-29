@@ -1,8 +1,9 @@
 .. include:: ../references.txt
 
 .. warning::
-   This is a first draft proposal of a pointing table. Please note that
-   the format is likely subject to change.
+   This is a first draft proposal of a pointing table.
+   It is not being used yet by data producers or science tools.
+   Please note that the format is likely subject to change.
    
 .. _iact-pnt:
 
@@ -28,6 +29,10 @@ Mandatory columns
     * Pointing Right Ascension (see :ref:`coords-radec`).
 * ``DEC_PNT`` type: float, unit: deg
     * Pointing declination (see :ref:`coords-radec`).
+
+Optional columns
+----------------
+
 * ``ALT_PNT`` type: float, unit: deg
     * Pointing altitude (see :ref:`coords-altaz`).
 * ``AZ_PNT`` type: float, unit: deg
