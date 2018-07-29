@@ -12,8 +12,9 @@ The HDU index table is stored in a FITS file as a BINTABLE HDU:
 
 The HDU index table can be used to locate HDUs. E.g. for a given ``OBS_ID`` and
 (``HDU_TYPE`` and / or ``HDU_CLASS``), the HDU can be located via the
-information in the ``FILE_DIR``, ``FILE_NAME`` and ``HDU_NAME`` columns.
-The path listed in ``FILE_DIR`` has to be relative to the location of the index file.
+information in the ``FILE_DIR``, ``FILE_NAME`` and ``HDU_NAME`` columns. The
+path listed in ``FILE_DIR`` has to be relative to the location of the index
+file.
 
 .. _hdu-index-base-dir:
 
@@ -26,9 +27,9 @@ Tools are expected to support relative file paths in POSIX notation like
 ``FILE_DIR = "../../data/"`` as well as absolute file path like ``FILE_DIR =
 "/data/cta"``.
 
-To allow for some additional flexibility, an optional header keyword ``BASE_DIR``
-can be used. If it is given, the file path is ``BASE_DIR / FILE_DIR / FILE_NAME``,
-i.e. the location of the HDU index table becomes irrelevant.
+To allow for some additional flexibility, an optional header keyword
+``BASE_DIR`` can be used. If it is given, the file path is ``BASE_DIR / FILE_DIR
+/ FILE_NAME``, i.e. the location of the HDU index table becomes irrelevant.
 
 .. _hdu-index-columns:
 
@@ -56,10 +57,10 @@ HDU_TYPE and HDU_CLASS
 
 The ``HDU_TYPE`` and ``HDU_CLASS`` can be used to select the HDU of interest.
 
-The difference is that ``HDU_TYPE`` corresponds generally to e.g. PSF,
-whereas ``HDU_CLASS`` corresponds to a specific PSF format.
-Declaring ``HDU_CLASS`` here means that tools loading these files don't have
-to do guesswork to infer the format on load.
+The difference is that ``HDU_TYPE`` corresponds generally to e.g. PSF, whereas
+``HDU_CLASS`` corresponds to a specific PSF format. Declaring ``HDU_CLASS`` here
+means that tools loading these files don't have to do guesswork to infer the
+format on load.
 
 Valid ``HDU_TYPE`` values:
 
@@ -87,14 +88,14 @@ Relation to HDUCLAS
 -------------------
 
 At :ref:`hduclass` and throughout this spec, ``HDUCLAS`` header keys are defined
-as a declarative HDU classification scheme. This appears similar to this HDU index table,
-but in reality is different and incompatible!
+as a declarative HDU classification scheme. This appears similar to this HDU
+index table, but in reality is different and incompatible!
 
 Here in the index table, we have ``HDU_CLASS`` and ``HDU_TYPE``. In
 :ref:`hduclass`, there is ``HDUCLASS`` which is always "GADF" and then there is
 a hierarchical ``HDUCLAS1``, ``HDUCLAS2``, ``HDUCLAS3`` and ``HDUCLAS4`` that
-corresponds to the information in ``HDU_CLASS`` and ``HDU_TYPE`` here.
-Also the values are different: here we have lower-case and use e.g. ``HDU_CLASS="aeff"``,
+corresponds to the information in ``HDU_CLASS`` and ``HDU_TYPE`` here. Also the
+values are different: here we have lower-case and use e.g. ``HDU_CLASS="aeff"``,
 in :ref:`hduclass` we use upper-case and e.g. ``HDUCLAS2="EFF_AREA"``
 
 One reason for these inconsistencies is that the spec for this HDU index table

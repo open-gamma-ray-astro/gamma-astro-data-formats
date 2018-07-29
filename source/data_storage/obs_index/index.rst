@@ -24,6 +24,19 @@ Required columns
     * Obsevation pointing right ascension (see :ref:`coords-radec`)
 * ``DEC_PNT`` type: float, unit: deg
     * Observation pointing declination (see :ref:`coords-radec`)
+* ``TSTART`` type: float, unit: s
+    * Start time of observation relative to the reference time (see :ref:`time`)
+* ``TSTOP`` type: float, unit: s
+    * End time of observation relative to the reference time (see :ref:`time`)
+
+.. _obs-index-optional-columns:
+
+Optional columns
+----------------
+
+The following columns are optional. They are sometimes used for observation
+selection or data quality checks or analysis, but aren't needed for most users.
+
 * ``ZEN_PNT`` type: float, unit: deg
     * Observation pointing zenith angle at observation mid-time ``TMID`` (see :ref:`coords-altaz`)
 * ``ALT_PNT`` float, deg
@@ -39,10 +52,6 @@ Required columns
     * Dead time correction.
     * It is defined such that ``LIVETIME`` = ``DEADC`` * ``ONTIME``
       i.e. the fraction of time the telescope was actually able to take data.
-* ``TSTART`` type: float, unit: s
-    * Start time of observation relative to the reference time (see :ref:`time`)
-* ``TSTOP`` type: float, unit: s
-    * End time of observation relative to the reference time (see :ref:`time`)
 * ``DATE-OBS`` type: string
     * Observation start date (see :ref:`time`)
 * ``TIME-OBS`` type: string
@@ -61,15 +70,6 @@ Required columns
         *  0 = best quality, suitable for spectral analysis.
         *  1 = medium quality, suitable for detection, but not spectra (typically if the atmosphere was hazy).
         *  2 = bad quality, usually not to be used for analysis. 
-
-.. _obs-index-optional-columns:
-
-Optional columns
-----------------
-
-The following columns are optional. They are sometimes used for observation
-selection or data quality checks or analysis, but aren't needed for most users.
-
 * ``OBJECT`` type: string
     * Primary target of the observation
     * Recommendations:
@@ -132,30 +132,28 @@ Mandatory Header keywords
 -------------------------
 
 The standard FITS reference time header keywords should be used (see :ref:`time-formats`).
+An observatory Earth location should be given as well (see :ref:`coords-location`).
 
 .. _obs-index-notes:
 
 Notes
 -----
 
-* Some of the required columns are redundant. E.g. ``ONTIME`` = ``TSTOP`` - ``TSTART``.
-  The motivation to declare those columns required is to make it easy for users
-  and tools to browse the observation lists and select observations via cuts
-  on these parameters without having to compute them on the fly.
 * Observation runs where the telescopes don't point to a fixed RA / DEC position
   (e.g. drift scan runs) aren't supported at the moment by this format.
 * Purpose / definition of ``BKG_SCALE``:
-  For a 3D likelihood analysis a good estimate of the background is important. The run-by-run
-  varation of the background rate is ~20%. The main reasons are the changing atmospheric conditions.
-  This parameter allows to specify (from separate studies) a scaling factor to the :ref:`bkg`
-  This factor comes e.g. from the analysis of off runs. The background
-  normalisation usually dependends on e.g. the number of events in a run, the
-  zenith angle and other parameters. This parameter provides the possibility to
-  give the user a better prediction of the background normalisation. For CTA
-  this might be induced from atmospheric monitoring and additional diagnostic
-  input. For HESS we try to find a trend in the off run background
-  normalisations and other parameters such as number of events per unit
-  livetime. The background scale should be around 1.0 if the background model is
-  good. This number should also be set to 1.0 if no dependency analysis has been
-  performed. If the background model normalisation is off by a few orders of
-  magnitude for some reasons, this can also be incorporated here.
+  For a 3D likelihood analysis a good estimate of the background is important.
+  The run-by-run varation of the background rate is ~20%. The main reasons are
+  the changing atmospheric conditions. This parameter allows to specify (from
+  separate studies) a scaling factor to the :ref:`bkg` This factor comes e.g.
+  from the analysis of off runs. The background normalisation usually dependends
+  on e.g. the number of events in a run, the zenith angle and other parameters.
+  This parameter provides the possibility to give the user a better prediction
+  of the background normalisation. For CTA this might be induced from
+  atmospheric monitoring and additional diagnostic input. For HESS we try to
+  find a trend in the off run background normalisations and other parameters
+  such as number of events per unit livetime. The background scale should be
+  around 1.0 if the background model is good. This number should also be set to
+  1.0 if no dependency analysis has been performed. If the background model
+  normalisation is off by a few orders of magnitude for some reasons, this can
+  also be incorporated here.
