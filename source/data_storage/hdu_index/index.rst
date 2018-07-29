@@ -15,10 +15,20 @@ The HDU index table can be used to locate HDUs. E.g. for a given ``OBS_ID`` and
 information in the ``FILE_DIR``, ``FILE_NAME`` and ``HDU_NAME`` columns.
 The path listed in ``FILE_DIR`` has to be relative to the location of the index file.
 
-TODO: discuss if we want to support a ``BASE_DIR`` header keyword, to allow the
-use case where ``FILE_DIR`` is not relative to the index file location (e.g. in
-cases where the user creates or modifies the index file and doesn't have write
-permission in the folder where the data files are.)
+.. _hdu-index-base-dir:
+
+BASE_DIR
+--------
+
+By default, file locations should be relative to the location of this HDU index
+file, i.e. the total file path is ``PATH_INDEX_TABLE / FILE_DIR / FILE_NAME``.
+Tools are expected to support relative file paths in POSIX notation like
+``FILE_DIR = "../../data/"`` as well as absolute file path like ``FILE_DIR =
+"/data/cta"``.
+
+To allow for some additional flexibility, an optional header keyword ``BASE_DIR``
+can be used. If it is given, the file path is ``BASE_DIR / FILE_DIR / FILE_NAME``,
+i.e. the location of the HDU index table becomes irrelevant.
 
 .. _hdu-index-columns:
 
@@ -51,7 +61,7 @@ whereas ``HDU_CLASS`` corresponds to a specific PSF format.
 Declaring ``HDU_CLASS`` here means that tools loading these files don't have
 to do guesswork to infer the format on load.
 
-Valid ``HDU_TYPE`` values (others optional):
+Valid ``HDU_TYPE`` values:
 
 * ``events`` - Event list
 * ``gti`` - Good time interval
@@ -59,8 +69,6 @@ Valid ``HDU_TYPE`` values (others optional):
 * ``psf`` - Point spread function
 * ``edisp`` - Energy dispersion
 * ``bkg`` - Background
-
-(can be optional, e.g. if no bkg model is available another approach has to be used)
 
 Valid ``HDU_CLASS`` values:
 
@@ -74,15 +82,28 @@ Valid ``HDU_CLASS`` values:
 * ``bkg_2d`` - see format spec: :ref:`bkg_2d`
 * ``bkg_3d`` - see format spec: :ref:`bkg_3d`
 
-We recommend that HDU names are chosen to be identical to either the ``HDU_TYPE``
-or the ``HDU_CLASS`` names mentioned above. This is not a requirement, usually
-end users will access data via HDU index files and the HDU names don't matter.
-Or, if HDUs are accessed directly, the package or tool should be flexible to
-allow loading the HDU with any name.
 
-Finally, we note that the column names ``HDU_CLASS`` and ``HDU_TYPE``
-here in the index table contain an underscore, whereas the ``HDUCLAS*``
-FITS header keywords contain no underscore. This inconsistency was an
-oversight. Given that the current names are in use already, and this index
-format will very likely be superseded by a better way to handle IACT data,
-we decided to leave the names as-is.
+Relation to HDUCLAS
+-------------------
+
+At :ref:`hduclass` and throughout this spec, ``HDUCLAS`` header keys are defined
+as a declarative HDU classification scheme. This appears similar to this HDU index table,
+but in reality is different and incompatible!
+
+Here in the index table, we have ``HDU_CLASS`` and ``HDU_TYPE``. In
+:ref:`hduclass`, there is ``HDUCLASS`` which is always "GADF" and then there is
+a hierarchical ``HDUCLAS1``, ``HDUCLAS2``, ``HDUCLAS3`` and ``HDUCLAS4`` that
+corresponds to the information in ``HDU_CLASS`` and ``HDU_TYPE`` here.
+Also the values are different: here we have lower-case and use e.g. ``HDU_CLASS="aeff"``,
+in :ref:`hduclass` we use upper-case and e.g. ``HDUCLAS2="EFF_AREA"``
+
+One reason for these inconsistencies is that the spec for this HDU index table
+was written first (in 2015), and then :ref:`hduclass` was introduced later (in
+2017). Another reason is that here, we tried to be simple (flat, not
+hierarchical classification), and for :ref:`hduclass` we tried to follow an
+existing standard.
+
+Given that these index tables have been in use in the past years, and that we
+expect them to be replaced soon by a completely different way to locate and link
+IACT data HDUs, we decided to keep this format as-is, instead of trying to align
+it with :ref:`hduclass` and create some form of hierarchical index table.

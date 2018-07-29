@@ -15,7 +15,7 @@ Cherenkov Telescope Array (CTA), will be operated as an open observatory.
 
 To work towards open and interoperable data formats for gamma-ray astronomy, we
 have started this open data format specification. This was started at the
-`PyGamma15 workshop`_ in November 2017, followed by a `meeting in April 2016 in
+`PyGamma15 workshop`_ in November 2015, followed by a `meeting in April 2016 in
 Meudon`_ and another `meeting in March 2017 in Heidelberg`_. Version
 0.1 of the spec was release in April 2016, version 0.2 in July 2018. You can
 find more information about this effort in `Deil et al. (2017)
