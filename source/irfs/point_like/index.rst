@@ -17,8 +17,8 @@ Any point-like IRF component should contain the header keyword:
 
 .. _rad_max:
 
-``RAD_MAX``
-+++++++++++
+RAD_MAX
++++++++
 
 In addition to the IRFs, the actual directional cut applied to the data needs to be stored. This cut is allowed
 to be constant or variable along several axes, with a different format.
@@ -42,10 +42,10 @@ table. It stores the values of ``RAD_MAX`` as a function of the reconstructed en
 
 .. _rad_max_2d:
 
-``rad_max_2d``
---------------
+RAD_MAX_2D
+----------
 
-The ``rad_max_2d`` format contains a 2-dimensional array of directional cut values, stored in the
+The ``RAD_MAX_2D`` format contains a 2-dimensional array of directional cut values, stored in the
 :ref:`fits-arrays-bintable-hdu` format.
 
 Required columns:

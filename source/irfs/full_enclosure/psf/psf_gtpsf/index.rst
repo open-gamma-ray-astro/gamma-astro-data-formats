@@ -2,12 +2,11 @@
 
 .. _psf_gtpsf:
 
-``psf_gtpsf``
-=============
+PSF_GTPSF
+=========
 
 The FITS file has the following BinTable HDUs / columns:
 
-* PRIMARY HDU -- empty
 * PSF HDU
     * Energy -- 1D (MeV)
     * Exposure -- 1D (cm^2 s)

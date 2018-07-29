@@ -2,8 +2,8 @@
 
 .. _psf_3gauss:
 
-``psf_3gauss``
-==============
+PSF_3GAUSS
+==========
 
 Multi-Gauss mixture models are a common way to model distributions
 (for source intensity profiles, PSFs, anything really), see e.g. `2013PASP..125..719H`_.

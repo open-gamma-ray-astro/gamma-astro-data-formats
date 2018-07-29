@@ -7,15 +7,15 @@ Background format
 
 Here we specify two formats for the background template models (see :ref:`bkg`) of a full-enclosure IRF:
 
-* ``bkg_2d`` models depend on ``ENERGY`` and ``THETA``, i.e. are radially symmetric.
-* ``bkg_3d`` models depend on ``ENERGY`` and field of view coordinates ``DETX`` and ``DETY``.
+* ``BKG_2D`` models depend on ``ENERGY`` and ``THETA``, i.e. are radially symmetric.
+* ``BKG_3D`` models depend on ``ENERGY`` and field of view coordinates ``DETX`` and ``DETY``.
 
 .. _bkg_2d:
 
-``bkg_2d``
-----------
+BKG_2D
+------
 
-The ``bkg_2d`` format contains a 2-dimensional array of post-select background
+The ``BKG_2D`` format contains a 2-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
 
 Required columns:
@@ -47,10 +47,10 @@ Example data file: :download:`here <./bkg_2d_full_example.fits>`.
 
 .. _bkg_3d:
 
-``bkg_3d``
-----------
+BKG_3D
+------
 
-The ``bkg_3d`` format contains a 3-dimensional array of post-select background
+The ``BKG_3D`` format contains a 3-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
 
 Required columns:

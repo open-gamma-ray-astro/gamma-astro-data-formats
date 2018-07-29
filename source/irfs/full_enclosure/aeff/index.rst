@@ -11,8 +11,8 @@ of the reconstructed energy.
 
 .. _aeff_2d:
 
-``aeff_2d``
------------
+AEFF_2D
+-------
 
 Effective Area vs true energy
 +++++++++++++++++++++++++++++

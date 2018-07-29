@@ -142,9 +142,6 @@ Comments
   I.e. if limited event statistics in the PSF computation is an issue,
   it is up to the PSF producer to denoise it to an acceptable level.
 
- 
- 
- 
 .. _bkg:
 
 Background

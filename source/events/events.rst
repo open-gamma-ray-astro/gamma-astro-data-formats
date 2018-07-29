@@ -2,8 +2,8 @@
 
 .. _iact-events:
 
-``EVENTS`` extension
-====================
+EVENTS
+======
 
 The ``EVENTS`` extension is a binary FITS table that contains an event list.
 Each row of the table provides information that characterises one event.

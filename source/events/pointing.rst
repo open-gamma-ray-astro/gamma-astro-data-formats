@@ -6,8 +6,8 @@
    
 .. _iact-pnt:
 
-``POINTING`` extension
-======================
+POINTING
+========
 
 The ``POINTING`` extension is a binary FITS table that contains for a number
 of time stamps the pointing direction of the telescopes. A *pointing* is here

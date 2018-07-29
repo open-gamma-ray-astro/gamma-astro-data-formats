@@ -2,8 +2,8 @@
 
 .. _iact-gti:
 
-``GTI`` extension
-=================
+GTI
+===
 
 The ``GTI`` extension is a binary FITS table that contains the Good Time
 Intervals ('GTIs') for the event list. A general description of GTIs can
@@ -18,7 +18,6 @@ with cloud cover or lightning during one observation).
 
 High-level Science tools could modify the GTIs according to user parameter.
 See e.g. `gtmktime`_ for an application example from the Fermi Science Tools.
-
 
 Mandatory columns
 -----------------

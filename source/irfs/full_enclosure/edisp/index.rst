@@ -7,8 +7,8 @@ The format to store full-enclosure energy dispersion (see :ref:`iact-edisp`) is 
 
 .. _edisp_2d:
 
-``edisp_2d``
-------------
+EDISP_2D
+--------
 
 The energy dispersion information is saved as a
 :ref:`fits-arrays-bintable-hdu` with the following required columns.
