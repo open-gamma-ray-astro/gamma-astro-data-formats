@@ -1,7 +1,5 @@
 .. include:: ../../references.txt
 
-
-
 This page describes data format conventions for FITS binned data and model
 representations pixelized with the `HEALPix algorithm`_.  
 

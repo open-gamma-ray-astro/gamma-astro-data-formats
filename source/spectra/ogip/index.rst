@@ -21,8 +21,8 @@ OGIP standard in order to meet the requirements of gamma-astronomy.
 
 .. _ogip-pha:
 
-PHA file
---------
+PHA
+---
 
 The OGIP standard PHA file format is described `here
 <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/spectra/ogip_92_007/node5.html>`__.
@@ -55,8 +55,8 @@ Additional header keyword that can be stored in the PHA header for
 
 .. _ogip-bkg:
 
-BKG file
---------
+BKG
+---
 
 The values of following header keywords need some attention when using them for
 :ref:`glossary-IACT` analysis.
@@ -66,8 +66,8 @@ The values of following header keywords need some attention when using them for
 
 .. _ogip-arf:
 
-ARF file
---------
+ARF
+---
 
 The OGIP standard ARF file format is described `here
 <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_002/cal_gen_92_002.html#tth_sEc4>`__.
@@ -82,8 +82,8 @@ Additional header keyword that can be stored in the ARF header for
 
 .. _ogip-rmf:
 
-RMF file
---------
+RMF
+---
 
 The OGIP standard RMF file format is described `here
 <http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_002/cal_gen_92_002.html#tth_sEc3.1>`__.
