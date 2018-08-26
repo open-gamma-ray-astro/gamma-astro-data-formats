@@ -34,8 +34,6 @@ if they want to analyse parts of observations. One option could be to absorb the
 dead-time correction into the effective areas, another option could be to add
 dead-time correction factors to GTI tables.
 
-Without further ado, here is the current spec:
-
 .. toctree::
    :maxdepth: 1
 

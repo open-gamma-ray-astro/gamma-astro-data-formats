@@ -9,15 +9,19 @@ In gamma-ray astronomy, a variety of data formats and proprietary software have
 been traditionally used, often developed for one specific mission or experiment.
 Especially for ground-based imaging atmospheric Cherenkov telescopes (IACTs),
 data and software are mostly private to the collaborations operating the
-telescopes. However, there is a general movement in science towards the use of
-open data and software. In addition, the next-generation IACT instrument, the
-Cherenkov Telescope Array (CTA), will be operated as an open observatory. 
+telescopes. The next-generation IACT instrument, the Cherenkov Telescope Array
+(CTA), will be the first ground-based gamma-ray telescope array operated as an
+open observatory with public observer access. This implies fundamentally
+different requirements for the data formats and software tools. Open community
+access is a novelty in this domain, putting a challenge on the implementation of
+services that make very high energy (VHE) gamma-ray astronomy as accessible as
+any other waveband.
 
 To work towards open and interoperable data formats for gamma-ray astronomy, we
 have started this open data format specification. This was started at the
 `PyGamma15 workshop`_ in November 2015, followed by a `meeting in April 2016 in
 Meudon`_ and another `meeting in March 2017 in Heidelberg`_. Version
-0.1 of the spec was release in April 2016, version 0.2 in July 2018. You can
+0.1 of the spec was release in April 2016, version 0.2 in August 2018. You can
 find more information about this effort in `Deil et al. (2017)
 <https://adsabs.harvard.edu/abs/2017AIPC.1792g0006D>`__.
 
@@ -36,8 +40,9 @@ but rather the key name and data type for each metadata or data field.
 The formats described here are partially in use by current instruments
 (Fermi-LAT, HESS, VERITAS, MAGIC, FACT) as well as in the next-generation
 Cherenkov Telescope Array CTA. Prototyping and support for many of the formats
-here is happening in the CTA science tool prototypes `Gammapy`_ and `ctools`_,
-the data formats are being used e.g. in `gamma-cat`_.
+here is happening in the CTA science tool prototypes `Gammapy`_ and `ctools`_.
+The data formats are also used e.g. in `gamma-cat`_, a collection and source
+catalog for very-high-energy gamma-ray astronomy.
 
 However, we would like to stress that this is an inofficial effort, the formats
 described here are work in progress and have not been officially adopted by any

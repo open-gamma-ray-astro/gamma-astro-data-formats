@@ -50,6 +50,18 @@ Column Name     Description                                       Data type Requ
 ``MD5``         Checksum                                          string    no
 ==============  ================================================  ========= =========
 
+Mandatory Header keywords
+-------------------------
+
+As explained in :ref:`hduclass`, the following header keyword should be used to
+declare the type of HDU (this HDU itself, the HDU index table):
+
+* ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
+* ``HDUVERS``  = '0.2'
+* ``HDUCLASS`` = 'GADF'
+* ``HDUCLAS1`` = 'INDEX'
+* ``HDUCLAS2`` = 'HDU'
+
 .. _hdu-type-class:
 
 HDU_TYPE and HDU_CLASS

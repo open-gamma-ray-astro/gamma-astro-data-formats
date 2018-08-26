@@ -134,6 +134,15 @@ Mandatory Header keywords
 The standard FITS reference time header keywords should be used (see :ref:`time-formats`).
 An observatory Earth location should be given as well (see :ref:`coords-location`).
 
+As explained in :ref:`hduclass`, the following header keyword should be used to 
+declare the type of HDU:
+
+* ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
+* ``HDUVERS``  = '0.2'
+* ``HDUCLASS`` = 'GADF'
+* ``HDUCLAS1`` = 'INDEX'
+* ``HDUCLAS2`` = 'OBS'
+
 .. _obs-index-notes:
 
 Notes

@@ -9,9 +9,6 @@ A place to propose and share data format descriptions for gamma-ray astronomy.
 * Docs: https://gamma-astro-data-formats.readthedocs.io/
 * Mailing list: https://lists.nasa.gov/mailman/listinfo/open-gamma-ray-astro
 
-Table of contents
------------------
-
 .. toctree::
    :maxdepth: 1
 
