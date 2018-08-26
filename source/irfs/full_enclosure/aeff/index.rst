@@ -33,18 +33,24 @@ Recommended axis order: ``ENERGY``, ``THETA``
 
 Header keywords:
 
-In addition to the standard header keywords, the recommended energy range for
-the observation corresponding to the effective area file is stored in two
-additional header keywords. A hierarchical ``HDUCLASS`` keyword is used to declare the
-effective area type contained within the HDU.
+If the IRFs are only known to be "valid" or "safe" to use within a given energy
+range, that range can be given via the following two keywords. The keywords are
+optional, not all telescopes use the concept of a safe range; e.g. in CTA at
+this time this hasn't been defined. Note that a proper scheme to declare IRF
+validity range (e.g. masks or weights, or safe cuts that depend on other
+parameters such as FOV offset) is not available yet.
 
-* ``OBS_ID`` type: int
-    * Observation ID, run number
 * ``LO_THRES`` type: float, unit: TeV
     * Low energy threshold
 * ``HI_THRES`` type: float, unit: TeV
     * High energy threshold
-    
+
+If the effective area corresponds to a given observation with an ``OBS_ID``,
+that ``OBS_ID`` should be given as a header keyword. Note that this is not
+always the case, e.g. sometimes IRFs are simulated and produced for instruments
+that haven't even been built yet, and then used to simulate different kinds of
+observations.
+
 As explained in :ref:`hduclass`, the following header keyword should be used to 
 declare the type of HDU:
 
