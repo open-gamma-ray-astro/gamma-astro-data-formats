@@ -115,6 +115,10 @@ An observatory Earth location should be given as well (see :ref:`coords-location
 * ``DEADC`` type: float
     * Dead time correction, defined by ``LIVETIME/ONTIME``.
       Is comprised in [0,1]. Defined to be 0 if ``ONTIME=0``.
+* ``RA_PNT`` type: float, unit: deg
+    * Pointing Right Ascension (see :ref:`coords-radec`).
+* ``DEC_PNT`` type: float, unit: deg
+    * Pointing declination (see :ref:`coords-radec`).
 * ``EQUINOX`` type: float
     * Equinox in years for the celestial coordinate system in which positions
       given in either the header or data are expressed (options: 2000.0).
