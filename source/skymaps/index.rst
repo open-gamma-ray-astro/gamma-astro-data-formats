@@ -55,7 +55,7 @@ of quantities that can be used to define bands are as follows:
 * Energy (Integral): ``E_MIN``, ``E_MAX``
 * Energy (Differential): ``ENERGY``
 * Event Type: ``EVENT_TYPE``
-* Time: ``T_MIN``, ``T_MAX``
+* Time: ``TIME_MIN``, ``TIME_MAX``
 * FoV Angle: ``THETA_MIN``, ``THETA_MAX``
 
 The mapping of column to non-spatial dimension is defined with the
