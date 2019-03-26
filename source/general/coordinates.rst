@@ -197,7 +197,8 @@ and ``(DETX, DETY) = (FOV_RADEC_LON, FOV_RADEC_LAT)``
 have been used.
 
 To resolve this ambiguity, we propose a header key ``FOVALIGN={ALTAZ,RADEC}``,
-specifying which definition of field-of-view coordinates is used.
+specifying which definition of field-of-view coordinates is used. If the key is
+not present, ``FOVALIGN=ALTAZ`` should be assumed as default.
 
 Given the situation that there is no concensus yet, one suggestion is to avoid putting
 FOV coordinates in EVENTS, or if they are added, to clearly state how they are defined.
