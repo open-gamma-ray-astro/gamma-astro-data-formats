@@ -196,7 +196,7 @@ both ``(DETX, DETY) = (FOV_ALTAZ_LON, FOV_ALTAZ_LAT)``
 and ``(DETX, DETY) = (FOV_RADEC_LON, FOV_RADEC_LAT)``
 have been used.
 
-To resolve this ambiguity, we propose a header key ``FOVALIGN={ALTAZ,RADEC}'',
+To resolve this ambiguity, we propose a header key ``FOVALIGN={ALTAZ,RADEC}``,
 specifying which definition of field-of-view coordinates is used.
 
 Given the situation that there is no concensus yet, one suggestion is to avoid putting
