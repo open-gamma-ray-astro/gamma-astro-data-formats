@@ -191,16 +191,17 @@ In the :ref:`events <iact-events>` table, the column names ``DETX`` and ``DETY``
 are sometimes used. This originates from the `OGIP event list`_ standard,
 which uses these names for "detector coordinates". Given that IACTs don't have
 a detector chip (or at least the FOV coordinates used in high-level analysis are
-different from the IACT camera coordinate detectors), it wasn't clear what to put,
+different from the IACT camera coordinate detectors), the definition is not unambiguous,
 both ``(DETX, DETY) = (FOV_ALTAZ_LON, FOV_ALTAZ_LAT)``
 and ``(DETX, DETY) = (FOV_RADEC_LON, FOV_RADEC_LAT)``
-and very early on even TAN projections were used.
+have been used.
 
-Given this situation that there is no concensus yet, one suggestion is to avoid
-putting FOV coordinates in EVENTS, or if they are added, to clearly state how
-they are defined. This still leaves the problem with the background models,
-in case they are non-radially symmetric. We expect CTA to make a decision and to define
-FOV coordinate systems soon, to resolve this issue.
+To resolve this ambiguity, we propose a header key ``FOVALIGN={ALTAZ,RADEC}``,
+specifying which definition of field-of-view coordinates is used. If the key is
+not present, ``FOVALIGN=ALTAZ`` should be assumed as default.
+
+Given the situation that there is no concensus yet, one suggestion is to avoid putting
+FOV coordinates in EVENTS, or if they are added, to clearly state how they are defined.
 
 .. _coords-location:
 

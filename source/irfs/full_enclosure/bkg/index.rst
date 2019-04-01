@@ -19,6 +19,7 @@ The ``BKG_2D`` format contains a 2-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
 
 Required columns:
+~~~~~~~~~~~~~~~~~
 
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
     * Reconstructed energy axis
@@ -31,6 +32,7 @@ Required columns:
 Recommended axis order: ``ENERGY``, ``THETA``
 
 Header keywords:
+~~~~~~~~~~~~~~~~
 
 As explained in :ref:`hduclass`, the following header keyword should be used to 
 declare the type of HDU:
@@ -54,6 +56,7 @@ The ``BKG_3D`` format contains a 3-dimensional array of post-select background
 rate, stored in the :ref:`fits-arrays-bintable-hdu` format.
 
 Required columns:
+~~~~~~~~~~~~~~~~~
 
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
     * Reconstructed energy axis
@@ -66,6 +69,7 @@ Required columns:
 Recommended axis order: ``ENERGY``, ``DETX``, ``DETY``
 
 Header keywords:
+~~~~~~~~~~~~~~~~
 
 As explained in :ref:`hduclass`, the following header keyword should be used to 
 declare the type of HDU:
@@ -77,6 +81,11 @@ declare the type of HDU:
 * ``HDUCLAS2`` = 'BKG'
 * ``HDUCLAS3`` = 'FULL-ENCLOSURE'
 * ``HDUCLAS4`` = 'BKG_3D'
+
+Further header keywords:
+
+* ``FOVALIGN`` = 'ALTAZ' / 'RADEC'
+    * Alignment of the field-of-view coordinate system (see :ref:`coords-fov`)
 
 Example data file: :download:`here <./bkg_3d_full_example.fits>`.
 
