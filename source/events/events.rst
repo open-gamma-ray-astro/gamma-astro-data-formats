@@ -133,7 +133,7 @@ An observatory Earth location should be given as well (see :ref:`coords-location
       This can be the same as ``TELESCOP`` (e.g. "HESS"), but it could
       also be different if an organisation has multiple telescopes (e.g. "NASA" or "ESO").
 * ``TELESCOP`` type: string
-    * Telescope (e.g. 'CTA', 'HESS', 'VERITAS', 'MAGIC')
+    * Telescope (e.g. 'CTA', 'HESS', 'VERITAS', 'MAGIC', 'FACT')
 * ``INSTRUME`` type: string
     * Instrument used to aquire the data contained in the file.
       Each organisation and telescop has to define this.
