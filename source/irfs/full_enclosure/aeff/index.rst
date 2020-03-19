@@ -5,9 +5,8 @@
 Effective area format
 =====================
 
-Here we specify the format to store the effective area (see :ref:`iact-aeff`) of a full-enclosure 
-IRF. It is possible to store as a function of the true energy or as a function 
-of the reconstructed energy.
+Here we specify the format to store the effective area of a full-enclosure IRF.
+Effective area is always stored as a function of true energy. (see :ref:`iact-aeff`) 
 
 .. _aeff_2d:
 
@@ -63,20 +62,5 @@ declare the type of HDU:
 * ``HDUCLAS4`` = 'AEFF_2D'
     
 The recommended ``EXTNAME`` keyword is "EFFECTIVE AREA".
-
-.. _aeff_2d_reco:
-
-Effective Area vs reconstructed energy
-++++++++++++++++++++++++++++++++++++++
-
-The effective area as a function of the reconstructed energy, may be stored as
-an additional HDU within  the FITS file. Note in this case, the ``ENERG_LO`` and ``ENERG_HI`` columns
-contain the reconstructed energy instead of the true energy.
-
-The format is analog to the one described in ``aeff_2d``, except for the ``HDUCLAS4`` keyword:
-
-* ``HDUCLAS4`` = 'AEFF_2D_RECO'
-
-The ``EXTNAME`` keyword is recommended to be "EFFECTIVE AREA (RECO)".
 
 Example data file: :download:`here <./aeff_2d_full_example.fits>`.
