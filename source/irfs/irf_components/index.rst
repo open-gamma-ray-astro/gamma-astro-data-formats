@@ -12,23 +12,42 @@ The IRF is made up of several components, described here:
 Effective Area
 --------------
 
-Within the IACT community, the effective area has been expressed following two
-different methods: as a function of the true energy, and as a function of the
-reconstructed energy. Both have been widely used and documented, and each of
-them bring certain advantages and disadvantages:
 
-* Using the effective area as a function of true energy, together with the energy
-  dispersion, is the most precise alternative, although it requires enough MC
-  statistics for the energy dispersion noise to be acceptable. In addition, the
-  likelihood fits performed by the science tools are also slower following this
-  approach.
+Effective area combines the detection efficiency of an instrument 
+with the observable area.
+It can be interpreted as the area a perfect detector directly measuring
+gamma rays would have.
 
-* In the case of using the effective area as a function of reconstructed energy,
-  results may be less precise, but require less MC statistics and allows to
-  perform faster likelihood fits by science tools.
+.. math::
 
-The proposed effective area format, used for both cases mentioned above, follows
-mostly the `OGIP effective area`_ format document.
+    A_{\mathrm{eff}}(E, ...) = p(E, ...) \cdot A,
+
+with :math:`A` the total observable area and :math:`p(E, ...)` the detection
+probability for a gamma ray of a given energy and possibly other parameters,
+like the position in the field of view.
+
+Effective area has to be calculated from simulated events in a discretized manner.
+:math:`p` is estimated in bins of the dependend variables by dividing the number
+of detected and reconstructed events by the number of all simulated events.
+Effective are in bin :math:`i` is then
+
+.. math::
+    A_{\mathrm{eff}, i} = \frac{N_{\mathrm{detected}, i}}{N_{\mathrm{simulated}, i}} \cdot A,
+
+
+Usually, :math:`A` is the area in which the events were simulated,
+for CORSIKA simulations this will be :math:`A = \pi R_{\mathrm{max}}^2`,
+with :math:`R_{\mathrm{max}}` being the maximum scatter radius.
+
+Calculation of effective area can be done at several analysis steps,
+e.&thinsp;g. after trigger, after image cleaning
+or most important for the DL3 event lists, after applying all event selection criteria,
+including gamma-hadron separation and for the case of point-like IRFs the :math:`\theta^2` cut.
+
+As in general, there is no reconstructed energy for the undetected events,
+effective area can only be expressed in bins of the true simulated energy.
+
+The proposed effective area format follows mostly the `OGIP effective area`_ format document.
 
 For the moment, the format for the effective area works to a satisfactory level.
 Nevertheless, for instance the energy threshold variation across the FoV is not
