@@ -53,7 +53,7 @@ The reference time point is specified by the following FITS header keywords:
 * ``TIMEUNIT`` type: string
     * Time unit (e.g. 's')
 * ``TIMESYS`` type: string
-    * Time system, also referred as time scale (e.g. 'UT', 'UTC', 'TT', 'TAI')
+    * Time system, also referred as time scale (e.g. 'UT1', 'UTC', 'TT', 'TAI', see Table 30 of the `FITS standard`_)
 * ``TIMEREF`` type: string
     * Time reference frame, used for example for barycentric corrections
       (options: 'TOPOCENTER', 'GEOCENTER', 'BARYCENTER', 'HELIOCENTER', and more see Table 31 of the `FITS standard`_)
