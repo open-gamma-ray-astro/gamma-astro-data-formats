@@ -58,3 +58,4 @@
 .. _Gammapy: http://gammapy.org/
 .. _ctools: http://cta.irap.omp.eu/ctools/
 .. _gamma-cat: https://gamma-cat.readthedocs.io/
+.. _Explanatory Supplement to the Astronomical Almanac: https://ui.adsabs.harvard.edu/abs/2014AAS...22324720U

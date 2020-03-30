@@ -16,12 +16,11 @@ coordinates, projections, that is covered here as well (see `FITS WCS`_ and
 We only discuss 2-dimensional sky and image coordinates here, other coordinates
 like e.g. time or an energy axis aren't covered here.
 
-Some conventions are adopted from `astropy.coordinates`_, which is a Python
-wrapper of the `IAU SOFA`_ C time and coordinate library, which can be
-considered the gold standard when it comes to coordinates. In some cases code
-examples are given using `astropy.coordinates` to obtain a reference value that
-can be used to check a given software package (in case it's not based on
-`astropy.coordinates`).
+Some conventions are adopted from `astropy.coordinates`_,
+which is a Python wrapper of the `IAU SOFA`_ C time and coordinate library,
+which is the authoritative implementation of the IAU Standards of Fundamental Astronomy.
+In some cases code examples are given using `astropy.coordinates` to obtain a reference value that
+can be used to check a given software package (in case it's not based on `astropy.coordinates`).
 
 .. _coords-radec:
 
@@ -32,9 +31,9 @@ The most common way to give sky coordinates is as right ascension (RA) and
 declination (DEC) in the `equatorial coordinate system`_.
 
 Actually there are several equatorial coordinate systems in use, the most common
-ones being FK4, FK5 and ICRS. If you're interested to learn more about these and
-other astronomical coordinate systems, the references in the `see also section
-for astropy.coordinates`_ are a good starting point.
+ones being FK4, FK5 and ICRS.
+If you're interested to learn more about these and
+other astronomical coordinate systems, look into the `Explanatory Supplement to the Astronomical Almanac`_.
 
 But in practice it's pretty simple: when someone gives or talks about RA / DEC
 coordinates, they mean either ICRS or FK5 J2000 coordinates. The difference
