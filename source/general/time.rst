@@ -56,7 +56,7 @@ The reference time point is specified by the following FITS header keywords:
     * Time system, also referred as time scale (e.g. 'UT', 'UTC', 'TT', 'TAI')
 * ``TIMEREF`` type: string
     * Time reference frame, used for example for barycentric corrections
-      (options: 'LOCAL', 'SOLARSYSTEM', 'HELIOCENTRIC', 'GEOCENTRIC')
+      (options: 'TOPOCENTER', 'GEOCENTER', 'BARYCENTER', 'HELIOCENTER', and more see Table 31 of `FITS standard`_)
 
 See the `FITS standard`_ and the `FITS time paper`_ for further information.
 
@@ -71,15 +71,20 @@ In addition to that main way of specifying times as a floating point number wrt.
 the following header keys with date and time values as strings can be added.
 This is for convenience and humans reading the information. Usually science tools will not access
 this redundant and optional information. The time system used should be the one given by ``TIMESYS``.
+All values for the keywords mentioned here shall be ISO8601 date and time strings,
+``yyyy-mm-ddTHH:MM:SS.fff``.
+The precision is not fixed, so seconds or fractional seconds could be left out.
 
 * ``DATE-OBS`` type: string
-    * Observation start date (format: "yyyy-mm-dd")
-* ``TIME-OBS`` type: string
-    * Observation start time (format: "hh:mm:ss.sss...")
+    * Observation date, typically the start of observations if not defined otherwise in the comment
+* ``DATE-BEG`` type: string
+    * Observation start date
+* ``DATE-AVG`` type: string
+    * Average observation date
 * ``DATE-END`` type: string
-    * Observation end date (format: "yyyy-mm-dd")
+    * Observation end date
 * ``TIME-END`` type: string
-    * Observation end time (format: "hh:mm:ss.sss...")
+    * Observation end time
 
 Note that the FITS standard allows and it is quite common to instead put a
 ``TIME-OBS`` key with value "yyyy-mm-ddThh:mm:ss.sss..." and to omit the ``DATE-OBS`` key
