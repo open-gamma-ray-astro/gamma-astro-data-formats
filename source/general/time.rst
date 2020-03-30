@@ -76,15 +76,13 @@ All values for the keywords mentioned here shall be ISO8601 date and time string
 The precision is not fixed, so seconds or fractional seconds could be left out.
 
 * ``DATE-OBS`` type: string
-    * Observation date, typically the start of observations if not defined otherwise in the comment
+    * Observation date and time, typically the start of observations if not defined otherwise in the comment
 * ``DATE-BEG`` type: string
-    * Observation start date
+    * Observation start date and time
 * ``DATE-AVG`` type: string
-    * Average observation date
+    * Average observation date and time
 * ``DATE-END`` type: string
-    * Observation end date
-* ``TIME-END`` type: string
-    * Observation end time
+    * Observation end date and time
 
 Note that the FITS standard allows and it is quite common to instead put a
 ``TIME-OBS`` key with value "yyyy-mm-ddThh:mm:ss.sss..." and to omit the ``DATE-OBS`` key
