@@ -84,11 +84,6 @@ The precision is not fixed, so seconds or fractional seconds could be left out.
 * ``DATE-END`` type: string
     * Observation end date and time
 
-Note that the FITS standard allows and it is quite common to instead put a
-``TIME-OBS`` key with value "yyyy-mm-ddThh:mm:ss.sss..." and to omit the ``DATE-OBS`` key
-(see `Dictionary of Commonly Used FITS Keywords`_). If science tools access these fields,
-they should support both conventions.
-
 .. _time-tools:
 
 Tools
@@ -147,7 +142,7 @@ For high-level gamma-ray astronomy, the situation can be summarised like this
   which is sufficient for any high-level analysis (including milli-second pulsars).
 * **Do not use 32-bit floats for times.**
   If you do, times will be incorrect at the 1 to 100 second level.
-* **Double-float precision is not needed.**
+* More than 64-bit floats or a combination of two floating point numbers is not necessary
 
 For data acquisition and low-level analysis (event triggering, traces, ...),
 IACTs require nanosecond precision or better. There, the simple advice to use
