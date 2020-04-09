@@ -53,10 +53,10 @@ The reference time point is specified by the following FITS header keywords:
 * ``TIMEUNIT`` type: string
     * Time unit (e.g. 's')
 * ``TIMESYS`` type: string
-    * Time system, also referred as time scale (e.g. 'UT', 'UTC', 'TT', 'TAI')
+    * Time system, also referred as time scale (e.g. 'UT1', 'UTC', 'TT', 'TAI', see Table 30 of the `FITS standard`_)
 * ``TIMEREF`` type: string
     * Time reference frame, used for example for barycentric corrections
-      (options: 'LOCAL', 'SOLARSYSTEM', 'HELIOCENTRIC', 'GEOCENTRIC')
+      (options: 'TOPOCENTER', 'GEOCENTER', 'BARYCENTER', 'HELIOCENTER', and more see Table 31 of the `FITS standard`_)
 
 See the `FITS standard`_ and the `FITS time paper`_ for further information.
 
@@ -71,20 +71,18 @@ In addition to that main way of specifying times as a floating point number wrt.
 the following header keys with date and time values as strings can be added.
 This is for convenience and humans reading the information. Usually science tools will not access
 this redundant and optional information. The time system used should be the one given by ``TIMESYS``.
+All values for the keywords mentioned here shall be ISO8601 date and time strings,
+``yyyy-mm-ddTHH:MM:SS.fff``.
+The precision is not fixed, so seconds or fractional seconds could be left out.
 
 * ``DATE-OBS`` type: string
-    * Observation start date (format: "yyyy-mm-dd")
-* ``TIME-OBS`` type: string
-    * Observation start time (format: "hh:mm:ss.sss...")
+    * Observation date and time, typically the start of observations if not defined otherwise in the comment
+* ``DATE-BEG`` type: string
+    * Observation start date and time
+* ``DATE-AVG`` type: string
+    * Average observation date and time
 * ``DATE-END`` type: string
-    * Observation end date (format: "yyyy-mm-dd")
-* ``TIME-END`` type: string
-    * Observation end time (format: "hh:mm:ss.sss...")
-
-Note that the FITS standard allows and it is quite common to instead put a
-``TIME-OBS`` key with value "yyyy-mm-ddThh:mm:ss.sss..." and to omit the ``DATE-OBS`` key
-(see `Dictionary of Commonly Used FITS Keywords`_). If science tools access these fields,
-they should support both conventions.
+    * Observation end date and time
 
 .. _time-tools:
 
@@ -144,7 +142,7 @@ For high-level gamma-ray astronomy, the situation can be summarised like this
   which is sufficient for any high-level analysis (including milli-second pulsars).
 * **Do not use 32-bit floats for times.**
   If you do, times will be incorrect at the 1 to 100 second level.
-* **Double-float precision is not needed.**
+* More than 64-bit floats or a combination of two floating point numbers is not necessary
 
 For data acquisition and low-level analysis (event triggering, traces, ...),
 IACTs require nanosecond precision or better. There, the simple advice to use
