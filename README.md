@@ -1,4 +1,4 @@
-# Data formats for gamma-ray astronomy
+# Data formats for gamma-ray astronomy [![CC-BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
 
 A place to propose and share data format descriptions for gamma-ray astronomy.
 
