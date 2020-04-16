@@ -211,26 +211,35 @@ When working with Alt-Az coordinates or very high-precision times,
 an observatory Earth location is needed. However, note that high-level
 analysis for most use cases does not need this information.
 
-The FITS standard mentions ``OBSGEO-X``, ``OBSGEO-Y``, ``OBSGEO-Z``
-header keys, and we might want to consider using those in the future.
+The `FITS standard`_ specifies two possibilities for defining observatory location:
 
-For now, as of 2018, however, the existing IACT FITS data uses the
-following header keys, so their use is encouraged:
+* ITRS Cartesian coordinates (defined in section 8.4.1, strongly prefered according to section 9.3.2)
+* Geodetic latitude / longitude / elevation
 
-* ``GEOLON`` type: float, unit: deg
-    * Geographic longitude of array centre
-* ``GEOLAT`` type: float, unit: deg
-    * Geographic latitude of array centre
-* ``ALTITUDE`` type: float, unit: m
-    * Altitude of array center above sea level
+For ITRS Cartesian coordinates, use
+
+* ``OBSGEO-X``, ``OBSGEO-Y``, ``OBSGEO-Z`` type: float, unit: m
+
+For geodetic coordinates, use
+
+* ``OBSGEO-L`` Geographic longitude of array center, type: float, unit: deg
+* ``OBSGEO-B`` Geographic latitude of array center, type: float, unit: deg  
+* ``OBSGEO-H`` Altitude of array center above WGS84 reference ellipsoid, type: float, unit: m  
+
+
+.. note::
+    Up to including version 0.2 of this standard, 
+    the keywords ``GEOLON``, ``GEOLAT`` and ``ALTITUDE`` were used for
+    the observatory location.
+  
 
 While it is possible in principle to change this for each FITS file,
-in practice the observatory or telescope array centre position is something
+in practice the observatory or telescope array center position is something
 that is chosen once and then used consistently in the event reconstruction
 and analysis. As an example, H.E.S.S. uses the following location and
 FITS header keys::
 
-  GEOLAT  = -23.2717777777778 / latitude of observatory (deg)
-  GEOLON  =  16.5002222222222 / longitude of observatory (deg)
-  ALTITUDE=             1835. / altitude of observatory (m)
+  OBSGEO-B = -23.2717777777778 / latitude of observatory (deg)
+  OBSGEO-L =  16.5002222222222 / longitude of observatory (deg)
+  OBSGEO-H =             1835. / altitude of observatory (m)
 

@@ -1,0 +1,25 @@
+---
+language: python
+python: 3.8
+dist: bionic
+
+install:
+  - pip install poetry
+  - poetry install
+
+script:
+  - poetry run make html
+
+before_deploy:
+  - touch build/html/.nojekyll
+
+deploy:
+  provider: pages
+  target_branch: gh-pages
+  local_dir: build/html
+  skip_cleanup: true
+  github_token:
+    secure: "EvjJS7HP4LvBjPSk0+UKciM3/a8CylRBEOgDhfhKvJFIqzcEfSzxIcBpXU7FC7NXruCYBqH7An3pYrUoom14ixdY72qi/m+8/fPBchQXEeOgUVYIINrFZUivyK8UDtpdUUql4CNH+I9cxxO4oPmG3ZnS+zS9WP7NyQg58cNBI7dsqQiHc9dZSflh99b1gAAcsFBTdZ27z0lTTgdfOvA9DVH+3MiuD5nHlHI9OjmRmhuJOJ0ZPgF/SzPPXkRiSzmoecnj5NWLV9aWi5ySauLTepQwVzHhS9ufOYV6+4afGvA2zX6A5dFGPCJybf2BtwlWTO8LnoyLNLC5X1sePt9j6Ro4OwwbynvgNQhh42LbRFj/4YjgsOVLAvcZTmqg2Zv493zTBkELGLnIPwxQ9dli/LzrdU9OjjTvSZBBOVzT/IQqf1L0LLIUF6+IE8An7mcKcqGxtkrN2ElDEIxem+UoY7bJoFwXj5DGCyOCRuNhgSZYj8lX/UmtdJoVqty+ijbuWXl6LtW31y3s0n99WTe5m80or3TzrIExXVv7xGDghIUFLyjyR9vsJnRM3kEz0rGrNPRCwmvSsw5iw0HXS9iyYNNyWFlR0J8QoWcC+kpWy1NZ08SgrUp21Al0dBUHdbhEYMHAoohjKRBajuIgPCNOu4dimP4dEG5o3k2R4fFTU0A="
+  keep_history: false
+  on:
+    branch: master

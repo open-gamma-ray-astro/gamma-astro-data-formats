@@ -1,5 +1,11 @@
 .. _main-page:
 
+
+.. CAUTION::
+    This is a Work-In-Progress draft for the next iteration of the standard.
+    To view the current version of the standard,
+    visit  https://gamma-astro-data-formats.readthedocs.io/
+
 Data formats for gamma-ray astronomy
 ====================================
 
