@@ -10,6 +10,9 @@ install:
 script:
   - poetry run make html
 
+before_deploy:
+  - touch build/html/.nojekyll
+
 deploy:
   provider: pages
   target_branch: gh-pages
