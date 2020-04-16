@@ -48,7 +48,7 @@ Columns:
     * True energy axis
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
     * Field of view offset axis (see :ref:`coords-fov`)
-* ``SCALE`` -- ndim: 2, unit: none
+* ``SCALE`` -- ndim: 2, unit: sr^(-1)
     * Absolute scale of the 1st Gaussian
 * ``SIGMA_1``, ``SIGMA_2``, ``SIGMA_3`` -- ndim: 2, unit: deg
     * Model parameter (see formula above)
