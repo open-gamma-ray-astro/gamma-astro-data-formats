@@ -21,6 +21,13 @@ For v0.2 we also archived the sources of the spec as well as a rendered PDF and 
 <https://doi.org/10.5281/zenodo.1409830> 
 To cite that version, you can use the bibtex entry [here](https://zenodo.org/record/1409831/export/hx#.W5EBLNgzY_U).
 
+## Draft version
+
+The current draft version is deployed to github pages after each commit into
+master:
+
+<https://open-gamma-ray-astro.github.io/gamma-astro-data-formats>
+
 ## Building the documents locally
 
 To build this document locally, clone this repository and install `poetry`,
