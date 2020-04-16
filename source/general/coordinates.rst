@@ -225,6 +225,12 @@ For geodetic coordinates, use
 * ``OBSGEO-L`` Geographic longitude of array center, type: float, unit: deg
 * ``OBSGEO-B`` Geographic latitude of array center, type: float, unit: deg  
 * ``OBSGEO-H`` Altitude of array center above WGS84 reference ellipsoid, type: float, unit: m  
+
+
+.. note::
+    Up to including version 0.2 of this standard, 
+    the keywords ``GEOLON``, ``GEOLAT`` and ``ALTITUDE`` were used for
+    the observatory location.
   
 
 While it is possible in principle to change this for each FITS file,
