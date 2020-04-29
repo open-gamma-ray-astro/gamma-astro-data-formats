@@ -9,6 +9,9 @@
 Data formats for gamma-ray astronomy
 ====================================
 
+.. image:: https://licensebuttons.net/l/by/4.0/88x31.png
+    :target: https://creativecommons.org/licenses/by/4.0/
+
 A place to propose and share data format descriptions for gamma-ray astronomy.
 
 * Repository: https://github.com/open-gamma-ray-astro/gamma-astro-data-formats

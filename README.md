@@ -1,4 +1,4 @@
-# Data formats for gamma-ray astronomy [![Build Status](https://travis-ci.com/open-gamma-ray-astro/gamma-astro-data-formats.svg?branch=master)](https://travis-ci.com/open-gamma-ray-astro/gamma-astro-data-formats) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1409831.svg)](https://doi.org/10.5281/zenodo.1409831)
+# Data formats for gamma-ray astronomy [![CC-BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/) [![Build Status](https://travis-ci.com/open-gamma-ray-astro/gamma-astro-data-formats.svg?branch=master)](https://travis-ci.com/open-gamma-ray-astro/gamma-astro-data-formats) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1409831.svg)](https://doi.org/10.5281/zenodo.1409831)
 
 A place to propose and share data format descriptions for gamma-ray astronomy.
 
