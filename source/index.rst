@@ -3,8 +3,8 @@
 
 .. CAUTION::
     This is a Work-In-Progress draft for the next iteration of the standard.
-    To view the current version of the standard,
-    visit  https://gamma-astro-data-formats.readthedocs.io/
+    To view the latest released version of the standard,
+    visit https://gamma-astro-data-formats.readthedocs.io/en/v0.2/
 
 Data formats for gamma-ray astronomy
 ====================================
