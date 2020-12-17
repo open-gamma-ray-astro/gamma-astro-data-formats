@@ -2,8 +2,8 @@
 
 .. _iact-irf:
 
-IACT IRFs
-=========
+IRFs
+====
 
 The instrument response function (IRF) format currently in use
 for imaging atmospheric Cherenkov telescopes (IACTs) are stored in FITS
