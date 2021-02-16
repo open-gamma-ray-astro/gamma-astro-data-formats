@@ -9,6 +9,7 @@ Sky Maps
               
    healpix/index
    wcs/index
+   region/index
 
 This page describes data formats for data structures representing
 images in celestial coordinates.  A sky map may have one or more
@@ -20,6 +21,9 @@ following sub-pages:
 * :ref:`healpix_skymap`
   
 * :ref:`wcs_skymap`
+
+* :ref:`region_skymap`
+
 
 Both pixelization formats store the data in a single IMAGE HDU which
 can be either an ImageHDU or BinTableHDU depending on the image
@@ -84,7 +88,15 @@ Header Keywords
       lower and upper edges of each bin.  If there is a single element
       the column should be interpreted as the bin center.  For
       ``EBOUNDS`` or ``ENERGIES`` HDUs this keyword is optional.
-  
+
+* ``INTERP{IDX}``, type: string, **optional**
+    * Specify how the non-spatial bins are spaced and recommended to be interpolated.
+      Possible values are:
+        * ``"lin"``: linear spacing e.g. used for time or offset axes
+        * ``"log"``: logarithimic spacing e.g. used for energy axes
+        * ``"sqrt"``: square root spacing e.g. used for radial axes
+
+
 Columns
 ~~~~~~~
 
@@ -137,3 +149,10 @@ This section lists BANDS table columns specific to the :ref:`HEALPix map format 
       (``SPARSE``).
 
 
+Region Columns
+~~~~~~~~~~~~~~
+
+In the :ref:`Region map format <region_skymap>` the data is directly stored as an additional
+column:
+
+* ``DATA``, ndim: 1, type: float
