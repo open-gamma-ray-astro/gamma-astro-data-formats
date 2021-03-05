@@ -60,6 +60,8 @@ Optional columns
     * Reconstructed field of view offset angle (see :ref:`coords-fov`).
 * ``PHI`` type: float, unit: deg
     * Reconstructed field of view position angle (see :ref:`coords-fov`).
+* ``GAMMANESS`` type: float
+    * Classification score of a signal / background separation. SHOULD be between 0 and 1, with higher values indicating larger confidence that the event was produced by a gamma ray.
 * ``DIR_ERR`` type: float, unit: deg
     * Direction error of reconstruction 
 * ``ENERGY_ERR`` type: float, unit: TeV
