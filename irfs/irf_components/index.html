@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IRF components &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="IRF axes" href="../irf_axes/index.html" />
+    <link rel="prev" title="IACT IRFs" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../events/index.html">IACT events</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">IACT IRFs</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">IRF components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#effective-area">Effective Area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#energy-dispersion">Energy Dispersion</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#transformation">Transformation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#point-spread-function">Point spread function</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#probability-distributions">Probability distributions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#normalisation">Normalisation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#background">Background</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../irf_axes/index.html">IRF axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../full_enclosure/index.html">Full-enclosure IRFs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../point_like/index.html">Point-like IRFs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../skymaps/index.html">Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spectra/index.html">Spectra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lightcurves/index.html">Light curves</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data formats for gamma-ray astronomy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">IACT IRFs</a> &raquo;</li>
+        
+      <li>IRF components</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/irfs/irf_components/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="irf-components">
+<span id="id1"></span><h1>IRF components<a class="headerlink" href="#irf-components" title="Permalink to this headline">¶</a></h1>
+<p>The IRF is made up of several components, described here:</p>
+<div class="section" id="effective-area">
+<span id="iact-aeff"></span><h2>Effective Area<a class="headerlink" href="#effective-area" title="Permalink to this headline">¶</a></h2>
+<p>Effective area combines the detection efficiency of an instrument
+with the observable area.
+It can be interpreted as the area a perfect detector directly measuring
+gamma rays would have.</p>
+<div class="math notranslate nohighlight">
+\[A_{\mathrm{eff}}(E, ...) = p(E, ...) \cdot A,\]</div>
+<p>with <span class="math notranslate nohighlight">\(A\)</span> the total observable area and <span class="math notranslate nohighlight">\(p(E, ...)\)</span> the detection
+probability for a gamma ray of a given energy and possibly other parameters,
+like the position in the field of view.</p>
+<p>Effective area has to be calculated from simulated events in a discretized manner.
+<span class="math notranslate nohighlight">\(p\)</span> is estimated in bins of the dependend variables by dividing the number
+of detected and reconstructed events by the number of all simulated events.
+Effective are in bin <span class="math notranslate nohighlight">\(i\)</span> is then</p>
+<div class="math notranslate nohighlight">
+\[A_{\mathrm{eff}, i} = \frac{N_{\mathrm{detected}, i}}{N_{\mathrm{simulated}, i}} \cdot A,\]</div>
+<p>Usually, <span class="math notranslate nohighlight">\(A\)</span> is the area in which the events were simulated,
+for CORSIKA simulations this will be <span class="math notranslate nohighlight">\(A = \pi R_{\mathrm{max}}^2\)</span>,
+with <span class="math notranslate nohighlight">\(R_{\mathrm{max}}\)</span> being the maximum scatter radius.</p>
+<p>Calculation of effective area can be done at several analysis steps,
+e.&amp;thinsp;g. after trigger, after image cleaning
+or most important for the DL3 event lists, after applying all event selection criteria,
+including gamma-hadron separation and for the case of point-like IRFs the <span class="math notranslate nohighlight">\(\theta^2\)</span> cut.</p>
+<p>As in general, there is no reconstructed energy for the undetected events,
+effective area can only be expressed in bins of the true simulated energy.</p>
+<p>The proposed effective area format follows mostly the <a class="reference external" href="https://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_019/cal_gen_92_019.html">OGIP effective area</a> format document.</p>
+<p>For the moment, the format for the effective area works to a satisfactory level.
+Nevertheless, for instance the energy threshold variation across the FoV is not
+taken into account. However, since the threshold definitions are currently
+non-unified an inclusion of this variation is still arbitrary and subject to
+analysis chain. In addition, this feature is currently not supported in current
+open source tools. We therefore keep the optional opportunity to add an
+individual extension listing the energy threshold varying across the FoV. This
+will likely be included in future releases.</p>
+</div>
+<div class="section" id="energy-dispersion">
+<span id="iact-edisp"></span><h2>Energy Dispersion<a class="headerlink" href="#energy-dispersion" title="Permalink to this headline">¶</a></h2>
+<p>The energy dispersion information is stored in a FITS file with one required
+extensions (HDU). The stored quantity is <span class="math notranslate nohighlight">\(\frac{dP}{d\mu}\)</span>, a PDF for the <strong>energy migration</strong></p>
+<div class="math notranslate nohighlight">
+\[\mu = \frac{E_{\mathrm{reco}}}{E_{\mathrm{true}}}\]</div>
+<p>as a function of true energy and offset. It should be normalized to unity, i.e.,</p>
+<div class="math notranslate nohighlight">
+\[\int_0^\infty \frac{dP}{d\mu}\,d\mu = 1\,.\]</div>
+<p>The migration range covered in the file must be large enough to make this possible
+(Suggestion: <span class="math notranslate nohighlight">\(0.2 &lt; \mu &lt; 5\)</span>)</p>
+<div class="section" id="transformation">
+<span id="edisp-trafo"></span><h3>Transformation<a class="headerlink" href="#transformation" title="Permalink to this headline">¶</a></h3>
+<p>For the purpose of some analysis, for example when extracting an
+<a class="reference internal" href="../../spectra/ogip/index.html#ogip-rmf"><span class="std std-ref">RMF</span></a>, it is necessary to calculate the detector response
+<span class="math notranslate nohighlight">\(R(I,J)\)</span>, i.e. the probability to find an energy from within a given true
+energy bin <em>I</em> of width <span class="math notranslate nohighlight">\(\Delta E_{\mathrm{true}}\)</span> within a certain
+reconstructed energy bin <em>J</em> of width <span class="math notranslate nohighlight">\(\Delta E_{\mathrm{reco}}\)</span>. In order
+to do so, the following integration has to be performed (for a fixed offset).</p>
+<div class="math notranslate nohighlight">
+\[R(I,J) = \frac{ \int_{\Delta E_{\mathrm{true}}} R(I,E_{\mathrm{true}})\ d E_{\mathrm{true}}}{\Delta E_{\mathrm{true}}},\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[R(I,E_{\mathrm{true}}) = \int_{\mu(\Delta E_{\mathrm{reco}})} \mathrm{PDF}(E_{\mathrm{true}}, \mu)\ d \mu\]</div>
+<p>is the probability to find a given true energy <span class="math notranslate nohighlight">\(E_{\mathrm{true}}\)</span> in the
+reconstructed energy band <em>J</em>.</p>
+</div>
+</div>
+<div class="section" id="point-spread-function">
+<span id="psf"></span><h2>Point spread function<a class="headerlink" href="#point-spread-function" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<span id="psf-intro"></span><h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>The point spread function (PSF) (<a class="reference external" href="https://en.wikipedia.org/wiki/Point_spread_function">Wikipedia - PSF</a>) represents the spatial probability
+distribution of reconstructed event positions for a point source.
+So far we’re only considering radially symmetric PSFs here.</p>
+</div>
+<div class="section" id="probability-distributions">
+<span id="psf-pdf"></span><h3>Probability distributions<a class="headerlink" href="#probability-distributions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(dP/d\Omega(r)\)</span>, where <span class="math notranslate nohighlight">\(dP\)</span> is the probability to find an event
+in a solid angle <span class="math notranslate nohighlight">\(d\Omega\)</span> at an offset <span class="math notranslate nohighlight">\(r\)</span> from the point source.
+This is the canonical form we use and the values we store in files.</p></li>
+<li><p>Often, when comparing observered event distributions with a PSF model,
+the <span class="math notranslate nohighlight">\(dP/dr^2\)</span> distributions in equal-width bins in <span class="math notranslate nohighlight">\(r^2\)</span> is
+used. The relation is <span class="math notranslate nohighlight">\(d\Omega = \pi dr^2\)</span>, i.e. <span class="math notranslate nohighlight">\(dP/d\Omega=(1/\pi)(dP/dr^2)\)</span>.</p></li>
+<li><p>Sometimes, the distribution <span class="math notranslate nohighlight">\(dP/dr(r)\)</span> is used.
+The relation is <span class="math notranslate nohighlight">\(dP/dr = 2 \pi r dP/d\Omega\)</span>.</p></li>
+</ul>
+<p>TODO: explain “encircled energy” = “encircled counts” = “cumulative” representation
+of PSF and define containment fraction and containment radius.</p>
+</div>
+<div class="section" id="normalisation">
+<h3>Normalisation<a class="headerlink" href="#normalisation" title="Permalink to this headline">¶</a></h3>
+<p>PSFs must be normalised to integrate to total probability 1, i.e.</p>
+<div class="math notranslate nohighlight">
+\[\int dP/d\Omega(r) d\Omega = 1\,.\]</div>
+<p>This implies that the PSF producer is responsible for choosing the Theta
+range and normalising. I.e. it’s OK to choose a theta range that contains
+only 95% of the PSF, and then the integral will be 0.95.</p>
+<p>We recommend everyone store PSFs so that truncation is completely negligible,
+i.e. the containment should be 99% or better for all of parameter space.</p>
+</div>
+<div class="section" id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Usually the PSF is derived from Monte Carlo simulations, but in principle
+it can be estimated from bright point sources (AGN) as well.</p></li>
+<li><p>Tools should assume the PSF is well-sampled and noise-free.
+I.e. if limited event statistics in the PSF computation is an issue,
+it is up to the PSF producer to denoise it to an acceptable level.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="background">
+<span id="bkg"></span><h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>One method of background modeling for IACTs is to construct spatial and / or
+spectral model templates of the irreducible cosmic ray background for a given
+reconstruction and gamma-hadron separation from <a class="reference internal" href="../../general/glossary.html#glossary-obs-off"><span class="std std-ref">Off Observation</span></a>. These
+templates can then be used as an ingredient to model the background in
+observations that contain gamma-ray emission of interest, or to compute the
+sensitivity for that set of cuts.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Generating background models requires the construction of several
+intermediate products (counts and livetime histograms, both filled by cutting
+out exclusion regions around sources like AGN) to arrive at the models
+containing an absolute rate described here. At this time we don’t specify a
+format for those intermediate formats.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Background models are sometimes considered an instrument response function
+(IRF) and sometimes not (e.g. when the background is estimated from different
+parts of the field of view for the same observation).</p>
+<p>Here we have the background format specifications listed under IRFs,
+simply because the storage format is very similar to the other IRFs
+(e.g. effective area) and we didn’t want to introduce a new top-level
+section besides IRFs.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../irf_axes/index.html" class="btn btn-neutral float-right" title="IRF axes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="IACT IRFs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Gamma-ray astronomy community
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

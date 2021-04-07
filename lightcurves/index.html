@@ -1,0 +1,232 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Light curves &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="1D counts spectra" href="../spectra/ogip/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">IACT events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../irfs/index.html">IACT IRFs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../skymaps/index.html">Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spectra/index.html">Spectra</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Light curves</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data formats for gamma-ray astronomy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Light curves</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/lightcurves/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="light-curves">
+<span id="lc"></span><h1>Light curves<a class="headerlink" href="#light-curves" title="Permalink to this headline">¶</a></h1>
+<p>For light-curves, we recommend to store the information in an as
+similar format as possible to the one for <a class="reference internal" href="../spectra/index.html#spectra"><span class="std std-ref">Spectra</span></a> and specifically <a class="reference internal" href="../spectra/flux_points/index.html#flux-points"><span class="std std-ref">SED</span></a>.</p>
+<p>For measurements at a given time, a <code class="docutils literal notranslate"><span class="pre">TIME</span></code> column should be added,
+for measurements for a given time interval, <code class="docutils literal notranslate"><span class="pre">TIME_MIN</span></code> and <code class="docutils literal notranslate"><span class="pre">TIME_MAX</span></code>
+columns should be added.</p>
+<p>As explained in <a class="reference internal" href="../general/time.html#time"><span class="std std-ref">Time</span></a>, times should be given as 64-bit floats,
+using the FITS time standard to specify a reference time point.
+Note that this allows some flexibility, and e.g. the commonly used
+“MJD values” for light curves are supported via these header keys:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MJDREFI</span> <span class="o">=</span>  <span class="mi">0</span>
+<span class="n">MJDREFF</span> <span class="o">=</span>  <span class="mi">0</span>
+<span class="n">TIMEUNIT</span><span class="o">=</span> <span class="s1">&#39;d&#39;</span>
+</pre></div>
+</div>
+<p>Light curve producers are highly encouraged to always give the <code class="docutils literal notranslate"><span class="pre">TIMESYS</span></code>.
+For archival data this is often not given, and it’s unclear if the times
+are e.g. in the <code class="docutils literal notranslate"><span class="pre">UTC</span></code> or <code class="docutils literal notranslate"><span class="pre">TT</span></code> or some other <code class="docutils literal notranslate"><span class="pre">TIMESYS</span></code>.</p>
+<p>This is a very preliminary description, based on the discussion here:
+<a class="reference external" href="https://github.com/open-gamma-ray-astro/gamma-astro-data-formats/pull/61">https://github.com/open-gamma-ray-astro/gamma-astro-data-formats/pull/61</a></p>
+<p>If someone has time to provide a more detailed description, and to produce
+example files in FITS or possibly also ECSV format, this would be highly welcome.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../spectra/ogip/index.html" class="btn btn-neutral float-left" title="1D counts spectra" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Gamma-ray astronomy community
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

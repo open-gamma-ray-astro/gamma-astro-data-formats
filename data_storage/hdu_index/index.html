@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>HDU index table &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Sky Maps" href="../../skymaps/index.html" />
+    <link rel="prev" title="Observation index table" href="../obs_index/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../events/index.html">IACT events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../irfs/index.html">IACT IRFs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">IACT data storage</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../obs_index/index.html">Observation index table</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">HDU index table</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#base-dir">BASE_DIR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#columns">Columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory-header-keywords">Mandatory Header keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hdu-type-and-hdu-class">HDU_TYPE and HDU_CLASS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#relation-to-hduclas">Relation to HDUCLAS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../skymaps/index.html">Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spectra/index.html">Spectra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lightcurves/index.html">Light curves</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data formats for gamma-ray astronomy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">IACT data storage</a> &raquo;</li>
+        
+      <li>HDU index table</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/data_storage/hdu_index/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hdu-index-table">
+<span id="hdu-index"></span><h1>HDU index table<a class="headerlink" href="#hdu-index-table" title="Permalink to this headline">¶</a></h1>
+<p>The HDU index table is stored in a FITS file as a BINTABLE HDU:</p>
+<ul class="simple">
+<li><p>Suggested filename: <code class="docutils literal notranslate"><span class="pre">hdu-index.fits.gz</span></code></p></li>
+<li><p>Suggested HDU name: <code class="docutils literal notranslate"><span class="pre">HDU_INDEX</span></code></p></li>
+</ul>
+<p>The HDU index table can be used to locate HDUs. E.g. for a given <code class="docutils literal notranslate"><span class="pre">OBS_ID</span></code> and
+(<code class="docutils literal notranslate"><span class="pre">HDU_TYPE</span></code> and / or <code class="docutils literal notranslate"><span class="pre">HDU_CLASS</span></code>), the HDU can be located via the
+information in the <code class="docutils literal notranslate"><span class="pre">FILE_DIR</span></code>, <code class="docutils literal notranslate"><span class="pre">FILE_NAME</span></code> and <code class="docutils literal notranslate"><span class="pre">HDU_NAME</span></code> columns. The
+path listed in <code class="docutils literal notranslate"><span class="pre">FILE_DIR</span></code> has to be relative to the location of the index
+file.</p>
+<div class="section" id="base-dir">
+<span id="hdu-index-base-dir"></span><h2>BASE_DIR<a class="headerlink" href="#base-dir" title="Permalink to this headline">¶</a></h2>
+<p>By default, file locations should be relative to the location of this HDU index
+file, i.e. the total file path is <code class="docutils literal notranslate"><span class="pre">PATH_INDEX_TABLE</span> <span class="pre">/</span> <span class="pre">FILE_DIR</span> <span class="pre">/</span> <span class="pre">FILE_NAME</span></code>.
+Tools are expected to support relative file paths in POSIX notation like
+<code class="docutils literal notranslate"><span class="pre">FILE_DIR</span> <span class="pre">=</span> <span class="pre">&quot;../../data/&quot;</span></code> as well as absolute file path like <code class="docutils literal notranslate"><span class="pre">FILE_DIR</span> <span class="pre">=</span>
+<span class="pre">&quot;/data/cta&quot;</span></code>.</p>
+<p>To allow for some additional flexibility, an optional header keyword
+<code class="docutils literal notranslate"><span class="pre">BASE_DIR</span></code> can be used. If it is given, the file path is <code class="docutils literal notranslate"><span class="pre">BASE_DIR</span> <span class="pre">/</span> <span class="pre">FILE_DIR</span>
+<span class="pre">/</span> <span class="pre">FILE_NAME</span></code>, i.e. the location of the HDU index table becomes irrelevant.</p>
+</div>
+<div class="section" id="columns">
+<span id="hdu-index-columns"></span><h2>Columns<a class="headerlink" href="#columns" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 60%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Column Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Data type</p></th>
+<th class="head"><p>Required?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">OBS_ID</span></code></p></td>
+<td><p>Observation ID (a.k.a. run number)</p></td>
+<td><p>int</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">HDU_TYPE</span></code></p></td>
+<td><p>HDU type (see below)</p></td>
+<td><p>string</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">HDU_CLASS</span></code></p></td>
+<td><p>HDU class (see below)</p></td>
+<td><p>string</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">FILE_DIR</span></code></p></td>
+<td><p>Directory of file (rel. to this file)</p></td>
+<td><p>string</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">FILE_NAME</span></code></p></td>
+<td><p>Name of file</p></td>
+<td><p>string</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">HDU_NAME</span></code></p></td>
+<td><p>Name of HDU in file</p></td>
+<td><p>string</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SIZE</span></code></p></td>
+<td><p>File size (bytes)</p></td>
+<td><p>int</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">MTIME</span></code></p></td>
+<td><p>Modification time</p></td>
+<td><p>double</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">MD5</span></code></p></td>
+<td><p>Checksum</p></td>
+<td><p>string</p></td>
+<td><p>no</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mandatory-header-keywords">
+<h2>Mandatory Header keywords<a class="headerlink" href="#mandatory-header-keywords" title="Permalink to this headline">¶</a></h2>
+<p>As explained in <a class="reference internal" href="../../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a>, the following header keyword should be used to
+declare the type of HDU (this HDU itself, the HDU index table):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUDOC</span></code>   = ‘<a class="reference external" href="https://github.com/open-gamma-ray-astro/gamma-astro-data-formats">https://github.com/open-gamma-ray-astro/gamma-astro-data-formats</a>’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUVERS</span></code>  = ‘0.2’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUCLASS</span></code> = ‘GADF’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUCLAS1</span></code> = ‘INDEX’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUCLAS2</span></code> = ‘HDU’</p></li>
+</ul>
+</div>
+<div class="section" id="hdu-type-and-hdu-class">
+<span id="hdu-type-class"></span><h2>HDU_TYPE and HDU_CLASS<a class="headerlink" href="#hdu-type-and-hdu-class" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">HDU_TYPE</span></code> and <code class="docutils literal notranslate"><span class="pre">HDU_CLASS</span></code> can be used to select the HDU of interest.</p>
+<p>The difference is that <code class="docutils literal notranslate"><span class="pre">HDU_TYPE</span></code> corresponds generally to e.g. PSF, whereas
+<code class="docutils literal notranslate"><span class="pre">HDU_CLASS</span></code> corresponds to a specific PSF format. Declaring <code class="docutils literal notranslate"><span class="pre">HDU_CLASS</span></code> here
+means that tools loading these files don’t have to do guesswork to infer the
+format on load.</p>
+<p>Valid <code class="docutils literal notranslate"><span class="pre">HDU_TYPE</span></code> values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">events</span></code> - Event list</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gti</span></code> - Good time interval</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aeff</span></code> - Effective area</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">psf</span></code> - Point spread function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edisp</span></code> - Energy dispersion</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bkg</span></code> - Background</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rad_max</span></code> - Directional cut for point-like IRFs</p></li>
+</ul>
+<p>Valid <code class="docutils literal notranslate"><span class="pre">HDU_CLASS</span></code> values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">events</span></code> - see format spec: <a class="reference internal" href="../../events/events.html#iact-events"><span class="std std-ref">EVENTS</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gti</span></code> - see format spec: <a class="reference internal" href="../../events/gti.html#iact-gti"><span class="std std-ref">GTI</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aeff_2d</span></code> - see format spec: <a class="reference internal" href="../../irfs/full_enclosure/aeff/index.html#aeff-2d"><span class="std std-ref">AEFF_2D</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edisp_2d</span></code> - see format spec: <a class="reference internal" href="../../irfs/full_enclosure/edisp/index.html#edisp-2d"><span class="std std-ref">EDISP_2D</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">psf_table</span></code> - see format spec: <a class="reference internal" href="../../irfs/full_enclosure/psf/psf_table/index.html#psf-table"><span class="std std-ref">PSF_TABLE</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">psf_3gauss</span></code> - see format spec: <a class="reference internal" href="../../irfs/full_enclosure/psf/psf_3gauss/index.html#psf-3gauss"><span class="std std-ref">PSF_3GAUSS</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">psf_king</span></code> - see format spec: <a class="reference internal" href="../../irfs/full_enclosure/psf/psf_king/index.html#psf-king"><span class="std std-ref">PSF_KING</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bkg_2d</span></code> - see format spec: <a class="reference internal" href="../../irfs/full_enclosure/bkg/index.html#bkg-2d"><span class="std std-ref">BKG_2D</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bkg_3d</span></code> - see format spec: <a class="reference internal" href="../../irfs/full_enclosure/bkg/index.html#bkg-3d"><span class="std std-ref">BKG_3D</span></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rad_max_2d</span></code> - see format spec: <a class="reference internal" href="../../irfs/point_like/index.html#rad-max-2d"><span class="std std-ref">RAD_MAX_2D</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="relation-to-hduclas">
+<h2>Relation to HDUCLAS<a class="headerlink" href="#relation-to-hduclas" title="Permalink to this headline">¶</a></h2>
+<p>At <a class="reference internal" href="../../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a> and throughout this spec, <code class="docutils literal notranslate"><span class="pre">HDUCLAS</span></code> header keys are defined
+as a declarative HDU classification scheme. This appears similar to this HDU
+index table, but in reality is different and incompatible!</p>
+<p>Here in the index table, we have <code class="docutils literal notranslate"><span class="pre">HDU_CLASS</span></code> and <code class="docutils literal notranslate"><span class="pre">HDU_TYPE</span></code>. In
+<a class="reference internal" href="../../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a>, there is <code class="docutils literal notranslate"><span class="pre">HDUCLASS</span></code> which is always “GADF” and then there is
+a hierarchical <code class="docutils literal notranslate"><span class="pre">HDUCLAS1</span></code>, <code class="docutils literal notranslate"><span class="pre">HDUCLAS2</span></code>, <code class="docutils literal notranslate"><span class="pre">HDUCLAS3</span></code> and <code class="docutils literal notranslate"><span class="pre">HDUCLAS4</span></code> that
+corresponds to the information in <code class="docutils literal notranslate"><span class="pre">HDU_CLASS</span></code> and <code class="docutils literal notranslate"><span class="pre">HDU_TYPE</span></code> here. Also the
+values are different: here we have lower-case and use e.g. <code class="docutils literal notranslate"><span class="pre">HDU_CLASS=&quot;aeff&quot;</span></code>,
+in <a class="reference internal" href="../../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a> we use upper-case and e.g. <code class="docutils literal notranslate"><span class="pre">HDUCLAS2=&quot;EFF_AREA&quot;</span></code></p>
+<p>One reason for these inconsistencies is that the spec for this HDU index table
+was written first (in 2015), and then <a class="reference internal" href="../../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a> was introduced later (in
+2017). Another reason is that here, we tried to be simple (flat, not
+hierarchical classification), and for <a class="reference internal" href="../../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a> we tried to follow an
+existing standard.</p>
+<p>Given that these index tables have been in use in the past years, and that we
+expect them to be replaced soon by a completely different way to locate and link
+IACT data HDUs, we decided to keep this format as-is, instead of trying to align
+it with <a class="reference internal" href="../../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a> and create some form of hierarchical index table.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../skymaps/index.html" class="btn btn-neutral float-right" title="Sky Maps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../obs_index/index.html" class="btn btn-neutral float-left" title="Observation index table" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Gamma-ray astronomy community
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

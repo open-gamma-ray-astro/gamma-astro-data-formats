@@ -1,0 +1,669 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SED &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Bin-by-bin Likelihood Profiles" href="../binned_likelihoods/index.html" />
+    <link rel="prev" title="Spectra" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../events/index.html">IACT events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../irfs/index.html">IACT IRFs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../skymaps/index.html">Sky Maps</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Spectra</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SED</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#normalization-representation">Normalization Representation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reference-model">Reference Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#likelihood-profiles">Likelihood Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sed-types">SED Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-files">Sample Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#header-keywords">Header Keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#columns">Columns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#energy-columns">Energy Columns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#normalization-columns">Normalization Columns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-columns">Error Columns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reference-model-columns">Reference Model Columns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#likelihood-columns">Likelihood Columns</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../binned_likelihoods/index.html">Bin-by-bin Likelihood Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ogip/index.html">1D counts spectra</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lightcurves/index.html">Light curves</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data formats for gamma-ray astronomy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Spectra</a> &raquo;</li>
+        
+      <li>SED</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/spectra/flux_points/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sed">
+<span id="flux-points"></span><h1>SED<a class="headerlink" href="#sed" title="Permalink to this headline">¶</a></h1>
+<p>The SED format is a flexible specification for representing
+one-dimensional spectra (distributions of amplitude vs. energy).  The
+SED is structured as a table with one row per energy bin/point and
+columns for the energy, measured normalization, and normalization
+errors.  The format supports both integral and differential
+representations of the normalization as described in
+<a class="reference internal" href="#norm-representations"><span class="std std-ref">Normalization Representation</span></a>.</p>
+<p>The list of supported columns is given in the <a class="reference internal" href="#sed-columns"><span class="std std-ref">Columns</span></a> section.
+All columns are optional by default, and an SED may contain any
+combination of the allowed columns.  <a class="reference internal" href="#sed-types"><span class="std std-ref">SED Types</span></a> are a
+specification for defining groups of columns that are required to be
+present in the file.  The <a class="reference internal" href="../binned_likelihoods/index.html#likelihood-sed"><span class="std std-ref">Likelihood SED</span></a> format is an example
+of an SED type that contains both measured flux points and the profile
+likelihoods versus normalization in each energy bin.</p>
+<p>The SED format does not enforce a specific set of units but units
+should be defined in the column metadata for all quantities with
+physical dimensions.  Recommended units are provided in the
+<a class="reference internal" href="#sed-columns"><span class="std std-ref">Columns</span></a> section to indicate the dimensionality of each
+column.  Column UCDs are intended for defining the type of physical
+quantity associated to each column (e.g. energy, photon flux, etc.).
+The convention for including UCDs in the column metdata is still under
+discussion and the UCDs defined in the current format are optional.</p>
+<p>The intended serialization format is a FITS BINTABLE with one row per
+energy bin.  However any serialization format that supports tabular
+data and column metadata could also be supported (e.g. ECSV or HDF5).
+Because the SED occupies a single HDU multiple SEDs can be written to
+a single FITS file with an identifier (e.g. source name or observation
+epoch) used as the HDU name.  Sample FITS and ECSV files are provided
+in <a class="reference internal" href="#sed-sample-files"><span class="std std-ref">Sample Files</span></a>.</p>
+<div class="section" id="normalization-representation">
+<span id="norm-representations"></span><h2>Normalization Representation<a class="headerlink" href="#normalization-representation" title="Permalink to this headline">¶</a></h2>
+<p>The SED format supports both differential and integral representations
+of the source normalization.  Integral representations correspond to
+quantities integrated over an energy bin as defined by the <code class="docutils literal notranslate"><span class="pre">e_min</span></code>
+and <code class="docutils literal notranslate"><span class="pre">e_max</span></code> columns.  Differential representations are quantities
+evaluated at a discrete energies defined by the <code class="docutils literal notranslate"><span class="pre">e_ref</span></code> column.  The
+supported <a class="reference internal" href="#norm-columns"><span class="std std-ref">Normalization Columns</span></a> are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dnde</span></code> : Differential photon flux at <code class="docutils literal notranslate"><span class="pre">e_ref</span></code>.
+Dimensionality: photons / (time * area * energy)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">e2dnde</span></code> : Defined as <code class="docutils literal notranslate"><span class="pre">(e_ref</span> <span class="pre">^</span> <span class="pre">2)</span> <span class="pre">*</span> <span class="pre">dnde</span></code>.
+A commonly published and plotted differential flux quantity.
+Dimensionality: energy / (time * area)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rate</span></code> : Photon rate between <code class="docutils literal notranslate"><span class="pre">e_min</span></code> and <code class="docutils literal notranslate"><span class="pre">e_max</span></code>.
+Dimensionality: photons / time.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flux</span></code> : Photon flux (integral of <code class="docutils literal notranslate"><span class="pre">dnde</span></code>) between <code class="docutils literal notranslate"><span class="pre">e_min</span></code> and
+<code class="docutils literal notranslate"><span class="pre">e_max</span></code>. Dimensionality: photons / ( time * area )</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eflux</span></code> : Energy flux (integral of E times <code class="docutils literal notranslate"><span class="pre">dnde</span></code>) between
+<code class="docutils literal notranslate"><span class="pre">e_min</span></code> and <code class="docutils literal notranslate"><span class="pre">e_max</span></code>. Dimensionality: energy / ( time * area )</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">npred</span></code> : Photon counts between <code class="docutils literal notranslate"><span class="pre">e_min</span></code> and <code class="docutils literal notranslate"><span class="pre">e_max</span></code>.
+Dimensionality: photons</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">norm</span></code> : Normalization in units of the reference model.
+Dimensionality: unitless</p></li>
+</ul>
+<p>An SED should contain at least one of the normalization
+representations listed above.  Multiple representations (e.g. <code class="docutils literal notranslate"><span class="pre">flux</span></code>
+and <code class="docutils literal notranslate"><span class="pre">dnde</span></code>) may be included in a single SED.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">dnde</span></code> and <code class="docutils literal notranslate"><span class="pre">e2dnde</span></code> representations are equivalent. We define
+both here, because both are in common use for publications and plots.</p>
+<p>Errors and upper limits on the normalization are defined with the
+<a class="reference internal" href="#error-columns"><span class="std std-ref">Error Columns</span></a> by appending the appropriate suffix to the
+normalization column name.  For example in the case of photon flux the
+error and upper limit columns are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">flux_err</span></code> : Symmetric 1-sigma error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flux_errp</span></code> : Asymmtric 1-sigma positive error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flux_errn</span></code> : Asymmtric 1-sigma negative error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flux_ul</span></code> : Upper limit with confidence level given by <code class="docutils literal notranslate"><span class="pre">UL_CONF</span></code>
+header keyword.</p></li>
+</ul>
+<p>A row may have a value and any combination of upper limits and errors:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>e_ref dnde dnde_err dnde_errp dnde_errn dnde_ul
+1000.0 1.0 0.1 0.1 0.1 1.16
+3000.0 1.0 0.1 0.1 0.1 1.16
+</pre></div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">nan</span></code> value should be used for empty or missing data such as a bin
+for which there is an upper limit but no value and vice versa, e.g.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>e_ref dnde dnde_err dnde_ul
+1000.0 1.0 0.1 nan
+3000.0 nan nan 1.16
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">is_ul</span></code> column is an optional boolean flag that can be used to
+designate whether the measurement in a given row should be interpreted
+as a two-sided confidence interval or an upper limit:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>e_ref dnde dnde_err dnde_ul is_ul
+1000.0 1.0 0.1 nan False
+3000.0 nan nan 1.16 True
+</pre></div>
+</div>
+<p>Setting UL values to <code class="docutils literal notranslate"><span class="pre">nan</span></code> is an implicit way of flagging rows that
+do not contain an upper limit.  When parsing an SED one should first
+check for the existence of the <code class="docutils literal notranslate"><span class="pre">is_ul</span></code> column and otherwise check
+for <code class="docutils literal notranslate"><span class="pre">nan</span></code> values in the UL column.  The <code class="docutils literal notranslate"><span class="pre">is_ul</span></code> column is only
+required if you want to explicitly flag ULs when both the UL and
+two-sided interval may be defined in a row.</p>
+</div>
+<div class="section" id="reference-model">
+<span id="ref-model"></span><h2>Reference Model<a class="headerlink" href="#reference-model" title="Permalink to this headline">¶</a></h2>
+<p>The <em>reference model</em> of an SED is the global parameterization that
+was used to extract the normalization in each energy bin.  The choice
+of reference model is relevant when considering models that
+are rapidly changing across a bin or when energy dispersion is large
+relative to the bin size.  The <a class="reference internal" href="#refmodel-columns"><span class="std std-ref">Reference Model Columns</span></a> define the
+reference model in different representations.  When an SED includes a
+reference model, the normalizations, errors, and upper limits can be
+given in the <code class="docutils literal notranslate"><span class="pre">norm</span></code> representation which is expressed in units of
+the reference model.  <code class="docutils literal notranslate"><span class="pre">norm</span></code> columns can be converted to another
+representation by performing an element-wise multiplication of the
+column with the <code class="docutils literal notranslate"><span class="pre">ref</span></code> column of the desired representation.</p>
+</div>
+<div class="section" id="likelihood-profiles">
+<span id="likelihood"></span><h2>Likelihood Profiles<a class="headerlink" href="#likelihood-profiles" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="#like-columns"><span class="std std-ref">Likelihood Columns</span></a> contain values of the model likelihood and
+likelihood profiles versus normalization.  Likelihood profiles provide
+additional information about the measurement uncertainty in each bin.
+A more detailed discussion of the motivation for SED likelihood
+profiles can be found in <a class="reference internal" href="../binned_likelihoods/index.html#likelihood-sed"><span class="std std-ref">Likelihood SED</span></a>.</p>
+</div>
+<div class="section" id="sed-types">
+<span id="id1"></span><h2>SED Types<a class="headerlink" href="#sed-types" title="Permalink to this headline">¶</a></h2>
+<p>By default all columns in the SED format are optional.  To facilitate
+interoperability of files produced by different packages/tools, the
+SED format defines an <em>SED Type</em> string which is set with the
+<code class="docutils literal notranslate"><span class="pre">SED_TYPE</span></code> header keyword.  The SED type defines a minimal set of
+columns that must be present in the SED.  The SED types and their
+required columns are given in the following list:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dnde</span></code>: <code class="docutils literal notranslate"><span class="pre">e_ref</span></code>, <code class="docutils literal notranslate"><span class="pre">dnde</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">e2dnde</span></code>: <code class="docutils literal notranslate"><span class="pre">e_ref</span></code>, <code class="docutils literal notranslate"><span class="pre">e2dnde</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flux</span></code>: <code class="docutils literal notranslate"><span class="pre">e_min</span></code>, <code class="docutils literal notranslate"><span class="pre">e_max</span></code>, <code class="docutils literal notranslate"><span class="pre">flux</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eflux</span></code>: <code class="docutils literal notranslate"><span class="pre">e_min</span></code>, <code class="docutils literal notranslate"><span class="pre">e_max</span></code>, <code class="docutils literal notranslate"><span class="pre">eflux</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">likelihood</span></code>: See <a class="reference internal" href="../binned_likelihoods/index.html#likelihood-sed"><span class="std std-ref">Likelihood SED</span></a>.</p></li>
+</ul>
+</div>
+<div class="section" id="sample-files">
+<span id="sed-sample-files"></span><h2>Sample Files<a class="headerlink" href="#sample-files" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Differential Flux Points: <a class="reference download internal" download="" href="../../_downloads/9881ea70e882ff9781de7750d8908840/diff_flux_points.fits"><code class="xref download docutils literal notranslate"><span class="pre">FITS</span></code></a> <a class="reference download internal" download="" href="../../_downloads/08d04f2201c6def74e861c0bd38b0b3d/diff_flux_points.ecsv"><code class="xref download docutils literal notranslate"><span class="pre">ECSV</span></code></a> <a class="reference download internal" download="" href="../../_downloads/c49928eb01712b187b304dfd4be7b7be/diff_flux_points.h5"><code class="xref download docutils literal notranslate"><span class="pre">H5</span></code></a></p></li>
+<li><p>Integral Flux Points: <a class="reference download internal" download="" href="../../_downloads/46294be60232cd0b6a316738109013eb/flux_points.fits"><code class="xref download docutils literal notranslate"><span class="pre">FITS</span></code></a> <a class="reference download internal" download="" href="../../_downloads/01aa12113937ca99cc5f76678cb12268/flux_points.ecsv"><code class="xref download docutils literal notranslate"><span class="pre">ECSV</span></code></a> <a class="reference download internal" download="" href="../../_downloads/836697a774781ed922f3b33b971e57f9/flux_points.h5"><code class="xref download docutils literal notranslate"><span class="pre">H5</span></code></a></p></li>
+<li><p>Likelihood SED: <a class="reference download internal" download="" href="../../_downloads/268ac9e4d794763b33f3d6f77f3ca213/binlike.fits"><code class="xref download docutils literal notranslate"><span class="pre">FITS</span></code></a> <a class="reference download internal" download="" href="../../_downloads/4e0cd6e7d5726316b6b36f5d6f911b17/binlike.h5"><code class="xref download docutils literal notranslate"><span class="pre">H5</span></code></a></p></li>
+<li><p>H.E.S.S. 1ES0229 Spectrum: <a class="reference download internal" download="" href="../../_downloads/33d9d3eb135f541592da9f000db7057a/1es0229_hess_spectrum.fits"><code class="xref download docutils literal notranslate"><span class="pre">FITS</span></code></a> <a class="reference download internal" download="" href="../../_downloads/c0352b1d41411ef2b16faa035fd6fb3d/1es0229_hess_spectrum.ecsv"><code class="xref download docutils literal notranslate"><span class="pre">ECSV</span></code></a></p></li>
+</ul>
+</div>
+<div class="section" id="header-keywords">
+<h2>Header Keywords<a class="headerlink" href="#header-keywords" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">UL_CONF</span></code>, <strong>optional</strong></dt><dd><ul>
+<li><p>Confidence level of the upper limit (range: 0 to 1) of the value in the <code class="docutils literal notranslate"><span class="pre">{NORM_REP}_ul</span></code> column.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">SED_TYPE</span></code>, <strong>optional</strong></dt><dd><ul>
+<li><p>SED type string (see <a class="reference internal" href="#sed-types"><span class="std std-ref">SED Types</span></a> for more details).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="columns">
+<span id="sed-columns"></span><h2>Columns<a class="headerlink" href="#columns" title="Permalink to this headline">¶</a></h2>
+<p>This sections lists the column specifications.  Unless otherwise
+specified the data type of all columns should be float32 or float64.</p>
+<div class="section" id="energy-columns">
+<span id="id2"></span><h3>Energy Columns<a class="headerlink" href="#energy-columns" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">e_min</span></code> – ndim: 1, unit: MeV</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>ucd : <code class="docutils literal notranslate"><span class="pre">em.energy</span></code></p></li>
+<li><p>Lower edge of energy bin.  This defines the lower integration
+bound for integral representations of the normalization.  Can
+also define the energy band used to evaluate differential
+representations (<code class="docutils literal notranslate"><span class="pre">dnde</span></code> or <code class="docutils literal notranslate"><span class="pre">e2dnde</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">e_max</span></code> – ndim: 1, unit: MeV</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>ucd : <code class="docutils literal notranslate"><span class="pre">em.energy</span></code></p></li>
+<li><p>Upper edge of energy bin.  This defines the upper integration
+bound for integral representations of the normalization.  Can
+also define the energy band used to evaluate differential
+representations (<code class="docutils literal notranslate"><span class="pre">dnde</span></code> or <code class="docutils literal notranslate"><span class="pre">e2dnde</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">e_ref</span></code> – ndim: 1, unit: MeV</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>ucd : <code class="docutils literal notranslate"><span class="pre">em.energy</span></code></p></li>
+<li><p>Energy at which differential representations of the normalization
+are evaluated (e.g. <code class="docutils literal notranslate"><span class="pre">dnde</span></code>).  This can be the geometric center
+of the bin or some weighted average of the energy distribution
+within the bin.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="normalization-columns">
+<span id="norm-columns"></span><h3>Normalization Columns<a class="headerlink" href="#normalization-columns" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">norm</span></code> – ndim: 1, unit: None</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Measured normalization in units of the reference model.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">dnde</span></code> – ndim: 1, unit: 1 / (cm2 s MeV)</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>ucd : <code class="docutils literal notranslate"><span class="pre">phot.flux.density</span></code></p></li>
+<li><p>Measured differential photon flux at <code class="docutils literal notranslate"><span class="pre">e_ref</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">e2dnde</span></code> – ndim: 1, unit: MeV / (cm2 s)</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>ucd : <code class="docutils literal notranslate"><span class="pre">phot.flux.density</span></code></p></li>
+<li><p>Measured differential photon flux at <code class="docutils literal notranslate"><span class="pre">e_ref</span></code>, multiplied with <code class="docutils literal notranslate"><span class="pre">e_ref</span> <span class="pre">^</span> <span class="pre">2</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">flux</span></code> – ndim: 1, unit: 1 / (cm2 s)</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>ucd : <code class="docutils literal notranslate"><span class="pre">phot.count</span></code></p></li>
+<li><p>Measured photon flux between <code class="docutils literal notranslate"><span class="pre">e_min</span></code> and <code class="docutils literal notranslate"><span class="pre">e_max</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">eflux</span></code> – ndim: 1, unit: MeV / (cm2 s)</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>ucd : <code class="docutils literal notranslate"><span class="pre">phot.flux</span></code></p></li>
+<li><p>Measured energy flux between <code class="docutils literal notranslate"><span class="pre">e_min</span></code> and <code class="docutils literal notranslate"><span class="pre">e_max</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">npred</span></code> – ndim: 1</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Measured counts between <code class="docutils literal notranslate"><span class="pre">e_min</span></code> and <code class="docutils literal notranslate"><span class="pre">e_max</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="error-columns">
+<span id="id3"></span><h3>Error Columns<a class="headerlink" href="#error-columns" title="Permalink to this headline">¶</a></h3>
+<p>The error columns define the error and upper limit for a given
+representation of the normalization.  In the following column
+specifications <code class="docutils literal notranslate"><span class="pre">{NORM_REP}</span></code> indicates a placeholder for the name of
+the normalization column (e.g. <code class="docutils literal notranslate"><span class="pre">flux_err</span></code>).</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">{NORM_REP}_err</span></code> – ndim: 1</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Symmetric error on the normalization in the representation
+<code class="docutils literal notranslate"><span class="pre">{NORM_REP}</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">{NORM_REP}_errp</span></code> – ndim: 1</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Positive error on the normalization in the representation
+<code class="docutils literal notranslate"><span class="pre">{NORM_REP}</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">{NORM_REP}_errn</span></code> – ndim: 1</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Negative error on the normalization in the representation
+<code class="docutils literal notranslate"><span class="pre">{NORM_REP}</span></code>.  A negative or NaN value indicates that the
+negative error is undefined.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">{NORM_REP}_ul</span></code> – ndim: 1</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Upper limit on the normalization in the representation
+<code class="docutils literal notranslate"><span class="pre">{NORM_REP}</span></code>.  The upper limit confidence level is specified
+with the <code class="docutils literal notranslate"><span class="pre">UL_CONF</span></code> header keyword.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">is_ul</span></code> – ndim: 1, type: bool</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Boolean flag indicating whether a row should be interpreted as
+an upper limit.  If <code class="docutils literal notranslate"><span class="pre">True</span></code> then one should represent the
+measurement with the one-sided confidence interval defined by
+<code class="docutils literal notranslate"><span class="pre">{NORM_REP}_ul</span></code>.  If <code class="docutils literal notranslate"><span class="pre">False</span></code> then the measurement should be
+represented by the two-sided intervals defined by
+<code class="docutils literal notranslate"><span class="pre">{NORM_REP}_err</span></code> or <code class="docutils literal notranslate"><span class="pre">{NORM_REP}_errp</span></code> and
+<code class="docutils literal notranslate"><span class="pre">{NORM_REP}_errn</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="reference-model-columns">
+<span id="refmodel-columns"></span><h3>Reference Model Columns<a class="headerlink" href="#reference-model-columns" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ref_dnde</span></code> – ndim: 1, unit: 1 / (MeV cm2 s)</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Differential flux of reference model at the <code class="docutils literal notranslate"><span class="pre">e_ref</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ref_eflux</span></code> – ndim: 1, unit: MeV / (cm2 s)</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Energy flux (integral of E times <code class="docutils literal notranslate"><span class="pre">dnde</span></code>) of reference model
+from <code class="docutils literal notranslate"><span class="pre">e_min</span></code> to <code class="docutils literal notranslate"><span class="pre">e_max</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ref_flux</span></code> – ndim: 1, unit: 1 / (cm2 s)</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Flux (integral of <code class="docutils literal notranslate"><span class="pre">dnde</span></code>) of reference model from <code class="docutils literal notranslate"><span class="pre">e_min</span></code> to <code class="docutils literal notranslate"><span class="pre">e_max</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ref_dnde_e_min</span></code> – ndim: 1, unit: 1 / (MeV cm2 s)</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Differential flux of reference model at <code class="docutils literal notranslate"><span class="pre">e_min</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ref_dnde_e_max</span></code> – ndim: 1, unit: 1 / (MeV cm2 s)</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Differential flux of reference model at <code class="docutils literal notranslate"><span class="pre">e_max</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ref_npred</span></code> – ndim: 1, unit: counts</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Number of photon counts of reference model.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="likelihood-columns">
+<span id="like-columns"></span><h3>Likelihood Columns<a class="headerlink" href="#likelihood-columns" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ts</span></code> – ndim: 1, unit: none</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Source test statistic in each energy bin defined as twice the
+difference between best-fit and null log-likelihood values.  In the
+asymptotic limit this is square of the significance.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">loglike</span></code> – ndim: 1, unit: none</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Log-Likelihood value of the best-fit model.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">loglike_null</span></code> – ndim: 1, unit: none</dt><dd><ul>
+<li><p>Dimension: nebins</p></li>
+<li><p>Log-Likelihood value of the zero normalization model.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">{NORM_REP}_scan</span></code> – ndim: 2, unit: None</dt><dd><ul>
+<li><p>Dimension: nebins x nnorms</p></li>
+<li><p>Likelihood scan points in each energy bin in the representation
+<code class="docutils literal notranslate"><span class="pre">{NORM_REP}</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">dloglike_scan</span></code> – ndim: 2, unit: none</dt><dd><ul>
+<li><p>Dimension: nebins x nnorms</p></li>
+<li><p>Scan over delta LogLikelihood value vs. normalization in each
+energy bin.  The Delta-Loglikelihood is evaluated with respect
+to the zero normalization model (<code class="docutils literal notranslate"><span class="pre">loglike_null</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../binned_likelihoods/index.html" class="btn btn-neutral float-right" title="Bin-by-bin Likelihood Profiles" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Spectra" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Gamma-ray astronomy community
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,592 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Observation index table &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="HDU index table" href="../hdu_index/index.html" />
+    <link rel="prev" title="IACT data storage" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../events/index.html">IACT events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../irfs/index.html">IACT IRFs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">IACT data storage</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Observation index table</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#required-columns">Required columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-columns">Optional columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory-header-keywords">Mandatory Header keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hdu_index/index.html">HDU index table</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../skymaps/index.html">Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spectra/index.html">Spectra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lightcurves/index.html">Light curves</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data formats for gamma-ray astronomy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">IACT data storage</a> &raquo;</li>
+        
+      <li>Observation index table</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/data_storage/obs_index/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="observation-index-table">
+<span id="obs-index"></span><h1>Observation index table<a class="headerlink" href="#observation-index-table" title="Permalink to this headline">¶</a></h1>
+<p>The observation index table is stored in a FITS file as a BINTABLE HDU:</p>
+<ul class="simple">
+<li><p>Suggested filename: <code class="docutils literal notranslate"><span class="pre">obs-index.fits.gz</span></code></p></li>
+<li><p>Suggested HDU name: <code class="docutils literal notranslate"><span class="pre">OBS_INDEX</span></code></p></li>
+</ul>
+<p>It contains one row per observation (a.k.a. run) and lists parameters that are
+commonly used for observation selection, grouping and analysis.</p>
+<div class="section" id="required-columns">
+<span id="obs-index-required-columns"></span><h2>Required columns<a class="headerlink" href="#required-columns" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">OBS_ID</span></code> type: int</dt><dd><ul>
+<li><p>Unique observation identifier (Run number)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RA_PNT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Obsevation pointing right ascension (see <a class="reference internal" href="../../general/coordinates.html#coords-radec"><span class="std std-ref">RA / DEC</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DEC_PNT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Observation pointing declination (see <a class="reference internal" href="../../general/coordinates.html#coords-radec"><span class="std std-ref">RA / DEC</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TSTART</span></code> type: float, unit: s</dt><dd><ul>
+<li><p>Start time of observation relative to the reference time (see <a class="reference internal" href="../../general/time.html#time"><span class="std std-ref">Time</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TSTOP</span></code> type: float, unit: s</dt><dd><ul>
+<li><p>End time of observation relative to the reference time (see <a class="reference internal" href="../../general/time.html#time"><span class="std std-ref">Time</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="optional-columns">
+<span id="obs-index-optional-columns"></span><h2>Optional columns<a class="headerlink" href="#optional-columns" title="Permalink to this headline">¶</a></h2>
+<p>The following columns are optional. They are sometimes used for observation
+selection or data quality checks or analysis, but aren’t needed for most users.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ZEN_PNT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Observation pointing zenith angle at observation mid-time <code class="docutils literal notranslate"><span class="pre">TMID</span></code> (see <a class="reference internal" href="../../general/coordinates.html#coords-altaz"><span class="std std-ref">Alt / Az</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ALT_PNT</span></code> float, deg</dt><dd><ul>
+<li><p>Observation pointing altitude at observation mid-time <code class="docutils literal notranslate"><span class="pre">TMID</span></code> (see <a class="reference internal" href="../../general/coordinates.html#coords-altaz"><span class="std std-ref">Alt / Az</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">AZ_PNT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Observation pointing azimuth at observation mid-time <code class="docutils literal notranslate"><span class="pre">TMID</span></code> (see <a class="reference internal" href="../../general/coordinates.html#coords-altaz"><span class="std std-ref">Alt / Az</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ONTIME</span></code> type: float, unit: s</dt><dd><ul>
+<li><p>Total observation time (including dead time).</p></li>
+<li><p>Equals <code class="docutils literal notranslate"><span class="pre">TSTOP</span></code> - <code class="docutils literal notranslate"><span class="pre">TSTART</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">LIVETIME</span></code> type: float, unit: s</dt><dd><ul>
+<li><p>Total livetime (observation minus dead time)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DEADC</span></code> type: float</dt><dd><ul>
+<li><p>Dead time correction.</p></li>
+<li><p>It is defined such that <code class="docutils literal notranslate"><span class="pre">LIVETIME</span></code> = <code class="docutils literal notranslate"><span class="pre">DEADC</span></code> * <code class="docutils literal notranslate"><span class="pre">ONTIME</span></code>
+i.e. the fraction of time the telescope was actually able to take data.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DATE-OBS</span></code> type: string</dt><dd><ul>
+<li><p>Observation start date (see <a class="reference internal" href="../../general/time.html#time"><span class="std std-ref">Time</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TIME-OBS</span></code> type: string</dt><dd><ul>
+<li><p>Observation start time (see <a class="reference internal" href="../../general/time.html#time"><span class="std std-ref">Time</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DATE-END</span></code> type: string</dt><dd><ul>
+<li><p>Observation end date (see <a class="reference internal" href="../../general/time.html#time"><span class="std std-ref">Time</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TIME-END</span></code> type: string</dt><dd><ul>
+<li><p>Observation end time (see <a class="reference internal" href="../../general/time.html#time"><span class="std std-ref">Time</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">N_TELS</span></code> type: int</dt><dd><ul>
+<li><p>Number of participating telescopes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TELLIST</span></code> type: string</dt><dd><ul>
+<li><p>Telescope IDs (e.g. ‘1,2,3,4’)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">QUALITY</span></code> type: int</dt><dd><ul>
+<li><dl class="simple">
+<dt>Observation data quality. The following levels of data quality are defined:</dt><dd><ul>
+<li><p>-1 = unknown quality</p></li>
+<li><p>0 = best quality, suitable for spectral analysis.</p></li>
+<li><p>1 = medium quality, suitable for detection, but not spectra (typically if the atmosphere was hazy).</p></li>
+<li><p>2 = bad quality, usually not to be used for analysis.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">OBJECT</span></code> type: string</dt><dd><ul>
+<li><p>Primary target of the observation</p></li>
+<li><dl class="simple">
+<dt>Recommendations:</dt><dd><ul>
+<li><p>Use a name that can be resolved by <a class="reference external" href="http://cds.u-strasbg.fr/cgi-bin/Sesame">SESAME</a></p></li>
+<li><p>For survey observations, use “survey”.</p></li>
+<li><p>For <a class="reference internal" href="../../general/glossary.html#glossary-obs-off"><span class="std std-ref">Off Observation</span></a>, use “off observation”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">GLON_PNT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Observation pointing Galactic longitude (see <a class="reference internal" href="../../general/coordinates.html#coords-galactic"><span class="std std-ref">Galactic</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">GLAT_PNT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Observation pointing Galactic latitude (see <a class="reference internal" href="../../general/coordinates.html#coords-galactic"><span class="std std-ref">Galactic</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RA_OBJ</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Right ascension of <code class="docutils literal notranslate"><span class="pre">OBJECT</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DEC_OBJ</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Declination of <code class="docutils literal notranslate"><span class="pre">OBJECT</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TMID</span></code> type: float, unit: s</dt><dd><ul>
+<li><p>Mid time of observation relative to the reference time</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TMID_STR</span></code> type: string</dt><dd><ul>
+<li><p>Mid time of observation in UTC string format: “YYYY-MM-DD HH:MM:SS”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">EVENT_COUNT</span></code> type: int</dt><dd><ul>
+<li><p>Number of events in run</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">EVENT_RA_MEDIAN</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Median right ascension of events</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">EVENT_DEC_MEDIAN</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Median declination of events</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">EVENT_ENERGY_MEDIAN</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Median energy of events</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">EVENT_TIME_MIN</span></code> type: double, unit: s</dt><dd><ul>
+<li><p>First event time</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">EVENT_TIME_MAX</span></code> type: double, unit: s</dt><dd><ul>
+<li><p>Last event time</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BKG_SCALE</span></code> type: float</dt><dd><ul>
+<li><p>Observation-dependent background scaling factor. See notes below.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TRGRATE</span></code> type: float, unit: Hz</dt><dd><ul>
+<li><p>Mean system trigger rate</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ZTRGRATE</span></code> type: float, unit: Hz</dt><dd><ul>
+<li><p>Zenith equivalent mean system trigger rate</p></li>
+<li><p>Some HESS chains export this at the moment and this quantity can be useful
+for data selection. Comparing values from different chains or other
+telescopes would require a more specific specification.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">MUONEFF</span></code> type: float</dt><dd><ul>
+<li><p>Mean muon efficiency</p></li>
+<li><p>Currently use definitions from analysis chain, since creating a unified
+specification is tricky.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BROKPIX</span></code> type: float</dt><dd><ul>
+<li><p>Fraction of broken pixels (0.15 means 15% broken pixels)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">AIRTEMP</span></code> type: float, unit: deg C</dt><dd><ul>
+<li><p>Mean air temperature at ground during the observation.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">PRESSURE</span></code> type: float, unit: hPa</dt><dd><ul>
+<li><p>Mean air pressure at ground during the observation.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">NSBLEVEL</span></code> type: float, unit: a.u.</dt><dd><ul>
+<li><p>Measure for NSB level</p></li>
+<li><p>Some HESS chains export this at the moment and this quantity can be useful
+for data selection. Comparing values from different chains or other
+telescopes would require a more specific specification.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RELHUM</span></code> type: float</dt><dd><ul>
+<li><p>Relative humidity</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Relative_humidity">Definition</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="mandatory-header-keywords">
+<h2>Mandatory Header keywords<a class="headerlink" href="#mandatory-header-keywords" title="Permalink to this headline">¶</a></h2>
+<p>The standard FITS reference time header keywords should be used (see <a class="reference internal" href="../../general/time.html#time-formats"><span class="std std-ref">Formats</span></a>).
+An observatory Earth location should be given as well (see <a class="reference internal" href="../../general/coordinates.html#coords-location"><span class="std std-ref">Earth location</span></a>).</p>
+<p>As explained in <a class="reference internal" href="../../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a>, the following header keyword should be used to
+declare the type of HDU:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUDOC</span></code>   = ‘<a class="reference external" href="https://github.com/open-gamma-ray-astro/gamma-astro-data-formats">https://github.com/open-gamma-ray-astro/gamma-astro-data-formats</a>’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUVERS</span></code>  = ‘0.2’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUCLASS</span></code> = ‘GADF’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUCLAS1</span></code> = ‘INDEX’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUCLAS2</span></code> = ‘OBS’</p></li>
+</ul>
+</div>
+<div class="section" id="notes">
+<span id="obs-index-notes"></span><h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Observation runs where the telescopes don’t point to a fixed RA / DEC position
+(e.g. drift scan runs) aren’t supported at the moment by this format.</p></li>
+<li><p>Purpose / definition of <code class="docutils literal notranslate"><span class="pre">BKG_SCALE</span></code>:
+For a 3D likelihood analysis a good estimate of the background is important.
+The run-by-run varation of the background rate is ~20%. The main reasons are
+the changing atmospheric conditions. This parameter allows to specify (from
+separate studies) a scaling factor to the <a class="reference internal" href="../../irfs/irf_components/index.html#bkg"><span class="std std-ref">Background</span></a> This factor comes e.g.
+from the analysis of off runs. The background normalisation usually dependends
+on e.g. the number of events in a run, the zenith angle and other parameters.
+This parameter provides the possibility to give the user a better prediction
+of the background normalisation. For CTA this might be induced from
+atmospheric monitoring and additional diagnostic input. For HESS we try to
+find a trend in the off run background normalisations and other parameters
+such as number of events per unit livetime. The background scale should be
+around 1.0 if the background model is good. This number should also be set to
+1.0 if no dependency analysis has been performed. If the background model
+normalisation is off by a few orders of magnitude for some reasons, this can
+also be incorporated here.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../hdu_index/index.html" class="btn btn-neutral float-right" title="HDU index table" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="IACT data storage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Gamma-ray astronomy community
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

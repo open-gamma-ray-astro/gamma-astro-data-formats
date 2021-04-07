@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1D counts spectra &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Light curves" href="../../lightcurves/index.html" />
+    <link rel="prev" title="Bin-by-bin Likelihood Profiles" href="../binned_likelihoods/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../events/index.html">IACT events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../irfs/index.html">IACT IRFs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../skymaps/index.html">Sky Maps</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Spectra</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../flux_points/index.html">SED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../binned_likelihoods/index.html">Bin-by-bin Likelihood Profiles</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1D counts spectra</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pha">PHA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bkg">BKG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arf">ARF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rmf">RMF</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lightcurves/index.html">Light curves</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data formats for gamma-ray astronomy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Spectra</a> &raquo;</li>
+        
+      <li>1D counts spectra</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/spectra/ogip/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="d-counts-spectra">
+<span id="ogip"></span><h1>1D counts spectra<a class="headerlink" href="#d-counts-spectra" title="Permalink to this headline">¶</a></h1>
+<p>This section describes a data format for 1D counts spectra and associated
+reduced responses (ARF and RMF) that has been used for decades in X-ray astronomy,
+and is also used in VHE gamma-ray astronomy.</p>
+<p>The <a class="reference internal" href="../../events/events.html#iact-events"><span class="std std-ref">EVENTS</span></a> and 2D <a class="reference internal" href="../../irfs/index.html#iact-irf"><span class="std std-ref">IACT IRFs</span></a> can be transformed into a 1D
+counts vector and 1D IRFs that can serve as input to general X-ray spectral
+analysis packages such as <a class="reference external" href="http://cxc.harvard.edu/sherpa/">Sherpa</a>. For an introduction to this so-called OGIP
+data format please refer to the official <a class="reference external" href="https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/spectra/ogip_92_007/ogip_92_007.html">Documentation</a>
+on <a class="reference internal" href="../../general/glossary.html#glossary-heasarc"><span class="std std-ref">HEASARC</span></a>.</p>
+<p>The following section only highlight differences and modifications made to the
+OGIP standard in order to meet the requirements of gamma-astronomy.</p>
+<div class="section" id="pha">
+<span id="ogip-pha"></span><h2>PHA<a class="headerlink" href="#pha" title="Permalink to this headline">¶</a></h2>
+<p>The OGIP standard PHA file format is described <a class="reference external" href="https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/spectra/ogip_92_007/node5.html">here</a>.</p>
+<p>TODO: Should an EBOUNDS extension be added to the PHA file (channels -&gt; energy)?
+In OGIP this info has to be extraced from the RMF file.</p>
+<p>The values of following header keywords need some attention when using them for
+<a class="reference internal" href="../../general/glossary.html#glossary-iact"><span class="std std-ref">IACT</span></a> analysis.</p>
+<ul>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">BACKSCAL</span></code></dt><dd><ul>
+<li><p>For now it is assumed that exposure ration between signal and background counts does not depend on energy, thus this keyword must be set</p></li>
+<li><p>The BACKSCAL keywords in the PHA and the BKG file must be set so that</p>
+<div class="math notranslate nohighlight">
+\[\alpha = \frac{\mathrm{PHA}_{\mathrm{backscal}}}{\mathrm{BKG}_{\mathrm{backscal}}}\]</div>
+</li>
+<li><p>It is recommended to set the <code class="docutils literal notranslate"><span class="pre">BACKSCAL</span></code> keyword to 1 in the PHA file and to <span class="math notranslate nohighlight">\(1/\alpha\)</span> in the BKG file</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Additional header keyword that can be stored in the PHA header for
+<a class="reference internal" href="../../general/glossary.html#glossary-iact"><span class="std std-ref">IACT</span></a> analysis are listed below.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">OFFSET</span></code> type: float, unit deg</dt><dd><ul>
+<li><p>Distance between observation position and target of a spectral analysis</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">MUONEFF</span></code> type: float</dt><dd><ul>
+<li><p>Muon efficiency of the observation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ZENITH</span></code> type: tbd, unit: deg</dt><dd><ul>
+<li><p>Zenith angle of the observation</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ON-RAD</span></code> type: float, unit deg</dt><dd><ul>
+<li><p>Radius of the spectral extraction region</p></li>
+<li><p>Defines the spectral extraction region together with the standard keywords <code class="docutils literal notranslate"><span class="pre">RA-OBJ</span></code> and <code class="docutils literal notranslate"><span class="pre">DEC-OBJ</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="bkg">
+<span id="ogip-bkg"></span><h2>BKG<a class="headerlink" href="#bkg" title="Permalink to this headline">¶</a></h2>
+<p>The values of following header keywords need some attention when using them for
+<a class="reference internal" href="../../general/glossary.html#glossary-iact"><span class="std std-ref">IACT</span></a> analysis.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BACKSCAL</span></code></dt><dd><ul>
+<li><p>It is recommended to set the <code class="docutils literal notranslate"><span class="pre">BACKSCAL</span></code> keyword to <span class="math notranslate nohighlight">\(1/\alpha\)</span> in the BKG file (see above)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="arf">
+<span id="ogip-arf"></span><h2>ARF<a class="headerlink" href="#arf" title="Permalink to this headline">¶</a></h2>
+<p>The OGIP standard ARF file format is described <a class="reference external" href="http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_002/cal_gen_92_002.html#tth_sEc4">here</a>.</p>
+<p>Additional header keyword that can be stored in the ARF header for
+<a class="reference internal" href="../../general/glossary.html#glossary-iact"><span class="std std-ref">IACT</span></a> analysis are listed below.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">LO_THRES</span></code> type: tbd, unit: TeV</dt><dd><ul>
+<li><p>Low energy threshold of the analysis</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">HI_THRES</span></code> type: tbd, unit: TeV</dt><dd><ul>
+<li><p>High energy threshold of the analysis</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="rmf">
+<span id="ogip-rmf"></span><h2>RMF<a class="headerlink" href="#rmf" title="Permalink to this headline">¶</a></h2>
+<p>The OGIP standard RMF file format is described <a class="reference external" href="http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_002/cal_gen_92_002.html#tth_sEc3.1">here</a>.</p>
+<p>How an RMF file can be extracted from a IACT 2D energy dispersion file is
+explained in <a class="reference internal" href="../../irfs/irf_components/index.html#iact-edisp"><span class="std std-ref">Energy Dispersion</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../lightcurves/index.html" class="btn btn-neutral float-right" title="Light curves" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../binned_likelihoods/index.html" class="btn btn-neutral float-left" title="Bin-by-bin Likelihood Profiles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Gamma-ray astronomy community
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

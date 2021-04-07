@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WCS Formats &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Spectra" href="../../spectra/index.html" />
+    <link rel="prev" title="HEALPix Formats" href="../healpix/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../events/index.html">IACT events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../irfs/index.html">IACT IRFs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Sky Maps</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../healpix/index.html">HEALPix Formats</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">WCS Formats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sample-files">Sample Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image-hdu">Image HDU</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wcs-fits-header-keywords">WCS FITS Header Keywords</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extra-header-keywords">Extra Header Keywords</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#image-format">IMAGE Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sparse-format">SPARSE Format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#columns">Columns</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#bands-hdu">BANDS HDU</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../spectra/index.html">Spectra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lightcurves/index.html">Light curves</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data formats for gamma-ray astronomy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Sky Maps</a> &raquo;</li>
+        
+      <li>WCS Formats</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/skymaps/wcs/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="wcs-formats">
+<span id="wcs-skymap"></span><h1>WCS Formats<a class="headerlink" href="#wcs-formats" title="Permalink to this headline">¶</a></h1>
+<p>This page describes data format conventions for images and cubes
+pixelized with World Coordinate Systems (WCS).  WCS is a system for
+describing transformations between pixel/world coordinates and sky
+coordinates.  The conventions described here are extensions to the
+<a class="reference external" href="http://fits.gsfc.nasa.gov/fits_wcs.html">FITS WCS</a> standard which allow for serializing more complex data
+structures such as sparse maps or maps with non-regular geometry
+(e.g. a different pixel size in each image plane).</p>
+<p>The format splits the specification of an image into two HDUs: an
+<a class="reference internal" href="#wcs-image-hdu"><span class="std std-ref">Image HDU</span></a> and a <a class="reference internal" href="../index.html#bands-hdu"><span class="std std-ref">BANDS HDU</span></a>.  The image HDU contains
+the image data while the BANDS HDU is an optional extension that
+stores information about non-spatial dimensions.</p>
+<p>There are two supported WCS formats:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#wcs-image"><span class="std std-ref">IMAGE Format</span></a>: This is the standard FITS image format whereby
+data is stored in a FITS ImageHDU.  With the exception of handling
+of non-spatial dimensions images generated with this format follow
+standard FITS format conventions.</p></li>
+<li><p><a class="reference internal" href="#wcs-sparse"><span class="std std-ref">SPARSE Format</span></a>: This is a sparse data format for FITS images
+which uses a BinTableHDU to store pixel values.</p></li>
+</ul>
+<p>By default multi-dimensional maps are assumed to have the same
+projection in each image plane with the WCS projection specified in
+the header keywords.</p>
+<p>Both formats support the specification of non-regular
+multi-dimensional geometries through the inclusion of <code class="docutils literal notranslate"><span class="pre">CRPIX</span></code>,
+<code class="docutils literal notranslate"><span class="pre">CEDLT</span></code>, and <code class="docutils literal notranslate"><span class="pre">CRVAL</span></code> columns in the <a class="reference internal" href="../index.html#bands-hdu"><span class="std std-ref">BANDS HDU</span></a>.  A
+non-regular geometry is one in which each image plane may have a
+different pixelization (e.g. different pixel size or image extent).
+The <code class="docutils literal notranslate"><span class="pre">CRPIX</span></code>, <code class="docutils literal notranslate"><span class="pre">CEDLT</span></code>, and <code class="docutils literal notranslate"><span class="pre">CRVAL</span></code> override the pixelization of
+the base WCS projection (defined in the IMAGE HDU header) in each
+image plane.</p>
+<div class="section" id="sample-files">
+<span id="wcs-sample-files"></span><h2>Sample Files<a class="headerlink" href="#sample-files" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Counts Cube: <a class="reference download internal" download="" href="../../_downloads/ebcdfdc99391324e5f09354e9cba2083/wcs_ccube.fits"><code class="xref download docutils literal notranslate"><span class="pre">FITS</span></code></a></p></li>
+<li><p>Counts Cube (Multi-resolution/non-regular): <a class="reference download internal" download="" href="../../_downloads/c3ce69fc7e7d7981e56d040078dfe629/wcs_ccube_irregular.fits"><code class="xref download docutils literal notranslate"><span class="pre">FITS</span></code></a></p></li>
+<li><p>Counts Cube (SPARSE Format): <a class="reference download internal" download="" href="../../_downloads/488f11da5a2a99b922ffd11d396cee2c/wcs_ccube_sparse.fits"><code class="xref download docutils literal notranslate"><span class="pre">FITS</span></code></a></p></li>
+</ul>
+</div>
+<div class="section" id="image-hdu">
+<span id="wcs-image-hdu"></span><h2>Image HDU<a class="headerlink" href="#image-hdu" title="Permalink to this headline">¶</a></h2>
+<p>The IMAGE HDU contains the map data and can be formatted according to
+either the <a class="reference internal" href="#wcs-image"><span class="std std-ref">IMAGE Format</span></a> or <a class="reference internal" href="#wcs-sparse"><span class="std std-ref">SPARSE Format</span></a> scheme.</p>
+<div class="section" id="wcs-fits-header-keywords">
+<h3>WCS FITS Header Keywords<a class="headerlink" href="#wcs-fits-header-keywords" title="Permalink to this headline">¶</a></h3>
+<p>The keywords listed here are those required by the FITS WCS
+specification.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">CRPIX{IDX}</span></code>, type: float</dt><dd><ul>
+<li><p>Pixel coordinate of reference point for axis <code class="docutils literal notranslate"><span class="pre">{IDX}</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">CDELT{IDX}</span></code>, type: float</dt><dd><ul>
+<li><p>Coordinate increment at reference point for axis <code class="docutils literal notranslate"><span class="pre">{IDX}</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">CTYPE{IDX}</span></code>, type: float</dt><dd><ul>
+<li><p>Coordinate system and projection code for axis <code class="docutils literal notranslate"><span class="pre">{IDX}</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">CRVAL{IDX}</span></code>, type: float</dt><dd><ul>
+<li><p>Coordinate value at reference point for axis <code class="docutils literal notranslate"><span class="pre">{IDX}</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="extra-header-keywords">
+<h3>Extra Header Keywords<a class="headerlink" href="#extra-header-keywords" title="Permalink to this headline">¶</a></h3>
+<p>These are extra keywords that are not part of the FITS WCS
+specification but are required for some features of the GADF format.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">WCSSHAPE</span></code>, type: string, <strong>optional</strong></dt><dd><ul>
+<li><p>Comma-separated list with the number of pixels in each dimension
+in row-major order, e.g. <code class="docutils literal notranslate"><span class="pre">(4,5,3)</span></code> would correspond to a 4x5
+image with three image planes.  For non-regular geometries the
+image dimension should be the maximum across all image planes.
+This keyword is optional for maps in the <a class="reference internal" href="#wcs-image"><span class="std std-ref">IMAGE Format</span></a>
+format.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BANDSHDU</span></code>, type: string, <strong>optional</strong></dt><dd><ul>
+<li><p>Name of HDU containing the BANDS table.  If undefined the
+extension name should be <code class="docutils literal notranslate"><span class="pre">EBOUNDS</span></code> or <code class="docutils literal notranslate"><span class="pre">ENERGIES</span></code>.  See
+<a class="reference internal" href="../index.html#bands-hdu"><span class="std std-ref">BANDS HDU</span></a> for additional details.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="image-format">
+<span id="wcs-image"></span><h2>IMAGE Format<a class="headerlink" href="#image-format" title="Permalink to this headline">¶</a></h2>
+<p>The IMAGE format uses an ImageHDU to store map values.  Dimensions of
+the image are directly inferred from the data member of the HDU.  This
+is the standard format for WCS-based maps.</p>
+</div>
+<div class="section" id="sparse-format">
+<span id="wcs-sparse"></span><h2>SPARSE Format<a class="headerlink" href="#sparse-format" title="Permalink to this headline">¶</a></h2>
+<p>The SPARSE WCS format uses the same conventions as the <a class="reference internal" href="../healpix/index.html#hpx-sparse"><span class="std std-ref">Sparse
+HEALPix Format</span></a>.  This format uses a BinTableHDU to store
+map values with one row per pixel.</p>
+<div class="section" id="columns">
+<h3>Columns<a class="headerlink" href="#columns" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">PIX</span></code> – ndim: 1, unit: None, type: int</dt><dd><ul>
+<li><p>Dimension: nrows</p></li>
+<li><p>Flattened pixel index in a given image plane (band).  Indices
+are flattened assuming a column-major ordering for the image.
+The row to band mapping is defined by the <code class="docutils literal notranslate"><span class="pre">CHANNEL</span></code> column.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">CHANNEL</span></code> – ndim: 1, unit: None, type: int</dt><dd><ul>
+<li><p>Dimension: nrows</p></li>
+<li><p>Band index.  This column is optional for maps with a single
+band.  For efficiency it is recommended to represent this column
+with a 16-bit integer.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">VALUE</span></code> – ndim: 1, unit: None, type: float or int</dt><dd><ul>
+<li><p>Dimension: nrows</p></li>
+<li><p>Amplitude in pixel indexed by <code class="docutils literal notranslate"><span class="pre">PIX</span></code> and <code class="docutils literal notranslate"><span class="pre">CHANNEL</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../spectra/index.html" class="btn btn-neutral float-right" title="Spectra" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../healpix/index.html" class="btn btn-neutral float-left" title="HEALPix Formats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Gamma-ray astronomy community
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,898 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>EVENTS &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GTI" href="gti.html" />
+    <link rel="prev" title="IACT events" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">IACT events</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">EVENTS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory-columns">Mandatory columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-columns">Optional columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory-header-keywords">Mandatory header keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-header-keywords">Optional header keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#event-id">EVENT_ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ev-class-and-event-type">EV_CLASS and EVENT_TYPE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#obs-mode">OBS_MODE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gti.html">GTI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pointing.html">POINTING</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../irfs/index.html">IACT IRFs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../skymaps/index.html">Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spectra/index.html">Spectra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lightcurves/index.html">Light curves</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data formats for gamma-ray astronomy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">IACT events</a> &raquo;</li>
+        
+      <li>EVENTS</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/events/events.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="events">
+<span id="iact-events"></span><h1>EVENTS<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">EVENTS</span></code> extension is a binary FITS table that contains an event list.
+Each row of the table provides information that characterises one event.
+The mandatory and optional columns of the table are listed below. In
+addition, a list of header keywords providing metadata is specified.
+Also here there are mandatory and optional keywords.
+The recommended extension name of the binary table is <code class="docutils literal notranslate"><span class="pre">EVENTS</span></code>.</p>
+<div class="section" id="mandatory-columns">
+<h2>Mandatory columns<a class="headerlink" href="#mandatory-columns" title="Permalink to this headline">¶</a></h2>
+<p>We follow the <a class="reference external" href="https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/events/ogip_94_003/ogip_94_003.html">OGIP event list</a> standard.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">EVENT_ID</span></code> type: int64</dt><dd><ul>
+<li><p>Event identification number at the DL3 level.
+See notes on <a class="reference internal" href="#iact-events-event-id"><span class="std std-ref">EVENT_ID</span></a> below.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TIME</span></code> type: float64, unit: s</dt><dd><ul>
+<li><p>Event time (see <a class="reference internal" href="../general/time.html#time"><span class="std std-ref">Time</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RA</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Reconstructed event Right Ascension (see <a class="reference internal" href="../general/coordinates.html#coords-radec"><span class="std std-ref">RA / DEC</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DEC</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Reconstructed event Declination (see <a class="reference internal" href="../general/coordinates.html#coords-radec"><span class="std std-ref">RA / DEC</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ENERGY</span></code> type: float, unit: TeV</dt><dd><ul>
+<li><p>Reconstructed event energy.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="optional-columns">
+<h2>Optional columns<a class="headerlink" href="#optional-columns" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>None of the following columns is required to be part of an <code class="docutils literal notranslate"><span class="pre">EVENTS</span></code>
+extension. Any software <strong>using</strong> these columns should first check whether the
+columns exist, and warn in case of their absence. Any software <strong>ignoring</strong>
+these columns should make sure that their presence does not detoriate the
+functioning of the software.</p>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">EVENT_TYPE</span></code> type: bit field (in FITS <code class="docutils literal notranslate"><span class="pre">tform=32X</span></code>)</dt><dd><ul>
+<li><p>Event quality partition.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">MULTIP</span></code> type: int</dt><dd><ul>
+<li><p>Telescope multiplicity. Number of telescopes that have seen the event.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">GLON</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Reconstructed event Galactic longitude (see <a class="reference internal" href="../general/coordinates.html#coords-galactic"><span class="std std-ref">Galactic</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">GLAT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Reconstructed event Galactic latitude (see <a class="reference internal" href="../general/coordinates.html#coords-galactic"><span class="std std-ref">Galactic</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ALT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Reconstructed altitude (see <a class="reference internal" href="../general/coordinates.html#coords-altaz"><span class="std std-ref">Alt / Az</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">AZ</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Reconstructed azimuth (see <a class="reference internal" href="../general/coordinates.html#coords-altaz"><span class="std std-ref">Alt / Az</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DETX</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Reconstructed field of view X (see <a class="reference internal" href="../general/coordinates.html#coords-fov"><span class="std std-ref">Field of view</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DETY</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Reconstructed field of view Y (see <a class="reference internal" href="../general/coordinates.html#coords-fov"><span class="std std-ref">Field of view</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">THETA</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Reconstructed field of view offset angle (see <a class="reference internal" href="../general/coordinates.html#coords-fov"><span class="std std-ref">Field of view</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">PHI</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Reconstructed field of view position angle (see <a class="reference internal" href="../general/coordinates.html#coords-fov"><span class="std std-ref">Field of view</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">GAMMANESS</span></code> type: float</dt><dd><ul>
+<li><p>Classification score of a signal / background separation. SHOULD be between 0 and 1, with higher values indicating larger confidence that the event was produced by a gamma ray.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DIR_ERR</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Direction error of reconstruction</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ENERGY_ERR</span></code> type: float, unit: TeV</dt><dd><ul>
+<li><p>Error on reconstructed event energy</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">COREX</span></code> type: float, unit: m</dt><dd><ul>
+<li><p>Reconstructed core position X of shower</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">COREY</span></code> type: float, unit: m</dt><dd><ul>
+<li><p>Reconstructed core position Y of shower</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">CORE_ERR</span></code> type: float, unit: m</dt><dd><ul>
+<li><p>Error on reconstructed core position of shower</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">XMAX</span></code> type: float, unit: radiation lengths</dt><dd><ul>
+<li><p>First interaction depth</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">XMAX_ERR</span></code> type: float, unit: radiation lengths</dt><dd><ul>
+<li><p>Error on first interaction depth</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">HIL_MSW</span></code> type: float</dt><dd><ul>
+<li><p>Hillas mean scaled width</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">HIL_MSW_ERR</span></code> type: float</dt><dd><ul>
+<li><p>Hillas mean scaled width error</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">HIL_MSL</span></code> type: float</dt><dd><ul>
+<li><p>Hillas mean scaled length</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">HIL_MSL_ERR</span></code> type: float</dt><dd><ul>
+<li><p>Hillas mean scaled length error</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="mandatory-header-keywords">
+<h2>Mandatory header keywords<a class="headerlink" href="#mandatory-header-keywords" title="Permalink to this headline">¶</a></h2>
+<p>The standard FITS reference time header keywords should be used (see <a class="reference internal" href="../general/time.html#time-formats"><span class="std std-ref">Formats</span></a>).
+An observatory Earth location should be given as well (see <a class="reference internal" href="../general/coordinates.html#coords-location"><span class="std std-ref">Earth location</span></a>).</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">HDUCLASS</span></code> type: string</dt><dd><ul>
+<li><p>Signal conformance with HEASARC/OGIP conventions (option: ‘OGIP’). See <a class="reference internal" href="../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">HDUDOC</span></code> type: string</dt><dd><ul>
+<li><p>Reference to documentation where data format is documented. See <a class="reference internal" href="../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">HDUVERS</span></code> type: string</dt><dd><ul>
+<li><p>Version of the format (e.g. ‘1.0.0’). See <a class="reference internal" href="../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">HDUCLAS1</span></code> type: string</dt><dd><ul>
+<li><p>Primary extension class (option: ‘EVENTS’). See <a class="reference internal" href="../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">OBS_ID</span></code> type: int</dt><dd><ul>
+<li><p>Unique observation identifier (Run number)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TSTART</span></code> type: float, unit: s</dt><dd><ul>
+<li><p>Start time of observation (relative to reference time, see <a class="reference internal" href="../general/time.html#time"><span class="std std-ref">Time</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TSTOP</span></code> type: float, unit: s</dt><dd><ul>
+<li><p>End time of observation (relative to reference time, see <a class="reference internal" href="../general/time.html#time"><span class="std std-ref">Time</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ONTIME</span></code> type: float, unit: s</dt><dd><ul>
+<li><p>Total <em>good time</em> (sum of length of all Good Time Intervals).
+If a Good Time Interval (GTI) table is provided, <code class="docutils literal notranslate"><span class="pre">ONTIME</span></code> should be
+calculated as the sum of those intervals. Corrections for instrumental
+<em>dead time</em> effects are <strong>NOT</strong> included.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">LIVETIME</span></code> type: float, unit: s</dt><dd><ul>
+<li><p>Total time (in seconds) on source, corrected for the <em>total</em> instrumental
+dead time effect.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DEADC</span></code> type: float</dt><dd><ul>
+<li><p>Dead time correction, defined by <code class="docutils literal notranslate"><span class="pre">LIVETIME/ONTIME</span></code>.
+Is comprised in [0,1]. Defined to be 0 if <code class="docutils literal notranslate"><span class="pre">ONTIME=0</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RA_PNT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Pointing Right Ascension (see <a class="reference internal" href="../general/coordinates.html#coords-radec"><span class="std std-ref">RA / DEC</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DEC_PNT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Pointing declination (see <a class="reference internal" href="../general/coordinates.html#coords-radec"><span class="std std-ref">RA / DEC</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">EQUINOX</span></code> type: float</dt><dd><ul>
+<li><p>Equinox in years for the celestial coordinate system in which positions
+given in either the header or data are expressed (options: 2000.0).
+See also <a class="reference external" href="https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/r3.html">HFWG Recommendation R3</a> for the OGIP standard.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RADECSYS</span></code> type: string</dt><dd><ul>
+<li><p>Stellar reference frame used for the celestial coordinate system in
+which positions given in either the header or data are expressed.
+(options: ‘ICRS’, ‘FK5’).
+See also <a class="reference external" href="https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/r3.html">HFWG Recommendation R3</a> for the OGIP standard.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ORIGIN</span></code> type: string</dt><dd><ul>
+<li><p>Organisation that created the FITS file.
+This can be the same as <code class="docutils literal notranslate"><span class="pre">TELESCOP</span></code> (e.g. “HESS”), but it could
+also be different if an organisation has multiple telescopes (e.g. “NASA” or “ESO”).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TELESCOP</span></code> type: string</dt><dd><ul>
+<li><p>Telescope (e.g. ‘CTA’, ‘HESS’, ‘VERITAS’, ‘MAGIC’, ‘FACT’)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">INSTRUME</span></code> type: string</dt><dd><ul>
+<li><p>Instrument used to aquire the data contained in the file.
+Each organisation and telescop has to define this.
+E.g. for CTA it could be ‘North’ and ‘South’, or sub-array configurations,
+this has not been defined yet.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">CREATOR</span></code> type: string</dt><dd><ul>
+<li><p>Software that created the file. When appropriate, the value of the
+<code class="docutils literal notranslate"><span class="pre">CREATOR</span></code> keyword should also reference the specific version of the
+program that created the FITS file. It is intented that this keyword
+should refer to the program that originally defined the FITS file
+structure and wrote the contents. If a FITS file is subsequently
+copied largely intact into a new FITS by another program, then the value
+of the <code class="docutils literal notranslate"><span class="pre">CREATOR</span></code> keyword should still refer to the original program.
+<code class="docutils literal notranslate"><span class="pre">HISTORY</span></code> keywords should be used instead to document any further
+processing that is performed on the file after it is created.
+For more reading on the OGIP standard, see
+<a class="reference external" href="https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/r7.html">here</a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="optional-header-keywords">
+<h2>Optional header keywords<a class="headerlink" href="#optional-header-keywords" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">OBSERVER</span></code> type: string</dt><dd><ul>
+<li><p>Name of observer. This could be for example the PI of a proposal.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">CREATED</span></code> type: string</dt><dd><ul>
+<li><p>Time when file was created in ISO standard date representation
+“ccyy-mm-ddThh:mm:ss” (UTC)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">OBJECT</span></code> type: string</dt><dd><ul>
+<li><p>Observed object (e.g. ‘Crab’)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RA_OBJ</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Right ascension of <code class="docutils literal notranslate"><span class="pre">OBJECT</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DEC_OBJ</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Declination of <code class="docutils literal notranslate"><span class="pre">OBJECT</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">OBS_MODE</span></code> type: string</dt><dd><ul>
+<li><p>Observation mode. See notes on <a class="reference internal" href="#iact-events-obs-mode"><span class="std std-ref">OBS_MODE</span></a> below.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">EV_CLASS</span></code> type: str</dt><dd><ul>
+<li><p>Event class. See notes on <a class="reference internal" href="#iact-events-class-type"><span class="std std-ref">EV_CLASS and EVENT_TYPE</span></a> below.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TELAPSE</span></code> type: float, unit: s</dt><dd><ul>
+<li><p>Time interval between start and stop time (<code class="docutils literal notranslate"><span class="pre">TELAPSE=TSTOP-TSTART</span></code>).
+Any gaps due to bad weather, or high background counts and/or other
+anomalies, are included.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Keywords below seem to be pretty low-level and eventually instrument
+specific. It needs to be discussed whether a recommendation on these
+keywords should be made, or whether the definition should be left
+to the respective consortia.</p>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">HDUCLAS2</span></code> type: string</dt><dd><ul>
+<li><p>Secondary extension class (option: ‘ACCEPTED’). See <a class="reference internal" href="../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TELLIST</span></code> type: string</dt><dd><ul>
+<li><p>Telescope IDs in observation (e.g. ‘1,2,3,4’)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">N_TELS</span></code> type: int</dt><dd><ul>
+<li><p>Number of observing telescopes</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TASSIGN</span></code> type: string</dt><dd><ul>
+<li><p>Place of time reference (‘Namibia’)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DST_VER</span></code> type: string</dt><dd><ul>
+<li><p>Version of DST/Data production</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ANA_VER</span></code> type: string</dt><dd><ul>
+<li><p>Reconstruction software version</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">CAL_VER</span></code> type: string</dt><dd><ul>
+<li><p>Calibration software version</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">CONV_DEP</span></code> type: float</dt><dd><ul>
+<li><p>convergence depth (0 for parallel pointing)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">CONV_RA</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Convergence Right Ascension</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">CONV_DEC</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Convergence Declination</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TRGRATE</span></code> type: float, unit: Hz</dt><dd><ul>
+<li><p>Mean system trigger rate</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ZTRGRATE</span></code> type: float, unit: Hz</dt><dd><ul>
+<li><p>Zenith equivalent mean system trigger rate</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">MUONEFF</span></code> type: float</dt><dd><ul>
+<li><p>Mean muon efficiency</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BROKPIX</span></code> type: float</dt><dd><ul>
+<li><p>Fraction of broken pixels (0.15 means 15% broken pixels)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">AIRTEMP</span></code> type: float, unit: deg C</dt><dd><ul>
+<li><p>Mean air temperature at ground during the observation.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">PRESSURE</span></code> type: float, unit: hPa</dt><dd><ul>
+<li><p>Mean air pressure at ground during the observation.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RELHUM</span></code> type: float</dt><dd><ul>
+<li><p>Relative humidity</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">NSBLEVEL</span></code> type: float, unit: a.u.</dt><dd><ul>
+<li><p>Measure for night sky background level</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="notes">
+<span id="iact-events-notes"></span><h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p>This paragraph contains some explanatory notes on some of the columns
+and header keys mentioned above.</p>
+<div class="section" id="event-id">
+<span id="iact-events-event-id"></span><h3>EVENT_ID<a class="headerlink" href="#event-id" title="Permalink to this headline">¶</a></h3>
+<p>Most analyses with high-level science tools don’t need <code class="docutils literal notranslate"><span class="pre">EVENT_ID</span></code> information.
+But being able to uniquely identify every event is important, e.g. when
+comparing the high-level reconstructed event parameters (<code class="docutils literal notranslate"><span class="pre">RA</span></code>, <code class="docutils literal notranslate"><span class="pre">DEC</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ENERGY</span></code>) for different calibrations, reconstructions or gamma-hadron
+separations.</p>
+<p>Assigning a unique <code class="docutils literal notranslate"><span class="pre">EVENT_ID</span></code> during data taking can be difficult or
+impossible. E.g. in H.E.S.S. we have two numbers <code class="docutils literal notranslate"><span class="pre">BUNCH_ID_HESS</span></code> and
+<code class="docutils literal notranslate"><span class="pre">EVENT_ID_HESS</span></code> that only together uniquely identify an event within a given
+run (i.e. <code class="docutils literal notranslate"><span class="pre">OBS_ID</span></code>). Probably the scheme to uniquely identify events at the
+DL0 level for CTA will be even more complicated, because of the much larger
+number of telescopes and events.</p>
+<p>So given that data taking and event identification is different for every IACT
+at low data levels and is already fixed for existing IACTs, we propose here to
+have an <code class="docutils literal notranslate"><span class="pre">EVENT_ID</span></code> that is simpler and works the same for all IACTs at the DL3
+level.</p>
+<p>As an example: for H.E.S.S. we achieve this by using an INT64 for <code class="docutils literal notranslate"><span class="pre">EVENT_ID</span></code>
+and to store <code class="docutils literal notranslate"><span class="pre">EVENT_ID</span> <span class="pre">=</span> <span class="pre">(BUNCH_ID_HESS</span> <span class="pre">&lt;&lt;</span> <span class="pre">32)</span> <span class="pre">|</span> <span class="pre">(EVENT_ID_HESS)</span></code>, i.e. use
+the upper bits to contain the low-level bunch ID and the lower bits to contains
+the low-level event ID. This encoding is unique and reversible, i.e. it’s easy
+to go back to <code class="docutils literal notranslate"><span class="pre">BUNCH_ID_HESS</span></code> and <code class="docutils literal notranslate"><span class="pre">EVENT_ID_HESS</span></code> for a given <code class="docutils literal notranslate"><span class="pre">EVENT_ID</span></code>,
+and to low-level checks (e.g. look at the shower images for a given event that
+behaves strangely in reconstructed high-level parameters).</p>
+</div>
+<div class="section" id="ev-class-and-event-type">
+<span id="iact-events-class-type"></span><h3>EV_CLASS and EVENT_TYPE<a class="headerlink" href="#ev-class-and-event-type" title="Permalink to this headline">¶</a></h3>
+<p>Currently in this format specification, event class <code class="docutils literal notranslate"><span class="pre">EV_CLASS</span></code> is a header key
+(i.e. the same for all events in a given event list) and <code class="docutils literal notranslate"><span class="pre">EVENT_TYPE</span></code> is a
+bitfield column (i.e. can have a different value for each event). Both are
+optional at this time, only used as provenance information, not by science tools
+to make any decisions how to analyse the data.</p>
+<p>The reason for this is simply that we have not agreed yet on a scheme what event
+class and event type means, and how it should be used by science tools for
+analysis. Developing this will be one of the major topics for the next version
+of the spec. It is likely that a proper definition of event classes and types
+will not be compatible with what is currently defined here, so not filling
+<code class="docutils literal notranslate"><span class="pre">EV_CLASS</span></code> and <code class="docutils literal notranslate"><span class="pre">EVENT_TYPE</span></code> when creating DL3 data is not a bad idea.</p>
+<p>To summarise a bit the discussions on this important point in the past years,
+they were mostly done by looking at what Fermi-LAT is doing and some
+prototyping in H.E.S.S. to export DL3 data to FITS.</p>
+<p>The scheme in Fermi-LAT for event classes and event types is nicely summarised
+<a class="reference external" href="https://github.com/gammapy/PyGamma15/blob/gh-pages/talks/fermi2/fermi_advanced_v0.pdf">here</a>
+or <a class="reference external" href="https://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Cicerone/Cicerone_Data/LAT_DP.html">here</a>.
+There event classes and types are key parts of the data model, used for EVENT to
+IRF association and even end users need to learn about them and pass event class
+and type information when using science tools.</p>
+<p>One option could be to mostly adopt what Fermi-LAT does for IACTs. However, a
+major difference is that Fermi-LAT is a more stable detector, that has a CALDB
+of a very limited number or IRFs that can be used for all data, whereas for
+IACTs with changing telescope configurations, degrading mirrors, changing
+atmosphere, zenith angle, … most likely we will have to produce per-observation
+IRFs, and then it’s easier to bundle the IRFs with the EVENTS in one file,
+and the use of event class and type to link EVENTS and IRFs is no longer needed.</p>
+<p>An alternative scheme is to use the term “event class” to describe a given
+analysis configuration. This is e.g. how we currently use <code class="docutils literal notranslate"><span class="pre">EV_CLASS</span></code> in
+H.E.S.S., we fill values like “standard” or “hard” or “loose” to describe a
+given full configuration that is the result of a calibration, event
+reconstruction and gamma-hadron separation pipeline. This is similar to what
+Fermi-LAT does, except less sophisticated, the event classes are completely
+independent, there is no nesting, and separate events and IRF files are produced
+for each class/configuration. To analyse data from a given class, the user
+chooses which set of files to download (e.g. “loose” for pulsars or “hard” for a
+bright source where a good PSF is needed), and then the science tools don’t need
+to do anything with <code class="docutils literal notranslate"><span class="pre">EV_CLASS</span></code>, it is just provenance information. Some people
+are experimenting with the use of <code class="docutils literal notranslate"><span class="pre">EVENT_TYPE</span></code> in a similar way as Fermi-LAT,
+e.g. to have event quality partitioning based on number of telescopes that saw a
+given event, or other criteria. Again, it is left to users to split events by
+<code class="docutils literal notranslate"><span class="pre">EVENT_TYPE</span></code> and produce IRFs for each event type and pass those for a joint
+fit to the science tools, as there is no agreement or implementation yet in the
+science tools to support <code class="docutils literal notranslate"><span class="pre">EVENT_TYPE</span></code> directly.</p>
+<p>So to conclude and summarise again: <code class="docutils literal notranslate"><span class="pre">EV_CLASS</span></code> and <code class="docutils literal notranslate"><span class="pre">EVENT_TYPE</span></code> as mentioned
+here in this spec are optional and very preliminary. Defining event class and
+type for IACTs needs more prototyping by the science tools and current IACTs and
+CTA and discussion, and then a proposal for a specification.</p>
+</div>
+<div class="section" id="obs-mode">
+<span id="iact-events-obs-mode"></span><h3>OBS_MODE<a class="headerlink" href="#obs-mode" title="Permalink to this headline">¶</a></h3>
+<p>The observation mode <code class="docutils literal notranslate"><span class="pre">OBS_MODE</span></code> is currently provenance information, not used
+by science tools to decide how to analyse the data. There is no set of defined
+modes yet. Thus, at the moment it is optional.</p>
+<p>Just to give an example: in H.E.S.S. the values of “WOBBLE” for wobble
+observations (pointing slightly off target) and “SCAN” for Galactic plane survey
+observation on a grid of sky positions (not wrt. a specific target) is used.</p>
+<p>It is likely that <code class="docutils literal notranslate"><span class="pre">OBS_MODE</span></code> in the future will be a key piece of information
+in the DL3 data model, defining the observation mode (e.g. pointed, divergent,
+slewing, …) and being required to analyse the data correctly.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gti.html" class="btn btn-neutral float-right" title="GTI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="IACT events" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Gamma-ray astronomy community
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

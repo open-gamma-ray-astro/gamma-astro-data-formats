@@ -1,0 +1,646 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bin-by-bin Likelihood Profiles &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1D counts spectra" href="../ogip/index.html" />
+    <link rel="prev" title="SED" href="../flux_points/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../events/index.html">IACT events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../irfs/index.html">IACT IRFs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../skymaps/index.html">Sky Maps</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Spectra</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../flux_points/index.html">SED</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Bin-by-bin Likelihood Profiles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#likelihood-sed">Likelihood SED</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sample-files">Sample Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#header-keywords">Header Keywords</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#columns">Columns</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#likelihood-sed-cube">Likelihood SED Cube</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scandata-table">SCANDATA Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ebounds-table">EBOUNDS Table</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tscube-output-format">TSCube Output Format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fitdata-table">FITDATA Table</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../ogip/index.html">1D counts spectra</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lightcurves/index.html">Light curves</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data formats for gamma-ray astronomy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Spectra</a> &raquo;</li>
+        
+      <li>Bin-by-bin Likelihood Profiles</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/spectra/binned_likelihoods/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bin-by-bin-likelihood-profiles">
+<span id="binned-likelihoods"></span><h1>Bin-by-bin Likelihood Profiles<a class="headerlink" href="#bin-by-bin-likelihood-profiles" title="Permalink to this headline">¶</a></h1>
+<p>This page describes formats for bin-by-bin likelihood profiles as
+currently used in some LAT analyses.  The bin-by-bin likelihood
+extends the concept of an SED by providing a representation of the
+likelihood function in each energy bin.  <a class="reference internal" href="#likelihood-sed"><span class="std std-ref">Likelihood SED</span></a> and
+<a class="reference internal" href="#likelihood-sed-cube"><span class="std std-ref">Likelihood SED Cube</span></a> are two formats for serializing bin-by-bin
+likelihoods to a FITS file.  A Likelihood SED stores the bin-by-bin
+likelihood for a single source or test source position while a
+Likelihood SED Cube stores a sequence of bin-by-bin likelihoods
+(e.g. for a grid of positions or a group of sources).</p>
+<p>In the following we describe some advantages and limitations of using
+bin-by-bin likelihoods.  Relative to a traditonal SED, the bin-by-bin
+likelihood retains more information about the shape of the likelihood
+function around the maximum.  This can be important when working in
+the low statistics regime where the likelihoods are non-Gaussian and a
+flux value and one sigma uncertainty is insufficient to describe the
+shape of the likelihood function.  Applications in which bin-by-bin
+likelihoods may be useful include:</p>
+<ul class="simple">
+<li><p>Deriving upper limits on the global spectral distribution of a
+source.  Likelihood SEDs can be used to construct the likelihood
+function for arbitrary spectral models without recomputing the
+experimental likelihood function.  This is particularly useful for
+DM searches in which one tests a large number of spectral models
+(e.g. for mass and annihilation channel) and recomputing the
+experimental likelihood function for all models would be very
+expensive.  The bin-by-bin likelihoods are also a convenient way of
+distributing analysis results in a format that allows other spectral
+models to be easily tested.  The two of the most recent LAT
+publications on dSph DM searches have publicly released the analysis
+results in this format (see <a class="reference external" href="http://adsabs.harvard.edu/abs/2015PhRvL.115w1301A">2015PhRvL.115w1301A</a> and
+<a class="reference external" href="http://adsabs.harvard.edu/abs/2014PhRvD..89d2001A">2014PhRvD..89d2001A</a>).</p></li>
+<li><p>Stacking analyses that combine measurements from multiple sources or
+multiple epochs of observation of a single source.  Forming a joint
+likelihood from the product of Likelihood SEDs fully preserves
+information in each data set and is equivalent to doing a joint fit
+as long as the data sets are independent.</p></li>
+<li><p>Analyses combining spectral measurements from multiple experiments.
+Likelihoods from two or more experiments can be multiplied to derive
+a joint likelihood function incorporating the measurements of each
+experiment.  As for stacking analyses, the joint likelihood approach
+avoids merging or averaging data or IRFs.  The bin-by-bin
+likelihoods further allow joint anlayses to be performed without
+having access to the data sets or tools that produced the original
+measurement.  For an application of this approach in the context of
+DM searches see <a class="reference external" href="http://adsabs.harvard.edu/abs/2016JCAP...02..039M">2016JCAP…02..039M</a>.</p></li>
+</ul>
+<p>There are a few important caveats to bin-by-bin likelihoods which may
+limit their use for certain applications:</p>
+<ul class="simple">
+<li><p>Large correlations between the normalizations of two or more model
+components (e.g. when the spatial models are partially degenerate)
+can limit the utility of this approach.  Although such correlations
+can be accounted for by profiling the corresponding nuisance
+parameters, this may result in unphysical background models with
+large bin-to-bin fluctuations in the model amplitude.  One technique
+to avoid this issue (see <a class="reference external" href="http://adsabs.harvard.edu/abs/2015PhRvD..91j2001B">2015PhRvD..91j2001B</a> and
+<a class="reference external" href="http://adsabs.harvard.edu/abs/2016PhRvD..93f2004C">2016PhRvD..93f2004C</a>) is to apply a Gaussian prior that constrains
+the spectral distribution of the background components to lie within
+a certain range of the global spectral model of that source
+(computed without the test source).</p></li>
+<li><p>Because the likelihoods in each energy bin are calculated
+independently, this technique cannot fully account for bin-to-bin
+correlations caused by energy dispersion.  The effect of energy
+dispersion can be corrected to first order by scanning the
+likelihood with a spectral model (e.g. a power-law with index 2)
+that is close in shape to the spectral models of interest.  However
+in analyses where the energy response matrix is particularly broad
+or non-diagonal the systematic errors arising from the approximate
+treatment of energy dispersion may exceed the statistical errors.
+In LAT analyses energy dispersion can become a significant effect when
+using data below 100 MeV (see <a class="reference external" href="http://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Pass8_edisp_usage.html">LAT_edisp_usage</a>).  However when
+using an Index=2.0 and considering energies above 100 MeV, the
+spectral bias is less than 3% for models with indices between 1 and
+3.5.</p></li>
+</ul>
+<div class="section" id="likelihood-sed">
+<span id="id1"></span><h2>Likelihood SED<a class="headerlink" href="#likelihood-sed" title="Permalink to this headline">¶</a></h2>
+<p>The likelihood SED is a representation of spectral energy distribution
+of a source that contains a likelihood for the source normalization in
+each energy bin.  This format is a special case of the more general
+<a class="reference internal" href="../flux_points/index.html#flux-points"><span class="std std-ref">SED</span></a> format.  Depending on the requirements of the
+analysis the likelihoods can be evaluated with either profiled or
+fixed nuisance parameters.  The likelihood SED can be used in the same
+way as a traditional SED but contains additional information about the
+shape of the likelihood function around the maximum.  A 2D
+visualization of the likelihood functions can be produced by creating
+a colormap with intensity mapped to the likelihood value:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Low Significance Source</p></th>
+<th class="head"><p>High Significance Source</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="../../_images/llsed_lowts.png"><img alt="image0" src="../../_images/llsed_lowts.png" style="width: 100%;" /></a></p></td>
+<td><p><a class="reference internal" href="../../_images/llsed_hights.png"><img alt="image1" src="../../_images/llsed_hights.png" style="width: 100%;" /></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>In the following we use <em>nebins</em> to designate the number of energy
+bins and <em>nnorms</em> to designate the number of points in the
+normalization scan.  The format is a BINTABLE with one row per energy
+bin containing the columns listed below.</p>
+<p>The best-fit model amplitudes, errors, and upper limits are all
+normalized to a reference spectral model.  The <code class="docutils literal notranslate"><span class="pre">ref</span></code> columns define
+the amplitude of the reference model in different units.  The
+reference model amplitudes are arbitrary and could for instance be set
+to the best-fit amplitude in each energy bin.  <code class="docutils literal notranslate"><span class="pre">norm</span></code> columns
+contain the best-fit value, its errors, and upper limit in units of
+the reference model amplitude.  Unit conversion of the <code class="docutils literal notranslate"><span class="pre">norm</span></code>
+columns can be performed by doing a row-wise multiplication with the
+respective <code class="docutils literal notranslate"><span class="pre">ref</span></code> column.</p>
+<div class="section" id="sample-files">
+<h3>Sample Files<a class="headerlink" href="#sample-files" title="Permalink to this headline">¶</a></h3>
+<p>See the <code class="docutils literal notranslate"><span class="pre">likelihood</span></code> files in <a class="reference internal" href="../flux_points/index.html#sed-sample-files"><span class="std std-ref">Sample Files</span></a>.</p>
+</div>
+<div class="section" id="header-keywords">
+<h3>Header Keywords<a class="headerlink" href="#header-keywords" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">SED_TYPE</span></code></dt><dd><ul>
+<li><p>SED type string.  Should be set to <code class="docutils literal notranslate"><span class="pre">likelihood</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">UL_CONF</span></code>, <strong>optional</strong></dt><dd><ul>
+<li><p>Confidence level of the upper limit (range: 0 to 1) of the value in the <code class="docutils literal notranslate"><span class="pre">norm_ul</span></code> column.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="columns">
+<h3>Columns<a class="headerlink" href="#columns" title="Permalink to this headline">¶</a></h3>
+<p>The columns listed here are a subset of the columns defined in the
+<a class="reference internal" href="../flux_points/index.html#flux-points"><span class="std std-ref">SED</span></a> format.  See <a class="reference internal" href="../flux_points/index.html#sed-columns"><span class="std std-ref">Columns</span></a> for the full column
+specifications.</p>
+<div class="section" id="required-columns">
+<h4>Required Columns<a class="headerlink" href="#required-columns" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">e_min</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">e_max</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">e_ref</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ref_dnde</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ref_eflux</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ref_flux</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ref_npred</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">norm</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">norm_err</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">norm_scan</span></code> – ndim: 2, Dimension: nebins x nnorms</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ts</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loglike</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dloglike_scan</span></code> – ndim: 2, Dimension: nebins x nnorms</p></li>
+</ul>
+</div>
+<div class="section" id="optional-columns">
+<h4>Optional Columns<a class="headerlink" href="#optional-columns" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ref_dnde_e_min</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ref_dnde_e_max</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">norm_errp</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">norm_errn</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">norm_ul</span></code> – ndim: 1, Dimension: nebins</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="likelihood-sed-cube">
+<span id="id2"></span><h2>Likelihood SED Cube<a class="headerlink" href="#likelihood-sed-cube" title="Permalink to this headline">¶</a></h2>
+<p>The Likelihood SED Cube is format for storing a sequence of Likelihood
+SEDs in a single table.  The format defines a file with two BINTABLE
+HDUs: <a class="reference internal" href="#scandata"><span class="std std-ref">SCANDATA</span></a> and <a class="reference internal" href="#ebounds"><span class="std std-ref">EBOUNDS</span></a>.
+SCANDATA has one row per Likelihood SED while EBOUNDS has one row per
+energy bin.  Table rows in SCANDATA can be mapped to a list of
+sources, spatial pixels, or observations epochs.  Because the row
+mapping is not defined by the format itself additional columns can be
+added to SCANDATA that defined the mapping of each row.  Examples
+would be columns for source name designation, pixel coordinate, or
+observation epoch.</p>
+<p>In the following we use <em>nrows</em> to designate table rows, <em>nebins</em> to
+designate the number of energy bins and <em>nnorms</em> to designate the
+number of points in the normalization scan.  As for the Likelihood SED
+format, columns that contain <code class="docutils literal notranslate"><span class="pre">norm</span></code> are expressed in units of the
+reference model amplitude.  These can be multiplied by <code class="docutils literal notranslate"><span class="pre">ref_eflux</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ref_flux</span></code>, <code class="docutils literal notranslate"><span class="pre">ref_dnde</span></code>, or <code class="docutils literal notranslate"><span class="pre">ref_npred</span></code> columns in the EBOUNDS
+HDU to get the normalization in the respective units.</p>
+<p>Sample FITS files:</p>
+<ul class="simple">
+<li><p>Low Significance Source: <a class="reference download internal" download="" href="../../_downloads/89272d520afc4475359318653f770aa0/tscube_lowts.fits"><code class="xref download docutils literal notranslate"><span class="pre">tscube_lowts.fits</span></code></a></p></li>
+<li><p>High Significance Source: <a class="reference download internal" download="" href="../../_downloads/a76668a4922008b45be8cfad3f8de512/tscube_hights.fits"><code class="xref download docutils literal notranslate"><span class="pre">tscube_hights.fits</span></code></a></p></li>
+</ul>
+<div class="section" id="scandata-table">
+<span id="scandata"></span><h3>SCANDATA Table<a class="headerlink" href="#scandata-table" title="Permalink to this headline">¶</a></h3>
+<p>The SCANDATA HDU is a BINTABLE with the following columns.  The
+columns listed here are a subset of the columns in the
+<a class="reference internal" href="../flux_points/index.html#flux-points"><span class="std std-ref">SED</span></a> format.  Relative to the 1D SED formats
+the dimensionality of all columns is increased by one with the first
+dimension (rows) mapping to spatial pixels.  See <a class="reference internal" href="../flux_points/index.html#sed-columns"><span class="std std-ref">Columns</span></a>
+for the full column specifications.</p>
+<div class="section" id="id3">
+<h4>Header Keywords<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">UL_CONF</span></code>, <strong>optional</strong></dt><dd><ul>
+<li><p>Confidence level of the upper limit given in the <code class="docutils literal notranslate"><span class="pre">norm_ul</span></code> column.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h4>Required Columns<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dloglike_scan</span></code> – ndim: 3, Dimension: nrows x nebins x nnorms</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">norm_scan</span></code> – ndim: 3, Dimension: nrows x nebins x nnorms</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">norm</span></code> – ndim: 2, Dimension: nrows x nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">norm_err</span></code> – ndim: 2, Dimension: nrows x nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ts</span></code> – ndim: 2, Dimension: nrows x nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loglike</span></code> – ndim: 2, Dimension: nrows x nebins</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h4>Optional Columns<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ref_npred</span></code> – ndim: 2, Dimension: nrows x nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">norm_errp</span></code> – ndim: 2, Dimension: nrows x nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">norm_errn</span></code> – ndim: 2, Dimension: nrows x nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">norm_ul</span></code> – ndim: 2, Dimension: nrows x nebins</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">bin_status</span></code> – ndim: 2, unit: None</dt><dd><ul>
+<li><p>Dimension: nrows x nebins</p></li>
+<li><p>Fit status code. 0 = OK, &gt;0 = Not OK</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="ebounds-table">
+<span id="ebounds"></span><h3>EBOUNDS Table<a class="headerlink" href="#ebounds-table" title="Permalink to this headline">¶</a></h3>
+<p>The EBOUNDS HDU is a BINTABLE with 1 row per energy bin and the
+following columns.  The columns listed here are a subset of the
+columns in the <a class="reference internal" href="../flux_points/index.html#flux-points"><span class="std std-ref">SED</span></a> format.  See <a class="reference internal" href="../flux_points/index.html#sed-columns"><span class="std std-ref">Columns</span></a> for
+the full column specifications.  Note that for backwards compatibility
+with existing EBOUNDS table convention (e.g. as used for WCS counts
+cubes) columns names are upper case.</p>
+<div class="section" id="id6">
+<h4>Required Columns<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">E_MIN</span></code>, unit: keV, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">E_REF</span></code>, unit: keV, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">E_MAX</span></code>, unit: keV, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REF_DNDE</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REF_EFLUX</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REF_FLUX</span></code> – ndim: 1, Dimension: nebins</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h4>Optional Columns<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">REF_DNDE_E_MIN</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REF_DNDE_E_MAX</span></code> – ndim: 1, Dimension: nebins</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">REF_NPRED</span></code> – ndim: 1, Dimension: nebins</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="tscube-output-format">
+<span id="tscube"></span><h2>TSCube Output Format<a class="headerlink" href="#tscube-output-format" title="Permalink to this headline">¶</a></h2>
+<p>Recent releases of the Fermi ScienceTools provide a <em>gttscube</em>
+application that fits a test source on a grid of spatial positions
+within the ROI.  At each test source position this tool calculates the
+following information:</p>
+<ul class="simple">
+<li><p>TS and best-fit amplitude of the test source.</p></li>
+<li><p>A likelihood SED.</p></li>
+</ul>
+<p>The output of the tool is a FITS file containing a Likelihood SED Cube
+with <em>nrows</em> in which each table row maps to a pixel in the grid scan.
+The PRIMARY HDU contains the same output as <em>gttsmap</em> – a
+2-dimensional FITS IMAGE with the test source TS evaluated at each
+position.  The primary fit results are contained in the following
+BINTABLE HDUs:</p>
+<ul class="simple">
+<li><p>A <a class="reference internal" href="#scandata"><span class="std std-ref">SCANDATA Table</span></a> containing the likelihood SEDs for each spatial pixel.</p></li>
+<li><p>A <a class="reference internal" href="#fitdata"><span class="std std-ref">FITDATA Table</span></a> containing fit results for the reference model at each spatial pixel over the full energy range.</p></li>
+<li><p>A <a class="reference internal" href="#ebounds"><span class="std std-ref">EBOUNDS Table</span></a> containing the bin definitions and the amplitude of the reference model.</p></li>
+</ul>
+<p>The mapping of rows to pixels is defined by the WCS header keywords in
+the SCANDATA HDU.  Following the usual FITS convention both tables
+use columnwise ordering for mapping rows to pixel indices.</p>
+<p>Here is the list of HDUs:</p>
+<table class="colwidths-given docutils align-default" id="id8">
+<caption><span class="caption-text">TS Cube HDUs</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HDU</p></th>
+<th class="head"><p>HDU Type</p></th>
+<th class="head"><p>HDU Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>IMAGE</p></td>
+<td><p>PRIMARY</p></td>
+<td><p>TS map of the region using the test source</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>BINTABLE</p></td>
+<td><p>SCANDATA</p></td>
+<td><p>Table with the data from the likelihood v. normalization scans.  Follows format specification given in <a class="reference internal" href="#scandata"><span class="std std-ref">SCANDATA Table</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>BINTABLE</p></td>
+<td><p>FITDATA</p></td>
+<td><p>Table with the data from the reference model fits.</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>BINTABLE</p></td>
+<td><p>BASELINE</p></td>
+<td><p>Parameters and Covariences of Baseline fit.</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>BINTABLE</p></td>
+<td><p>EBOUNDS</p></td>
+<td><p>Energy bin edges, fluxes and NPREDs for test source in each energy bin.  Follows format specification given in <a class="reference internal" href="#ebounds"><span class="std std-ref">EBOUNDS Table</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="fitdata-table">
+<span id="fitdata"></span><h3>FITDATA Table<a class="headerlink" href="#fitdata-table" title="Permalink to this headline">¶</a></h3>
+<p>The FITDATA HDU is a BINTABLE with 1 row per spatial pixel (<em>nrows</em>)
+and the following columns:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">fit_norm</span></code> – ndim: 1, unit: None</dt><dd><ul>
+<li><p>Dimension: nrows</p></li>
+<li><p>Best-fit normalization for the global model in units of the reference model amplitude.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">fit_norm_err</span></code> – ndim: 1, unit: None</dt><dd><ul>
+<li><p>Dimension: nrows</p></li>
+<li><p>Symmetric error on the global model normalization in units of the reference model amplitude.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">fit_norm_errp</span></code> – ndim: 1, unit: None</dt><dd><ul>
+<li><p>Dimension: nrows</p></li>
+<li><p>Positive error on the global model normalization in units of the reference model amplitude.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">fit_norm_errn</span></code> – ndim: 1, unit: None</dt><dd><ul>
+<li><p>Dimension: nrows</p></li>
+<li><p>Negative error on the global model normalization in units of the reference model amplitude.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">fit_norm_ul</span></code> – ndim: 1, unit: None</dt><dd><ul>
+<li><p>Dimension: nrows</p></li>
+<li><p>Upper limit on the global model normalization in units of the reference model amplitude.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">fit_ts</span></code> – ndim: 1, unit: None</dt><dd><ul>
+<li><p>Dimension: nrows</p></li>
+<li><p>Test statistic of the best-fit global model.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">fit_status</span></code> – ndim: 1, unit: None</dt><dd><ul>
+<li><p>Dimension: nrows</p></li>
+<li><p>Status code for the fit. 0 = OK, &gt;0 = Not OK</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ogip/index.html" class="btn btn-neutral float-right" title="1D counts spectra" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../flux_points/index.html" class="btn btn-neutral float-left" title="SED" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Gamma-ray astronomy community
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

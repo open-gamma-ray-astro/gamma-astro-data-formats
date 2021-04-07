@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>POINTING &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IACT IRFs" href="../irfs/index.html" />
+    <link rel="prev" title="GTI" href="gti.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">IACT events</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="events.html">EVENTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gti.html">GTI</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">POINTING</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory-columns">Mandatory columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-columns">Optional columns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mandatory-header-keywords">Mandatory header keywords</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../irfs/index.html">IACT IRFs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../skymaps/index.html">Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spectra/index.html">Spectra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lightcurves/index.html">Light curves</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data formats for gamma-ray astronomy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">IACT events</a> &raquo;</li>
+        
+      <li>POINTING</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/events/pointing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a first draft proposal of a pointing table.
+It is not being used yet by data producers or science tools.
+Please note that the format is likely subject to change.</p>
+</div>
+<div class="section" id="pointing">
+<span id="iact-pnt"></span><h1>POINTING<a class="headerlink" href="#pointing" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">POINTING</span></code> extension is a binary FITS table that contains for a number
+of time stamps the pointing direction of the telescopes. A <em>pointing</em> is here
+defined as the centre of the field of view (or centre of the camera
+coordinates). In reality, all telescopes may point to different positions
+(for example for divergent pointing mode). The main purpose of the <code class="docutils literal notranslate"><span class="pre">POINTING</span></code>
+extension is to provide time dependent information on how to transform
+between celestial and terrestial coordinates.</p>
+<p>See also <a class="reference external" href="https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/ofwg_recomm/r3.html">HFWG Recommendation R3</a> for the OGIP standard.</p>
+<div class="section" id="mandatory-columns">
+<h2>Mandatory columns<a class="headerlink" href="#mandatory-columns" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TIME</span></code> type: float64, unit: s</dt><dd><ul>
+<li><p>Pointing time (see <a class="reference internal" href="../general/time.html#time"><span class="std std-ref">Time</span></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RA_PNT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Pointing Right Ascension (see <a class="reference internal" href="../general/coordinates.html#coords-radec"><span class="std std-ref">RA / DEC</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DEC_PNT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Pointing declination (see <a class="reference internal" href="../general/coordinates.html#coords-radec"><span class="std std-ref">RA / DEC</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="optional-columns">
+<h2>Optional columns<a class="headerlink" href="#optional-columns" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ALT_PNT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Pointing altitude (see <a class="reference internal" href="../general/coordinates.html#coords-altaz"><span class="std std-ref">Alt / Az</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">AZ_PNT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Pointing azimuth  (see <a class="reference internal" href="../general/coordinates.html#coords-altaz"><span class="std std-ref">Alt / Az</span></a>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="mandatory-header-keywords">
+<h2>Mandatory header keywords<a class="headerlink" href="#mandatory-header-keywords" title="Permalink to this headline">¶</a></h2>
+<p>The standard FITS reference time header keywords should be used (see <a class="reference internal" href="../general/time.html#time-formats"><span class="std std-ref">Formats</span></a>).
+An observatory Earth location should be given as well (see <a class="reference internal" href="../general/coordinates.html#coords-location"><span class="std std-ref">Earth location</span></a>).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../irfs/index.html" class="btn btn-neutral float-right" title="IACT IRFs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="gti.html" class="btn btn-neutral float-left" title="GTI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Gamma-ray astronomy community
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

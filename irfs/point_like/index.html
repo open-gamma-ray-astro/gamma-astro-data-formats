@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Point-like IRFs &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="IACT data storage" href="../../data_storage/index.html" />
+    <link rel="prev" title="Background format" href="../full_enclosure/bkg/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../events/index.html">IACT events</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">IACT IRFs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../irf_components/index.html">IRF components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../irf_axes/index.html">IRF axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../full_enclosure/index.html">Full-enclosure IRFs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Point-like IRFs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rad-max">RAD_MAX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rad-max-2d">RAD_MAX_2D</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../skymaps/index.html">Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spectra/index.html">Spectra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../lightcurves/index.html">Light curves</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Data formats for gamma-ray astronomy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">IACT IRFs</a> &raquo;</li>
+        
+      <li>Point-like IRFs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/irfs/point_like/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="point-like-irfs">
+<span id="point-irfs"></span><h1>Point-like IRFs<a class="headerlink" href="#point-like-irfs" title="Permalink to this headline">¶</a></h1>
+<p>Point-like IRFs has been classically used within the IACT community. Each IRF component is calculated from the
+events surviving an energy dependent directional cut around the assumed source position.</p>
+<p>The format of each point-like IRF component is analog to the ones already described within the full enclosure
+IRF specifications (see <a class="reference internal" href="../full_enclosure/index.html#full-enclosure-irfs"><span class="std std-ref">Full-enclosure IRFs</span></a>), with certain differences listed in this section.</p>
+<p>Any point-like IRF component should contain the header keyword:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUCLAS3</span> <span class="pre">=</span> <span class="pre">POINT-LIKE</span></code></p></li>
+</ul>
+<div class="section" id="rad-max">
+<span id="id1"></span><h2>RAD_MAX<a class="headerlink" href="#rad-max" title="Permalink to this headline">¶</a></h2>
+<p>In addition to the IRFs, the actual directional cut applied to the data needs to be stored. This cut is allowed
+to be constant or variable along several axes, with a different format.</p>
+<p>In case the angular cut is constant along the energy and FoV, an additional header keyword may be added to the
+IRF HDU:</p>
+<p>Header keyword:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RAD_MAX</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Radius of the directional cut applied to calculate the IRF, in degrees.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>If this keyword is present, the science tools should assume the directional cut of this point-like IRF is constant
+over all axes. In case the angular cut is variable along any axis (reconstructed energy or FoV), an additional HDU
+is required to store these values. Note any DL3 file with a point-like IRF (with <code class="docutils literal notranslate"><span class="pre">HDUCLAS3</span> <span class="pre">=</span> <span class="pre">POINT-LIKE</span></code>) that
+has no <code class="docutils literal notranslate"><span class="pre">RAD_MAX</span></code> keyword within the HDU metadata should have this additional HDU.</p>
+<p>In case the directional cut is variable with energy or the FoV, point-like IRFs require an additional binary
+table. It stores the values of <code class="docutils literal notranslate"><span class="pre">RAD_MAX</span></code> as a function of the reconstructed energy and FoV following the
+<a class="reference internal" href="../../general/fits-arrays.html#fits-arrays-bintable-hdu"><span class="std std-ref">BINTABLE HDU</span></a> format.</p>
+<div class="section" id="rad-max-2d">
+<span id="id2"></span><h3>RAD_MAX_2D<a class="headerlink" href="#rad-max-2d" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">RAD_MAX_2D</span></code> format contains a 2-dimensional array of directional cut values, stored in the
+<a class="reference internal" href="../../general/fits-arrays.html#fits-arrays-bintable-hdu"><span class="std std-ref">BINTABLE HDU</span></a> format.</p>
+<p>Required columns:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ENERG_LO</span></code>, <code class="docutils literal notranslate"><span class="pre">ENERG_HI</span></code> – ndim: 1, unit: TeV</dt><dd><ul>
+<li><p>Reconstructed energy axis</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">THETA_LO</span></code>, <code class="docutils literal notranslate"><span class="pre">THETA_HI</span></code> – ndim: 1, unit: deg</dt><dd><ul>
+<li><p>Field of view offset axis</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RAD_MAX</span></code> – ndim: 2, unit: deg</dt><dd><ul>
+<li><p>Radius of the directional cut applied to calculate the IRF, in degrees.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Recommended axis order: <code class="docutils literal notranslate"><span class="pre">ENERGY</span></code>, <code class="docutils literal notranslate"><span class="pre">THETA</span></code>, <code class="docutils literal notranslate"><span class="pre">RAD_MAX</span></code></p>
+<p>Header keywords:</p>
+<p>As explained in <a class="reference internal" href="../../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a>, the following header keyword should be used to
+declare the type of HDU:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUDOC</span></code>   = ‘<a class="reference external" href="https://github.com/open-gamma-ray-astro/gamma-astro-data-formats">https://github.com/open-gamma-ray-astro/gamma-astro-data-formats</a>’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUVERS</span></code>  = ‘0.2’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUCLASS</span></code> = ‘GADF’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUCLAS1</span></code> = ‘RESPONSE’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUCLAS2</span></code> = ‘RAD_MAX’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUCLAS3</span></code> = ‘POINT-LIKE’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HDUCLAS4</span></code> = ‘RAD_MAX_2D’</p></li>
+</ul>
+<p>Example data file: <a class="reference download internal" download="" href="../../_downloads/e7b319c272f0f15e5b1af50ed4a91f5d/rad_max_2d_point-like_example.fits"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../data_storage/index.html" class="btn btn-neutral float-right" title="IACT data storage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../full_enclosure/bkg/index.html" class="btn btn-neutral float-left" title="Background format" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Gamma-ray astronomy community
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

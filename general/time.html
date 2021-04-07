@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Time &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Coordinates" href="coordinates.html" />
+    <link rel="prev" title="General" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.dev
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">General</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formats">Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tools">Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#precision">Precision</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="coordinates.html">Coordinates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fits-arrays.html">FITS Multidimensional datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hduclass.html">HDU classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes.html">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">IACT events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../irfs/index.html">IACT IRFs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../skymaps/index.html">Sky Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spectra/index.html">Spectra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lightcurves/index.html">Light curves</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Data formats for gamma-ray astronomy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">General</a> &raquo;</li>
+        
+      <li>Time</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/general/time.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="time">
+<span id="id1"></span><h1>Time<a class="headerlink" href="#time" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This page describes how times should be stored.
+This is a solved problem, we follow the <a class="reference external" href="https://fits.gsfc.nasa.gov/standard40/fits_standard40aa-le.pdf">FITS standard</a>.
+However, the FITS standard is very complex (see also <a class="reference external" href="http://adsabs.harvard.edu/abs/2015A%26A...574A..36R">FITS time paper</a>),
+and allows for different ways to store times in FITS, some of which
+are hard to understand and implement.</p>
+<p>To keep things simple, we here agree on a way to store times that
+is fully compliant, but a subset of the ways allowed by the FITS standard
+(see <a class="reference internal" href="#time-formats"><span class="std std-ref">Formats</span></a> below).</p>
+<p>This has the advantage of simplicity and uniformity for writers and readers
+(see <a class="reference internal" href="#time-tools"><span class="std std-ref">Tools</span></a> below).</p>
+<p>One major point allowing for this simplicity is that we only need single 64-bit float precision for time
+in high-level (DL3 and up) gamma-ray astronomy, as explained in the <a class="reference internal" href="#time-precision"><span class="std std-ref">Precision</span></a> section below.</p>
+<p>At the time of writing this general page on time, the following definitions reference it:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../events/events.html#iact-events"><span class="std std-ref">EVENTS</span></a> has the <code class="docutils literal notranslate"><span class="pre">TIME</span></code> column and several times given via header keywords</p></li>
+<li><p><a class="reference internal" href="../events/gti.html#iact-gti"><span class="std std-ref">GTI</span></a> has the <code class="docutils literal notranslate"><span class="pre">START</span></code> and <code class="docutils literal notranslate"><span class="pre">STOP</span></code> columns</p></li>
+<li><p><a class="reference internal" href="../events/pointing.html#iact-pnt"><span class="std std-ref">POINTING</span></a> has the <code class="docutils literal notranslate"><span class="pre">TIME</span></code> column</p></li>
+<li><p><a class="reference internal" href="../data_storage/obs_index/index.html#obs-index"><span class="std std-ref">Observation index table</span></a> has the <code class="docutils literal notranslate"><span class="pre">TSTART</span></code> and <code class="docutils literal notranslate"><span class="pre">TSTOP</span></code> columns</p></li>
+</ul>
+<p>Other useful resources concerning time:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://heasarc.gsfc.nasa.gov/docs/fcg/common_dict.html">https://heasarc.gsfc.nasa.gov/docs/fcg/common_dict.html</a></p></li>
+<li><p><a class="reference external" href="http://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Cicerone/Cicerone_Data/Time_in_ScienceTools.html">Time in Fermi data analysis</a></p></li>
+</ul>
+</div>
+<div class="section" id="formats">
+<span id="time-formats"></span><h2>Formats<a class="headerlink" href="#formats" title="Permalink to this headline">¶</a></h2>
+<p>In tables, times should be given as 64-bit float values. For all the tables and columns mentioned
+in the introduction, the times are given as seconds since a reference time point.</p>
+<p>The reference time point is specified by the following FITS header keywords:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">MJDREFI</span></code> type: int, unit: days</dt><dd><ul>
+<li><p>Integer part of instrument specific MJD time reference</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">MJDREFF</span></code> type: float, unit: days</dt><dd><ul>
+<li><p>Float part of instrument specific MJD time reference</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TIMEUNIT</span></code> type: string</dt><dd><ul>
+<li><p>Time unit (e.g. ‘s’)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TIMESYS</span></code> type: string</dt><dd><ul>
+<li><p>Time system, also referred as time scale (e.g. ‘UT1’, ‘UTC’, ‘TT’, ‘TAI’, see Table 30 of the <a class="reference external" href="https://fits.gsfc.nasa.gov/standard40/fits_standard40aa-le.pdf">FITS standard</a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TIMEREF</span></code> type: string</dt><dd><ul>
+<li><p>Time reference frame, used for example for barycentric corrections
+(options: ‘TOPOCENTER’, ‘GEOCENTER’, ‘BARYCENTER’, ‘HELIOCENTER’, and more see Table 31 of the <a class="reference external" href="https://fits.gsfc.nasa.gov/standard40/fits_standard40aa-le.pdf">FITS standard</a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>See the <a class="reference external" href="https://fits.gsfc.nasa.gov/standard40/fits_standard40aa-le.pdf">FITS standard</a> and the <a class="reference external" href="http://adsabs.harvard.edu/abs/2015A%26A...574A..36R">FITS time paper</a> for further information.</p>
+<p>For light curves (not specified yet), the use of <code class="docutils literal notranslate"><span class="pre">TIMESYS='d'</span></code> in days is also common.</p>
+<p>Some existing files don’t give <code class="docutils literal notranslate"><span class="pre">TIMEUNIT</span></code> and / or <code class="docutils literal notranslate"><span class="pre">TIMEREF</span></code>. In those cases, science tools
+should assume defaults of <code class="docutils literal notranslate"><span class="pre">TIMEUNIT='s'</span></code> and <code class="docutils literal notranslate"><span class="pre">TIMEREF='LOCAL'</span></code>. No defaults exist for
+<code class="docutils literal notranslate"><span class="pre">MJDREFI</span></code>, <code class="docutils literal notranslate"><span class="pre">MJDREFF</span></code> and <code class="docutils literal notranslate"><span class="pre">TIMESYS</span></code>, if those are missing science tools should raise an error and exit.
+New files should always be written with all five header keys.</p>
+<p>In addition to that main way of specifying times as a floating point number wrt. a reference time point,
+the following header keys with date and time values as strings can be added.
+This is for convenience and humans reading the information. Usually science tools will not access
+this redundant and optional information. The time system used should be the one given by <code class="docutils literal notranslate"><span class="pre">TIMESYS</span></code>.
+All values for the keywords mentioned here shall be ISO8601 date and time strings,
+<code class="docutils literal notranslate"><span class="pre">yyyy-mm-ddTHH:MM:SS.fff</span></code>.
+The precision is not fixed, so seconds or fractional seconds could be left out.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DATE-OBS</span></code> type: string</dt><dd><ul>
+<li><p>Observation date and time, typically the start of observations if not defined otherwise in the comment</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DATE-BEG</span></code> type: string</dt><dd><ul>
+<li><p>Observation start date and time</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DATE-AVG</span></code> type: string</dt><dd><ul>
+<li><p>Average observation date and time</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DATE-END</span></code> type: string</dt><dd><ul>
+<li><p>Observation end date and time</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="tools">
+<span id="time-tools"></span><h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="http://www.iausofa.org/2015_0209_C/sofa/sofa_ts_c.pdf">SOFA Time Scale and Calendar Tools</a> document provides a detailed
+description of times in the high-precision IAU SOFA library, which is the
+gold standard for times in astronomy.
+The SOFA time routines are available via the  <a class="reference external" href="http://docs.astropy.org/en/latest/time/index.html">Astropy time</a> Python package,
+which makes it easy to convert between different <strong>time scales</strong>
+(<code class="docutils literal notranslate"><span class="pre">utc</span></code>, <code class="docutils literal notranslate"><span class="pre">tt</span></code> and <code class="docutils literal notranslate"><span class="pre">mjd</span></code> in this example).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy.time</span> <span class="kn">import</span> <span class="n">Time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="s1">&#39;2011-01-01 00:00:00&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s1">&#39;utc&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;iso&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span>
+<span class="go">&lt;Time object: scale=&#39;utc&#39; format=&#39;iso&#39; value=2011-01-01 00:00:00.000&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">tt</span>
+<span class="go">&lt;Time object: scale=&#39;tt&#39; format=&#39;iso&#39; value=2011-01-01 00:01:06.184&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">mjd</span>
+<span class="go">55562.0</span>
+</pre></div>
+</div>
+<p>as well as different <strong>time formats</strong> (<code class="docutils literal notranslate"><span class="pre">iso</span></code>, <code class="docutils literal notranslate"><span class="pre">isot</span></code> and <code class="docutils literal notranslate"><span class="pre">fits</span></code> in this example)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">iso</span>
+<span class="go">&#39;2011-01-01 00:00:00.000&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">isot</span>
+<span class="go">&#39;2011-01-01T00:00:00.000&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">fits</span>
+<span class="go">&#39;2011-01-01T00:00:00.000(UTC)&#39;</span>
+</pre></div>
+</div>
+<p>If you don’t want to install SOFA or Astropy (or to double-check),
+you can use the <a class="reference external" href="https://heasarc.gsfc.nasa.gov/cgi-bin/Tools/xTime/xTime.pl">xTime</a> time conversion utility provided by HEASARC as a web tool.</p>
+<ul class="simple">
+<li><p>Gammapy uses <a class="reference external" href="http://docs.astropy.org/en/latest/time/index.html">Astropy time</a>, with custom utility functions for FITS I/O
+to write in the formats recommended here.</p></li>
+<li><p>Gammalib has custom code to hande times that is described in <a class="reference external" href="http://cta.irap.omp.eu/gammalib-devel/user_manual/modules/obs.html#times-in-gammalib">Times in Gammalib</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="precision">
+<span id="time-precision"></span><h2>Precision<a class="headerlink" href="#precision" title="Permalink to this headline">¶</a></h2>
+<p>Depending on the use case and required precision, times are stored as strings
+or as one or several integer or floating point numbers. Tools usually use
+one 64-bit or two 64-bit floating point numbers for time calculations.</p>
+<p>For high-level gamma-ray astronomy, the situation can be summarised like this
+(see sub-section computation below for details):</p>
+<ul class="simple">
+<li><p><strong>Do use single 64-bit floats for times.</strong>
+The resulting precision will be about 0.1 micro-seconds or better,
+which is sufficient for any high-level analysis (including milli-second pulsars).</p></li>
+<li><p><strong>Do not use 32-bit floats for times.</strong>
+If you do, times will be incorrect at the 1 to 100 second level.</p></li>
+<li><p>More than 64-bit floats or a combination of two floating point numbers is not necessary</p></li>
+</ul>
+<p>For data acquisition and low-level analysis (event triggering, traces, …),
+IACTs require nanosecond precision or better. There, the simple advice to use
+64-bit floats representing seconds wrt. a single reference time doesn’t work!
+One either needs to have several reference times (e.g. per-observation) or
+two integer or float values. This is not covered by this spec.</p>
+<p>The time precision obtained with a single 32-bit or 64-bit float can be computed
+with this function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">time_precision</span><span class="p">(</span><span class="n">time_range</span><span class="p">,</span> <span class="n">float_precision</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute time precision (seconds) in float computations.</span>
+
+<span class="sd">    For a given `time_range` and `float_precision`, the `time_precision`</span>
+<span class="sd">    is computed as the smallest time difference corresponding to the</span>
+<span class="sd">    float precision.</span>
+
+<span class="sd">    time_range -- (IN) Time range of application (years)</span>
+<span class="sd">    float_precision -- (IN) {32, 64} Floating point precision</span>
+<span class="sd">    time_precision -- (OUT) Time precision (seconds)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <span class="n">YEAR_TO_SEC</span> <span class="o">=</span> <span class="mi">315576000</span>
+
+    <span class="n">dtype</span> <span class="o">=</span> <span class="p">{</span><span class="mi">32</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="mi">64</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">}[</span><span class="n">float_precision</span><span class="p">]</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">dtype</span><span class="p">(</span><span class="n">YEAR_TO_SEC</span> <span class="o">*</span> <span class="n">time_range</span><span class="p">)</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nextafter</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time range: </span><span class="si">{}</span><span class="s1"> years, float precision: </span><span class="si">{}</span><span class="s1"> bit =&gt; time precision: </span><span class="si">{:.3g}</span><span class="s1"> seconds.&#39;</span>
+          <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time_range</span><span class="p">,</span> <span class="n">float_precision</span><span class="p">,</span> <span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">time_precision</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+<span class="go">Time range: 10 years, float precision: 32 bit =&gt; time precision: 256 seconds.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time_precision</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<span class="go">Time range: 10 years, float precision: 64 bit =&gt; time precision: 4.77e-07 seconds.</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="coordinates.html" class="btn btn-neutral float-right" title="Coordinates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="General" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Gamma-ray astronomy community
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+.. include:: ../../../../references.txt
+
+.. _psf_king:
+
+PSF_KING
+========
+
+The King function parametrisations for PSFs has been in use in astronomy
+as an analytical PSF model for many instruments, for example
+by the Fermi-LAT (see `2013ApJ...765...54A`_).
+
+The distribution has two parameters ``GAMMA`` :math:`\gamma` and ``SIGMA`` :math:`\sigma`
+and is given by the following formula:
+
+.. math::
+
+   dP/d\Omega(r,\sigma,\gamma) =
+   \frac{1}{2\pi\sigma^2}
+   \left(1-\frac{1}{\gamma}\right)
+   \left(1+\frac{r^2}{2\gamma\sigma^2}\right)^{- \gamma}
+
+This formula integrates to 1 (see :ref:`psf-intro`).
+
+Columns:
+
+* ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
+    * True energy axis
+* ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
+    * Field of view offset axis (see :ref:`coords-fov`)
+* ``GAMMA`` -- ndim: 2, unit: none
+    * Model parameter (see formula above)
+* ``SIGMA`` -- ndim: 2, unit: deg
+    * Model parameter (see formula above)
+
+Recommended axis order: ``ENERGY``, ``THETA``
+
+Header keywords:
+
+As explained in :ref:`hduclass`, the following header keyword should be used to 
+declare the type of HDU:
+
+* ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
+* ``HDUVERS``  = '0.2'
+* ``HDUCLASS`` = 'GADF'
+* ``HDUCLAS1`` = 'RESPONSE'
+* ``HDUCLAS2`` = 'PSF'
+* ``HDUCLAS3`` = 'FULL-ENCLOSURE'
+* ``HDUCLAS4`` = 'PSF_KING'  
+
+Example data file: TODO
