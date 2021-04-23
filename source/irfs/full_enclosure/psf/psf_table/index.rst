@@ -18,9 +18,9 @@ Columns:
 * ``ENERG_LO``, ``ENERG_HI`` -- ndim: 1, unit: TeV
     * True energy axis
 * ``THETA_LO``, ``THETA_HI`` -- ndim: 1, unit: deg
-    * Field of view offset axis (see :ref:`coords-fov`)
+    * Angular distance to centre of the array pointing direction (see :ref:`coords-fov`)
 * ``RAD_LO``, ``RAD_HI`` -- ndim: 1, unit: deg
-    * Offset angle from source position
+    * Angular distance between simulated and reconstructed direction
 * ``RPSF`` -- ndim: 3, unit: sr^-1
     * Point spread function value :math:`dP/d\Omega`, see :ref:`psf-pdf`.
 
