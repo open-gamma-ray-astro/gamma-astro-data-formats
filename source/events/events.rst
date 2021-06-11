@@ -116,9 +116,13 @@ An observatory Earth location should be given as well (see :ref:`coords-location
     * Dead time correction, defined by ``LIVETIME/ONTIME``.
       Is comprised in [0,1]. Defined to be 0 if ``ONTIME=0``.
 * ``RA_PNT`` type: float, unit: deg
-    * Pointing Right Ascension (see :ref:`coords-radec`).
+    * Pointing Right Ascension (see :ref:`coords-radec`). Not required if ``OBS_MODE=DRIFT``
 * ``DEC_PNT`` type: float, unit: deg
-    * Pointing declination (see :ref:`coords-radec`).
+    * Pointing declination (see :ref:`coords-radec`). Not required if ``OBS_MODE=DRIFT``
+* ``ALT_PNT`` type: float, unit: deg
+    * Pointing Altitude (see :ref:`coords-altaz`). Only required if ``OBS_MODE=DRIFT``
+* ``AZ_PNT`` type: float, unit: deg
+    * Pointing azimuth (see :ref:`coords-altaz`). Only required if ``OBS_MODE=DRIFT``
 * ``EQUINOX`` type: float
     * Equinox in years for the celestial coordinate system in which positions
       given in either the header or data are expressed (options: 2000.0).
@@ -322,16 +326,23 @@ CTA and discussion, and then a proposal for a specification.
 
 .. _iact-events-obs-mode:
 
-OBS_MODE 
+OBS_MODE
 ~~~~~~~~
 
-The observation mode ``OBS_MODE`` is currently provenance information, not used
-by science tools to decide how to analyse the data. There is no set of defined
-modes yet. Thus, at the moment it is optional.
+The keyword ``OBS_MODE`` specifies the mode of the observation.
+This is used in cases where the instrument or detector can be configured to
+operate in different modes which significantly affect the resulting data, or to accomodate
+different types of insrument. More details can be found
+`here <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/general/ogip_94_001/ogip_94_001.html>`__
 
-Just to give an example: in H.E.S.S. the values of "WOBBLE" for wobble
-observations (pointing slightly off target) and "SCAN" for Galactic plane survey
-observation on a grid of sky positions (not wrt. a specific target) is used.
+Additionally to the OGIP-defined values (``POINTING``, ``RASTER``, ``SLEW`` and ``SCAN``), we
+propose an additional option ``DRIFT`` to accomodate ground-based instruments, in
+which local zenith/azimuth coordinates remain constant. In this case, the header keywords
+``RA_PNT`` and ``DEC_PNT`` are no longer mandatory, and instead ``ALT_PNT`` and ``AZ_PNT``
+are required.
+
+This keyword is optional, which means that in its absence, the default becomes to consider
+``RA_PNT`` and ``DEC_PNT`` as mandatory.
 
 It is likely that ``OBS_MODE`` in the future will be a key piece of information
 in the DL3 data model, defining the observation mode (e.g. pointed, divergent,
