@@ -115,10 +115,10 @@ An observatory Earth location should be given as well (see :ref:`coords-location
 * ``DEADC`` type: float
     * Dead time correction, defined by ``LIVETIME/ONTIME``.
       Is comprised in [0,1]. Defined to be 0 if ``ONTIME=0``.
-* ``ALT_PNT`` type: float, unit: deg
-    * Pointing altitude (see :ref:`coords-altaz`).
-* ``AZ_PNT`` type: float, unit: deg
-    * Pointing azimuth (see :ref:`coords-altaz`).
+* ``RA_PNT`` type: float, unit: deg
+    * Pointing Right Ascension (see :ref:`coords-radec`).
+* ``DEC_PNT`` type: float, unit: deg
+    * Pointing declination (see :ref:`coords-radec`).
 * ``EQUINOX`` type: float
     * Equinox in years for the celestial coordinate system in which positions
       given in either the header or data are expressed (options: 2000.0).
@@ -161,10 +161,6 @@ Optional header keywords
 * ``CREATED`` type: string
     * Time when file was created in ISO standard date representation
       "ccyy-mm-ddThh:mm:ss" (UTC)
-* ``RA_PNT`` type: float, unit: deg
-    * Pointing Right Ascension (see :ref:`coords-radec`).
-* ``DEC_PNT`` type: float, unit: deg
-    * Pointing declination (see :ref:`coords-radec`).
 * ``OBJECT`` type: string
     * Observed object (e.g. 'Crab')
 * ``RA_OBJ`` type: float, unit: deg
