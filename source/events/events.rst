@@ -116,13 +116,13 @@ An observatory Earth location should be given as well (see :ref:`coords-location
     * Dead time correction, defined by ``LIVETIME/ONTIME``.
       Is comprised in [0,1]. Defined to be 0 if ``ONTIME=0``.
 * ``RA_PNT`` type: float, unit: deg
-    * Pointing Right Ascension (see :ref:`coords-radec`). Not required if ``OBS_MODE=DRIFT``
+    * Pointing Right Ascension (see :ref:`coords-radec`). Not mandatory if ``OBS_MODE=DRIFT``, but average values could optionally be provided.
 * ``DEC_PNT`` type: float, unit: deg
-    * Pointing declination (see :ref:`coords-radec`). Not required if ``OBS_MODE=DRIFT``
+    * Pointing declination (see :ref:`coords-radec`). Not mandatory if ``OBS_MODE=DRIFT``, but average values could optionally be provided.
 * ``ALT_PNT`` type: float, unit: deg
-    * Pointing Altitude (see :ref:`coords-altaz`). Only required if ``OBS_MODE=DRIFT``
+    * Pointing Altitude (see :ref:`coords-altaz`). Only mandatory if ``OBS_MODE=DRIFT``
 * ``AZ_PNT`` type: float, unit: deg
-    * Pointing azimuth (see :ref:`coords-altaz`). Only required if ``OBS_MODE=DRIFT``
+    * Pointing azimuth (see :ref:`coords-altaz`). Only mandatory if ``OBS_MODE=DRIFT``
 * ``EQUINOX`` type: float
     * Equinox in years for the celestial coordinate system in which positions
       given in either the header or data are expressed (options: 2000.0).
