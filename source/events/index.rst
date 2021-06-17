@@ -1,9 +1,9 @@
 .. include:: ../references.txt
 
-IACT events
-===========
+Events
+======
 
-This document describes the format to store DL3 event data for IACTs.
+This document describes the format to store DL3 event data for gamma-ray instruments.
 
 The main table is ``EVENTS``, which at the moment contains not only event
 parameters, but also key information about the observation needed to analyse the
