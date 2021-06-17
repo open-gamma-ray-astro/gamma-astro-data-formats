@@ -332,11 +332,11 @@ OBS_MODE
 The keyword ``OBS_MODE`` specifies the mode of the observation.
 This is used in cases where the instrument or detector can be configured to
 operate in different modes which significantly affect the resulting data, or to accomodate
-different types of insrument. More details can be found
+different types of instrument. More details can be found
 `here <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/general/ogip_94_001/ogip_94_001.html>`__
 
-Additionally to the OGIP-defined values (``POINTING``, ``RASTER``, ``SLEW`` and ``SCAN``), we
-define an additional option ``DRIFT`` to accomodate ground-based instruments, in
+In addition to the OGIP-defined values (``POINTING``, ``RASTER``, ``SLEW`` and ``SCAN``), we
+define the option ``DRIFT`` to accomodate ground-based wide-field instruments, in
 which local zenith/azimuth coordinates remain constant. In this case, the header keywords
 ``RA_PNT`` and ``DEC_PNT`` are no longer mandatory, and instead ``ALT_PNT`` and ``AZ_PNT``
 are required.
