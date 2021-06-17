@@ -115,6 +115,8 @@ An observatory Earth location should be given as well (see :ref:`coords-location
 * ``DEADC`` type: float
     * Dead time correction, defined by ``LIVETIME/ONTIME``.
       Is comprised in [0,1]. Defined to be 0 if ``ONTIME=0``.
+* ``OBS_MODE`` type: string
+    * Observation mode. See notes on :ref:`iact-events-obs-mode` below.
 * ``RA_PNT`` type: float, unit: deg
     * Pointing Right Ascension (see :ref:`coords-radec`). Not mandatory if ``OBS_MODE=DRIFT``, but average values could optionally be provided.
 * ``DEC_PNT`` type: float, unit: deg
@@ -170,9 +172,7 @@ Optional header keywords
 * ``RA_OBJ`` type: float, unit: deg
     * Right ascension of ``OBJECT``
 * ``DEC_OBJ`` type: float, unit: deg
-    * Declination of ``OBJECT``                
-* ``OBS_MODE`` type: string
-    * Observation mode. See notes on :ref:`iact-events-obs-mode` below.
+    * Declination of ``OBJECT``
 * ``EV_CLASS`` type: str
     * Event class. See notes on :ref:`iact-events-class-type` below.
 * ``TELAPSE`` type: float, unit: s
@@ -336,13 +336,10 @@ different types of insrument. More details can be found
 `here <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/general/ogip_94_001/ogip_94_001.html>`__
 
 Additionally to the OGIP-defined values (``POINTING``, ``RASTER``, ``SLEW`` and ``SCAN``), we
-propose an additional option ``DRIFT`` to accomodate ground-based instruments, in
+define an additional option ``DRIFT`` to accomodate ground-based instruments, in
 which local zenith/azimuth coordinates remain constant. In this case, the header keywords
 ``RA_PNT`` and ``DEC_PNT`` are no longer mandatory, and instead ``ALT_PNT`` and ``AZ_PNT``
 are required.
-
-This keyword is optional, which means that in its absence, the default becomes to consider
-``RA_PNT`` and ``DEC_PNT`` as mandatory.
 
 It is likely that ``OBS_MODE`` in the future will be a key piece of information
 in the DL3 data model, defining the observation mode (e.g. pointed, divergent,
