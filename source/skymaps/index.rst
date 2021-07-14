@@ -86,7 +86,7 @@ Header Keywords
       ``EBOUNDS`` or ``ENERGIES`` HDUs this keyword is optional.
 
 For time based axes the additional keywords described in `time-formats`_ are
-allowed.
+required.
 
 
 Columns
