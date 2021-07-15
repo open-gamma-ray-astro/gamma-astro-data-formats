@@ -84,7 +84,11 @@ Header Keywords
       lower and upper edges of each bin.  If there is a single element
       the column should be interpreted as the bin center.  For
       ``EBOUNDS`` or ``ENERGIES`` HDUs this keyword is optional.
-  
+
+For time based axes the additional keywords described in `time-formats`_ are
+required.
+
+
 Columns
 ~~~~~~~
 
