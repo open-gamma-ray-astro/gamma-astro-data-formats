@@ -37,7 +37,7 @@ Optional columns
    None of the following columns is required to be part of an ``EVENTS``
    extension. Any software **using** these columns should first check whether the
    columns exist, and warn in case of their absence. Any software **ignoring**
-   these columns should make sure that their presence does not detoriate the
+   these columns should make sure that their presence does not deteriorate the
    functioning of the software.
 
 * ``EVENT_TYPE`` type: bit field (in FITS ``tform=32X``)
