@@ -22,6 +22,7 @@ References
 ==========
 
 The following paper describes the context of this initiative and its evolution:
+
 - Nigro, C.; Hassan, T.; Olivera-Nieto, L. Evolution of Data Formats in Very-High-Energy Gamma-Ray Astronomy. Universe 2021, 7, 374. https://doi.org/10.3390/universe7100374.
 
 .. toctree::
