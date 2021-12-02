@@ -6,6 +6,7 @@
     To view the latest released version of the standard,
     visit https://gamma-astro-data-formats.readthedocs.io/en/v0.2/
 
+
 Data formats for gamma-ray astronomy
 ====================================
 
@@ -18,12 +19,17 @@ The *Data formats for gamma-ray astronomy* is a community-driven initiative for 
 * Docs: https://gamma-astro-data-formats.readthedocs.io/
 * Mailing list: https://lists.nasa.gov/mailman/listinfo/open-gamma-ray-astro
 
+
 References
-==========
+----------
 
 The following paper describes the context of this initiative and its evolution:
 
 - Nigro, C.; Hassan, T.; Olivera-Nieto, L. Evolution of Data Formats in Very-High-Energy Gamma-Ray Astronomy. Universe 2021, 7, 374. https://doi.org/10.3390/universe7100374.
+
+
+Content
+-------
 
 .. toctree::
    :maxdepth: 1
