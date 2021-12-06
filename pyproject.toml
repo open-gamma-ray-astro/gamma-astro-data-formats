@@ -5,12 +5,12 @@ description = "Standardized Data Formats for Gamma-Ray Astronomy"
 authors = ["Christoph Deil et al."]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.7"
 
 [tool.poetry.dev-dependencies]
-sphinx = "^2.4.4"
-sphinx_rtd_theme = "^0.4.3"
+sphinx = "^4.0"
+sphinx_rtd_theme = "^1.0"
 
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry_core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

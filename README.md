@@ -38,8 +38,11 @@ $ poetry install
 
 Make the html:
 ```
-$ poetry run make html
+$ poetry run make html SPHINXOPTS="-W --keep-going -n --color -j auto"
 ```
+
+The options are enabling more warnings to make sure everything builds correctly
+and run the build on multiple cores.
 
 Start the python http server to get a preview in your browser:
 ```
