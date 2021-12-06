@@ -1,39 +1,21 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FITS Multidimensional datasets &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script src="../_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -41,33 +23,16 @@
     <link rel="prev" title="Coordinates" href="coordinates.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.3.dev
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,17 +40,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">General</a><ul class="current">
@@ -107,86 +62,47 @@
 <li class="toctree-l2"><a class="reference internal" href="glossary.html">Glossary</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../events/index.html">IACT events</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../irfs/index.html">IACT IRFs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../irfs/index.html">IRFs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_storage/index.html">Data storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../skymaps/index.html">Sky Maps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../spectra/index.html">Spectra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../lightcurves/index.html">Light curves</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Data formats for gamma-ray astronomy</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="index.html">General</a> &raquo;</li>
-        
       <li>FITS Multidimensional datasets</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../_sources/general/fits-arrays.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="fits-multidimensional-datasets">
+             
+  <section id="fits-multidimensional-datasets">
 <span id="fits-arrays"></span><h1>FITS Multidimensional datasets<a class="headerlink" href="#fits-multidimensional-datasets" title="Permalink to this headline">¶</a></h1>
 <p>As described e.g. <a class="reference external" href="http://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/general/ogip_94_006/ogip_94_006.html">here</a>
 or <a class="reference external" href="http://heasarc.gsfc.nasa.gov/docs/heasarc/caldb/docs/memos/cal_gen_92_003/cal_gen_92_003.html#tth_sEc4">here</a>
 or in the <a class="reference external" href="https://fits.gsfc.nasa.gov/standard40/fits_standard40aa-le.pdf">FITS standard</a>,
 there are several ways to serialise multi-dimensional arrays and corresponding axis information in FITS files.</p>
 <p>Here we describe the schemes in use in gamma-ray astronomy and give examples.</p>
-<div class="section" id="image-hdu">
+<section id="image-hdu">
 <span id="fits-arrays-image-hdu"></span><h2>IMAGE HDU<a class="headerlink" href="#image-hdu" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Data array is stored in an IMAGE HDU.</p></li>
@@ -194,7 +110,7 @@ there are several ways to serialise multi-dimensional arrays and corresponding a
 <li><p>Advantage: IMAGE HDUs can be opened up in image viewers like ds9.</p></li>
 <li><p>Disadvantage: axis information is not self contained, an extra HDU is needed.</p></li>
 </ul>
-<div class="section" id="example">
+<section id="example">
 <h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
 <p>E.g. the Fermi-LAT counts cubes or diffuse model spectral cubes are stored in an IMAGE HDU,
 with the information about the two celestial axes in WCS header keywords,
@@ -223,21 +139,21 @@ Software that’s supposed to work with this axis needs to know to look at the <
 <span class="nv">NAXIS2</span>  <span class="o">=</span>                  <span class="m">360</span> / length of data axis <span class="m">2</span>
 <span class="nv">NAXIS3</span>  <span class="o">=</span>                   <span class="m">30</span> / length of data axis <span class="m">3</span>
 <span class="nv">EXTEND</span>  <span class="o">=</span>                    T / FITS dataset may contain extensions
-COMMENT   FITS <span class="o">(</span>Flexible Image Transport System<span class="o">)</span> format is defined in <span class="s1">&#39;Astronomy</span>
+COMMENT   FITS <span class="o">(</span>Flexible Image Transport System<span class="o">)</span> format is defined <span class="k">in</span> <span class="s1">&#39;Astronomy</span>
 <span class="s1">COMMENT   and Astrophysics&#39;</span>, volume <span class="m">376</span>, page <span class="m">359</span><span class="p">;</span> bibcode: 2001A<span class="p">&amp;</span>A...376..359H
 <span class="nv">FLUX</span>    <span class="o">=</span>        <span class="m">8</span>.29632317174 /
-<span class="nv">CRVAL1</span>  <span class="o">=</span>                   <span class="m">0</span>. / Value of longitude in pixel CRPIX1
-<span class="nv">CDELT1</span>  <span class="o">=</span>                  <span class="m">0</span>.5 / Step size in longitude
+<span class="nv">CRVAL1</span>  <span class="o">=</span>                   <span class="m">0</span>. / Value of longitude <span class="k">in</span> pixel CRPIX1
+<span class="nv">CDELT1</span>  <span class="o">=</span>                  <span class="m">0</span>.5 / Step size <span class="k">in</span> longitude
 <span class="nv">CRPIX1</span>  <span class="o">=</span>                <span class="m">360</span>.5 / Pixel that has value CRVAL1
-<span class="nv">CTYPE1</span>  <span class="o">=</span> <span class="s1">&#39;GLON-CAR&#39;</span>           / The <span class="nb">type</span> of parameter <span class="m">1</span> <span class="o">(</span>Galactic longitude in
+<span class="nv">CTYPE1</span>  <span class="o">=</span> <span class="s1">&#39;GLON-CAR&#39;</span>           / The <span class="nb">type</span> of parameter <span class="m">1</span> <span class="o">(</span>Galactic longitude <span class="k">in</span>
 <span class="nv">CUNIT1</span>  <span class="o">=</span> <span class="s1">&#39;deg     &#39;</span>           / The unit of parameter <span class="m">1</span>
-<span class="nv">CRVAL2</span>  <span class="o">=</span>                   <span class="m">0</span>. / Value of latitude in pixel CRPIX2
-<span class="nv">CDELT2</span>  <span class="o">=</span>                  <span class="m">0</span>.5 / Step size in latitude
+<span class="nv">CRVAL2</span>  <span class="o">=</span>                   <span class="m">0</span>. / Value of latitude <span class="k">in</span> pixel CRPIX2
+<span class="nv">CDELT2</span>  <span class="o">=</span>                  <span class="m">0</span>.5 / Step size <span class="k">in</span> latitude
 <span class="nv">CRPIX2</span>  <span class="o">=</span>                <span class="m">180</span>.5 / Pixel that has value CRVAL2
-<span class="nv">CTYPE2</span>  <span class="o">=</span> <span class="s1">&#39;GLAT-CAR&#39;</span>           / The <span class="nb">type</span> of parameter <span class="m">2</span> <span class="o">(</span>Galactic latitude in C
+<span class="nv">CTYPE2</span>  <span class="o">=</span> <span class="s1">&#39;GLAT-CAR&#39;</span>           / The <span class="nb">type</span> of parameter <span class="m">2</span> <span class="o">(</span>Galactic latitude <span class="k">in</span> C
 <span class="nv">CUNIT2</span>  <span class="o">=</span> <span class="s1">&#39;deg     &#39;</span>           / The unit of parameter <span class="m">2</span>
 <span class="nv">CRVAL3</span>  <span class="o">=</span>                  <span class="m">50</span>. / Energy of pixel CRPIX3
-<span class="nv">CDELT3</span>  <span class="o">=</span>    <span class="m">0</span>.113828620540137 / log10 of step size in energy <span class="o">(</span><span class="k">if</span> it is logarith
+<span class="nv">CDELT3</span>  <span class="o">=</span>    <span class="m">0</span>.113828620540137 / log10 of step size <span class="k">in</span> energy <span class="o">(</span><span class="k">if</span> it is logarith
 <span class="nv">CRPIX3</span>  <span class="o">=</span>                   <span class="m">1</span>. / Pixel that has value CRVAL3
 <span class="nv">CTYPE3</span>  <span class="o">=</span> <span class="s1">&#39;photon energy&#39;</span>      / Axis <span class="m">3</span> is the spectra
 <span class="nv">CUNIT3</span>  <span class="o">=</span> <span class="s1">&#39;MeV     &#39;</span>           / The unit of axis <span class="m">3</span>
@@ -255,9 +171,9 @@ HISTORY Written by rings_gll.pro
 END
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="bintable-hdu">
+</section>
+</section>
+<section id="bintable-hdu">
 <span id="fits-arrays-bintable-hdu"></span><h2>BINTABLE HDU<a class="headerlink" href="#bintable-hdu" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Data array and axis information is stored in a BINTABLE HDU with one row.</p></li>
@@ -269,7 +185,7 @@ that describes this format in greater detail.</p></li>
 <li><p>Advantage: everything is contained in one HDU. (as many axes and data arrays as you like)</p></li>
 <li><p>Disadvantage: format is a bit unintuitive / header is quite complex / can’t be opened directly in ds9.</p></li>
 </ul>
-<div class="section" id="id1">
+<section id="id1">
 <h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Let’s look at an example file in this format, the <a class="reference download internal" download="" href="../_downloads/988ab85d9d56fd71e8f85bd6a98ee6b0/aeff_P6_v1_diff_back.fits"><code class="xref download docutils literal notranslate"><span class="pre">aeff_P6_v1_diff_back.fits</span></code></a> which
 represents the Fermi-LAT effective area (an old version) as a function of energy and offset.</p>
@@ -312,11 +228,11 @@ and axis information in FITS BINTABLEs.</p>
 <span class="nv">XTENSION</span><span class="o">=</span> <span class="s1">&#39;BINTABLE&#39;</span>           / binary table extension
 <span class="nv">BITPIX</span>  <span class="o">=</span>                    <span class="m">8</span> / <span class="m">8</span>-bit bytes
 <span class="nv">NAXIS</span>   <span class="o">=</span>                    <span class="m">2</span> / <span class="m">2</span>-dimensional binary table
-<span class="nv">NAXIS1</span>  <span class="o">=</span>                 <span class="m">8416</span> / width of table in bytes
-<span class="nv">NAXIS2</span>  <span class="o">=</span>                    <span class="m">1</span> / number of rows in table
+<span class="nv">NAXIS1</span>  <span class="o">=</span>                 <span class="m">8416</span> / width of table <span class="k">in</span> bytes
+<span class="nv">NAXIS2</span>  <span class="o">=</span>                    <span class="m">1</span> / number of rows <span class="k">in</span> table
 <span class="nv">PCOUNT</span>  <span class="o">=</span>                    <span class="m">0</span> / size of special data area
 <span class="nv">GCOUNT</span>  <span class="o">=</span>                    <span class="m">1</span> / one data group <span class="o">(</span>required keyword<span class="o">)</span>
-<span class="nv">TFIELDS</span> <span class="o">=</span>                    <span class="m">5</span> / number of fields in each row
+<span class="nv">TFIELDS</span> <span class="o">=</span>                    <span class="m">5</span> / number of fields <span class="k">in</span> each row
 <span class="nv">TTYPE1</span>  <span class="o">=</span> <span class="s1">&#39;ENERG_LO&#39;</span>           /
 <span class="nv">TFORM1</span>  <span class="o">=</span> <span class="s1">&#39;60E     &#39;</span>
 <span class="nv">TTYPE2</span>  <span class="o">=</span> <span class="s1">&#39;ENERG_HI&#39;</span>           /
@@ -370,56 +286,36 @@ and axis information in FITS BINTABLEs.</p>
 END
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="hduclass.html" class="btn btn-neutral float-right" title="HDU classes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="coordinates.html" class="btn btn-neutral float-left" title="Coordinates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="coordinates.html" class="btn btn-neutral float-left" title="Coordinates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hduclass.html" class="btn btn-neutral float-right" title="HDU classes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Gamma-ray astronomy community
+    <p>&#169; Copyright 2018, Gamma-ray astronomy community.</p>
+  </div>
 
-    </p>
-  </div> 
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

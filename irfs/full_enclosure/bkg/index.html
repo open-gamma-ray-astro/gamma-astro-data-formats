@@ -1,39 +1,21 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Background format &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script src="../../../_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -41,33 +23,16 @@
     <link rel="prev" title="PSF_GTPSF" href="../psf/psf_gtpsf/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.3.dev
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,22 +40,12 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../general/index.html">General</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../events/index.html">IACT events</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">IACT IRFs</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../events/index.html">Events</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">IRFs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../irf_components/index.html">IRF components</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../irf_axes/index.html">IRF axes</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Full-enclosure IRFs</a><ul class="current">
@@ -108,90 +63,50 @@
 <li class="toctree-l2"><a class="reference internal" href="../../point_like/index.html">Point-like IRFs</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_storage/index.html">Data storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../skymaps/index.html">Sky Maps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../spectra/index.html">Spectra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../lightcurves/index.html">Light curves</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">Data formats for gamma-ray astronomy</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../../index.html">IACT IRFs</a> &raquo;</li>
-        
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">IRFs</a> &raquo;</li>
           <li><a href="../index.html">Full-enclosure IRFs</a> &raquo;</li>
-        
       <li>Background format</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../../../_sources/irfs/full_enclosure/bkg/index.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="background-format">
+             
+  <section id="background-format">
 <span id="iact-background-format"></span><h1>Background format<a class="headerlink" href="#background-format" title="Permalink to this headline">¶</a></h1>
 <p>Here we specify two formats for the background template models (see <a class="reference internal" href="../../irf_components/index.html#bkg"><span class="std std-ref">Background</span></a>) of a full-enclosure IRF:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">BKG_2D</span></code> models depend on <code class="docutils literal notranslate"><span class="pre">ENERGY</span></code> and <code class="docutils literal notranslate"><span class="pre">THETA</span></code>, i.e. are radially symmetric.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">BKG_3D</span></code> models depend on <code class="docutils literal notranslate"><span class="pre">ENERGY</span></code> and field of view coordinates <code class="docutils literal notranslate"><span class="pre">DETX</span></code> and <code class="docutils literal notranslate"><span class="pre">DETY</span></code>.</p></li>
 </ul>
-<div class="section" id="bkg-2d">
+<section id="bkg-2d">
 <span id="id1"></span><h2>BKG_2D<a class="headerlink" href="#bkg-2d" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">BKG_2D</span></code> format contains a 2-dimensional array of post-select background
 rate, stored in the <a class="reference internal" href="../../../general/fits-arrays.html#fits-arrays-bintable-hdu"><span class="std std-ref">BINTABLE HDU</span></a> format.</p>
-<div class="section" id="required-columns">
+<section id="required-columns">
 <h3>Required columns:<a class="headerlink" href="#required-columns" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
@@ -218,8 +133,8 @@ rate, stored in the <a class="reference internal" href="../../../general/fits-ar
 </li>
 </ul>
 <p>Recommended axis order: <code class="docutils literal notranslate"><span class="pre">ENERGY</span></code>, <code class="docutils literal notranslate"><span class="pre">THETA</span></code></p>
-</div>
-<div class="section" id="header-keywords">
+</section>
+<section id="header-keywords">
 <h3>Header keywords:<a class="headerlink" href="#header-keywords" title="Permalink to this headline">¶</a></h3>
 <p>As explained in <a class="reference internal" href="../../../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a>, the following header keyword should be used to
 declare the type of HDU:</p>
@@ -232,14 +147,14 @@ declare the type of HDU:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">HDUCLAS3</span></code> = ‘FULL-ENCLOSURE’</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">HDUCLAS4</span></code> = ‘BKG_2D’</p></li>
 </ul>
-<p>Example data file: <a class="reference download internal" download="" href="../../../_downloads/6779da7ef3fc348569b06263b7edd3e6/bkg_2d_full_example.fits"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
-</div>
-</div>
-<div class="section" id="bkg-3d">
+<p>Example data file: <a class="reference download internal" download="" href="../../../_downloads/c20feae1d5420f985bba2670e12d5481/bkg_2d_full_example.fits"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+</section>
+</section>
+<section id="bkg-3d">
 <span id="id2"></span><h2>BKG_3D<a class="headerlink" href="#bkg-3d" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">BKG_3D</span></code> format contains a 3-dimensional array of post-select background
 rate, stored in the <a class="reference internal" href="../../../general/fits-arrays.html#fits-arrays-bintable-hdu"><span class="std std-ref">BINTABLE HDU</span></a> format.</p>
-<div class="section" id="id3">
+<section id="id3">
 <h3>Required columns:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
@@ -266,8 +181,8 @@ rate, stored in the <a class="reference internal" href="../../../general/fits-ar
 </li>
 </ul>
 <p>Recommended axis order: <code class="docutils literal notranslate"><span class="pre">ENERGY</span></code>, <code class="docutils literal notranslate"><span class="pre">DETX</span></code>, <code class="docutils literal notranslate"><span class="pre">DETY</span></code></p>
-</div>
-<div class="section" id="id4">
+</section>
+<section id="id4">
 <h3>Header keywords:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>As explained in <a class="reference internal" href="../../../general/hduclass.html#hduclass"><span class="std std-ref">HDU classes</span></a>, the following header keyword should be used to
 declare the type of HDU:</p>
@@ -290,10 +205,10 @@ declare the type of HDU:</p>
 </dl>
 </li>
 </ul>
-<p>Example data file: <a class="reference download internal" download="" href="../../../_downloads/0e3c634b78da7c8e35894cf6ce7fe76b/bkg_3d_full_example.fits"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
-</div>
-</div>
-<div class="section" id="notes">
+<p>Example data file: <a class="reference download internal" download="" href="../../../_downloads/a5481c16f25b4bbf4911e6515ecfe0af/bkg_3d_full_example.fits"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.</p>
+</section>
+</section>
+<section id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
 <p>The background rate is not a “flux” or “surface brightness”.
 It is already a count rate, it doesn’t need to be multiplied with
@@ -301,55 +216,35 @@ effective area to obtain predicted counts, like gamma-ray flux and
 surface brightness models do.
 The rate is computed per observation time (without any dead-time correction,
 don’t use livetime when computing or using the background rate).</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../point_like/index.html" class="btn btn-neutral float-right" title="Point-like IRFs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../psf/psf_gtpsf/index.html" class="btn btn-neutral float-left" title="PSF_GTPSF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../psf/psf_gtpsf/index.html" class="btn btn-neutral float-left" title="PSF_GTPSF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../point_like/index.html" class="btn btn-neutral float-right" title="Point-like IRFs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Gamma-ray astronomy community
+    <p>&#169; Copyright 2018, Gamma-ray astronomy community.</p>
+  </div>
 
-    </p>
-  </div> 
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

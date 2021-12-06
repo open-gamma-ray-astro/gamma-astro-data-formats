@@ -2,17 +2,18 @@
 
 .. _iact-irf:
 
-IACT IRFs
-=========
+IRFs
+====
 
 The instrument response function (IRF) format currently in use
-for imaging atmospheric Cherenkov telescopes (IACTs) are stored in FITS
-binary tables using the "multidimensional array" convention (binary tables with a
+for gamma-ray instruments and, in particular, imaging atmospheric 
+Cherenkov telescopes (IACTs) are stored in FITS binary tables using 
+the "multidimensional array" convention (binary tables with a
 single row and array columns) described at :ref:`fits-arrays-bintable-hdu`. 
 This format has been used for calibration data and IRF of X-ray instruments,
 as well as for the IRFs that are distributed with the Fermi-LAT science tools.
 
-Two different approaches are used to store the IRF of IACTs:
+Two different approaches are used to store the IRF of gamma-ray instruments:
 
 * Full-enclosure IRF: all IRF components are stored as a function of the offset with respect to the source 
   position.

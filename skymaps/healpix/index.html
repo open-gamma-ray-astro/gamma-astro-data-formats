@@ -1,39 +1,21 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HEALPix Formats &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script src="../../_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -41,33 +23,16 @@
     <link rel="prev" title="Sky Maps" href="../index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.3.dev
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,23 +40,13 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../events/index.html">IACT events</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../irfs/index.html">IACT IRFs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../irfs/index.html">IRFs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage/index.html">Data storage</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Sky Maps</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">HEALPix Formats</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#non-standard-healpix-conventions">Non-Standard HEALPix Conventions</a></li>
@@ -131,73 +86,34 @@
 <li class="toctree-l1"><a class="reference internal" href="../../lightcurves/index.html">Light curves</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Data formats for gamma-ray astronomy</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Sky Maps</a> &raquo;</li>
-        
       <li>HEALPix Formats</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../../_sources/skymaps/healpix/index.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <p>This page describes data format conventions for FITS binned data and model
 representations pixelized with the <a class="reference external" href="http://healpix.jpl.nasa.gov/">HEALPix algorithm</a>.</p>
-<div class="section" id="healpix-formats">
+<section id="healpix-formats">
 <span id="healpix-skymap"></span><h1>HEALPix Formats<a class="headerlink" href="#healpix-formats" title="Permalink to this headline">¶</a></h1>
 <p>This section describes a proposal for HEALPix format conventions which
 is based on formats currently used within the Fermi Science Tools
@@ -251,10 +167,10 @@ here and in these other formats:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">GALPROP</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">GALPROP2</span></code></p></li>
 </ul>
-<div class="section" id="non-standard-healpix-conventions">
+<section id="non-standard-healpix-conventions">
 <span id="hpx-conventions"></span><h2>Non-Standard HEALPix Conventions<a class="headerlink" href="#non-standard-healpix-conventions" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="sample-files">
+</section>
+<section id="sample-files">
 <span id="hpx-sample-files"></span><h2>Sample Files<a class="headerlink" href="#sample-files" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>All-sky Counts Cube (IMPLICIT Format): <a class="reference download internal" download="" href="../../_downloads/dfeef4eddb44832f534795fde9e08b8c/hpx_ccube_implicit.fits"><code class="xref download docutils literal notranslate"><span class="pre">FITS</span></code></a></p></li>
@@ -263,8 +179,8 @@ here and in these other formats:</p>
 <li><p>Partial-sky Counts Cube (SPARSE Format w/ fixed NSIDE):<a class="reference download internal" download="" href="../../_downloads/42825d2cf766badfe15ffbe0bbc47d92/hpx_ccube_sparse0.fits"><code class="xref download docutils literal notranslate"><span class="pre">FITS</span></code></a></p></li>
 <li><p>Partial-sky Counts Cube (SPARSE Format w/ variable NSIDE):<a class="reference download internal" download="" href="../../_downloads/d9f2ac8fabeec751275c756a4e42aa35/hpx_ccube_sparse1.fits"><code class="xref download docutils literal notranslate"><span class="pre">FITS</span></code></a></p></li>
 </ul>
-</div>
-<div class="section" id="skymap-hdu">
+</section>
+<section id="skymap-hdu">
 <span id="hpx-skymap-table"></span><h2>SKYMAP HDU<a class="headerlink" href="#skymap-hdu" title="Permalink to this headline">¶</a></h2>
 <p>The SKYMAP table contains the map data and row-to-pixel mapping
 formatted according to one of three indexing schemes specified by the
@@ -273,7 +189,7 @@ or <a class="reference internal" href="#hpx-sparse"><span class="std std-ref">SP
 it is recommended to name the extension <code class="docutils literal notranslate"><span class="pre">SKYMAP</span></code>.  For maps with
 non-spatial dimensions an accompanying BANDS table must also be
 defined (see <a class="reference internal" href="../index.html#bands-hdu"><span class="std std-ref">BANDS HDU</span></a>).</p>
-<div class="section" id="header-keywords">
+<section id="header-keywords">
 <h3>Header Keywords<a class="headerlink" href="#header-keywords" title="Permalink to this headline">¶</a></h3>
 <p>This section lists the keywords that should be written to the
 SKYMAP BINTABLE header.  These keywords define the pixel size
@@ -368,9 +284,9 @@ extension name should be <code class="docutils literal notranslate"><span class=
 </dl>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="healpix-region-string">
+</section>
+</section>
+<section id="healpix-region-string">
 <span id="hpx-region-string"></span><h2>HEALPix Region String<a class="headerlink" href="#healpix-region-string" title="Permalink to this headline">¶</a></h2>
 <p>For partial-sky maps that correspond to a particular geometric
 selection one can optionally specify the selection that was used in
@@ -391,20 +307,20 @@ all pixels contained in the HEALPix pixel of the given pixelization
 where ordering is <code class="docutils literal notranslate"><span class="pre">{ORDERING}</span></code> (i.e. <code class="docutils literal notranslate"><span class="pre">NESTED</span></code> or <code class="docutils literal notranslate"><span class="pre">RING</span></code>),
 order is <code class="docutils literal notranslate"><span class="pre">{ORDER}</span></code>, and pixel index is <code class="docutils literal notranslate"><span class="pre">{PIX}</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="implicit-format">
+</section>
+<section id="implicit-format">
 <span id="hpx-implicit"></span><h2>IMPLICIT Format<a class="headerlink" href="#implicit-format" title="Permalink to this headline">¶</a></h2>
 <p>The IMPLICIT format defines a one-to-one mapping between table row and
 HEALPix pixel index.  Each energy plane is represented by a separate
 column (<code class="docutils literal notranslate"><span class="pre">CHANNEL0</span></code>, <code class="docutils literal notranslate"><span class="pre">CHANNEL1</span></code>, etc.).  This format can only be
 used for all-sky maps.</p>
-<div class="section" id="header">
+<section id="header">
 <h3>HEADER<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">INDXSCHM</span></code> : <code class="docutils literal notranslate"><span class="pre">IMPLICIT</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="skymap-columns">
+</section>
+<section id="skymap-columns">
 <h3>SKYMAP Columns<a class="headerlink" href="#skymap-columns" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
@@ -417,22 +333,22 @@ index is determined from the table row.</p></li>
 </dl>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="explicit-format">
+</section>
+</section>
+<section id="explicit-format">
 <span id="hpx-explicit"></span><h2>EXPLICIT Format<a class="headerlink" href="#explicit-format" title="Permalink to this headline">¶</a></h2>
 <p>The EXPLICIT format uses an additional <code class="docutils literal notranslate"><span class="pre">PIX</span></code> column to explicitly
 define the pixel number corresponding to each table row.  Pixel values
 for each band are represented by a separate column (<code class="docutils literal notranslate"><span class="pre">CHANNEL0</span></code>,
 <code class="docutils literal notranslate"><span class="pre">CHANNEL1</span></code>, etc.).  This format can be used for both all-sky and
 partial-sky maps but requires the same pixel size for all bands.</p>
-<div class="section" id="id1">
+<section id="id1">
 <h3>HEADER<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">INDXSCHM</span></code> : <code class="docutils literal notranslate"><span class="pre">EXPLICIT</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h3>SKYMAP Columns<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
@@ -453,9 +369,9 @@ partial-sky maps but requires the same pixel size for all bands.</p>
 </dl>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="local-format">
+</section>
+</section>
+<section id="local-format">
 <span id="hpx-local"></span><h2>LOCAL Format<a class="headerlink" href="#local-format" title="Permalink to this headline">¶</a></h2>
 <p>The LOCAL format is identical to the <a class="reference internal" href="#hpx-explicit"><span class="std std-ref">EXPLICIT Format</span></a> with the
 exception that the <code class="docutils literal notranslate"><span class="pre">PIX</span></code> column contains a local rather than global
@@ -465,13 +381,13 @@ pixels in the geometry.  For an all-sky geometry the local index is
 equal to the global index.  This format can be used for both all-sky
 and partial-sky maps as well as maps with a different pixel-size in
 each band.</p>
-<div class="section" id="id3">
+<section id="id3">
 <h3>HEADER<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">INDXSCHM</span></code> : <code class="docutils literal notranslate"><span class="pre">LOCAL</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="id4">
+</section>
+<section id="id4">
 <h3>SKYMAP Columns<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
@@ -494,9 +410,9 @@ where pixels are ordered by their global index values.</p></li>
 </dl>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="sparse-format">
+</section>
+</section>
+<section id="sparse-format">
 <span id="hpx-sparse"></span><h2>SPARSE Format<a class="headerlink" href="#sparse-format" title="Permalink to this headline">¶</a></h2>
 <p>The SPARSE format allows for an arbitrary set of pixels to be defined
 in each band.  The SKYMAP table contains three columns with the
@@ -508,13 +424,13 @@ supports an different HEALPix pixel size in each band defined by the
 are assumed to be zero while pixels outside the geometric selection
 are undefined.  For counts data this allows for maps that only contain
 pixels with at least one count.</p>
-<div class="section" id="id5">
+<section id="id5">
 <h3>HEADER<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">INDXSCHM</span></code> : <code class="docutils literal notranslate"><span class="pre">SPARSE</span></code></p></li>
 </ul>
-</div>
-<div class="section" id="id6">
+</section>
+<section id="id6">
 <h3>SKYMAP Columns<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
@@ -548,56 +464,36 @@ with a 16-bit integer.</p></li>
 </dl>
 </li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../wcs/index.html" class="btn btn-neutral float-right" title="WCS Formats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../index.html" class="btn btn-neutral float-left" title="Sky Maps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Sky Maps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../wcs/index.html" class="btn btn-neutral float-right" title="WCS Formats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Gamma-ray astronomy community
+    <p>&#169; Copyright 2018, Gamma-ray astronomy community.</p>
+  </div>
 
-    </p>
-  </div> 
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

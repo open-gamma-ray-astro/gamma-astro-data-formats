@@ -1,73 +1,39 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IRF components &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="IRF axes" href="../irf_axes/index.html" />
-    <link rel="prev" title="IACT IRFs" href="../index.html" /> 
+    <link rel="prev" title="IRFs" href="../index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.3.dev
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,22 +41,12 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../events/index.html">IACT events</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">IACT IRFs</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../events/index.html">Events</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">IRFs</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">IRF components</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#effective-area">Effective Area</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#energy-dispersion">Energy Dispersion</a><ul>
@@ -112,80 +68,41 @@
 <li class="toctree-l2"><a class="reference internal" href="../point_like/index.html">Point-like IRFs</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage/index.html">Data storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../skymaps/index.html">Sky Maps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../spectra/index.html">Spectra</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../lightcurves/index.html">Light curves</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Data formats for gamma-ray astronomy</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../index.html">IACT IRFs</a> &raquo;</li>
-        
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">IRFs</a> &raquo;</li>
       <li>IRF components</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../../_sources/irfs/irf_components/index.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="irf-components">
+             
+  <section id="irf-components">
 <span id="id1"></span><h1>IRF components<a class="headerlink" href="#irf-components" title="Permalink to this headline">¶</a></h1>
 <p>The IRF is made up of several components, described here:</p>
-<div class="section" id="effective-area">
+<section id="effective-area">
 <span id="iact-aeff"></span><h2>Effective Area<a class="headerlink" href="#effective-area" title="Permalink to this headline">¶</a></h2>
 <p>Effective area combines the detection efficiency of an instrument
 with the observable area.
@@ -220,8 +137,8 @@ analysis chain. In addition, this feature is currently not supported in current
 open source tools. We therefore keep the optional opportunity to add an
 individual extension listing the energy threshold varying across the FoV. This
 will likely be included in future releases.</p>
-</div>
-<div class="section" id="energy-dispersion">
+</section>
+<section id="energy-dispersion">
 <span id="iact-edisp"></span><h2>Energy Dispersion<a class="headerlink" href="#energy-dispersion" title="Permalink to this headline">¶</a></h2>
 <p>The energy dispersion information is stored in a FITS file with one required
 extensions (HDU). The stored quantity is <span class="math notranslate nohighlight">\(\frac{dP}{d\mu}\)</span>, a PDF for the <strong>energy migration</strong></p>
@@ -232,7 +149,7 @@ extensions (HDU). The stored quantity is <span class="math notranslate nohighlig
 \[\int_0^\infty \frac{dP}{d\mu}\,d\mu = 1\,.\]</div>
 <p>The migration range covered in the file must be large enough to make this possible
 (Suggestion: <span class="math notranslate nohighlight">\(0.2 &lt; \mu &lt; 5\)</span>)</p>
-<div class="section" id="transformation">
+<section id="transformation">
 <span id="edisp-trafo"></span><h3>Transformation<a class="headerlink" href="#transformation" title="Permalink to this headline">¶</a></h3>
 <p>For the purpose of some analysis, for example when extracting an
 <a class="reference internal" href="../../spectra/ogip/index.html#ogip-rmf"><span class="std std-ref">RMF</span></a>, it is necessary to calculate the detector response
@@ -247,17 +164,17 @@ to do so, the following integration has to be performed (for a fixed offset).</p
 \[R(I,E_{\mathrm{true}}) = \int_{\mu(\Delta E_{\mathrm{reco}})} \mathrm{PDF}(E_{\mathrm{true}}, \mu)\ d \mu\]</div>
 <p>is the probability to find a given true energy <span class="math notranslate nohighlight">\(E_{\mathrm{true}}\)</span> in the
 reconstructed energy band <em>J</em>.</p>
-</div>
-</div>
-<div class="section" id="point-spread-function">
+</section>
+</section>
+<section id="point-spread-function">
 <span id="psf"></span><h2>Point spread function<a class="headerlink" href="#point-spread-function" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="introduction">
+<section id="introduction">
 <span id="psf-intro"></span><h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
 <p>The point spread function (PSF) (<a class="reference external" href="https://en.wikipedia.org/wiki/Point_spread_function">Wikipedia - PSF</a>) represents the spatial probability
 distribution of reconstructed event positions for a point source.
 So far we’re only considering radially symmetric PSFs here.</p>
-</div>
-<div class="section" id="probability-distributions">
+</section>
+<section id="probability-distributions">
 <span id="psf-pdf"></span><h3>Probability distributions<a class="headerlink" href="#probability-distributions" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(dP/d\Omega(r)\)</span>, where <span class="math notranslate nohighlight">\(dP\)</span> is the probability to find an event
@@ -271,8 +188,8 @@ The relation is <span class="math notranslate nohighlight">\(dP/dr = 2 \pi r dP/
 </ul>
 <p>TODO: explain “encircled energy” = “encircled counts” = “cumulative” representation
 of PSF and define containment fraction and containment radius.</p>
-</div>
-<div class="section" id="normalisation">
+</section>
+<section id="normalisation">
 <h3>Normalisation<a class="headerlink" href="#normalisation" title="Permalink to this headline">¶</a></h3>
 <p>PSFs must be normalised to integrate to total probability 1, i.e.</p>
 <div class="math notranslate nohighlight">
@@ -282,8 +199,8 @@ range and normalising. I.e. it’s OK to choose a theta range that contains
 only 95% of the PSF, and then the integral will be 0.95.</p>
 <p>We recommend everyone store PSFs so that truncation is completely negligible,
 i.e. the containment should be 99% or better for all of parameter space.</p>
-</div>
-<div class="section" id="comments">
+</section>
+<section id="comments">
 <h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Usually the PSF is derived from Monte Carlo simulations, but in principle
@@ -292,9 +209,9 @@ it can be estimated from bright point sources (AGN) as well.</p></li>
 I.e. if limited event statistics in the PSF computation is an issue,
 it is up to the PSF producer to denoise it to an acceptable level.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="background">
+</section>
+</section>
+<section id="background">
 <span id="bkg"></span><h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>One method of background modeling for IACTs is to construct spatial and / or
 spectral model templates of the irreducible cosmic ray background for a given
@@ -320,55 +237,35 @@ simply because the storage format is very similar to the other IRFs
 (e.g. effective area) and we didn’t want to introduce a new top-level
 section besides IRFs.</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../irf_axes/index.html" class="btn btn-neutral float-right" title="IRF axes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../index.html" class="btn btn-neutral float-left" title="IACT IRFs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="IRFs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../irf_axes/index.html" class="btn btn-neutral float-right" title="IRF axes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Gamma-ray astronomy community
+    <p>&#169; Copyright 2018, Gamma-ray astronomy community.</p>
+  </div>
 
-    </p>
-  </div> 
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

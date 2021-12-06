@@ -1,7 +1,7 @@
 .. _iact-storage:
 
-IACT data storage
-=================
+Data storage
+============
 
 At the moment there is no agreed way to organise IACT data, and how to connect
 ``EVENTS`` with IRFs or other information such as time or pointing information

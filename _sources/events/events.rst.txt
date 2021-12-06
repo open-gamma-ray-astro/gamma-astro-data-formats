@@ -37,7 +37,7 @@ Optional columns
    None of the following columns is required to be part of an ``EVENTS``
    extension. Any software **using** these columns should first check whether the
    columns exist, and warn in case of their absence. Any software **ignoring**
-   these columns should make sure that their presence does not detoriate the
+   these columns should make sure that their presence does not deteriorate the
    functioning of the software.
 
 * ``EVENT_TYPE`` type: bit field (in FITS ``tform=32X``)
@@ -117,10 +117,16 @@ An observatory Earth location should be given as well (see :ref:`coords-location
 * ``DEADC`` type: float
     * Dead time correction, defined by ``LIVETIME/ONTIME``.
       Is comprised in [0,1]. Defined to be 0 if ``ONTIME=0``.
+* ``OBS_MODE`` type: string
+    * Observation mode. See notes on :ref:`iact-events-obs-mode` below.
 * ``RA_PNT`` type: float, unit: deg
-    * Pointing Right Ascension (see :ref:`coords-radec`).
+    * Pointing Right Ascension (see :ref:`coords-radec`). Not mandatory if ``OBS_MODE=DRIFT``, but average values could optionally be provided.
 * ``DEC_PNT`` type: float, unit: deg
-    * Pointing declination (see :ref:`coords-radec`).
+    * Pointing declination (see :ref:`coords-radec`). Not mandatory if ``OBS_MODE=DRIFT``, but average values could optionally be provided.
+* ``ALT_PNT`` type: float, unit: deg
+    * Pointing Altitude (see :ref:`coords-altaz`). Only mandatory if ``OBS_MODE=DRIFT``
+* ``AZ_PNT`` type: float, unit: deg
+    * Pointing azimuth (see :ref:`coords-altaz`). Only mandatory if ``OBS_MODE=DRIFT``
 * ``EQUINOX`` type: float
     * Equinox in years for the celestial coordinate system in which positions
       given in either the header or data are expressed (options: 2000.0).
@@ -168,9 +174,7 @@ Optional header keywords
 * ``RA_OBJ`` type: float, unit: deg
     * Right ascension of ``OBJECT``
 * ``DEC_OBJ`` type: float, unit: deg
-    * Declination of ``OBJECT``                
-* ``OBS_MODE`` type: string
-    * Observation mode. See notes on :ref:`iact-events-obs-mode` below.
+    * Declination of ``OBJECT``
 * ``EV_CLASS`` type: str
     * Event class. See notes on :ref:`iact-events-class-type` below.
 * ``TELAPSE`` type: float, unit: s
@@ -324,16 +328,20 @@ CTA and discussion, and then a proposal for a specification.
 
 .. _iact-events-obs-mode:
 
-OBS_MODE 
+OBS_MODE
 ~~~~~~~~
 
-The observation mode ``OBS_MODE`` is currently provenance information, not used
-by science tools to decide how to analyse the data. There is no set of defined
-modes yet. Thus, at the moment it is optional.
+The keyword ``OBS_MODE`` specifies the mode of the observation.
+This is used in cases where the instrument or detector can be configured to
+operate in different modes which significantly affect the resulting data, or to accomodate
+different types of instrument. More details can be found
+`here <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/general/ogip_94_001/ogip_94_001.html>`__
 
-Just to give an example: in H.E.S.S. the values of "WOBBLE" for wobble
-observations (pointing slightly off target) and "SCAN" for Galactic plane survey
-observation on a grid of sky positions (not wrt. a specific target) is used.
+In addition to the OGIP-defined values (``POINTING``, ``RASTER``, ``SLEW`` and ``SCAN``), we
+define the option ``DRIFT`` to accomodate ground-based wide-field instruments, in
+which local zenith/azimuth coordinates remain constant. In this case, the header keywords
+``RA_PNT`` and ``DEC_PNT`` are no longer mandatory, and instead ``ALT_PNT`` and ``AZ_PNT``
+are required.
 
 It is likely that ``OBS_MODE`` in the future will be a key piece of information
 in the DL3 data model, defining the observation mode (e.g. pointed, divergent,

@@ -1,39 +1,21 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bin-by-bin Likelihood Profiles &mdash; Data formats for gamma-ray astronomy 0.3.dev documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script src="../../_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -41,33 +23,16 @@
     <link rel="prev" title="SED" href="../flux_points/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> Data formats for gamma-ray astronomy
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
                 0.3.dev
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,23 +40,13 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../general/index.html">General</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../events/index.html">IACT events</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../irfs/index.html">IACT IRFs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../data_storage/index.html">IACT data storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../events/index.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../irfs/index.html">IRFs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_storage/index.html">Data storage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../skymaps/index.html">Sky Maps</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Spectra</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../flux_points/index.html">SED</a></li>
@@ -119,71 +74,32 @@
 <li class="toctree-l1"><a class="reference internal" href="../../lightcurves/index.html">Light curves</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Data formats for gamma-ray astronomy</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Spectra</a> &raquo;</li>
-        
       <li>Bin-by-bin Likelihood Profiles</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="../../_sources/spectra/binned_likelihoods/index.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="bin-by-bin-likelihood-profiles">
+             
+  <section id="bin-by-bin-likelihood-profiles">
 <span id="binned-likelihoods"></span><h1>Bin-by-bin Likelihood Profiles<a class="headerlink" href="#bin-by-bin-likelihood-profiles" title="Permalink to this headline">¶</a></h1>
 <p>This page describes formats for bin-by-bin likelihood profiles as
 currently used in some LAT analyses.  The bin-by-bin likelihood
@@ -260,7 +176,7 @@ using an Index=2.0 and considering energies above 100 MeV, the
 spectral bias is less than 3% for models with indices between 1 and
 3.5.</p></li>
 </ul>
-<div class="section" id="likelihood-sed">
+<section id="likelihood-sed">
 <span id="id1"></span><h2>Likelihood SED<a class="headerlink" href="#likelihood-sed" title="Permalink to this headline">¶</a></h2>
 <p>The likelihood SED is a representation of spectral energy distribution
 of a source that contains a likelihood for the source normalization in
@@ -301,11 +217,11 @@ contain the best-fit value, its errors, and upper limit in units of
 the reference model amplitude.  Unit conversion of the <code class="docutils literal notranslate"><span class="pre">norm</span></code>
 columns can be performed by doing a row-wise multiplication with the
 respective <code class="docutils literal notranslate"><span class="pre">ref</span></code> column.</p>
-<div class="section" id="sample-files">
+<section id="sample-files">
 <h3>Sample Files<a class="headerlink" href="#sample-files" title="Permalink to this headline">¶</a></h3>
 <p>See the <code class="docutils literal notranslate"><span class="pre">likelihood</span></code> files in <a class="reference internal" href="../flux_points/index.html#sed-sample-files"><span class="std std-ref">Sample Files</span></a>.</p>
-</div>
-<div class="section" id="header-keywords">
+</section>
+<section id="header-keywords">
 <h3>Header Keywords<a class="headerlink" href="#header-keywords" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><dl class="simple">
@@ -323,13 +239,13 @@ respective <code class="docutils literal notranslate"><span class="pre">ref</spa
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="columns">
+</section>
+<section id="columns">
 <h3>Columns<a class="headerlink" href="#columns" title="Permalink to this headline">¶</a></h3>
 <p>The columns listed here are a subset of the columns defined in the
 <a class="reference internal" href="../flux_points/index.html#flux-points"><span class="std std-ref">SED</span></a> format.  See <a class="reference internal" href="../flux_points/index.html#sed-columns"><span class="std std-ref">Columns</span></a> for the full column
 specifications.</p>
-<div class="section" id="required-columns">
+<section id="required-columns">
 <h4>Required Columns<a class="headerlink" href="#required-columns" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">e_min</span></code> – ndim: 1, Dimension: nebins</p></li>
@@ -346,8 +262,8 @@ specifications.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">loglike</span></code> – ndim: 1, Dimension: nebins</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">dloglike_scan</span></code> – ndim: 2, Dimension: nebins x nnorms</p></li>
 </ul>
-</div>
-<div class="section" id="optional-columns">
+</section>
+<section id="optional-columns">
 <h4>Optional Columns<a class="headerlink" href="#optional-columns" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ref_dnde_e_min</span></code> – ndim: 1, Dimension: nebins</p></li>
@@ -356,10 +272,10 @@ specifications.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">norm_errn</span></code> – ndim: 1, Dimension: nebins</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">norm_ul</span></code> – ndim: 1, Dimension: nebins</p></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="section" id="likelihood-sed-cube">
+</section>
+</section>
+</section>
+<section id="likelihood-sed-cube">
 <span id="id2"></span><h2>Likelihood SED Cube<a class="headerlink" href="#likelihood-sed-cube" title="Permalink to this headline">¶</a></h2>
 <p>The Likelihood SED Cube is format for storing a sequence of Likelihood
 SEDs in a single table.  The format defines a file with two BINTABLE
@@ -383,7 +299,7 @@ HDU to get the normalization in the respective units.</p>
 <li><p>Low Significance Source: <a class="reference download internal" download="" href="../../_downloads/89272d520afc4475359318653f770aa0/tscube_lowts.fits"><code class="xref download docutils literal notranslate"><span class="pre">tscube_lowts.fits</span></code></a></p></li>
 <li><p>High Significance Source: <a class="reference download internal" download="" href="../../_downloads/a76668a4922008b45be8cfad3f8de512/tscube_hights.fits"><code class="xref download docutils literal notranslate"><span class="pre">tscube_hights.fits</span></code></a></p></li>
 </ul>
-<div class="section" id="scandata-table">
+<section id="scandata-table">
 <span id="scandata"></span><h3>SCANDATA Table<a class="headerlink" href="#scandata-table" title="Permalink to this headline">¶</a></h3>
 <p>The SCANDATA HDU is a BINTABLE with the following columns.  The
 columns listed here are a subset of the columns in the
@@ -391,7 +307,7 @@ columns listed here are a subset of the columns in the
 the dimensionality of all columns is increased by one with the first
 dimension (rows) mapping to spatial pixels.  See <a class="reference internal" href="../flux_points/index.html#sed-columns"><span class="std std-ref">Columns</span></a>
 for the full column specifications.</p>
-<div class="section" id="id3">
+<section id="id3">
 <h4>Header Keywords<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><dl class="simple">
@@ -402,8 +318,8 @@ for the full column specifications.</p>
 </dl>
 </li>
 </ul>
-</div>
-<div class="section" id="id4">
+</section>
+<section id="id4">
 <h4>Required Columns<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">dloglike_scan</span></code> – ndim: 3, Dimension: nrows x nebins x nnorms</p></li>
@@ -413,8 +329,8 @@ for the full column specifications.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">ts</span></code> – ndim: 2, Dimension: nrows x nebins</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">loglike</span></code> – ndim: 2, Dimension: nrows x nebins</p></li>
 </ul>
-</div>
-<div class="section" id="id5">
+</section>
+<section id="id5">
 <h4>Optional Columns<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ref_npred</span></code> – ndim: 2, Dimension: nrows x nebins</p></li>
@@ -430,9 +346,9 @@ for the full column specifications.</p>
 </dl>
 </li>
 </ul>
-</div>
-</div>
-<div class="section" id="ebounds-table">
+</section>
+</section>
+<section id="ebounds-table">
 <span id="ebounds"></span><h3>EBOUNDS Table<a class="headerlink" href="#ebounds-table" title="Permalink to this headline">¶</a></h3>
 <p>The EBOUNDS HDU is a BINTABLE with 1 row per energy bin and the
 following columns.  The columns listed here are a subset of the
@@ -440,7 +356,7 @@ columns in the <a class="reference internal" href="../flux_points/index.html#flu
 the full column specifications.  Note that for backwards compatibility
 with existing EBOUNDS table convention (e.g. as used for WCS counts
 cubes) columns names are upper case.</p>
-<div class="section" id="id6">
+<section id="id6">
 <h4>Required Columns<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">E_MIN</span></code>, unit: keV, Dimension: nebins</p></li>
@@ -450,18 +366,18 @@ cubes) columns names are upper case.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">REF_EFLUX</span></code> – ndim: 1, Dimension: nebins</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">REF_FLUX</span></code> – ndim: 1, Dimension: nebins</p></li>
 </ul>
-</div>
-<div class="section" id="id7">
+</section>
+<section id="id7">
 <h4>Optional Columns<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">REF_DNDE_E_MIN</span></code> – ndim: 1, Dimension: nebins</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">REF_DNDE_E_MAX</span></code> – ndim: 1, Dimension: nebins</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">REF_NPRED</span></code> – ndim: 1, Dimension: nebins</p></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="section" id="tscube-output-format">
+</section>
+</section>
+</section>
+<section id="tscube-output-format">
 <span id="tscube"></span><h2>TSCube Output Format<a class="headerlink" href="#tscube-output-format" title="Permalink to this headline">¶</a></h2>
 <p>Recent releases of the Fermi ScienceTools provide a <em>gttscube</em>
 application that fits a test source on a grid of spatial positions
@@ -529,7 +445,7 @@ use columnwise ordering for mapping rows to pixel indices.</p>
 </tr>
 </tbody>
 </table>
-<div class="section" id="fitdata-table">
+<section id="fitdata-table">
 <span id="fitdata"></span><h3>FITDATA Table<a class="headerlink" href="#fitdata-table" title="Permalink to this headline">¶</a></h3>
 <p>The FITDATA HDU is a BINTABLE with 1 row per spatial pixel (<em>nrows</em>)
 and the following columns:</p>
@@ -591,56 +507,36 @@ and the following columns:</p>
 </dl>
 </li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../ogip/index.html" class="btn btn-neutral float-right" title="1D counts spectra" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../flux_points/index.html" class="btn btn-neutral float-left" title="SED" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../flux_points/index.html" class="btn btn-neutral float-left" title="SED" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../ogip/index.html" class="btn btn-neutral float-right" title="1D counts spectra" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2018, Gamma-ray astronomy community
+    <p>&#169; Copyright 2018, Gamma-ray astronomy community.</p>
+  </div>
 
-    </p>
-  </div> 
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
