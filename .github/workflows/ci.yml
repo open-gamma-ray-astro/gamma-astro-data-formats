@@ -1,0 +1,36 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          sudo apt update --yes && sudo apt install --yes git build-essential pandoc curl graphviz
+          pip install poetry
+          poetry install
+
+      - name: Build
+        run: poetry run make html SPHINXOPTS="-W --keep-going -n --color -j auto"
+
+      - name: Deploy to gihub pages
+        # only run on push to master
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build/html
+          CLEAN: true
+          SINGLE_COMMIT: true

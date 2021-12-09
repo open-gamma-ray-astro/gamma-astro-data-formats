@@ -5,8 +5,8 @@ Sky Maps
 
 .. toctree::
    :maxdepth: 1
-   :hidden: 
-              
+   :hidden:
+
    healpix/index
    wcs/index
 
@@ -18,13 +18,13 @@ pixelization formats which are described in more detail in the
 following sub-pages:
 
 * :ref:`healpix_skymap`
-  
+
 * :ref:`wcs_skymap`
 
 Both pixelization formats store the data in a single IMAGE HDU which
 can be either an ImageHDU or BinTableHDU depending on the image
 format.  A :ref:`bands_hdu` is required for maps with non-spatial dimensions.
-  
+
 .. _bands_hdu:
 
 BANDS HDU
@@ -73,18 +73,22 @@ would be as follows::
   (i, j) = (1,1) : (k) = (4,)
   (i, j) = (2,1) : (k) = (5,)
 
-  
+
 Header Keywords
 ~~~~~~~~~~~~~~~
 
-* ``AXCOLS{IDX}``, type: string, **optional**  
+* ``AXCOLS{IDX}``, type: string, **optional**
     * Comma-separated list of columns in the BANDS table corresponding
       to non-spatial dimension with one-based index ``{IDX}``.  If
       there are two elements the columns should be interpreted as the
       lower and upper edges of each bin.  If there is a single element
       the column should be interpreted as the bin center.  For
       ``EBOUNDS`` or ``ENERGIES`` HDUs this keyword is optional.
-  
+
+For time based axes the additional keywords described in :ref:`time-formats` are
+required.
+
+
 Columns
 ~~~~~~~
 
@@ -93,19 +97,19 @@ Columns
     * Unique index of the band.  If this column is not defined then
       the band index should be inferred from the row number indexing
       from zero.  For maps with multiple non-spatial dimensions the
-      index mapping to channel number follows a column-major ordering.  
+      index mapping to channel number follows a column-major ordering.
 * ``E_MIN``, ndim: 1, unit: keV, **optional**
     * Dimension: nbands
     * Lower energy bound for integral quantities.
 * ``E_MAX``, ndim: 1, unit: keV, **optional**
     * Dimension: nbands
-    * Upper energy bound for integral quantities.      
+    * Upper energy bound for integral quantities.
 * ``ENERGY``, ndim: 1, unit: keV, **optional**
     * Dimension: nbands
     * Energy value for differential quantities.
 * ``EVENT_TYPE``, ndim: 1, **optional**
     * Dimension: nbands
-    * Integer key for a sequence of independent data subselections (e.g. FRONT/BACK-converting LAT events). 
+    * Integer key for a sequence of independent data subselections (e.g. FRONT/BACK-converting LAT events).
 
 WCS Columns
 ~~~~~~~~~~~
@@ -116,13 +120,13 @@ pixelization for non-regular geometries.
 
 * ``NPIX``, ndim: 2, type: int, **optional**
     * Number of pixels in longitude and latitude in each image plane.
-      
+
 * ``CRPIX``, ndim: 2, type: float, **optional**
-    * Reference pixel coordinate [deg] in longitude and latitude in each image plane.  
-      
+    * Reference pixel coordinate [deg] in longitude and latitude in each image plane.
+
 * ``CDELT``, ndim: 2, type: float, **optional**
-    * Pixel size [deg] in longitude and latitude in each image plane.  
-  
+    * Pixel size [deg] in longitude and latitude in each image plane.
+
 
 HPX Columns
 ~~~~~~~~~~~
