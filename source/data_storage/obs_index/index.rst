@@ -20,10 +20,16 @@ Required columns
 
 * ``OBS_ID`` type: int
     * Unique observation identifier (Run number)
+* ``OBS_MODE`` type: string
+    * Observation mode. See notes on :ref:`iact-events-obs-mode` below.
 * ``RA_PNT`` type: float, unit: deg
-    * Obsevation pointing right ascension (see :ref:`coords-radec`)
+    * Pointing Right Ascension (see :ref:`coords-radec`). Not mandatory if ``OBS_MODE=DRIFT``, but average values could optionally be provided.
 * ``DEC_PNT`` type: float, unit: deg
-    * Observation pointing declination (see :ref:`coords-radec`)
+    * Pointing declination (see :ref:`coords-radec`). Not mandatory if ``OBS_MODE=DRIFT``, but average values could optionally be provided.
+* ``ALT_PNT`` type: float, unit: deg
+    * Pointing Altitude (see :ref:`coords-altaz`). Only mandatory if ``OBS_MODE=DRIFT``
+* ``AZ_PNT`` type: float, unit: deg
+    * Pointing azimuth (see :ref:`coords-altaz`). Only mandatory if ``OBS_MODE=DRIFT``
 * ``TSTART`` type: float, unit: s
     * Start time of observation relative to the reference time (see :ref:`time`)
 * ``TSTOP`` type: float, unit: s
@@ -39,10 +45,6 @@ selection or data quality checks or analysis, but aren't needed for most users.
 
 * ``ZEN_PNT`` type: float, unit: deg
     * Observation pointing zenith angle at observation mid-time ``TMID`` (see :ref:`coords-altaz`)
-* ``ALT_PNT`` float, deg
-    * Observation pointing altitude at observation mid-time ``TMID`` (see :ref:`coords-altaz`)
-* ``AZ_PNT`` type: float, unit: deg
-    * Observation pointing azimuth at observation mid-time ``TMID`` (see :ref:`coords-altaz`)
 * ``ONTIME`` type: float, unit: s
     * Total observation time (including dead time).
     * Equals ``TSTOP`` - ``TSTART``
