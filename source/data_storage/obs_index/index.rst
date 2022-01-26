@@ -21,7 +21,7 @@ Required columns
 * ``OBS_ID`` type: int
     * Unique observation identifier (Run number)
 * ``OBS_MODE`` type: string
-    * Observation mode. See notes on :ref:`iact-events-obs-mode` below.
+    * Observation mode. See notes on :ref:`iact-events-obs-mode`.
 * ``RA_PNT`` type: float, unit: deg
     * Pointing Right Ascension (see :ref:`coords-radec`). Not mandatory if ``OBS_MODE=DRIFT``, but average values could optionally be provided.
 * ``DEC_PNT`` type: float, unit: deg
