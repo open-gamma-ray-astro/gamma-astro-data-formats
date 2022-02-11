@@ -23,14 +23,3 @@ jobs:
 
       - name: Build
         run: poetry run make html SPHINXOPTS="-W --keep-going -n --color -j auto"
-
-      - name: Deploy to gihub pages
-        # only run on push to master
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-        uses: JamesIves/github-pages-deploy-action@4.1.7
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: build/html
-          CLEAN: true
-          SINGLE_COMMIT: true
