@@ -107,15 +107,36 @@ commonly used for observation selection, grouping and analysis.</p>
 </dl>
 </li>
 <li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">OBS_MODE</span></code> type: string</dt><dd><ul>
+<li><p>Observation mode. See notes on <a class="reference internal" href="../../events/events.html#iact-events-obs-mode"><span class="std std-ref">OBS_MODE</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">RA_PNT</span></code> type: float, unit: deg</dt><dd><ul>
-<li><p>Obsevation pointing right ascension (see <a class="reference internal" href="../../general/coordinates.html#coords-radec"><span class="std std-ref">RA / DEC</span></a>)</p></li>
+<li><p>Pointing Right Ascension (see <a class="reference internal" href="../../general/coordinates.html#coords-radec"><span class="std std-ref">RA / DEC</span></a>). Not mandatory if <code class="docutils literal notranslate"><span class="pre">OBS_MODE=DRIFT</span></code>, but average values could optionally be provided.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">DEC_PNT</span></code> type: float, unit: deg</dt><dd><ul>
-<li><p>Observation pointing declination (see <a class="reference internal" href="../../general/coordinates.html#coords-radec"><span class="std std-ref">RA / DEC</span></a>)</p></li>
+<li><p>Pointing declination (see <a class="reference internal" href="../../general/coordinates.html#coords-radec"><span class="std std-ref">RA / DEC</span></a>). Not mandatory if <code class="docutils literal notranslate"><span class="pre">OBS_MODE=DRIFT</span></code>, but average values could optionally be provided.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ALT_PNT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Pointing Altitude (see <a class="reference internal" href="../../general/coordinates.html#coords-altaz"><span class="std std-ref">Alt / Az</span></a>). Only mandatory if <code class="docutils literal notranslate"><span class="pre">OBS_MODE=DRIFT</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">AZ_PNT</span></code> type: float, unit: deg</dt><dd><ul>
+<li><p>Pointing azimuth (see <a class="reference internal" href="../../general/coordinates.html#coords-altaz"><span class="std std-ref">Alt / Az</span></a>). Only mandatory if <code class="docutils literal notranslate"><span class="pre">OBS_MODE=DRIFT</span></code></p></li>
 </ul>
 </dd>
 </dl>
@@ -144,20 +165,6 @@ selection or data quality checks or analysis, but aren’t needed for most users
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">ZEN_PNT</span></code> type: float, unit: deg</dt><dd><ul>
 <li><p>Observation pointing zenith angle at observation mid-time <code class="docutils literal notranslate"><span class="pre">TMID</span></code> (see <a class="reference internal" href="../../general/coordinates.html#coords-altaz"><span class="std std-ref">Alt / Az</span></a>)</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">ALT_PNT</span></code> float, deg</dt><dd><ul>
-<li><p>Observation pointing altitude at observation mid-time <code class="docutils literal notranslate"><span class="pre">TMID</span></code> (see <a class="reference internal" href="../../general/coordinates.html#coords-altaz"><span class="std std-ref">Alt / Az</span></a>)</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">AZ_PNT</span></code> type: float, unit: deg</dt><dd><ul>
-<li><p>Observation pointing azimuth at observation mid-time <code class="docutils literal notranslate"><span class="pre">TMID</span></code> (see <a class="reference internal" href="../../general/coordinates.html#coords-altaz"><span class="std std-ref">Alt / Az</span></a>)</p></li>
 </ul>
 </dd>
 </dl>
