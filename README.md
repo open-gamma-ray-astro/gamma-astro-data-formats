@@ -1,6 +1,6 @@
 # Data formats for gamma-ray astronomy [![CC-BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/) [![Build Status](https://travis-ci.com/open-gamma-ray-astro/gamma-astro-data-formats.svg?branch=master)](https://travis-ci.com/open-gamma-ray-astro/gamma-astro-data-formats) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1409831.svg)](https://doi.org/10.5281/zenodo.1409831)
 
-A place to propose and share data format descriptions for gamma-ray astronomy.
+The _Data formats for gamma-ray astronomy_ is a community-driven initiative for the definition of a common and open high-level data format for gamma-ray instruments.
 
 * Repository: https://github.com/open-gamma-ray-astro/gamma-astro-data-formats
 * Docs: https://gamma-astro-data-formats.readthedocs.io/
@@ -38,8 +38,11 @@ $ poetry install
 
 Make the html:
 ```
-$ poetry run make html
+$ poetry run make html SPHINXOPTS="-W --keep-going -n --color -j auto"
 ```
+
+The options are enabling more warnings to make sure everything builds correctly
+and run the build on multiple cores.
 
 Start the python http server to get a preview in your browser:
 ```
@@ -47,3 +50,10 @@ $ python3 -m http.server -d build/html
 ```
 
 You then should be able to browse <http://localhost:8000> and see the document.
+
+## References
+
+The following paper describes the context of this initiative and its evolution:
+
+- Nigro, C.; Hassan, T.; Olivera-Nieto, L. Evolution of Data Formats in Very-High-Energy Gamma-Ray Astronomy. Universe 2021, 7, 374. https://doi.org/10.3390/universe7100374.
+

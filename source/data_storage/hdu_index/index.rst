@@ -82,6 +82,7 @@ Valid ``HDU_TYPE`` values:
 * ``psf`` - Point spread function
 * ``edisp`` - Energy dispersion
 * ``bkg`` - Background
+* ``rad_max`` - Directional cut for point-like IRFs
 
 Valid ``HDU_CLASS`` values:
 
@@ -94,6 +95,7 @@ Valid ``HDU_CLASS`` values:
 * ``psf_king`` - see format spec: :ref:`psf_king`
 * ``bkg_2d`` - see format spec: :ref:`bkg_2d`
 * ``bkg_3d`` - see format spec: :ref:`bkg_3d`
+* ``rad_max_2d`` - see format spec: :ref:`rad_max_2d`
 
 
 Relation to HDUCLAS
