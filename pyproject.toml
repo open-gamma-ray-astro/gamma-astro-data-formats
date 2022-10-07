@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gamma-astro-data-formats"
-version = "0.3.0.a0"
+version = "0.3.0"
 description = "Standardized Data Formats for Gamma-Ray Astronomy"
 authors = ["Christoph Deil et al."]
 

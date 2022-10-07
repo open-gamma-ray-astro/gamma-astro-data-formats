@@ -12,10 +12,10 @@ Stable versions of the spec are done via git tags and are shown as releases here
 https://github.com/open-gamma-ray-astro/gamma-astro-data-formats/releases
 
 HTML and PDF versions for stable versions are available via the version selector
-in the lower left on ReadTheDocs. As an example, for version 0.2:
+in the lower left on ReadTheDocs. As an example, for version 0.3:
 
-- HTML at <https://gamma-astro-data-formats.readthedocs.io/en/v0.2/>
-- PDF at <https://media.readthedocs.org/pdf/gamma-astro-data-formats/v0.2/gamma-astro-data-formats.pdf>
+- HTML at <https://gamma-astro-data-formats.readthedocs.io/en/v0.3/>
+- PDF at <https://media.readthedocs.org/pdf/gamma-astro-data-formats/v0.3/gamma-astro-data-formats.pdf>
 
 For v0.2 we also archived the sources of the spec as well as a rendered PDF and HTML version here:
 <https://doi.org/10.5281/zenodo.1409830> 
