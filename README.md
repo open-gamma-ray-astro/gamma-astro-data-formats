@@ -20,7 +20,7 @@ in the lower left on ReadTheDocs. As an example, for version 0.3:
 
 The archived versions of the standard are available on zenodo:
 - v0.2:
-  - <https://doi.org/10.5281/zenodo.1409830>
+  - <https://doi.org/10.5281/zenodo.1409831>
   - [BibTeX citation](https://zenodo.org/record/1409831/export/hx#.W5EBLNgzY_U).
 
 ## Building the documents locally
