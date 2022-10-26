@@ -1,4 +1,4 @@
-# Data formats for gamma-ray astronomy [![CC-BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/) [![Build Status](https://travis-ci.com/open-gamma-ray-astro/gamma-astro-data-formats.svg?branch=master)](https://travis-ci.com/open-gamma-ray-astro/gamma-astro-data-formats) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7236105.svg)](https://doi.org/10.5281/zenodo.7236105)
+# Data formats for gamma-ray astronomy [![CC-BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/) [![CI](https://github.com/open-gamma-ray-astro/gamma-astro-data-formats/actions/workflows/ci.yml/badge.svg)](https://github.com/open-gamma-ray-astro/gamma-astro-data-formats/actions/workflows/ci.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7236105.svg)](https://doi.org/10.5281/zenodo.7236105)
 
 The _Data formats for gamma-ray astronomy_ is a community-driven initiative for the definition of a common and open high-level data format for gamma-ray instruments.
 
