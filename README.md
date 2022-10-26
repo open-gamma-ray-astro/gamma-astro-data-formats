@@ -1,4 +1,4 @@
-# Data formats for gamma-ray astronomy [![CC-BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/) [![CI](https://github.com/open-gamma-ray-astro/gamma-astro-data-formats/actions/workflows/ci.yml/badge.svg)](https://github.com/open-gamma-ray-astro/gamma-astro-data-formats/actions/workflows/ci.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7236105.svg)](https://doi.org/10.5281/zenodo.7236105)
+# Data formats for gamma-ray astronomy [![CC-BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/) [![CI](https://github.com/open-gamma-ray-astro/gamma-astro-data-formats/actions/workflows/ci.yml/badge.svg)](https://github.com/open-gamma-ray-astro/gamma-astro-data-formats/actions/workflows/ci.yml) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1409830.svg)](https://doi.org/10.5281/1409830)
 
 The _Data formats for gamma-ray astronomy_ is a community-driven initiative for the definition of a common and open high-level data format for gamma-ray instruments.
 
@@ -19,9 +19,6 @@ in the lower left on ReadTheDocs. As an example, for version 0.3:
 
 
 The archived versions of the standard are available on zenodo:
-- v0.3:
-  - <https://doi.org/10.5281/zenodo.7236105>
-  - [BibTeX citation](https://zenodo.org/record/7236105/export/hx#.W5EBLNgzY_U).
 - v0.2:
   - <https://doi.org/10.5281/zenodo.1409830>
   - [BibTeX citation](https://zenodo.org/record/1409831/export/hx#.W5EBLNgzY_U).
