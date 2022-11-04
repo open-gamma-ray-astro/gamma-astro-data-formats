@@ -22,7 +22,7 @@ have started this open data format specification. This was started at the
 `PyGamma15 workshop`_ in November 2015, followed by a `meeting in April 2016 in
 Meudon`_ and another `meeting in March 2017 in Heidelberg`_. Version
 0.1 of the spec was release in April 2016, version 0.2 in August 2018,
-version 0.3 in Oktober 2022.
+version 0.3 in November 2022.
 You can find more information about this effort in `Deil et al. (2017)
 <https://adsabs.harvard.edu/abs/2017AIPC.1792g0006D>`__.
 
