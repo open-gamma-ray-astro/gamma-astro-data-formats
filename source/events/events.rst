@@ -337,6 +337,8 @@ operate in different modes which significantly affect the resulting data, or to 
 different types of instrument. More details can be found
 `here <https://heasarc.gsfc.nasa.gov/docs/heasarc/ofwg/docs/general/ogip_94_001/ogip_94_001.html>`__
 
+Most IACT data will be ``POINTING``, indicating a constant pointing in equatorial coordinates.
+
 In addition to the OGIP-defined values (``POINTING``, ``RASTER``, ``SLEW`` and ``SCAN``), we
 define the option ``DRIFT`` to accomodate ground-based wide-field instruments, in
 which local zenith/azimuth coordinates remain constant. In this case, the header keywords
