@@ -19,19 +19,16 @@ https://lists.nasa.gov/mailman/listinfo/open-gamma-ray-astro .
 
 ## Run Sphinx
 
-We use the Sphinx Readthedocs theme.
-To build the HTML docs locally you first have to install Sphinx.
+We use the Sphinx Readthedocs theme and manage dependencies using poetry.
+
+You first need to install `poetry`.
 
 With pip::
 
-    pip install sphinx sphinx_rtd_theme
-
-If you use conda::
-
-    conda create -n gadf python=3.6 sphinx sphinx_rtd_theme
-    conda activate gadf
+    pip install poetry
 
 Then to build and view the HTML docs locally::
 
-    make html
-    open build/html/index.html
+    poetry install
+    poetry run make html
+    poetry run python -m http.server -d build/html/index.html

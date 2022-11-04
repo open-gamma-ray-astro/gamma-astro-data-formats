@@ -28,15 +28,15 @@ Recommended axis order: ``ENERGY``, ``MIGRA``, ``THETA``
 
 Header keywords:
 
-As explained in :ref:`hduclass`, the following header keyword should be used to 
+As explained in :ref:`hduclass`, the following header keyword should be used to
 declare the type of HDU:
 
 * ``HDUDOC``   = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats'
-* ``HDUVERS``  = '0.2'
+* ``HDUVERS``  = '0.3'
 * ``HDUCLASS`` = 'GADF'
 * ``HDUCLAS1`` = 'RESPONSE'
 * ``HDUCLAS2`` = 'EDISP'
 * ``HDUCLAS3`` = 'FULL-ENCLOSURE'
-* ``HDUCLAS4`` = 'EDISP_2D'  
+* ``HDUCLAS4`` = 'EDISP_2D'
 
 Example data file: TODO
