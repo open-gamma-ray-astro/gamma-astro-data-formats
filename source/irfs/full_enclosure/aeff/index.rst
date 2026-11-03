@@ -82,17 +82,13 @@ The ``AEFF_3D`` format contains a 3-dimensional array of effective area,
 stored in the :ref:`fits-arrays-bintable-hdu` format. It is an extension of
 ``AEFF_2D`` where the scalar field of view offset is replaced by the two field
 of view coordinates ``DETX`` and ``DETY``, so that the effective area can vary
-with the direction inside the field of view. The effective area is given as a
+with the direction inside the field of view (see :ref:`coords-fov`). The
+effective area is given as a
 function of the **true** source direction relative to the array pointing
 position.
 
 ``HDUCLAS3`` must be either ``'FULL-ENCLOSURE'`` (see :ref:`full-enclosure-irfs`)
 or ``'POINT-LIKE'`` (see :ref:`point-irfs`).
-
-For point-like IRFs computed from point-like simulations of an on-axis source,
-``AEFF_3D`` is not possible and not required: the effective area does not depend
-on the position in the field of view, so ``AEFF_2D`` should be used instead
-(see :ref:`aeff_2d`).
 
 For point-like IRFs computed from diffuse gamma-ray simulations with a
 directional (spatial) cut applied, the effective area can be calculated as a
