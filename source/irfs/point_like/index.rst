@@ -15,6 +15,18 @@ Any point-like IRF component should contain the header keyword:
 
 * ``HDUCLAS3 = POINT-LIKE``
 
+AEFF_3D
++++++++
+
+Point-like IRFs computed from diffuse gamma-ray simulations with a directional
+(spatial) cut applied can store the effective area as a function of true energy
+and field of view coordinates, i.e. using the :ref:`aeff_3d` format with
+``HDUCLAS3 = 'POINT-LIKE'``. The directional cut applied to compute the
+effective area must be specified via the ``RAD_MAX`` header keyword or a
+``RAD_MAX_2D`` HDU (see :ref:`rad_max`). A single bin in ``DETX`` and ``DETY``
+covering the field of view is an appropriate choice in this case; this is only
+a suggestion, the field of view binning is left to the producer.
+
 .. _rad_max:
 
 RAD_MAX
