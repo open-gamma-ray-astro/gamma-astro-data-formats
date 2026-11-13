@@ -58,7 +58,7 @@ Columns:
     * Field of view coordinate axes (see :ref:`coords-fov`)
 * ``RAD_LO``, ``RAD_HI`` -- ndim: 1, unit: deg
     * Offset angle from source position
-* ``RPSF`` -- ndim: 3, unit: sr^-1
+* ``RPSF`` -- ndim: 4, unit: sr^-1
     * Point spread function value :math:`dP/d\Omega`, see :ref:`psf-pdf`.
 
 Recommended axis order: ``ENERGY``, ``DETX``, ``DETY``, ``RAD``.
