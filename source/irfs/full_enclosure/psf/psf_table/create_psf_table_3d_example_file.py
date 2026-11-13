@@ -47,13 +47,13 @@ header["HDUCLASS"] = "GADF", ""
 header["HDUCLAS1"] = "RESPONSE", ""
 header["HDUCLAS2"] = "PSF", ""
 header["HDUCLAS3"] = "FULL-ENCLOSURE", ""
-header["HDUCLAS4"] = "PSF_3D", ""
+header["HDUCLAS4"] = "PSF_TABLE_3D", ""
 
 
-edisp_hdu = fits.BinTableHDU(table, header)
+psf_hdu = fits.BinTableHDU(table, header, name="PSF")
 
 primary_hdu = fits.PrimaryHDU()
-hdulist = fits.HDUList([primary_hdu, edisp_hdu])
+hdulist = fits.HDUList([primary_hdu, psf_hdu])
 
 filename = "psf_table_3d_full_example.fits"
 print("Writing {}".format(filename))
