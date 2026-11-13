@@ -1,30 +1,58 @@
-import numpy as np
+"""Generate an example PSF file."""
+
 from astropy.io import fits
+import astropy.units as u
 from astropy.table import Table
-fermi_hdus = fits.open('psf-fermi.fits')
+import numpy as np
 
-table = Table()
-table['Theta'] = np.atleast_2d(fermi_hdus['THETA'].data['Theta'])
-table['Energy'] = np.atleast_2d(fermi_hdus['PSF'].data['Energy'])
-table['Exposure'] = np.atleast_2d(fermi_hdus['PSF'].data['Exposure'])
-table['Offset'] = np.atleast_2d(np.linspace(0, 2, 10))
-shape = (table['Offset'].size, table['Theta'].size, table['Energy'].size)
-# TODO: put a better example so that people can test their
-# axis order / interpolation
-# for now we just fill zeros.
-# data = fermi_hdus['PSF'].data['Psf']
-# print(data.shape)
-# data = np.tile(data, table['Offset'].size)
-# print(data.shape)
-# print(shape)
-# print(fermi_hdus['PSF'].data['Psf'].shape)
-data = np.ones(shape)
-print(data.shape)
-data = np.expand_dims(data, 0)
-print(data.shape)
-# data = np.reshape(data, shape)
-table['Psf'] = data
+e_bins = 20
+r_bins = 20
+o_bins = 5
+e_axis = np.logspace(-1, 2, e_bins + 1) * u.TeV
+r_axis = np.linspace(0, 2, r_bins + 1) * u.deg
+o_axis = np.linspace(0, 3, o_bins + 1) * u.deg
+# Normalize the PSF values
+solid_angle = np.diff(2 * np.pi * (1 - np.cos(r_axis.to_value(u.rad))) * u.sr)
+rpsf = np.ones([e_bins, o_bins, r_bins])
+rpsf = rpsf / rpsf.sum(axis=-1)[..., np.newaxis] / solid_angle
+# we have to add one dimension, so we only have one row in the binary table
+# and each column is an array of the correct dimension
+table = Table(
+    {
+        "ENERG_LO": e_axis[np.newaxis, :-1],
+        "ENERG_HI": e_axis[np.newaxis, 1:],
+        "THETA_LO": o_axis[np.newaxis, :-1],
+        "THETA_HI": o_axis[np.newaxis, 1:],
+        "RAD_LO": r_axis[np.newaxis, :-1],
+        "RAD_HI": r_axis[np.newaxis, 1:],
+        # transpose as FITS uses opposite dimension order
+        "RPSF": rpsf.T[np.newaxis, ...],
+    }
+)
 
-filename = 'psf-histo-offset-energy.fits.gz'
-print('Writing {}'.format(filename))
+header = fits.Header()
+header["OBS_ID"] = 31415, "Observation ID"
+header["LO_THRES"] = 0.1, "Low energy threshold [TeV]"
+header["HI_THRES"] = 50, "High energy threshold [TeV]"
+header["HDUDOC"] = (
+    "https://github.com/open-gamma-ray-astro/gamma-astro-data-formats",
+    "",
+)
+header["HDUVERS"] = "0.3", ""
+header["HDUCLASS"] = "GADF", ""
+header["HDUCLAS1"] = "RESPONSE", ""
+header["HDUCLAS2"] = "PSF", ""
+header["HDUCLAS3"] = "FULL-ENCLOSURE", ""
+header["HDUCLAS4"] = "PSF_TABLE", ""
+
+
+psf_hdu = fits.BinTableHDU(table, header, name="PSF")
+
+primary_hdu = fits.PrimaryHDU()
+hdulist = fits.HDUList([primary_hdu, psf_hdu])
+
+filename = "psf_table_full_example.fits"
+print("Writing {}".format(filename))
+
+hdulist.writeto(filename, overwrite=True)
 table.write(filename, overwrite=True)
