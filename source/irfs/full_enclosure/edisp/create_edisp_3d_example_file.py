@@ -13,7 +13,14 @@ e_axis = np.logspace(-1, 2, e_bins + 1) * u.TeV
 m_axis = np.geomspace(2e-1, 5, m_bins + 1) * u.dimensionless_unscaled
 x_axis = np.linspace(-3, 3, x_bins + 1) * u.deg
 y_axis = np.linspace(-3, 3, y_bins + 1) * u.deg
-edisp = np.ones([e_bins, x_bins, y_bins, m_bins]) * u.dimensionless_unscaled
+# Normalize EDISP
+edisp = np.ones([e_bins, x_bins, y_bins, m_bins])
+edisp = (
+    edisp
+    / edisp.sum(axis=-1)[..., np.newaxis]
+    / np.diff(m_axis)[np.newaxis, np.newaxis, np.newaxis, :]
+)
+
 
 # we have to add one dimension, so we only have one row in the binary table
 # and each column is an array of the correct dimension
@@ -48,7 +55,7 @@ header["HDUCLAS3"] = "FULL-ENCLOSURE", ""
 header["HDUCLAS4"] = "EDISP_3D", ""
 
 
-edisp_hdu = fits.BinTableHDU(table, header)
+edisp_hdu = fits.BinTableHDU(table, header, name="ENERGY DISPERSION")
 
 primary_hdu = fits.PrimaryHDU()
 hdulist = fits.HDUList([primary_hdu, edisp_hdu])
