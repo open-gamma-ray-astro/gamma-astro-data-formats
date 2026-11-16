@@ -76,4 +76,9 @@ declare the type of HDU:
 * ``HDUCLAS3`` = 'FULL-ENCLOSURE'
 * ``HDUCLAS4`` = 'PSF_TABLE_3D'
 
+Further header keywords:
+
+* ``FOVALIGN`` = 'ALTAZ' / 'RADEC'
+    * Alignment of the field-of-view coordinate system (see :ref:`coords-fov`). It is recommended to always fill this keyword explicitly.
+
 Example data file: :download:`here <./psf_table_3d_full_example.fits>`.
