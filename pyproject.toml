@@ -1,6 +1,6 @@
 [project]
 name = "gamma-astro-data-formats"
-version = "0.3.0"
+version = "0.4.0.dev0"
 description = "Standardized Data Formats for Gamma-Ray Astronomy"
 authors = [{ name = "Christoph Deil et al." }]
 requires-python = ">=3.14"
