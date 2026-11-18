@@ -91,6 +91,7 @@ Valid ``HDU_CLASS`` values:
 * ``aeff_2d`` - see format spec: :ref:`aeff_2d`
 * ``aeff_3d`` - see format spec: :ref:`aeff_3d`
 * ``edisp_2d`` - see format spec: :ref:`edisp_2d`
+* ``edisp_3d`` - see format spec: :ref:`edisp_3d`
 * ``psf_table`` - see format spec: :ref:`psf_table`
 * ``psf_3gauss`` - see format spec: :ref:`psf_3gauss`
 * ``psf_king`` - see format spec: :ref:`psf_king`
