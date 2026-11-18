@@ -19,16 +19,12 @@ https://lists.nasa.gov/mailman/listinfo/open-gamma-ray-astro .
 
 ## Run Sphinx
 
-We use the Sphinx Readthedocs theme and manage dependencies using poetry.
+We use the Sphinx Readthedocs theme and manage dependencies using uv.
 
-You first need to install `poetry`.
+You first need to [install uv](https://docs.astral.sh/uv/getting-started/installation/).
 
-With pip::
+To build and preview the HTML docs with live reload, run
 
-    pip install poetry
+    uv run --locked make dev
 
-Then to build and view the HTML docs locally::
-
-    poetry install
-    poetry run make html
-    poetry run python -m http.server -d build/html/index.html
+Open <http://127.0.0.1:8000> in your browser.

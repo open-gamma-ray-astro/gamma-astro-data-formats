@@ -4,6 +4,7 @@
 .project
 .pydevproject
 .settings/
+!/.python-version
 build
 *pyc
 *~

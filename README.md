@@ -25,33 +25,29 @@ The archived versions of the standard are available on zenodo:
 
 ## Building the documents locally
 
-To build this document locally, clone this repository and install `poetry`,
-the tool used for dependency management:
-```bash
-$ python3 -m pip install [--user] poetry
-```
-Use `--user` if you are using a system python installation, leave it out if
-you are in a virtual environment or conda environment already.
+To build this document locally, clone this repository and
+[install uv](https://docs.astral.sh/uv/getting-started/installation/).
 
 Install the dependencies for building this document:
 ```
-$ poetry install
+$ uv sync --locked
 ```
 
 Make the html:
 ```
-$ poetry run make html SPHINXOPTS="-W --keep-going -n --color -j auto"
+$ uv run --locked make html SPHINXOPTS="-W -n --color -j auto"
 ```
 
 The options are enabling more warnings to make sure everything builds correctly
 and run the build on multiple cores.
 
-Start the python http server to get a preview in your browser:
+To preview the documentation with live reload, run
+
 ```
-$ python3 -m http.server -d build/html
+$ uv run --locked make dev
 ```
 
-You then should be able to browse <http://localhost:8000> and see the document.
+Open <http://127.0.0.1:8000> in your browser.
 
 ## References
 
