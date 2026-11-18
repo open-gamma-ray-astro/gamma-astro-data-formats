@@ -6,20 +6,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v7.1.0
         with:
-          python-version: 3.8
+          python-version-file: .python-version
 
-      - name: Install dependencies
-        run: |
-          sudo apt update --yes && sudo apt install --yes git build-essential pandoc curl graphviz
-          pip install poetry
-          poetry install
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v10.3.3
 
       - name: Build
-        run: poetry run make html SPHINXOPTS="-W --keep-going -n --color -j auto"
+        run: uv run --locked make html SPHINXOPTS="-W -n --color -j auto"
