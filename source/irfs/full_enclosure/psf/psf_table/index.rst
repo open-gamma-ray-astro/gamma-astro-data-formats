@@ -46,7 +46,7 @@ Example data file: :download:`here <./psf_table_full_example.fits>`.
 PSF_TABLE_3D
 ------------
 
-This is an extension of the ``PSF_TABLE`` FITS format specified in :ref:`psf-table`.
+This is an extension of the ``PSF_TABLE`` FITS format specified in :ref:`psf_table`.
 It extends this definition by generalizing from a radially-symmetric offset dependency to a
 non-radially-symmetric field-of-view coordinate dependency.
 
