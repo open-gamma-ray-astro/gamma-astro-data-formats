@@ -1,16 +1,13 @@
-[tool.poetry]
+[project]
 name = "gamma-astro-data-formats"
-version = "0.3.0"
+version = "0.4.0.dev0"
 description = "Standardized Data Formats for Gamma-Ray Astronomy"
-authors = ["Christoph Deil et al."]
+authors = [{ name = "Christoph Deil et al." }]
+requires-python = ">=3.14"
+dependencies = [
+    "sphinx>=9.2.0,<10",
+    "sphinx-rtd-theme>=3.1.0,<4",
+]
 
-[tool.poetry.dependencies]
-python = "^3.7"
-
-[tool.poetry.dev-dependencies]
-sphinx = "^4.0"
-sphinx_rtd_theme = "^1.0"
-
-[build-system]
-requires = ["poetry_core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = ["sphinx-autobuild>=2025.8.25"]
