@@ -5,7 +5,7 @@
 Point-like IRFs
 ===============
 
-Point-like IRFs has been classically used within the IACT community. Each IRF component is calculated from the
+Point-like IRFs are in use within the IACT community. Each IRF component is calculated from the
 events surviving an energy dependent directional cut around the assumed source position.
 
 The format of each point-like IRF component is analog to the ones already described within the full enclosure
