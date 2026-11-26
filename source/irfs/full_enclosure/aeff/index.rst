@@ -86,9 +86,6 @@ with the direction inside the field of view (see :ref:`coords-fov`). The
 effective area is given as a function of the **true** source direction relative
 to the array pointing position.
 
-``HDUCLAS3`` must be either ``'FULL-ENCLOSURE'`` (see :ref:`full-enclosure-irfs`)
-or ``'POINT-LIKE'`` (see :ref:`point-irfs`).
-
 Required columns:
 +++++++++++++++++
 
@@ -118,7 +115,7 @@ declare the type of HDU:
 * ``HDUCLASS`` = 'GADF'
 * ``HDUCLAS1`` = 'RESPONSE'
 * ``HDUCLAS2`` = 'EFF_AREA'
-* ``HDUCLAS3`` = 'FULL-ENCLOSURE' / 'POINT-LIKE'
+* ``HDUCLAS3`` = 'FULL-ENCLOSURE'
 * ``HDUCLAS4`` = 'AEFF_3D'
 
 Further header keywords:
